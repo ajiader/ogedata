@@ -1,0 +1,70 @@
+
+<div class="sysous symgbt">
+    	<div class="sousuodv cxdv_w">
+        <form action="{$MODULE[16][linkurl]}search.php" method="get">
+        	<!-- <div class="dv1"><input type="text" name="catname" class="ip1" id="txtip1" value="{if $catname }{$catname}{else}选择产品类型{/if}" onkeydown="return false" onclick="xsdv('cplxDIV','cplx','txtip1')" /></div>
+            <div class="dv1"><input type="text" name="brandname" class="ip1" id="pptxt" value="{if $brandname}{$brandname}{else}全部品牌{/if}" onkeydown="return false" onclick="ppdv('ppDIV','pplx','pptxt')" /></div> -->
+            <div class="dv1"><input type="text" name="kw"  class="ip2" value="请输入产品件号或者产品名称" style="color:#999999;" onfocus="this.value='';this.style.color='#333333'" /></div>
+            <input type="submit" name="ssbtn" class="ip3" value="搜索" /> 
+            <input type="hidden" id="catid" name="catid" value="{$caitid}">
+            <input type="hidden" name="brandid" id="brandid" value="{$brandid}">
+            </form>
+        </div>
+        <p>热门搜索：<!--{tag("moduleid=16&table=keyword&condition=moduleid=16 and status=3&pagesize=10&order=total_search desc&template=list-search_kw")}--></p>
+    </div>
+    {if $searchtop}
+    <div class="pdtb">
+        <div class="cxdv_ss" id="cplxDIV" style="display:block;">
+                    <em class="jtem"></em>
+                    <em class="closeem"><a href="javascript:closedv('cplxDIV')">X</a></em>
+                    <div class="ej_1">
+                        <input type="text" class="ip1" id="catname" value="请输入产品件号或者产品名称" style="color:#999999;" onfocus="this.value='';this.style.color='#333333'" />
+                        <input type="button" name="ejss" id="subcatname" class="ip2" value="快速搜素" />
+                        <div class="clear"></div>
+                    </div>
+                    <div class="zm-2"><a href="#" class="selected">全部分类</a></div>
+                    <div class="fl_list">
+                        <ul id="cplx">
+                           <img src="{DT_SKIN}image/loading.gif">
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+        <div class="cxdv_ss cxdv_pp" id="ppDIV">
+            	<em class="jtem"></em>
+                <em class="closeem"><a href="javascript:closedv('ppDIV')">X</a></em>
+                <div class="ej_1">
+                	<input type="text" class="ip1" id="brandtitle" value="请输入产品件号或者产品名称" style="color:#999999;" onfocus="this.value='';this.style.color='#333333'" />
+                    <input type="button" name="ejss" id="subbrand" class="ip2" value="快速搜素"  />
+                    <div class="clear"></div>
+                </div>
+                <div class="zm-2"><a href="#" class="selected">全部分类</a></div>
+                <div class="fl_list">
+                	<ul id="pplx">
+                        <img src="{DT_SKIN}image/loading.gif">
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>  
+    </div>
+<script type="text/javascript">
+$(function(){
+	closedv('cplxDIV');
+	//$('#txtip1').click(function(){
+		//$('.pdtb').show();
+		$('#cplx').load("{DT_PATH}ajax.php",{action:"cate_ajax", moduleid:16, keywords:''});
+	//});
+	$('#subcatname').click(function(){
+		$('#cplx').html('<img src="{DT_SKIN}image/loading.gif">');
+		$('#cplx').load("{DT_PATH}ajax.php",{action:"cate_ajax", moduleid:16, keywords:$('#catname').attr("value")});
+	});
+	
+	$('#pplx').load("{DT_PATH}ajax.php",{action:"brand",  keywords:''});
+	
+	$('#subbrand').click(function(){
+		$('#pplx').html('<img src="{DT_SKIN}image/loading.gif">');
+		$('#pplx').load("{DT_PATH}ajax.php",{action:"brand", keywords:$('#brandtitle').attr("value")});
+	});
+	
+});
+</script>{/if}

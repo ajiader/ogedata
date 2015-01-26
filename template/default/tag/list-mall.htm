@@ -1,0 +1,33 @@
+ {if $showpage && $pages}<div class="pages">{$pages}</div>{/if}
+    <table cellpadding="0" cellspacing="0" class="cptable">
+    	<tr class="tr1">
+        	<td width="76" class="td1">Compare<br />Parts</td>
+            <td width="34"><img src="{DT_SKIN}/images/pdfiocn.gif" /></td>
+            <td width="83">图片</td>
+            <td width="121">产品名称</td>
+            <td width="137">产品描述</td>
+            <td width="137">件号</td>
+            <td width="142">品牌</td>
+           
+            
+        </tr>
+
+    {loop $tags $k $t}
+    <?php 
+    $t['brand'] = getBrandName($t[brand_id]);
+    // print_r($t['brand']);
+    ?>
+      <tr>
+        	<td class="td2"><input type="checkbox" id="check_{$t[itemid]}" name="itemid[]" value="{$t[itemid]}" onclick="sell_tip(this, {$t[itemid]});"/></td>
+            <td class="td2">{if $t[filepaths]}<a href="{$t[filepaths]}" target="_blank"><img src="{DT_SKIN}/images/pdfiocn.gif" /></a>{else}<img src="{DT_SKIN}/images/pdfiocnh.gif" />{/if}</td>
+            <td><a href="{$t[linkurl]}" target="_blank"><img class="lazy" src="{$t[thumb]}" width="70" alt="{$t[alt]}"/></a></td>
+            <td><a href="{$t[linkurl]}" target="_blank"><strong class="px14">{$t[title]}</strong></a></td>
+            <td>{$t[description]}</td>
+            <td>{$t[jianhao]}</td>
+            <td align="center">{if $t['brand'][thumb]}<a href="{$MODULE[13][linkurl]}{$t['brand'][linkurl]}"><img src="{$t['brand'][thumb]}" width="150"></a><a href="{$MODULE[13][linkurl]}{$t['brand'][linkurl]}">{$t['brand'][title]}</a>{else}<a href="{$MODULE[13][linkurl]}{$t['brand'][linkurl]}">{$t['brand'][title]}</a>{/if}</td>
+           
+            
+        </tr>
+        {/loop}	
+    </table>
+    {if $showpage && $pages}<div class="pages">{$pages}</div>{/if}

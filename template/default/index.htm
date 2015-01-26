@@ -1,0 +1,245 @@
+{php //$CSS = array('index');}
+{template 'header'}
+ 
+
+<div class="syct sypd">
+    <!-- 广告位：平台-首页-中部通栏banner -->
+    <div class="symgbt"  id="PAGE_AD_973975"></div>
+    <div class="sycontent">
+    	<div class="sylflist" id="cplistleft">
+        {if $DT[page_catalog]}
+        	<div class="listcut">石油设备 </div>
+            
+            		{php $mid = 16;}
+                {php $child = get_maincat(0, $mid, 1);}
+                {php $n=1;}
+                {loop $child $i $c}
+                
+                {if $i<10 }
+					{php $sub = get_maincat($c[catid], $mid, 1);}
+            	<div class="cptitle" id="cptitle{$n}" onclick="sbclass({$n})"><strong>{set_style($c[catname], $c[style])}</strong></div>
+                <ul class="cplist" id="cpul{$n}" style="display:none;">
+                <li class="submenuli">{loop $sub $j $s}<p><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></p>{/loop}</li>
+                {php $n++}
+                {/if}
+                </ul>
+                
+                {/loop}
+            
+            {/if}
+            <div class="listcut">资料下载</div>
+            <ul class="cplist">
+
+            <!--{php $tags=tag("moduleid=15&condition=status=3 and addtime>$today_endtime-30*86400&areaid=$cityid&order=addtime desc&pagesize=4&template=null");}-->   
+              {loop $tags $t} 
+            	<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{dsubstr($t[title],10)}</a></li>
+               {/loop}
+            </ul>
+            <div class="ppdv">
+            	<p><a href="http://www.ogedata.com/brand/show.php?itemid=72"><img src="http://www.ogedata.com/file/upload/201409/20/16-41-08-52-1.jpg" alt="道达尔（Total）"></a></p>
+                <p><a href="http://www.ogedata.com/brand/show.php?itemid=29"><img src="http://www.ogedata.com/file/upload/201410/24/17-02-32-27-1.jpg" alt="FMC"></a></p>
+                <p><a href="http://www.ogedata.com/brand/show.php?itemid=74"><img src="http://www.ogedata.com/file/upload/201409/20/16-39-34-46-1.jpg" alt="壳牌" ></a></p>
+                <p><a href="http://www.ogedata.com/brand/show.php?itemid=64"><img src="http://www.ogedata.com/file/upload/201409/20/16-38-49-64-1.jpg" alt="TOT"></a></p>
+                <p><a href="http://www.ogedata.com/brand/show.php?itemid=73"><img src="http://www.ogedata.com/file/upload/201409/20/16-37-37-26-1.jpg" alt="俄罗斯石油公司"></a></p>
+            </div>
+            <!-- 广告位：平台-首页-左下banner -->
+            <div class="ggdv symgbt" id="PAGE_AD_973989"></></div>
+        </div>
+        
+        <div class="syrgnr">
+
+            
+            <div class="syrgcongtentdv">
+            	<div class="nrlfdv">
+                    
+                	<div class="tydv">
+                    	<div class="tycut">石油新闻<span id="zixunA"><a href="/news/" class="selected">热点</a><a href="/news/list.php?catid=69" style="background:#00709e;">国际</a><a href="/news/list.php?catid=77" style="background:#2f89c7;">国内</a></span></div>
+                        
+                        <div id="zixunDIV">
+                        <!--{php $tags=tag("moduleid=21&condition=status=3 and level=1 and  addtime>$today_endtime-30*86400&areaid=$cityid&order=addtime desc&pagesize=8&template=null");}-->	
+                            <ul class="synewsul">
+                        
+                            {loop $tags $t}
+                            	<li><h2><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a><span>{date('m/d',$t[addtime])}</span></h2><p>{$t[introduce]} </p><p class="p1"><a target="_blank" href="{$t[linkurl]}">查看详情>></a></p></li>
+                               {/loop}
+                            </ul>
+
+                             <!--{php $tags=tag("moduleid=21&condition=status=3 and catid=69   and level=1 and  addtime>$today_endtime-30*86400&areaid=$cityid&order=addtime desc&pagesize=8&template=null");}-->
+                            <ul class="synewsul" style="display:none;">
+                            
+                            {loop $tags $t}
+                                <li><h2><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a><span>{date('m/d',$t[addtime])}</span></h2><p>{$t[introduce]} </p><p class="p1"><a target="_blank" href="{$t[linkurl]}">查看详情>></a></p></li>
+                               {/loop}
+                            </ul>
+
+                            <!--{php $tags=tag("moduleid=21&condition=status=3 and catid=77  and level=1 and  addtime>$today_endtime-30*86400&areaid=$cityid&order=addtime desc&pagesize=8&template=null");}-->
+                            <ul class="synewsul" style="display:none;">
+                        
+                            {loop $tags $t}
+                                <li><h2><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a><span>{date('m/d',$t[addtime])}</span></h2><p>{$t[introduce]} </p><p class="p1"><a target="_blank" href="{$t[linkurl]}">查看详情>></a></p></li>
+                               {/loop}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tydv">
+                    	<div class="tycut">专题<span id="zuantiA"><!-- <a href="#" class="selected" style="background:#00709e;">热点</a><a href="#">最新</a> --></span></div>
+                        <div id="zuantiDIV">
+                            <!--{php $tags=tag("moduleid=11&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=4&template=null");}-->   
+
+                            <ul class="synewsul">
+                        
+                            {loop $tags $t}
+                                <li><h2><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a><span>{date('m/d',$t[addtime])}</span></h2><p>{$t[jianjie]} </p><p class="p1"><a target="_blank" href="{$t[linkurl]}">查看详情>></a></p></li>
+                               {/loop}
+                            </ul>
+                            <ul class="synewsul" style="display:none;">
+                        
+                            {loop $tags $t}
+                                <li><h2><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">1{$t[title]}</a><span>{date('m/d',$t[addtime])}</span></h2><p>{$t[jianjie]} </p><p class="p1"><a target="_blank" href="{$t[linkurl]}">查看详情>></a></p></li>
+                               {/loop}
+                            </ul>
+                        </div>
+                        <a href="http://www.ogedata.com/mall/"><img src="{DT_SKIN}/images/newspic2.jpg" alt="石油设备广告图" /></a>
+                    </div>
+                    
+                    <div class="tydv">
+                    	<div class="tycut">品牌</div>
+                        <!--{php $tags = tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=6&order=addtime desc&width=120&height=40&cols=2&target=_blank&template=null")}-->
+                        
+                        <ul class="syppul">
+                        	 {loop $tags $i $t}<li>
+                           
+                            	<h2><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></h2>
+                                <span class="sp1"><a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}"  /></a></span>
+                                <span class="sp2">{$t[jianjie]}</span>
+								<p class="p1"><a href="{$t[linkurl]}" target="_blank">查看详情>></a></p>
+                            </li>
+                           {/loop}
+                        </ul>
+                    </div>
+                    
+                </div>
+                
+                <div class="synewrg">
+                	<div class="grpc symgbt" id="PAGE_AD_973976"></div>
+                    <div class="rgtydv symgbt">
+                    	<div class="tycut">品牌检索<span><a href="{$MODULE[13][linkurl]}" class="a1">更多</a></span></div>
+                        <div class="ppjsdv"> {loop $brandcat $k $v}<a href="{$MODULE[13][linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a>|{/loop}</div>
+                    </div>
+                    <div class="rgtydv symgbt">
+                    	<div class="tycut">名词翻译<span><a href="{$MODULE[23][linkurl]}" class="a1">更多</a></span></div>
+                        <div class="ppjsdv"> {loop $zhuanyecat $k $v}<a href="{$MODULE[23][linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a>|{/loop}</div>
+                        <table width="100%" cellpadding="0" cellspacing="0" class="zymctb">
+
+                        <!--{php $tags=tag("moduleid=23&condition=status=3 and level=0&areaid=$cityid&pagesize=4&order=addtime desc&template=null");}-->
+
+                             {loop $tags $t}
+                        	<tr><td><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],20)}</a></td><td>{$t[introduce]}</td></tr>
+                            {/loop}
+                        </table>
+                    </div>
+                    <!-- 广告位：平台-首页-右2banner -->
+                    <div class="symgbt" id="PAGE_AD_973979"></div>
+                    <div class="rgtydv symgbt">
+                    	<div class="tycut">展会<span><a href="{$MODULE[8][linkurl]}" class="a1">更多</a></span></div>
+                        	<!--{php $tags=tag("moduleid=8&condition=status=3 and level>0&areaid=$cityid&pagesize=3&order=addtime desc&template=null");}-->
+                        <ul class="syzhul">
+                      
+                        {loop $tags $t}
+                        	<li><h2><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></h2><p>开始时间：{date('Y-m-d',$t[fromtime])}</p><p>结束时间：{date('Y-m-d',$t[totime])}</p><p>展会地点：{$t[address]}</p><p>联系电话：{$t[telephone]}</p><p class="p1"><a href="{$t[linkurl]}" target="_blank">查看详情>></a></p></li>
+                           {/loop}
+                        </ul>
+                    </div>
+                    <div class="rgtydv symgbt">
+                    	<div class="tycut">招聘<span><a href="{$MODULE[9][linkurl]}" class="a1">更多</a></span></div>
+                        <!--{php $tags = tag("moduleid=9&condition=status=3 and level>0&areaid=$cityid&pagesize=10&length=30&order=edittime desc&template=null")}-->
+                        <ul class="syzpul">
+                        {loop $tags $t}
+                        	<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
+                         {/loop}
+                        </ul>
+                    </div>
+                    <div class="rgtydv symgbt">
+                    	<div class="tycut">行情<span><a href="{$MODULE[7][linkurl]}" class="a1">更多</a></span></div>
+                        <ul class="syzhul hq_xg">
+                        <!--{php $tags = tag("moduleid=7&condition=status=3&areaid=$cityid&pagesize=3&datetype=2&order=addtime desc&template=null")}-->
+                         {loop $tags $t}
+                        	<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a><span>{date('m-d',$t[addtime])}</span></li>
+                           {/loop}
+                        </ul>
+                    </div>
+                    <div class="symgbt"><a href="#"><img src="{DT_SKIN}/images/rgpic3.jpg" /></a></div>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<script language="javascript">
+function getElementsByClassName(n) {
+    var classElements = [],allElements = document.getElementsByTagName('div');//所有div
+    for (var i=0; i< allElements.length; i++ )
+   {
+       if (allElements[i].className == n ) {
+           classElements[classElements.length] = allElements[i];
+        }
+   }
+   return classElements;
+}
+$(function() {
+    $('#zixunA a').mouseover(function(){
+        $(this).addClass("selected").siblings().removeClass();
+        $("#zixunDIV > ul").eq($('#zixunA a').index(this)).show().siblings().hide();
+    });
+    $('#zuantiA a').mouseover(function(){
+        $(this).addClass("selected").siblings().removeClass();
+        $("#zuantiDIV > ul").eq($('#zuantiA a').index(this)).show().siblings().hide();
+    });
+});
+
+</script>
+<script language="javascript">
+function getObject(objID)
+ {if (document.getElementById && document.getElementById(objID)) 
+ {return document.getElementById(objID);} 
+ else 
+ {if (document.all && document.all(objID)) 
+ {return document.all(objectId);} 
+ else 
+ {if (document.layers && document.layers[objID]) 
+ {return document.layers[objID];} 
+ else
+ {return false;}
+ }
+ }
+ }
+function sbclass(n)
+{
+	var cpnum=getElementsByClassName("cptitle");
+	for (var i = 1; i <= cpnum.length; i++)
+	{
+		if (i == n) 
+		{
+			getObject("cpul" + i).style.display = "";
+		}
+		else
+		{
+			getObject("cpul" + i).style.display = "none";
+		}
+	}
+}
+</script>
+{template 'footer'}
+<!-- 广告位 -->
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">
+BAIDU_CLB_fillSlotAsync('973976', 'PAGE_AD_973976');
+BAIDU_CLB_fillSlotAsync('973975', 'PAGE_AD_973975');
+BAIDU_CLB_fillSlotAsync('973989', 'PAGE_AD_973989');
+BAIDU_CLB_fillSlotAsync('973979', 'PAGE_AD_973979');
+</script>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>

@@ -1,0 +1,73 @@
+{template 'header'}
+<script type="text/javascript">var sh = '{$MOD[linkurl]}search.php?catid={$catid}';</script>
+<div class="syct">
+<div class="list_lf">
+	<div class="left_box">
+		<div class="pos">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
+		{if $CP}
+		{loop $PPT $p}
+		<div class="ppt">
+			<table cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+			<td class="ppt_l" valign="top">按{$p[name]}</td>
+			<td class="ppt_r" valign="top">
+			{loop $p[options] $o}
+			<a href="###" onclick="Go(sh+'&ppt_{$p[oid]}={urlencode($o)}');">{$o}</a>&nbsp;|&nbsp;
+			{/loop}
+			</td>
+			</tr>
+			</table>
+		</div>
+		{/loop}
+		<div class="b10">&nbsp;</div>
+		{/if}
+        
+        <div class="sysous symgbt" style="padding:20px 0 0 80px;">
+            <div class="sousuodv cxdv_w">
+            <form action="/zhuanye/search.php" method="get">
+                <div class="dv1"><input type="text" style="width:460px;" onfocus="this.value='';this.style.color='#333333'" style="color:#999999;" value="请输入想查询的名词" class="ip2" name="kw"></div>
+                <input type="submit" value="搜索" class="ip3" name="ssbtn"> 
+                </form>
+            </div>
+        </div>
+        
+        
+        <div style="height:30px; line-height:30px; border-bottom:1px #d9d9d9 solid; margin:0 20px; font-size:16px; font-weight:bold; padding:20px 0 0 0;"><span style="border-bottom:2px #5fc4f3 solid; padding:0 15px; float:left;">英文名词</span><span style="float:right;">汉语对照</span></div>
+		<div class="catlist">
+		{if $tags}{template 'list-cat-zy', 'tag'}{/if}
+		</div>
+	</div>
+</div>
+<div class="list_rg">
+	<div class="listrg">
+	{if $MOD[show_lcat]}
+	<div class="box_head">按分类浏览</div>
+	<div class="box_body">
+	<table width="100%" cellpadding="3">
+	{loop $maincat $k $v}
+	{if $k%2==0}<tr>{/if}
+	<td{if $v[catid]==$catid} class="f_b"{/if}><a href="{$MOD[linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a>{if !$cityid} <span class="f_gray px10">({$v[item]})</span>{/if}</td>
+	{if $k%2==1}</tr>{/if}
+	{/loop}
+	</table>
+	</div>
+    </div>
+	{/if}
+	{if $MOD[page_lrec]}
+    <div class="listrg">
+	<div class="box_head">推荐{$MOD[name]}</div>
+	<div class="box_body li_dot"><!--{tag("moduleid=$moduleid&condition=status=3 and level=1&catid=$catid&order=".$MOD[order]."&pagesize=".$MOD[page_lrec]."&target=_blank")}-->
+	</div>
+	</div>
+	{/if}
+	{if $MOD[page_lhits]}
+    <div class="listrg">
+	<div class="box_head">点击排行</div>
+	<div class="box_body">
+	<div class="rank_list"><!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$today_endtime-30*86400&catid=$catid&order=hits desc&pagesize=".$MOD[page_lhits]."&target=_blank")}--></div>
+	</div>
+    </div>
+	{/if}
+</div>
+</div>
+{template 'footer'}

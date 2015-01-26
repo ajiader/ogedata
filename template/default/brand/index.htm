@@ -1,0 +1,65 @@
+{template 'header'}
+<div class="syct">
+	<div class="list_lf">
+
+		{if $MOD[page_icat]}
+		<table cellpadding="0" cellspacing="0" width="100%">
+		{loop $maincat $i $c}
+		{if $i%2==0}<tr>{/if}
+		<td valign="top" width="355">
+			<div class="b10"></div>
+			<div class="box_head"><span class="f_r"><a href="{$MOD[linkurl]}{$c[linkurl]}">更多&raquo;</a></span><strong>{$c[catname]}</strong></div>	
+			<div class="box_body thumb">			<!--{tag("moduleid=$moduleid&condition=status=3&areaid=$cityid&catid=".$c[catid]."&pagesize=".$MOD[page_icat]."&order=".$MOD[order]."&width=120&height=40&cols=2&target=_blank&lazy=$lazy&template=thumb-brand")}-->
+			</div>
+		</td>
+		{if $i%2==0}<td>&nbsp;</td>{/if}
+		{if $i%2==1}</tr>{/if}
+		{/loop}
+		</table>
+		{/if}
+	</div>
+	<div class="list_rg">
+    	<div class="listrg">
+            <div class="box_head">按分类浏览</div>
+            <div class="box_body">
+            <table width="100%" cellpadding="3">
+            {loop $maincat $k $v}
+            {if $k%2==0}<tr>{/if}
+            <td><a href="{$MOD[linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a>{if !$cityid} <span class="f_gray px10">({$v[item]})</span>{/if}</td>
+            {if $k%2==1}</tr>{/if}
+            {/loop}
+            </table>
+            </div>
+        </div>
+		<div class="listrg">
+		<div class="box_head">按地区浏览</div>
+            <div class="box_body">
+            {php $mainarea = get_mainarea(0)}
+            <table width="100%" cellpadding="3">
+            {loop $mainarea $k $v}
+            {if $k%4==0}<tr>{/if}
+            <td><a href="{$MOD[linkurl]}search.php?areaid={$v[areaid]}" rel="nofollow">{$v[areaname]}</a></td>
+            {if $k%4==3}</tr>{/if}
+            {/loop}
+            </table>
+            </div>
+        </div>
+		<div class="listrg">
+			{if $MOD[page_irec]}
+            <div class="box_head">推荐{$MOD[name]}</div>
+                <div class="box_body">
+                <!--{php $tags = tag("moduleid=$moduleid&condition=status=3 and level>0&areaid=$cityid&pagesize=".$MOD[page_irec]."&order=".$MOD[order]."&cols=4&target=_blank&template=null")}-->
+				{loop $tags $i $t}
+                	<div class="tjpp_hot_rg">
+                		<a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}><img src="{$t[thumb]}" 
+                	alt="{$t[alt]}"/></a>
+                		<p><a href="{$t[linkurl]}" title="{$t[alt]}"{if $target} target="{$target}"{/if}>{$t[title]}</a></p>
+                	</div>
+                {/loop}
+                <div class="clear"></div>
+                </div>
+            </div>
+            {/if}
+	</div>
+</div>
+{template 'footer'}

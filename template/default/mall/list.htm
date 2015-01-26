@@ -1,0 +1,52 @@
+{template 'header'}
+<script type="text/javascript">var sh = '{$MOD[linkurl]}search.php?catid={$catid}';</script>
+<script language="javascript">
+window.onload=function()
+{
+	var cplist=document.getElementById('cplx').getElementsByTagName("a");	
+	var wb=document.getElementById('txtip1');
+	for(var j=0;j<cplist.length; j++)
+	{
+		cplist[j].onclick=function()
+		{
+			wb.value=this.innerHTML;
+		}	
+	}
+}
+</script>
+
+<div class="syct sypd">
+	
+    
+    {template 'mall/search_top'}
+    
+    <div class="pos">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
+    
+    <form method="post">
+    <div class="lb_1"><input type="checkbox" onclick="checkall(this.form);"/><input type="submit" value="对比选中" onclick="this.form.action='{$MOD[linkurl]}compare.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/>&nbsp;
+				<!-- <input type="submit" value="批量购买" onclick="this.form.action='{$MOD[linkurl]}cart.php';" class="btn_1" onmouseover="this.className='btn_2'" onmouseout="this.className='btn_1'"/><input type="checkbox" onclick="Go(sh+'&vip=1');"/>{VIP}<select onchange="Go(sh+'&day='+this.value)">
+			<option value="0">更新时间</option>
+			<option value="1">1天内</option>
+			<option value="3">3天内</option>
+			<option value="7">7天内</option>
+			<option value="15">15天内</option>
+			<option value="30">30天内</option>
+			</select>&nbsp;
+			<select onchange="Go(sh+'&order='+this.value)">
+			<option value="0">显示顺序</option>
+			<option value="2">价格由高到低</option>
+			<option value="3">价格由低到高</option>
+			<option value="4">{VIP}级别由高到低</option>
+			<option value="5">{VIP}级别由低到高</option>
+			<option value="6">供货量由高到低</option>
+			<option value="7">供货量由低到高</option>
+			<option value="8">起订量由高到低</option>
+			<option value="9">起订量由低到高</option>
+			</select>&nbsp; --></div>
+    {if $tags}
+   {template 'list-'.$module, 'tag'}
+    {/if}
+    </form>
+</div>
+
+{template 'footer'}

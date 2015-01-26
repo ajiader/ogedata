@@ -1,0 +1,7 @@
+
+{loop $tags $i $t}
+{php $t[catname] = $t[catname]?$t[catname]:$t[title]}
+{php $t[itemid] = $t[itemid]?$t[itemid]: $t[catid]}
+                            <li><a href="javascript:void(0)" data-id="{$t[itemid]}">{$t[catname]}</a></li>
+{/loop}
+                      

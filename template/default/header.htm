@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=xhtml; url={$head_mobile}" /> 
+<meta http-equiv="mobile-agent" content="format=html5; url={$head_mobile}" />
+{/if}
+<meta name="generator" content="油气设备数据平台 - www.ogedata.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}sy_css.css"/>
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+{if $CSS}
+{loop $CSS $css}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$css}.css"/>
+{/loop}
+{/if}
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}ie6.css"/>
+<![endif]-->
+{if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}file/script/sy_select.js"></script>
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/sethome.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+<script type="text/javascript">
+{if $head_mobile && $EXT[wap_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+<!--[以上为系统关键代码，除非您明确其含义，否则请勿修改或删除，否则会导致系统错误]-->
+<!--[模板中所有带id的元素，请勿修改或删除，否则会导致部分JS代码无法运行]-->
+<!--[以上类似的注释，在编译模板时，系统会自动移除，不会显示在实际的页面中]-->
+</head>
+
+<body>
+<!-- header<start>-->
+<div class="xg_top_dv">
+	<div class="syct">
+    	<div class="logindv" id="destoon_member"></div>
+        <div class="jrscdv"><a onclick="SetHome(this,window.location);" href="javascript:void(0)">设为首页</a>|<a onclick="addFavorite2()">加入收藏</a></div>
+    </div>
+</div>
+<div class="xg_logodv">
+	<div class="syct">
+        <div class="lflogo"><a href="{$MODULE[1][linkurl]}"></a></div>
+        <div class="rgsearch">{template 'mall/search_top'}</div>
+    </div>
+</div>
+<div class="xg_menu">
+	<div class="menuct">
+    	<div class="navdv"><a href="{$MODULE[1][linkurl]}" {if $moduleid<4}class="selected"{/if}>首页</a><a href="{$MODULE[13][linkurl]}" {if $moduleid==13}class="selected"{/if}>品牌</a><a href="{$MODULE[8][linkurl]}" {if $moduleid==8}class="selected"{/if}>展会</a><a href="{$MODULE[11][linkurl]}" {if $moduleid==11}class="selected"{/if}>专题</a><a href="{$MODULE[9][linkurl]}" {if $moduleid==9}class="selected"{/if}>招聘</a><a href="{$MODULE[7][linkurl]}" {if $moduleid==7}class="selected"{/if}>行情</a></div>
+        <div class="cutdv">设备</div>
+        <div class="sbdv"><a href="{$MODULE[16][linkurl]}list.php?catid=4" target="_blank">井口装置</a><a href="{$MODULE[16][linkurl]}list.php?catid=140"  target="_blank">流控产品</a><a href="{$MODULE[16][linkurl]}list.php?catid=133" target="_blank">防喷器材</a><a href="http://www.ogedata.com/mall/" target="_blank">全部产品</a></div>
+        <div class="cutdv">资讯</div>
+        <div class="sbdv"><a href="{$MODULE[21][linkurl]}list.php?catid=69" target="_blank">国际新闻</a><a href="{$MODULE[21][linkurl]}list.php?catid=77" target="_blank">国内新闻</a><a href="{$MODULE[21][linkurl]}list.php?catid=164" target="_blank">石油技术</a><a href="{$MODULE[21][linkurl]}" {if $moduleid==21}class="selected"{/if}>查看更多</a></div>
+        <div class="cutdv">其他</div>
+        <div class="sbdv"><a target="_blank" href="/sitemap/index.php?mid=16" {if $moduleid==16}class="selected"{/if}>设备分类</a><a>资料下载</a><a href="{$MODULE[23][linkurl]}" tarbl>专业名称</a><a href="{$MODULE[13][linkurl]}" target="_blank">品牌检索</a></div>
+    </div>
+</div>
+<!-- header<end>-->
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
