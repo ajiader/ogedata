@@ -473,3 +473,8 @@ a.azm:hover{ background: #5e8ac6; color: #ffffff; border: 1px #5e8ac6 solid;}
 .syct .rgsearch .sysous p{ display:block;}
 .rgimg img{ width:120px; height:30px; }
 .newsrgimg img{ width:93px;}
+/*友情链接*/
+.f_linkcon a{ color:#1d4275; line-height:25px;}
+.f_linkcon ul{ float:left; width:190px; text-align:center;}
+
+
