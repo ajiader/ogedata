@@ -9,20 +9,32 @@ RewriteBase /
 
 
 
-RewriteRule ^(.*)\.(asp|aspx|asa|asax|dll|jsp|cgi|fcgi|pl)(.*)$ /404.php
-RewriteRule ^(.*)/file/(.*)\.php(.*)$ /404.php
-RewriteRule ^(.*)-htm-(.*)$ $1.php?$2
-RewriteRule ^(.*)/show-([0-9]+)([\-])?([0-9]+)?\.html$ $1/show.php?itemid=$2&page=$4
-RewriteRule ^(.*)/list-([0-9]+)([\-])?([0-9]+)?\.html$ $1/list.php?catid=$2&page=$4
-RewriteRule ^(.*)/([A-za-z0-9_\-]+)-c([0-9]+)-([0-9]+)\.html$ $1/list.php?catid=$3&catdir=$2&page=$4
-RewriteRule ^(.*)/show/([0-9]+)/([0-9]+)?([/])?$ $1/show.php?itemid=$2&page=$3
-RewriteRule ^(.*)/list/([0-9]+)/([0-9]+)?([/])?$ $1/list.php?catid=$2&page=$3
-RewriteRule ^(.*)/([a-z]+)/(.*)\.shtml$ $1/$2/index.php?rewrite=$3
-RewriteRule ^(com)/([a-z0-9_\-]+)/([a-z]+)/(.*)\.html$ index.php?homepage=$2&file=$3&rewrite=$4
-RewriteRule ^(com)/([a-z0-9_\-]+)/([a-z]+)([/])?$ index.php?homepage=$2&file=$3
-RewriteRule ^(com)/([a-z0-9_\-]+)([/])?$ index.php?homepage=$2
-#Apache .conf Rules (Replace line 12 & line 13 & line 14)
-#RewriteRule ^(.*)/com/([a-z0-9_\-]+)/([a-z]+)/(.*)\.html$ $1/index.php?homepage=$2&file=$3&rewrite=$4
-#RewriteRule ^(.*)/com/([a-z0-9_\-]+)/([a-z]+)([/])?$ $1/index.php?homepage=$2&file=$3
-#RewriteRule ^(.*)/com/([a-z0-9_\-]+)([/])?$ $1/index.php?homepage=$2
+
+
+RewriteRule ^(.*)\.(asp|aspx|asa|asax|dll|jsp|cgi|fcgi|pl)(.*)$ /404.php [L]
+RewriteRule ^(.*)/file/(.*)\.php(.*)$ /404.php [L]
+RewriteRule ^(.*)-htm-(.*)$ $1.php?$2 [L]
+RewriteRule ^(.*)/show-([0-9]+)([\-])?([0-9]+)?\.html$ $1/show.php?itemid=$2&page=$4 [L]
+RewriteRule ^(.*)/list-([0-9]+)([\-])?([0-9]+)?\.html$ $1/list.php?catid=$2&page=$4 [L]
+
+RewriteRule ^(.*)/([A-za-z0-9_\-]+)-c([0-9]+)-([0-9]+)\.html$ $1/list.php?catid=$3&catdir=$2&page=$4 [L]
+RewriteRule ^(.*)/show/([0-9]+)/([0-9]+)?([/])?$ $1/show.php?itemid=$2&page=$3 [L]
+
+
+
+RewriteRule ^(.*)/([a-z]+)/(.*)\.shtml$ $1/$2/index.php?rewrite=$3 [L]
+RewriteRule ^(com)/([a-z0-9_\-]+)/([a-z]+)/(.*)\.html$ index.php?homepage=$2&file=$3&rewrite=$4 [L]
+RewriteRule ^(com)/([a-z0-9_\-]+)/([a-z]+)([/])?$ index.php?homepage=$2&file=$3 [L]
+RewriteRule ^(com)/([a-z0-9_\-]+)([/])?$ index.php?homepage=$2 [L]
+#Apache .conf Rules (Replace line 12 & line 13 & line 14) v
+#RewriteRule ^(.*)/com/([a-z0-9_\-]+)/([a-z]+)/(.*)\.html$ $1/index.php?homepage=$2&file=$3&rewrite=$4 [L]
+#RewriteRule ^(.*)/com/([a-z0-9_\-]+)/([a-z]+)([/])?$ $1/index.php?homepage=$2&file=$3 [L]
+#RewriteRule ^(.*)/com/([a-z0-9_\-]+)([/])?$ $1/index.php?homepage=$2 [L]
+
+
+
+#分类列表页
+RewriteRule ^(.*)/([a-z0-9_\-]+)/([0-9]+)\.html$ $1/list.php?linkurl=$2/&page=$3 [L]
+RewriteRule ^(.*)/([a-z0-9_\-]+)/([a-z0-9_\-]+)/$ $1/list.php?linkurl=$2/$3/  [L]
+RewriteRule ^(.*)/([A-za-z0-9_\-]+)/$ $1/list.php?linkurl=$2/   [L]
 </IfModule>

@@ -988,6 +988,11 @@ function listurl($CAT, $page = 0) {
 	global $DT, $MOD, $L;
 	include DT_ROOT.'/api/url.inc.php';
 	$catid = $CAT['catid'];
+	$parentid=$CAT['parentid']?$CAT['parentid']:'';//读出目录的父ID
+	if ($parentid>0) {
+		$parentRow = get_cat($parentid);
+		$parentdir = $parentRow['catdir'];
+	}
 	$file_ext = $DT['file_ext'];
 	$index = $DT['index'];
 	$catdir = $CAT['catdir'];
@@ -1030,6 +1035,7 @@ function itemurl($item, $page = 0) {
 		$cate = get_cat($catid);
 		$catdir = $cate['catdir'];
 		$catname = $cate['catname'];
+		$parentid=$cate['parentid']?$cate['parentid']:'';//读出目录的父ID
 	}
     eval("\$itemurl = \"$url\";");
 	if(substr($itemurl, 0, 1) == '/') $itemurl = substr($itemurl, 1);

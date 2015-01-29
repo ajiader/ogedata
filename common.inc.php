@@ -3,7 +3,7 @@
 	[Destoon B2B System] Copyright (c) 2008-2013 Destoon.COM
 	This is NOT a freeware, use is subject to license.txt
 */
-define('DT_DEBUG', 0);
+define('DT_DEBUG',0 );
 if(DT_DEBUG) {
 	error_reporting(E_ALL);
 	$mtime = explode(' ', microtime());
@@ -118,7 +118,15 @@ if($submit) {
 $mid = isset($mid) ? intval($mid) : 0;
 $sum = isset($sum) ? intval($sum) : 0;
 $page = isset($page) ? max(intval($page), 1) : 1;
+
 $catid = isset($catid) ? intval($catid) : 0;
+if (!$catid) {
+	if($linkurl){
+		$linkurl = dsafe($linkurl);
+		$catRow = $db->get_one("SELECT * FROM {$db->pre}category WHERE linkurl='$linkurl'");
+		$catid = $catRow['catid'];
+	}
+}
 $areaid = isset($areaid) ? intval($areaid) : 0;
 $itemid = isset($itemid) ? (is_array($itemid) ? array_map('intval', $itemid) : intval($itemid)) : 0;
 $pagesize = $DT['pagesize'] ? $DT['pagesize'] : 30;
