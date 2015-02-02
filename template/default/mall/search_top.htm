@@ -1,16 +1,21 @@
 
 <div class="sysous symgbt">
     	<div class="sousuodv cxdv_w">
-        <form action="{$MODULE[16][linkurl]}search.php" method="get">
+        <form action="http://zhannei.baidu.com/cse/search" method="get" target="_blank">
+        <input type="hidden" value="10119586361232798497" name="s">
         	<!-- <div class="dv1"><input type="text" name="catname" class="ip1" id="txtip1" value="{if $catname }{$catname}{else}选择产品类型{/if}" onkeydown="return false" onclick="xsdv('cplxDIV','cplx','txtip1')" /></div>
             <div class="dv1"><input type="text" name="brandname" class="ip1" id="pptxt" value="{if $brandname}{$brandname}{else}全部品牌{/if}" onkeydown="return false" onclick="ppdv('ppDIV','pplx','pptxt')" /></div> -->
-            <div class="dv1"><input type="text" name="kw"  class="ip2" value="请输入产品件号或者产品名称" style="color:#999999;" onfocus="this.value='';this.style.color='#333333'" /></div>
+            <div class="dv1"><input type="text" name="q"  class="ip2" value="请输入产品件号或者产品名称" style="color:#999999;" onfocus="this.value='';this.style.color='#333333'" /></div>
             <input type="submit" name="ssbtn" class="ip3" value="搜索" /> 
             <input type="hidden" id="catid" name="catid" value="{$caitid}">
             <input type="hidden" name="brandid" id="brandid" value="{$brandid}">
             </form>
         </div>
-        <p>热门搜索：<!--{tag("moduleid=16&table=keyword&condition=moduleid=16 and status=3&pagesize=10&order=total_search desc&template=list-search_kw")}--></p>
+        <p>热门搜索：<!--{php $tags = tag("moduleid=16&table=keyword&condition=moduleid=16 and status=3&pagesize=10&order=total_search desc&template=null")}-->
+        {loop $tags $t}
+        <a href="http://zhannei.baidu.com/cse/search?s=10119586361232798497&q={urlencode($t['word'])}" class="b" target="_blank" rel="nofollow">{$t['word']}</a> &nbsp;
+        {/loop}
+        </p>
     </div>
     {if $searchtop}
     <div class="pdtb">
