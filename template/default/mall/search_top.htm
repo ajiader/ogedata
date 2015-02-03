@@ -11,8 +11,8 @@
             <input type="hidden" name="brandid" id="brandid" value="{$brandid}">
             </form>
         </div>
-        <p>热门搜索：<!--{php $tags = tag("moduleid=16&table=keyword&condition=moduleid=16 and status=3&pagesize=10&order=total_search desc&template=null")}-->
-        {loop $tags $t}
+        <p>热门搜索：<!--{php $hot_keywords = tag("moduleid=16&table=keyword&condition=moduleid=16 and status=3&pagesize=10&order=total_search desc&template=null")}-->
+        {loop $hot_keywords $t}
         <a href="http://zhannei.baidu.com/cse/search?s=10119586361232798497&q={urlencode($t['word'])}" class="b" target="_blank" rel="nofollow">{$t['word']}</a> &nbsp;
         {/loop}
         </p>
