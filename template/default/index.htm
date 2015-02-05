@@ -125,7 +125,11 @@
                 	<div class="grpc symgbt" id="PAGE_AD_973976"></div>
                     <div class="rgtydv symgbt">
                     	<div class="tycut">品牌检索<span><a href="{$MODULE[13][linkurl]}" class="a1">更多</a></span></div>
-                        <div class="ppjsdv"> {loop $brandcat $k $v}<a href="{$MODULE[13][linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a>|{/loop}</div>
+                        <div class="ppjsdv"> 
+{php $mid = 13;}
+                {php $child = get_maincat(0, $mid, 1);}
+
+                        {loop $child $k $v}<a href="{$MODULE[13][linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a>|{/loop}</div>
                     </div>
                     <div class="rgtydv symgbt">
                     	<div class="tycut">名词翻译<span><a href="{$MODULE[23][linkurl]}" class="a1">更多</a></span></div>
