@@ -34,7 +34,8 @@ RewriteRule ^(com)/([a-z0-9_\-]+)([/])?$ index.php?homepage=$2 [L]
 
 
 #分类列表页
-RewriteRule ^(.*)/([a-z0-9_\-]+)/([0-9]+)\.html$ $1/list.php?linkurl=$2/&page=$3 [L]
+RewriteRule ^(.*)/([a-z0-9_\-]+)/([a-z0-9_\-]+)/([0-9]+)\.html$ $1/list.php?linkurl=$2/$3/&page=$4 [L]
 RewriteRule ^(.*)/([a-z0-9_\-]+)/([a-z0-9_\-]+)/$ $1/list.php?linkurl=$2/$3/  [L]
+RewriteRule ^(.*)/([a-z0-9_\-]+)/([0-9]+)\.html$ $1/list.php?linkurl=$2/&page=$3 [L]
 RewriteRule ^(.*)/([A-za-z0-9_\-]+)/$ $1/list.php?linkurl=$2/   [L]
 </IfModule>
