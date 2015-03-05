@@ -5,7 +5,7 @@
     {template 'mall/search_top'}
     
     
-    <div class="dqwz_1">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')} &raquo;</div>
+    <div class="dqwz_1">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')} &raquo;{$title}</div>
 {if $filepaths}
     <div class="tytil">PDF资料下载</div>
     <div class="dowdv">
