@@ -1,259 +1,847 @@
 {php //$CSS = array('index');}
-{template 'header'}
- 
-
-<div class="syct sypd">
-    <!-- 广告位：平台-首页-中部通栏banner -->
-    <div class="symgbt"  id="PAGE_AD_973975"></div>
-    <div class="sycontent">
-    	<div class="sylflist" id="cplistleft">
-        {if $DT[page_catalog]}
-        	<div class="listcut">石油设备 </div>
-            
-            		{php $mid = 16;}
-                {php $child = get_maincat(0, $mid, 1);}
-                {php $n=1;}
-                {loop $child $i $c}
-                
-                {if $i<10 }
-					{php $sub = get_maincat($c[catid], $mid, 1);}
-            	<div class="cptitle" id="cptitle{$n}" onclick="sbclass({$n})"><strong>{set_style($c[catname], $c[style])}</strong></div>
-                <ul class="cplist" id="cpul{$n}" style="display:none;">
-                <li class="submenuli">{loop $sub $j $s}<p><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></p>{/loop}</li>
-                {php $n++}
-                {/if}
-                </ul>
-                
-                {/loop}
-            
-            {/if}
-            <div class="listcut">资料下载</div>
-            <ul class="cplist">
-
-            <!--{php $tags=tag("moduleid=15&condition=status=3 and addtime>$today_endtime-30*86400&areaid=$cityid&order=addtime desc&pagesize=4&template=null");}-->   
-              {loop $tags $t} 
-            	<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{dsubstr($t[title],10)}</a></li>
-               {/loop}
+{template 'headernew'}
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.scrollbox.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.nivo.slider.pack.js"></script>
+<script language="javascript">
+$(document).ready(function(){
+	$('#cplistA ul li').mouseover(function(){
+		$(this).addClass("selected").siblings().removeClass("selected");
+		$("#cplistDIV .cptylist").eq($('#cplistA ul li').index(this)).show().siblings().hide();
+	});
+	$('#searchA ul li').mouseover(function(){
+		$(this).addClass("selected").siblings().removeClass("selected");
+		$("#searchDIV .search_ct_dv").eq($('#searchA ul li').index(this)).show().siblings().hide();
+	});
+	$('#slider').nivoSlider();
+	$('#video_list').scrollbox({
+		autoPlay: true,
+		direction: 'h',
+		distance: 180
+	});
+	$('#leftdirection').click(function () {
+		$('#video_list').trigger('backward');
+	});
+	$('#rightdirection').click(function () {
+		$('#video_list').trigger('forward');
+	});
+	
+});
+</script>
+<div class="oil_main">
+	<div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic6.jpg" /></a></div>
+    <div class="oilbor cpdv oilmgbt">
+    	<div class="oil_cp_qh" id="cplistA">
+        	<ul>
+                <li class="selected"><a href="#">上游产品</a></li>
+                <li><a href="#">下游产品</a></li>
+                <li><a href="#">安全防护</a></li>
+                <li><a href="#">系统软件</a></li>
+                <li><a href="#">上游产品</a></li>
+                <li><a href="#">上游产品</a></li>
+                <li><a href="#">下游产品</a></li>
+                <li><a href="#">安全防护</a></li>
+                <li><a href="#">系统软件</a></li>
+                <li class="last"><a href="#">上游产品</a></li>
             </ul>
-            <div class="ppdv">
-            	<p><a href="{$MODULE[13][linkurl]}show-72.html"><img src="http://www.ogedata.com/file/upload/201409/20/16-41-08-52-1.jpg" alt="道达尔（Total）"></a></p>
-                <p><a href="{$MODULE[13][linkurl]}show-29.html"><img src="http://www.ogedata.com/file/upload/201410/24/17-02-32-27-1.jpg" alt="FMC"></a></p>
-                <p><a href="{$MODULE[13][linkurl]}show-74.html"><img src="http://www.ogedata.com/file/upload/201409/20/16-39-34-46-1.jpg" alt="壳牌" ></a></p>
-                <p><a href="{$MODULE[13][linkurl]}show-64.html"><img src="http://www.ogedata.com/file/upload/201409/20/16-38-49-64-1.jpg" alt="TOT"></a></p>
-                <p><a href="{$MODULE[13][linkurl]}show-73.html"><img src="http://www.ogedata.com/file/upload/201409/20/16-37-37-26-1.jpg" alt="俄罗斯石油公司"></a></p>
-            </div>
-            <!-- 广告位：平台-首页-左下banner -->
-            <div class="ggdv symgbt" id="PAGE_AD_973989"></></div>
+            <div class="clear"></div>
         </div>
-        
-        <div class="syrgnr">
-
-            
-            <div class="syrgcongtentdv">
-            	<div class="nrlfdv">
-                    
-                	<div class="tydv">
-                    	<div class="tycut">石油新闻<span id="zixunA"><a href="{$MODULE[21][linkurl]}" class="selected">热点</a><a href="{$MODULE[21][linkurl]}guojixinwen/" style="background:#00709e;">国际</a><a href="{$MODULE[21][linkurl]}guoneixinwen/" style="background:#2f89c7;">国内</a></span></div>
-                        
-                        <div id="zixunDIV">
-                        <!--{php $tags=tag("moduleid=21&condition=status=3 and level=1 and  addtime>$today_endtime-30*86400&areaid=$cityid&order=addtime desc&pagesize=8&template=null");}-->	
-                            <ul class="synewsul">
-                        
-                            {loop $tags $t}
-                            	<li><h2><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a><span>{date('m/d',$t[addtime])}</span></h2><p>{$t[introduce]} </p><p class="p1"><a target="_blank" href="{$t[linkurl]}">查看详情>></a></p></li>
-                               {/loop}
-                            </ul>
-
-                             <!--{php $tags=tag("moduleid=21&condition=status=3 and catid=69   and level=1 and  addtime>$today_endtime-30*86400&areaid=$cityid&order=addtime desc&pagesize=8&template=null");}-->
-                            <ul class="synewsul" style="display:none;">
-                            
-                            {loop $tags $t}
-                                <li><h2><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a><span>{date('m/d',$t[addtime])}</span></h2><p>{$t[introduce]} </p><p class="p1"><a target="_blank" href="{$t[linkurl]}">查看详情>></a></p></li>
-                               {/loop}
-                            </ul>
-
-                            <!--{php $tags=tag("moduleid=21&condition=status=3 and catid=77  and level=1 and  addtime>$today_endtime-30*86400&areaid=$cityid&order=addtime desc&pagesize=8&template=null");}-->
-                            <ul class="synewsul" style="display:none;">
-                        
-                            {loop $tags $t}
-                                <li><h2><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a><span>{date('m/d',$t[addtime])}</span></h2><p>{$t[introduce]} </p><p class="p1"><a target="_blank" href="{$t[linkurl]}">查看详情>></a></p></li>
-                               {/loop}
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="tydv">
-                    	<div class="tycut">专题<span id="zuantiA"><!-- <a href="#" class="selected" style="background:#00709e;">热点</a><a href="#">最新</a> --></span></div>
-                        <div id="zuantiDIV">
-                            <!--{php $tags=tag("moduleid=11&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=4&template=null");}-->   
-
-                            <ul class="synewsul">
-                        
-                            {loop $tags $t}
-                                <li><h2><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a><span>{date('m/d',$t[addtime])}</span></h2><p>{$t[jianjie]} </p><p class="p1"><a target="_blank" href="{$t[linkurl]}">查看详情>></a></p></li>
-                               {/loop}
-                            </ul>
-                            <ul class="synewsul" style="display:none;">
-                        
-                            {loop $tags $t}
-                                <li><h2><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">1{$t[title]}</a><span>{date('m/d',$t[addtime])}</span></h2><p>{$t[jianjie]} </p><p class="p1"><a target="_blank" href="{$t[linkurl]}">查看详情>></a></p></li>
-                               {/loop}
-                            </ul>
-                        </div>
-                        <a href="http://www.ogedata.com/mall/"><img src="{DT_SKIN}/images/newspic2.jpg" alt="石油设备广告图" /></a>
-                    </div>
-                    
-                    <div class="tydv">
-                    	<div class="tycut">品牌</div>
-                        <!--{php $tags = tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=6&order=addtime desc&width=120&height=40&cols=2&target=_blank&template=null")}-->
-                        
-                        <ul class="syppul">
-                        	 {loop $tags $i $t}<li>
-                           
-                            	<h2><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></h2>
-                                <span class="sp1"><a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}"  /></a></span>
-                                <span class="sp2">{$t[jianjie]}</span>
-								<p class="p1"><a href="{$t[linkurl]}" target="_blank">查看详情>></a></p>
-                            </li>
-                           {/loop}
+        <div id="cplistDIV">
+        	<div class="cptylist">
+                <dl class="oil_cp_list">
+                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
                         </ul>
-                    </div>
-                    
-                </div>
-                
-                <div class="synewrg">
-                	<div class="grpc symgbt" id="PAGE_AD_973976"></div>
-                    <div class="rgtydv symgbt">
-                    	<div class="tycut">品牌检索<span><a href="{$MODULE[13][linkurl]}" class="a1">更多</a></span></div>
-                        <div class="ppjsdv"> 
-{php $mid = 13;}
-                {php $child = get_maincat(0, $mid, 1);}
-
-                        {loop $child $k $v}<a href="{$MODULE[13][linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a>|{/loop}</div>
-                    </div>
-                    <div class="rgtydv symgbt">
-                    	<div class="tycut">名词翻译<span><a href="{$MODULE[23][linkurl]}" class="a1">更多</a></span></div>
-                        <div class="ppjsdv"> {loop $zhuanyecat $k $v}<a href="{$MODULE[23][linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a>|{/loop}</div>
-                        <table width="100%" cellpadding="0" cellspacing="0" class="zymctb">
-
-                        <!--{php $tags=tag("moduleid=23&condition=status=3 and level=0&areaid=$cityid&pagesize=4&order=addtime desc&template=null");}-->
-
-                             {loop $tags $t}
-                        	<tr><td><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],20)}</a></td><td>{$t[introduce]}</td></tr>
-                            {/loop}
-                        </table>
-                    </div>
-                    <!-- 广告位：平台-首页-右2banner -->
-                    <div class="symgbt" id="PAGE_AD_973979"></div>
-                    <div class="rgtydv symgbt">
-                    	<div class="tycut">展会<span><a href="{$MODULE[8][linkurl]}" class="a1">更多</a></span></div>
-                        	<!--{php $tags=tag("moduleid=8&condition=status=3 and level>0&areaid=$cityid&pagesize=3&order=addtime desc&template=null");}-->
-                        <ul class="syzhul">
-                      
-                        {loop $tags $t}
-                        	<li><h2><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></h2><p>开始时间：{date('Y-m-d',$t[fromtime])}</p><p>结束时间：{date('Y-m-d',$t[totime])}</p><p>展会地点：{$t[address]}</p><p>联系电话：{$t[telephone]}</p><p class="p1"><a href="{$t[linkurl]}" target="_blank">查看详情>></a></p></li>
-                           {/loop}
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
                         </ul>
-                    </div>
-                    <div class="rgtydv symgbt">
-                    	<div class="tycut">招聘<span><a href="{$MODULE[9][linkurl]}" class="a1">更多</a></span></div>
-                        <!--{php $tags = tag("moduleid=9&condition=status=3 and level>0&areaid=$cityid&pagesize=10&length=30&order=edittime desc&template=null")}-->
-                        <ul class="syzpul">
-                        {loop $tags $t}
-                        	<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
-                         {/loop}
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
                         </ul>
-                    </div>
-                    <div class="rgtydv symgbt">
-                    	<div class="tycut">行情<span><a href="{$MODULE[7][linkurl]}" class="a1">更多</a></span></div>
-                        <ul class="syzhul hq_xg">
-                        <!--{php $tags = tag("moduleid=7&condition=status=3&areaid=$cityid&pagesize=3&datetype=2&order=addtime desc&template=null")}-->
-                         {loop $tags $t}
-                        	<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a><span>{date('m-d',$t[addtime])}</span></li>
-                           {/loop}
-                        </ul>
-                    </div>
-                    <div class="symgbt"><a href="#"><img src="{DT_SKIN}/images/rgpic3.jpg" /></a></div>
-                </div>
-                
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list oilbor0">
+                    <dt><a href="{$MODULE[13][linkurl]}">品牌</a></dt>
+                    <dd class="oilbrand">
+                    	
+                        <!--{tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=6&order=addtime desc&width=120&height=40&cols=2&target=_blank&template=list-brand-list")}-->
+                    </dd>
+                </dl>
             </div>
-            
-        </div>
-        <div class="clear"></div>
-        <div class="f_link">
-          <div class="f_linktitle tycut">友情链接</div>
-          <div class="f_linkcon">
-           <!--{php $tags = tag("table=link&condition=status=3 and level='1' and typeid=5&areaid=$cityid&pagesize=40&order=listorder desc,itemid desc&template=null")}-->
-           {loop $tags $t}
-              <a href="{$t[linkurl]}" target="_blank"  title="{$t[alt]}">{$t[title]}</a>
-              |
-             {/loop}
-          </div>
+            <div class="cptylist" style="display:none;">
+            	<dl class="oil_cp_list">
+                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">飞镖式单流阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">Air-o-由壬P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose1P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list oilbor0">
+                    <dt><a href="#">品牌</a></dt>
+                    <dd class="oilbrand">
+                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="cptylist" style="display:none;">
+                <dl class="oil_cp_list">
+                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list oilbor0">
+                    <dt><a href="#">品牌</a></dt>
+                    <dd class="oilbrand">
+                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="cptylist" style="display:none;">
+            	<dl class="oil_cp_list">
+                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">飞镖式单流阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">Air-o-由壬P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose1P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list oilbor0">
+                    <dt><a href="#">品牌</a></dt>
+                    <dd class="oilbrand">
+                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="cptylist" style="display:none;">
+            	<dl class="oil_cp_list">
+                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">飞镖式单流阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">Air-o-由壬P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose1P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list oilbor0">
+                    <dt><a href="#">品牌</a></dt>
+                    <dd class="oilbrand">
+                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="cptylist" style="display:none;">
+                <dl class="oil_cp_list">
+                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list oilbor0">
+                    <dt><a href="#">品牌</a></dt>
+                    <dd class="oilbrand">
+                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="cptylist" style="display:none;">
+            	<dl class="oil_cp_list">
+                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">飞镖式单流阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">Air-o-由壬P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose1P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list oilbor0">
+                    <dt><a href="#">品牌</a></dt>
+                    <dd class="oilbrand">
+                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="cptylist" style="display:none;">
+            	<dl class="oil_cp_list">
+                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">飞镖式单流阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">Air-o-由壬P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose1P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list oilbor0">
+                    <dt><a href="#">品牌</a></dt>
+                    <dd class="oilbrand">
+                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="cptylist" style="display:none;">
+                <dl class="oil_cp_list">
+                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list oilbor0">
+                    <dt><a href="#">品牌</a></dt>
+                    <dd class="oilbrand">
+                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="cptylist" style="display:none;">
+            	<dl class="oil_cp_list">
+                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">飞镖式单流阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">Air-o-由壬P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose1P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list">
+                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dd class="qhnr">
+                        <ul>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">接头P51P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">低压弯头 313</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">高压弯头 311</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Suction-hose</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">Air-o-由壬</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                            <li><p class="p1"><a href="#">旋塞阀P51</a></p><p class="p2"><a href="#">询价</a><a href="#">资料</a><a href="#">下载</a></p></li>
+                        </ul>
+                    </dd>
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+                </dl>
+                <dl class="oil_cp_list oilbor0">
+                    <dt><a href="#">品牌</a></dt>
+                    <dd class="oilbrand">
+                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
+                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
+                    </dd>
+                </dl>
+            </div>
         </div>
     </div>
-    <div class="clear"></div>
+    <div class="oil_index_content oilmgbt">
+    	<div class="oil_tab_left">
+            <div id="slider" class="pic_tab oilmgbt">
+            	<a href="#" title="改革关键年 中石油混改怎么改"><img src="{DT_SKIN}images/pictab1.gif" title="改革关键年 中石油混改怎么改" alt="改革关键年 中石油混改怎么改" /></a>
+                <a href="#" title="中石化董事长：引资只是改革初步重头戏"><img src="{DT_SKIN}images/pictab2.gif" title="中石化董事长：引资只是改革初步重头戏" alt="中石化董事长：引资只是改革初步重头戏" /></a>
+                <a href="#" title="2014年APEC开幕 描绘亚太伙伴关系新前景"><img src="{DT_SKIN}images/pictab3.gif" title="2014年APEC开幕 描绘亚太伙伴关系新前景" alt="2014年APEC开幕 描绘亚太伙伴关系新前景" /></a>
+            </div>
+            <div class="oilbor cpdv searchhg oilmgbt">
+            	<div class="oil_cp_qh searchA" id="searchA">
+                    <ul><li class="selected"><a href="#">快速查询</a></li><li><a href="#">品牌</a></li><li class="last"><a href="#">件号</a></li></ul>
+                    <div class="clear"></div>
+                </div>
+                <div id="searchDIV">
+                    <div class="search_ct_dv">
+                        <div class="scdv"><input type="text" name="searchone" class="select_ty" placeholder="请选择" id="selectxt1" onfocus="mfselect('selectxt1','selecdv1')" /><div id="selecdv1"><p>旋塞阀P51</p><p>低压弯头313</p></div></div>
+                        <div class="scdv"><input type="text" name="searchtwo" class="select_ty" placeholder="请选择" id="selectxt2" onfocus="mfselect('selectxt2','selecdv2')" /><div id="selecdv2"><p>旋塞阀P51</p><p>低压弯头313</p></div></div>
+                        <div class="scdv sc_qd"><input type="text" name="searchthree" class="select_ty" placeholder="请选择" id="selectxt3" onfocus="mfselect('selectxt3','selecdv3')" /><div id="selecdv3"><p>旋塞阀P51</p><p>低压弯头313</p></div><input type="button" name="lfbtn" value="查询" class="lf_sc_btn" /></div>
+                        <div class="searchhotcp"><span>热门产品</span><span class="hotlist"><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a></span><div class="clear"></div></div>
+                    </div>
+                    <div class="search_ct_dv" style="display:none;">
+                        <div class="scdv sc_qd"><input type="text" name="searchthree" class="select_ty" placeholder="请选择" id="selectxt4" onfocus="mfselect('selectxt4','selecdv4')" /><div id="selecdv4"><p>旋塞阀P51</p><p>低压弯头313</p></div><input type="button" name="lfbtn" value="查询" class="lf_sc_btn" /></div>
+                        <div class="searchhotcp sc_mg_bt"><span>热门品牌</span><span class="hotlist"><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a></span><div class="clear"></div></div>
+                        <ul class="oillistnw lfulmg">
+                            <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
+                            <li><a href="#">委内瑞拉将与中国讨论石油项目融资情况</a></li>
+                            <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
+                        </ul>
+                    </div>
+                    <div class="search_ct_dv" style="display:none;">
+                        <div class="scdv sc_qd"><input type="text" name="searchthree" class="select_ty" placeholder="请选择" id="selectxt5" onfocus="mfselect('selectxt5','selecdv5')" /><div id="selecdv5"><p>旋塞阀P51</p><p>低压弯头313</p></div><input type="button" name="lfbtn" value="查询" class="lf_sc_btn" /></div>
+                        <div class="searchhotcp sc_mg_bt"><span>热门产品</span><span class="hotlist"><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a></span><div class="clear"></div></div>
+                        <ul class="oillistnw lfulmg">
+                            <li><a href="#">中国石化召开四川盆地及周缘天然气勘探突破推进会</a></li>
+                            <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
+                            <li><a href="#">中海油坦言暂时搁置安徽页岩气项目 因资源量不足</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <ul class="oillistnw lfulmg">
+                <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
+                <li><a href="#">委内瑞拉将与中国讨论石油项目融资情况</a></li>
+            </ul>
+        </div>
+        <div class="oil_news_ct">
+        	<h1><a href="#">烟台港西港区首艘液化石油气船顺利靠泊作业</a></h1>
+            <div class="hotwords"><a href="#">[安徽页岩气项目]</a><a href="#">[中海油]</a><a href="#">[美国水力压裂法]</a><a href="#">[新疆油田]</a></div>
+            <h2><a href="#">茂名石化成华南地区最大清洁能源基地</a></h2>
+            <ul class="oillistnw lfulmg oilmgbt">
+                <li><a href="#">中国石化召开四川盆地及周缘天然气勘探突破推进会</a></li>
+                <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
+                <li><a href="#">中海油坦言暂时搁置安徽页岩气项目 因资源量不足</a></li>
+                <li><a href="#">亚洲380-cst燃料油现货升水反弹，库存虽升高但需求强劲</a></li>
+                <li><a href="#">埃克森美孚CEO：别幻想了 未来两年要习惯低油价</a></li>
+                <li><a href="#">石脑油裂解价差下跌，但坚挺需求遏制跌幅</a></li>
+                <li><a href="#">亚洲柴油和航煤裂解价差下滑，因中东的新供应入市</a></li>
+                <li><a href="#">袭击事件多 利比亚国油11个油田停产</a></li>
+                <li><a href="#">中石油：新疆油田油气勘探连获重大成果</a></li>
+                <li><a href="#">中国石化召开四川盆地及周缘天然气勘探突破推进会</a></li>
+            </ul>
+            <div class="oilbor bortop2">
+            	<div class="oil_index_cut">最新招标<em>/ Tender</em><a href="#" class="amore">更多>></a></div>
+                <div class="oilpddv">
+                    <ul class="oillistnw lfulmg">
+                        <li><a href="#">中国石化召开四川盆地及周缘天然气勘探突破推进会</a></li>
+                        <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
+                        <li><a href="#">中海油坦言暂时搁置安徽页岩气项目 因资源量不足</a></li>
+                        <li><a href="#">亚洲380-cst燃料油现货升水反弹，库存虽升高但需求强劲</a></li>
+                        <li><a href="#">埃克森美孚CEO：别幻想了 未来两年要习惯低油价</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="oil_ct_rg">
+        	<div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic8.jpg" /></a></div>
+            <div class="oilbor bortop2">
+            	<div class="imgalign"><a href="#"><img src="{DT_SKIN}images/pic9.jpg" /></a></div>
+                <div class="oilpddv">
+                    <ul class="oillistnw lfulmg ulwdrg">
+                        <li><a href="#">中国石化召开四川盆地</a></li>
+                        <li><a href="#">中海油成全球第二大LNG</a></li>
+                        <li><a href="#">中海油坦言暂时搁置安徽</a></li>
+                        <li><a href="#">亚洲380-cst燃料油现货</a></li>
+                        <li><a href="#">埃克森美孚CEO：别幻想</a></li>
+                        <li><a href="#">亚洲380-cst燃料油</a></li>
+                        <li><a href="#">埃克森美孚CEO：别幻想</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic10.jpg" /></a></div>
+    <div class="oilbor bortop2 oilmgbt">
+    	<div class="oil_index_cut">油气视频<em>/ Video</em><div class="hotvideo"><span>热门</span><a href="#">井口装置</a>|<a href="#">流控产品</a>|<a href="#">防喷器材</a>|<a href="#">全部产品</a></div><a href="#" class="amore">更多>></a></div>
+        <div class="oil_index_videolist">
+        	<a href="javascript:void(0)" class="leftdirection" id="leftdirection"></a>
+            <div class="listwai" id="video_list">
+                <ul>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic12.jpg" /><i></i></a></span><div class="videotitle"><a href="#">全球新探明油气储量或创20年</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic13.jpg" /><i></i></a></span><div class="videotitle"><a href="#">北约与国际能源署推进安全合</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic12.jpg" /><i></i></a></span><div class="videotitle"><a href="#">全球新探明油气储量或创</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic12.jpg" /><i></i></a></span><div class="videotitle"><a href="#">全球新探明油气储量或创20年</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic13.jpg" /><i></i></a></span><div class="videotitle"><a href="#">北约与国际能源署推进安全合</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic12.jpg" /><i></i></a></span><div class="videotitle"><a href="#">全球新探明油气储量或创</a></div></li>
+                </ul>
+            </div>
+            <a href="javascript:void(0)" class="rightdirection" id="rightdirection"></a>
+        </div>
+    </div>
+    <div class="oil_index_content oilmgbt">
+    	<div class="oil_index_bkzl">
+        	<div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic14.jpg" /></a></div>
+            <div class="oilbor bortop2">
+            	<div class="oil_index_cut">百科资料<em>/ Encyclopedias</em><a href="#" class="amore">更多>></a></div>
+                <div class="oilpddv">
+                	<ul class="oillistnw lfulmg">
+                        <li><a href="#">中国石化召开四川盆地及周缘天然气勘探突破</a></li>
+                        <li><a href="#">中海油成全球第二大LNG进口商 去年进口11万吨</a></li>
+                        <li><a href="#">中海油坦言暂时搁置安徽页岩气项目 因资源量不足</a></li>
+                        <li><a href="#">亚洲380-cst燃料油现货升水反弹，库存需求强劲</a></li>
+                        <li><a href="#">埃克森美孚CEO：别幻想了 未来习惯低油价</a></li>
+                        <li><a href="#">亚洲380-cst燃料油现货升水反弹，库存需求强劲</a></li>
+                        <li><a href="#">埃克森美孚CEO：别幻想了 未来习惯低油价</a></li>
+                        <li><a href="#">亚洲380-cst燃料油现货升水反弹，库存需求强劲</a></li>
+                        <li><a href="#">亚洲380-cst燃料油现货升水反弹，库存需求强劲</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="oil_index_cpzx">
+        	<div class="oilbor bortop2">
+            	<div class="oil_index_cut">产品资讯<em>/ Product information</em><a href="#" class="amore">更多>></a></div>
+                <div class="oilpddv">
+                	<dl class="cpzx_dl">
+                    	<dt><a href="#"><img src="{DT_SKIN}images/pic15.jpg" /></a></dt>
+                        <dd><h2><a href="#">奥巴马否决Keystone XL输油管法案 参议院誓言翻案</a></h2><p class="fbtime">发布日期：2015-03-25</p><p class="in_nr">石油新闻消息    路透华盛顿2月24日 - 美国总统奥巴马周二如其所承诺的，迅速否决掉共和党要求批准Keystone XL输油管的法案，使得这个争执已久的项目再度面临无限期搁置。</p></dd>
+                    </dl>
+                    <dl class="cpzx_dl">
+                    	<dt><a href="#"><img src="{DT_SKIN}images/pic16.jpg" /></a></dt>
+                        <dd><h2><a href="#">北约与国际能源署推进安全合作</a></h2><p class="fbtime">发布日期：2015-03-25</p><p class="in_nr">石油新闻消息    路透华盛顿2月24日 - 美国总统奥巴马周二如其所承诺的，迅速否决掉共和党要求批准Keystone XL输油管的法案，使得这个争执已久的项目再度面临无限期搁置。</p></dd>
+                    </dl>
+                    <dl class="cpzx_dl">
+                    	<dt><a href="#"><img src="{DT_SKIN}images/pic15.jpg" /></a></dt>
+                        <dd><h2><a href="#">奥巴马否决Keystone XL输油管法案 参议院誓言翻案</a></h2><p class="fbtime">发布日期：2015-03-25</p><p class="in_nr">石油新闻消息    路透华盛顿2月24日 - 美国总统奥巴马周二如其所承诺的，迅速否决掉共和党要求批准Keystone XL输油管的法案，使得这个争执已久的项目再度面临无限期搁置。</p></dd>
+                    </dl>
+                    <dl class="cpzx_dl">
+                    	<dt><a href="#"><img src="{DT_SKIN}images/pic16.jpg" /></a></dt>
+                        <dd><h2><a href="#">巴西石油公司再遭国际信用评级机构降级</a></h2><p class="fbtime">发布日期：2015-03-25</p><p class="in_nr">石油新闻消息    路透华盛顿2月24日 - 美国总统奥巴马周二如其所承诺的，迅速否决掉共和党要求批准Keystone XL输油管的法案，使得这个争执已久的项目再度面临无限期搁置。</p></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic10.jpg" /></a></div>
+    <div class="oil_index_content oilmgbt">
+    	<div class="oil_index_cpzx oil_index_zh">
+        	<div class="oilbor bortop2">
+            	<div class="oil_index_cut">展会<em>/ Exhibition</em><a href="{$MODULE[8][linkurl]}" class="amore">更多>></a></div>
+                <div class="oilpddv">
+                
+                   <!--{tag("moduleid=8&condition=status=3 and level>0&areaid=$cityid&pagesize=4&order=addtime desc&template=thumb-exhibit&class=cpzx_dl&width=120&height=90")}-->
+                </div>
+            </div>
+        </div>
+        <div class="oil_index_bkzl oil_index_zt">
+            <div class="oilbor bortop2">
+            	<div class="oil_index_cut">专题<em>/ Special topics</em><a href="{$MODULE[11][linkurl]}" class="amore">更多>></a></div>
+                <div class="oilpddv">
+                	<!--{tag("moduleid=11&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=4&template=thumb-special&class=cpzx_dl zt_dl&width=115&height=78")}-->
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="oilbor bortop2 oilmgbt">
+    	<div class="oil_index_cut">友情链接<em>/ Video</em><a href="#" class="amore">更多>></a></div>
+        <div class="index_links">
+         <!--{php $tags = tag("table=link&condition=status=3 and level='1' and typeid=5&areaid=$cityid&pagesize=40&order=listorder desc,itemid desc&template=null")}-->
+        	{loop $tags $t}
+              <a href="{$t[linkurl]}" target="_blank"  title="{$t[alt]}">{$t[title]}</a>
+             {/loop}
+        </div>
+    </div>
 </div>
-<script language="javascript">
-function getElementsByClassName(n) {
-    var classElements = [],allElements = document.getElementsByTagName('div');//所有div
-    for (var i=0; i< allElements.length; i++ )
-   {
-       if (allElements[i].className == n ) {
-           classElements[classElements.length] = allElements[i];
-        }
-   }
-   return classElements;
-}
-$(function() {
-    $('#zixunA a').mouseover(function(){
-        $(this).addClass("selected").siblings().removeClass();
-        $("#zixunDIV > ul").eq($('#zixunA a').index(this)).show().siblings().hide();
-    });
-    $('#zuantiA a').mouseover(function(){
-        $(this).addClass("selected").siblings().removeClass();
-        $("#zuantiDIV > ul").eq($('#zuantiA a').index(this)).show().siblings().hide();
-    });
-});
-
-</script>
-<script language="javascript">
-function getObject(objID)
- {if (document.getElementById && document.getElementById(objID)) 
- {return document.getElementById(objID);} 
- else 
- {if (document.all && document.all(objID)) 
- {return document.all(objectId);} 
- else 
- {if (document.layers && document.layers[objID]) 
- {return document.layers[objID];} 
- else
- {return false;}
- }
- }
- }
-function sbclass(n)
-{
-	var cpnum=getElementsByClassName("cptitle");
-	for (var i = 1; i <= cpnum.length; i++)
-	{
-		if (i == n) 
-		{
-			getObject("cpul" + i).style.display = "";
-		}
-		else
-		{
-			getObject("cpul" + i).style.display = "none";
-		}
-	}
-}
-</script>
-{template 'footer'}
-<!-- 广告位 -->
-<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
-<script type="text/javascript">
-BAIDU_CLB_fillSlotAsync('973976', 'PAGE_AD_973976');
-BAIDU_CLB_fillSlotAsync('973975', 'PAGE_AD_973975');
-BAIDU_CLB_fillSlotAsync('973989', 'PAGE_AD_973989');
-BAIDU_CLB_fillSlotAsync('973979', 'PAGE_AD_973979');
-</script>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+{template 'footernew'}

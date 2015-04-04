@@ -1,4 +1,4 @@
-<ul>
+<ul {if $class}class="{$class}"{/if} {if $hide} style="display:none"{/if}>
 {loop $tags $i $t}
 <li>{if $datetype}<span class="f_r px11">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}{if $showcat}<a href="{$t[caturl]}"{if $target} target="{$target}"{/if}{if $class} class="{$class}"{/if}>[{$t[catname]}]</a> {/if}<a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}{if $class} class="{$class}"{/if} title="{$t[alt]}">{$t[title]}</a></li>
 {/loop}

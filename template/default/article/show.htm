@@ -1,21 +1,17 @@
-{template 'header'}
+{template 'headernew'}
 <script type="text/javascript">var module_id= {$moduleid},item_id={$itemid},content_id='content',img_max_width={$MOD[max_width]};</script>
-<div class="syct">
-<div class="list_lf">
-	<div class="left_box">
-		<div class="pos">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')} &raquo; {$title}</div>
-		<h1 class="h1title" id="title">{$title}</h1>
-		<div class="ctinfo">
-		发布日期：{$adddate}
-		{if $copyfrom}&nbsp;&nbsp;来源：{if $fromurl}<a href="{$fromurl}" target="_blank">{/if}{$copyfrom}{if $fromurl}</a>{/if}{/if}
-		{if $author}&nbsp;&nbsp;作者：{$author}{/if}
-		&nbsp;&nbsp;浏览次数：<span id="hits">{$hits}</span>	
-		</div>
-		{if $introduce && $user_status == 3 && $page == 1}<div class="contenthxts">核心提示：{$introduce}</div>{/if}
-
-		{if $CP}{template 'property', 'chip'}{/if}
-		<div id="content" class="newscontent">{template 'content', 'chip'}</div>
-		{if $voteid}<div class="pd20">{loop $voteid $v}
+<div class="oil_main">
+	<div class="curPosition">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')} &raquo; {$title}</div>
+    <div class="oil_tyleft detailbor0">
+        <div class="detailtop oilmgbt">
+            <h1 class="detailh1">{$title}</h1>
+            <div class="detail_info">发布日期：{$adddate}{if $copyfrom}&nbsp;&nbsp;来源：{if $fromurl}<a href="{$fromurl}" target="_blank">{/if}{$copyfrom}{if $fromurl}</a>{/if}{/if} {if $author}&nbsp;&nbsp;作者：{$author}{/if}  浏览次数：<span id="hits">{$hits}</span></div>
+            <div class="detailcontenthxts"><strong>核心提示：</strong>{$introduce}</div>
+            {if $CP}{template 'property', 'chip'}{/if}
+            <div class="detail_content">
+               {template 'content', 'chip'}
+            </div>
+            {if $voteid}<div class="pd20">{loop $voteid $v}
 		{load('vote_'.$v.'.htm')}{/loop}</div>
 		{/if}
 		{if $pages}<div class="pages">{$pages}</div>{/if}
@@ -41,68 +37,93 @@
 		<div class="c_b"></div>
 		</div>
 		{/if}
-		{if $keytags}
-		<div class="keytags">
-		<strong>关键词：</strong>
-		{loop $keytags $t}
+        {if $keytags}
+            <div class="detailhotw"><b>相关热词搜索</b>{loop $keytags $t}
 		<a href="{$MOD[linkurl]}search.php?kw={urlencode($t)}" target="_blank" rel="nofollow">{$t}</a>
-		{/loop}
-		</div>
-		{/if}
-		{if $MOD[show_np]}
-		<div class="np">
-		<ul>
-		<li><strong>下一篇：</strong><!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$addtime&areaid=$cityid&pagesize=1&order=addtime asc&template=list-np", -1)}--></li>
-		<li><strong>上一篇：</strong><!--{tag("moduleid=$moduleid&condition=status=3 and addtime<$addtime&areaid=$cityid&pagesize=1&order=addtime desc&template=list-np", -1)}--></li>
-		</ul>
-		</div>
-		<div class="b10">&nbsp;</div>
-		{/if}
-		<center>
+		{/loop}</div>
+        {/if}
+        {if $MOD[show_np]}
+            <div class="detailnext">下一篇：<!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$addtime&areaid=$cityid&pagesize=1&order=addtime asc&template=list-np", -1)}--></div>
+            <div class="detailnext">上一篇：<!--{tag("moduleid=$moduleid&condition=status=3 and addtime<$addtime&areaid=$cityid&pagesize=1&order=addtime desc&template=list-np", -1)}--></div>
+            {/if}
+            <center>
 		[ <a href="{$MOD[linkurl]}search.php" rel="nofollow">{$MOD[name]}搜索</a> ]&nbsp;
 		[ <a href="javascript:SendFav();">加入收藏</a> ]&nbsp;
 		[ <a href="javascript:SendPage();">告诉好友</a> ]&nbsp;
 		[ <a href="javascript:Print();">打印本文</a> ]&nbsp;
 		[ <a href="javascript:window.close()">关闭窗口</a> ]
 		</center>
-		<br/>
-		{if $MOD[page_srelate]}
-		<div class="b10">&nbsp;</div>
-		{if $keytags}
-		<div class="left_head"><a href="{$MOD[linkurl]}search.php?kw={urlencode($keytags[0])}" rel="nofollow">同类{$MOD[name]}</a></div>
-		<div class="related"><!--{tag("moduleid=$moduleid&length=44&condition=status=3 and itemid<>$itemid and keyword like '%".$keytags[0]."%'&areaid=$cityid&pagesize=".$MOD[page_srelate]."&order=".$MOD[order]."&cols=2&template=list-table", -2)}--></div>
-		{else}
-		<div class="left_head"><a href="{$MOD[linkurl]}{$CAT[linkurl]}">同类{$MOD[name]}</a></div>
-		<div class="related"><!--{tag("moduleid=$moduleid&length=44&catid=$catid&condition=status=3 and itemid!=$itemid&areaid=$cityid&pagesize=".$MOD[page_srelate]."&order=".$MOD[order]."&cols=2&template=list-table", -2)}--></div>
-		{/if}
-		{/if}
-		{template 'comment', 'chip'}
-		<br/>
-	</div>
-</div>
-<div class="list_rg">
-	<div class="listrg">
-	{if $MOD[page_srecimg]}
-	<div class="box_head"><div><strong>推荐图文</strong></div></div>
-	<div class="box_body thumb newsrgimg"><!--{tag("moduleid=$moduleid&length=20&condition=status=3 and level=3 and thumb!=''&catid=$catid&areaid=$cityid&pagesize=".$MOD[page_srecimg]."&order=".$MOD[order]."&width=120&height=90&cols=2&template=thumb-table")}--></div>
-	</div>
-	{/if}
-    <div class="listrg">
-	{if $MOD[page_srec]}
-	<div class="box_head"><div><strong>推荐{$MOD[name]}</strong></div></div>
-	<div class="box_body li_dot"><!--{tag("moduleid=$moduleid&condition=status=3 and level=1&catid=$catid&areaid=$cityid&order=".$MOD[order]."&pagesize=".$MOD[page_srec])}-->
-	</div>
-	</div>
-	{/if}
-    <div class="listrg">
-	{if $MOD[page_shits]}
-	<div class="box_head"><div><strong>点击排行</strong></div></div>
-	<div class="box_body">
-		<div class="rank_list"><!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$today_endtime-30*86400&catid=$catid&areaid=$cityid&order=hits desc&pagesize=".$MOD[page_shits])}--></div>
-	</div>
+        </div>
+        {if $MOD[page_srelate]}
+        {if $keytags}
+        <div class="oilbor oilmgbt">
+        	<div class="tycut"><i></i><a href="{$MOD[linkurl]}search.php?kw={urlencode($keytags[0])}" rel="nofollow">同类{$MOD[name]}</a></div>
+            <div class="detailpdbt">
+                <!--{tag("moduleid=$moduleid&length=44&condition=status=3 and itemid<>$itemid and keyword like '%".$keytags[0]."%'&areaid=$cityid&pagesize=".$MOD[page_srelate]."&order=".$MOD[order]."&cols=2&template=list&class=oillistnw detailtjzx", -2)}-->
+                <div class="clear"></div>
+            </div>
+        </div>
+        {else}
+        <div class="oilbor oilmgbt">
+        	<div class="tycut"><i></i><a href="{$MOD[linkurl]}{$CAT[linkurl]}">同类{$MOD[name]}</a></div>
+            <div class="detailpdbt">
+               <!--{tag("moduleid=$moduleid&length=44&catid=$catid&condition=status=3 and itemid!=$itemid&areaid=$cityid&pagesize=".$MOD[page_srelate]."&order=".$MOD[order]."&cols=2&template=list&class=oillistnw detailtjzx", -2)}-->
+                <div class="clear"></div>
+            </div>
+        </div>
+        {/if}
+        {/if}
+        
     </div>
-	{/if}
+    <div class="oil_tyright">
+    {if $MOD[page_lrecimg]}
+    	<div class="oilbor oilmgbt">
+        	<div class="tycut"><i></i>推荐图文</div>
+            <div class="oiltjtw">
+            	<!--{tag("moduleid=$moduleid&length=20&condition=status=3 and level=3 and thumb!=''&catid=$catid&pagesize=".$MOD[page_lrecimg]."&order=".$MOD[order]."&width=120&height=90&cols=2&target=_blank&template=thumb-dl")}-->
+                <div class="clear"></div>
+            </div>
+        </div>
+        {/if}
+        <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic5.jpg" /></a></div>
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut" id="oilrgqhA">{if $MOD[page_lrec]}<a href="#" class="selected">推荐{$MOD[name]}</a>{/if}{if $MOD[page_lhits]}<a href="#">点击排行</a>{/if}</div>
+            <div class="oiltjtw" id="oilrgqhUL">
+            	<!--{tag("moduleid=$moduleid&condition=status=3 and level=1&catid=$catid&order=".$MOD[order]."&pagesize=".$MOD[page_lrec]."&target=_blank&class=oillistnw ulwd")}-->
+               <!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$today_endtime-30*86400&catid=$catid&order=hits desc&pagesize=".$MOD[page_lhits]."&target=_blank&class=oillistnw ulwd&hide=1")}-->
+            </div>
+        </div>
+        <script language="javascript">
+$(document).ready(function(){
+	$('#oilrgqhA a').mouseover(function(){
+		$(this).addClass("selected").siblings().removeClass();
+		$("#oilrgqhUL > ul").eq($('#oilrgqhA a').index(this)).show().siblings().hide();
+	});
+});
+</script>
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut"><i></i>百度百科</div>
+            <div class="oiltjtw">
+            	<ul class="oillistnw ulwd">
+                	<li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
+                    <li><a href="#">委内瑞拉将与中国讨论石油项目融资情况</a></li>
+                    <li><a href="#">国内首个含油废弃物一体化解决方案发布</a></li>
+                    <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
+                    <li><a href="#">委内瑞拉将与中国讨论石油项资情况</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="oilbor oilmgbt">
+        	<div class="tycut"><i></i>推荐产品</div>
+            <div class="oiltjtw">
+            	<dl><dt><a href="#"><img src="images/pic1.jpg" /></a></dt><dd><a href="#">今年下半年全球油</a></dd></dl>
+                <dl><dt><a href="#"><img src="images/pic2.jpg" /></a></dt><dd><a href="#">雪佛龙把2017年前</a></dd></dl>
+                <dl><dt><a href="#"><img src="images/pic3.jpg" /></a></dt><dd><a href="#">巴西石油公司再遭国际</a></dd></dl>
+                <dl><dt><a href="#"><img src="images/pic4.jpg" /></a></dt><dd><a href="#">全球新探明油气储</a></dd></dl>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
 </div>
-</div>
-{if $content}<script type="text/javascript" src="{DT_STATIC}file/script/content.js"></script>{/if}
-{template 'footer'}
+{template 'footernew'}

@@ -79,7 +79,6 @@ switch($seo_file) {
 		} else {
 			$head_keywords = $keyword;
 		}
-		echo $keyword;
 		if($MOD['description_show']) {
 			if($_seo_catname) $seo_catname = str_replace($seo_delimiter, ' ', $_seo_catname);
 			if($_seo_areaname) $seo_areaname = str_replace($seo_delimiter, ' ', $_seo_areaname);

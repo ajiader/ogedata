@@ -1,0 +1,7 @@
+
+{loop $tags $i $t}
+<dl {if $class}class="{$class}"{/if}>
+                    	<dt><a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}"/></a></dt>
+                        <dd><h2><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></h2><p class="in_nr">{dsubstr(strip_tags($t[jianjie]),80,'...')}</p></dd>
+                    </dl>
+  {/loop}	

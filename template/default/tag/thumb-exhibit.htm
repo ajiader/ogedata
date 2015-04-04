@@ -1,0 +1,6 @@
+{loop $tags $i $t}
+<dl {if $class}class="{$class}"{/if}>
+                    	<dt><a href="{$t[linkurl]}" target="_blank"><img src="{imgurl($t[thumb])}" width="{$width}" height="{$height}" alt="{$t[alt]}"/></a></dt>
+                        <dd><h2><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></h2><p class="fbtime">展会日期：{timetodate($t[fromtime], 3)} ~ {timetodate($t[totime], 3)}　地点：[{$t[city]}]</p><p class="in_nr">{$t[remark]}</p></dd>
+</dl>
+{/loop}	

@@ -1,0 +1,197 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td { margin:0; padding:0; border:0; outline:0; font-weight:inherit; font-style:inherit; font-family:inherit; /*vertical-align:baseline;*/ }
+:focus { outline:0; }
+a{text-decoration:none; color:#333333; cursor:pointer;}
+a:hover{ text-decoration:underline; color:#ff6600;}
+body { color:#3e3e3e; font-family:"Microsoft Yahei",微软雅黑; -webkit-font-smoothing: subpixel-antialiased; font-size:12px;}
+ol,ul,li { list-style:none; }
+table { border-collapse:separate; border-spacing:0;}
+caption,th,td { text-align:left; font-weight:normal; }
+blockquote:before,blockquote:after,q:before,q:after { content:""; }
+blockquote,q { quotes:"" ""; }
+.clear{ clear:both; height:0px; line-height:0px; font-size:0px; overflow:hidden;}
+h1,h2,h3,h4,h5,h6{ font-weight:bold;}
+h1,h2,h3,h4,h5,h6,strong,b{ font-weight:bold;}
+
+
+.oilicon,.curPosition,.tycut,.newslist li p.title a,.oil_page a,.detailhotw b,dl.oil_cp_list dd.clicklf a,.search_ct_dv input.select_ty,.oil_index_videolist a.leftdirection,.oil_index_videolist a.rightdirection,.oil_index_videolist ul li span a i{ background-image:url(images/oil_icon.png); background-repeat:no-repeat;}
+.oil_header{ height:128px; background-image:url(images/oil_icon.png); background-repeat:repeat; background-position:0px 0px;}
+.oil_main{ width:1000px; margin:0 auto;}
+.oil_top{ height:34px; line-height:34px;}
+.oil_top span{ float:left; width:400px;}
+.oil_top span.sprg{ float:right; text-align:right;}
+.oil_top span b,.oil_top span a{ background:url(images/topline.png) no-repeat right top; padding:0 20px; display:inline-block; font-weight:normal; }
+.oil_top span b{ padding:0 20px 0 0;}
+.oil_top span em{ color:#ff0000;}
+.oil_nav{ height:94px; overflow:hidden;}
+.oil_nav .logo{ float:left; width:214px; height:94px; background:url(images/logo.gif) no-repeat;}
+.oil_nav .navrg{ width:781px; float:left; padding-left:5px;}
+.oil_nav .menu{ height:43px; line-height:43px;}
+.oil_nav .menu ul li{ float:left; width:78px; text-align:center;}
+.oil_nav .menu ul li a{ display:block; font-size:14px; color:#ffffff; border-bottom:2px #325194 solid;}
+.oil_nav .menu ul li a:hover,.oil_nav .menu ul li a.selected{ border-bottom:2px #ff6600 solid; text-decoration:none;}
+.oil_nav .searchdv{ height:49px; line-height:49px; padding-left:50px; clear:both;}
+.oil_nav .searchdv .hotwords{ float:left;}
+.oil_nav .searchdv .hotwords a,.oil_nav .searchdv .hotwords{ color:#999999;}
+.oil_nav .searchdv .hotwords a{ display:inline-block; margin:0 6px;}
+.oil_nav .searchdv .sstext{ float:right; padding-top:5px; width:420px;}
+.oil_nav .searchdv .sstext input{ float:left; font-family:"Microsoft Yahei",微软雅黑;}
+.oil_nav .searchdv .sstext input.searchtxt{ width:312px; height:33px; border:2px #ff6600 solid; line-height:33px; background-image:url(images/oil_icon.png); background-repeat:no-repeat; background-position:-476px -136px; padding-left:28px;}
+.oil_nav .searchdv .sstext input.searchbtn{ width:75px; background:#ff6600; height:39px; color:#ffffff; font-size:16px; border:0px; cursor:pointer;}
+.curPosition{ height:40px; line-height:40px; background-position:-474px -165px; padding-left:30px; margin:3px 0;}
+.curPosition,.curPosition a{ color:#646464;}
+.oil_tyleft{ width:742px; border:1px #ccd3e5 solid; float:left; }
+.tycut{ height:41px; line-height:41px; background-position:0 -212px; background-repeat:repeat-x; position:relative; margin-bottom:8px; font-size:18px; color:#325194; padding-left:15px; }
+.tycut i{ width:3px; background:#325194; height:42px; position:absolute; left:-1px; top:-1px; }
+.newslist{ padding:0 10px;}
+.newslist li{ display:block; border-bottom:1px #ccd3e5 dashed; padding-bottom:5px; color:#777777; margin-bottom:8px;}
+.newslist li p.title{ line-height:28px;}
+.newslist li p.title a{ padding-left:16px; background-position:-493px -255px; font-size:14px; }
+.newslist li p.title em{ padding-left:20px;}
+.newslist li p.title a:hover{ background-position:-493px -275px;}
+.newslist li p.introduction{ color:#999999; padding-left:16px;}
+.oil_page{ padding:10px 0 15px 0; text-align:center;}
+.oil_page a{ display:inline-block; width:37px; height:37px; margin:0 5px; text-align:center; line-height:37px; background-position:-42px -135px; font-size:14px;}
+.oil_page a:hover{ background-position:-128px -135px; color:#ffffff;}
+.oil_page a.pageleft{ background-position:0 -135px;}
+.oil_page a.pageright{ background-position:-84px -135px;}
+.oil_tyright{ width:243px; float:right;}
+.oilbor{ border:1px #ccd3e5 solid;}
+.oiltjtw dl{ width:110px; float:left; overflow:hidden; margin:0 0 0 7px; display:inline;}
+.oiltjtw dl dt{ width:104px; height:78px; padding:2px; border:1px #ccd3e5 solid;}
+.oiltjtw dl dd{ line-height:30px; text-align:center; width:110px;}
+.overflowtxt,.oiltjtw dl dd,.ulwd li,.detailtjzx li,.oil_cp_listdv dl dd.qhnr ul li p,dl.oil_cp_list dt,.searchhotcp span.hotlist a,.ulwdrg li,.oil_index_videolist ul li div.videotitle,.zt_dl dd h2{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.oilmgbt{ margin-bottom:10px;}
+.oilqhcut{ padding-left:10px;}
+.oilqhcut a{ display:inline-block; padding:0 15px; height:34px; margin:5px 0 0 0; font-size:16px; line-height:34px;}
+.oilqhcut a.selected{ border:1px #ccd3e5 solid; border-bottom:1px #ffffff solid; color:#345193; background:#ffffff;}
+.oilqhcut a:hover{ text-decoration:none;}
+.oillistnw{ padding:0 10px 6px 10px; display:block;}
+.oillistnw li{ height:26px; line-height:26px;}
+.oillistnw li a{ background:url(images/icon1.jpg) no-repeat left center; padding-left:12px;}
+.oillistnw li a:hover{ background:url(images/icon2.jpg) no-repeat left center; text-decoration:none;}
+.ulwd li{ width:220px;}
+.oilfooter{ border-top:2px #34559a solid; padding:15px; margin-top:10px;}
+.oilfooter p{ text-align:center; line-height:30px;}
+.detailtop{ padding:15px 0; border:2px #ccd3e5 solid; border-top:3px #34559a solid;}
+.detailh1{ text-align:center; height:56px; line-height:56px; background:url(images/rgtlline.jpg) no-repeat center bottom; font-size:20px;}
+.detail_info{ text-align:center; padding:10px 0;}
+.detail_content{ padding:10px 15px;}
+.detailcontenthxts{ background:#f3f3f3; padding:10px; line-height:25px; margin:10px;}
+.detail_content p{ text-indent:2em; line-height:30px; font-size:14px;}
+.detail_content p img{ margin-bottom:10px;}
+.detailhotw,.detailnext{ padding:10px 0 10px 15px;  font-size:14px;}
+.detailhotw b{ color:#ffffff; line-height:27px; width:105px; padding-left:8px; background-position:-184px -140px; display:inline-block;}
+.detailhotw a{ margin:0 5px;}
+.detailnext{ height:30px; line-height:30px; overflow:hidden; padding:0 15px;}
+.detailbor0{ border:0px;}
+.detailpdbt{ padding-bottom:10px;}
+.detailtjzx li{ width:350px; float:left; padding-right:10px; font-size:14px;}
+.cpdv{ border-top:0px;}
+.oil_cp_qh{ margin-bottom:8px; line-height:42px; overflow:hidden;}
+.oil_cp_qh ul li{ float:left; border-top:2px #325194 solid; width:99px; text-align:center; background:#fafbfc; border-bottom:1px #ccd3e5 solid; }
+.oil_cp_qh ul li a{ display:block; font-size:14px; border-right:1px #ccd3e5 solid;}
+.oil_cp_qh ul li.selected{ border-top:2px #ff6600 solid; border-bottom:1px #ffffff solid; background:#ffffff;}
+.oil_cp_qh ul li.selected a{ color:#ff6600;}
+.oil_cp_qh ul li.last{ width:107px;}
+.oil_cp_qh ul li a:hover{ text-decoration:none;}
+.oil_cp_qh ul li.last a{ border-right:0px;}
+dl.oil_cp_list{ display:block; height:45px; overflow:hidden; padding:6px 0; border-bottom:1px #ccd3e5 dashed;}
+dl.oil_cp_list dt{ width:92px; text-align:center; font-size:14px; line-height:45px; float:left;}
+dl.oil_cp_list dd{ float:left;}
+dl.oil_cp_list dd.clicklf{ width:32px; height:32px; margin-top:6px;}
+dl.oil_cp_list dd.clicklf a{ display:block; background-position:-309px -137px; height:32px;}
+dl.oil_cp_list dd.clickrg a{ display:block; background-position:-346px -137px; height:32px;}
+dl.oil_cp_list dd.qhnr{ width:820px; overflow:hidden; height:45px; padding:0 5px;}
+dl.oil_cp_list dd.qhnr ul li{ float:left; width:102px; text-align:center;}
+dl.oil_cp_list dd.qhnr ul li p{ width:102px; line-height:21px;}
+dl.oil_cp_list dd.qhnr ul li p.p1 a{ color:#3c5995;}
+dl.oil_cp_list dd.qhnr ul li p.p2 a{ color:#999999; margin:0 2px;}
+dl.oil_cp_list dd.oilbrand{ width:900px;}
+dl.oil_cp_list dd.oilbrand img{ float:left; margin:6px 7px 0 0;}
+dl.oilbor0{ border-bottom:0px;}
+.oil_index_content{ overflow:hidden;}
+.oil_tab_left{ width:376px; float:left;}
+
+/*图片切换*/
+.pic_tab{ height:224px; width:376px; overflow:hidden; position:relative;}
+.nivo-caption{ position:absolute; left:0px; bottom:0px; background:#000; color:#fff; opacity:0.8; width:100%; z-index:8;}
+.nivo-caption p{ padding:10px; margin:0;}
+.nivo-caption a{ display:inline !important;}
+.nivo-controlNav{position:absolute; right:6px; bottom:7px; z-index:99;}
+.nivo-controlNav a{ display:block; width:22px; height:22px; background:#3b5998; border:0; margin-right:5px; float:left; color:#ffffff; text-align:center; line-height:22px;}
+.nivo-controlNav a.active{ background:#ff6600;}
+.pic_tab img{ position:absolute; top:0px; left:0px;}
+.pic_tab a.nivo-imageLink { position:absolute; top:0px; left:0px; width:100%; height:100%; border:0; padding:0; margin:0; z-index:6; display:none;}
+.nivo-slice{ display:block; position:absolute; z-index:5; height:100%;}
+.nivo-box{ display:block;position:absolute; z-index:5;}
+
+
+
+.searchA ul li{ width:120px; }
+.searchA ul li.last{ width:134px;}
+.search_ct_dv{ padding:8px;}
+.search_ct_dv .scdv{ margin-bottom:10px; height:28px; position:relative;}
+.search_ct_dv .scdv input.select_ty{ width:234px; height:28px; line-height:25px; padding-left:8px; background-position:0 -178px; border:0px;}
+.search_ct_dv .scdv div{ position:absolute; left:0px; top:27px; width:240px; border:1px #dde0e7 solid; display:none; z-index:99; background:#ffffff;}
+.search_ct_dv .scdv div p{ height:28px; border-bottom:1px #d3d3d3 dashed; padding-left:10px; line-height:28px;}
+.search_ct_dv .sc_qd input{ float:left;}
+.search_ct_dv .sc_qd input.lf_sc_btn{ width:100px; height:28px; background:#3d5b9b; color:#ffffff; border:0px; margin-left:10px; font-family:"Microsoft Yahei",微软雅黑; cursor:pointer;}
+.searchhg{ height:243px; overflow:hidden;}
+.searchhotcp{ padding-top:8px;}
+.searchhotcp span{ float:left; width:72px; background:url(images/kh_lf.jpg) no-repeat right 4px; color:#3d5b9b; font-size:14px; height:42px; line-height:42px;}
+.searchhotcp span.hotlist{ width:272px; overflow:hidden; background:none; padding-left:10px;}
+.searchhotcp span.hotlist a{ font-size:12px; color:#6a6a6a; line-height:20px; margin:0 0 3px 0; display:inline-block; width:65px;}
+.lfulmg{ padding:0px;}
+.lfulmg li{ font-size:14px;}
+.lfulmg li a{ color:#3d5b9b;}
+.lfulmg li a:hover{ color:#ff6600;}
+.sc_mg_bt{ margin-bottom:10px; _margin-bottom:2px;}
+.oil_news_ct{ width:400px; float:left; padding:0 12px;}
+.oil_news_ct h1,.oil_news_ct h2{ font-size:18px; font-weight:normal; margin-bottom:8px; text-align:center;}
+.oil_news_ct h1 a,.oil_news_ct h2 a{ color:#d50200;}
+.oil_news_ct .hotwords{ text-align:center; margin-bottom:8px;}
+.oil_news_ct .hotwords a{ display:inline-block; margin:0 5px;}
+.oil_index_cut{ background:#fafbfc; height:37px; border-bottom:1px #ccd3e5 solid; font-size:18px; line-height:37px; padding-left:12px; color:#3d5b9b; position:relative; margin-bottom:8px;}
+.oil_index_cut em{ padding-left:8px;}
+.oil_index_cut em,.oil_index_cut a{ font-size:12px; color:#b2b2b2;}
+.oil_index_cut .hotvideo{ width:380px; position:absolute; left:200px; top:0px; line-height:37px; font-size:12px; color:#727272;}
+.oil_index_cut .hotvideo span{ padding-right:10px; background:url(images/jtrg.jpg) no-repeat right center; height:37px; color:#3d5b9b;}
+.oil_index_cut .hotvideo a{ margin:0 8px; color:#727272;}
+.oil_index_cut a.amore{ position:absolute; right:10px; top:0px; line-height:37px;}
+.bortop2{ border-top:2px #3d5b9b solid;}
+.oilpddv{ padding:0 8px 8px 8px;}
+.oil_ct_rg{ width:200px; float:right; overflow:hidden;}
+.oil_ct_rg .imgalign{ text-align:center; padding:10px 0; _padding:14px 0;}
+.ulwdrg li{ width:180px;}
+.oil_index_videolist{ padding:10px 15px 10px 20px; height:122px;}
+.oil_index_videolist a.leftdirection,.oil_index_videolist a.rightdirection{ float:left; height:122px; width:20px; height:40px; margin-top:38px;}
+.oil_index_videolist a.leftdirection{ background-position:-393px -135px;}
+.oil_index_videolist a.rightdirection{ background-position:-417px -135px;}
+.oil_index_videolist .listwai{ width:880px; overflow:hidden; margin:0 20px; float:left; position:relative;}
+.oil_index_videolist .listwai ul{ width:20000px; height:115px; overflow:hidden;}
+.oil_index_videolist .listwai ul li{ width:160px; float:left; margin-right:20px;}
+.oil_index_videolist .listwai ul li span{ display:block; height:90px; margin-bottom:8px;}
+.oil_index_videolist .listwai ul li span a{ display:block; height:90px; position:relative;}
+.oil_index_videolist .listwai ul li span a i{ width:30px; height:30px; background-position:-256px -177px; position:absolute; left:8px; bottom:8px;}
+.oil_index_videolist .listwai ul li div.videotitle{ text-align:center; width:160px;}
+.oil_index_bkzl{ width:350px; float:left}
+.oil_index_cpzx{ width:638px; float:right;}
+.cpzx_dl{ display:block; height:90px; margin-top:8px; overflow:hidden;}
+.cpzx_dl dt{ width:120px; height:90px; float:left; overflow:hidden;}
+.cpzx_dl dd{ float:left; width:480px; padding-left:15px;}
+.cpzx_dl dd h2{ font-weight:normal; font-size:16px;}
+.cpzx_dl dd h2 a{ color:#3b5998;}
+.cpzx_dl dd p.fbtime{ color:#999999; line-height:30px;}
+.cpzx_dl dd p.in_nr{ line-height:20px; color:#666666;}
+.oil_index_zh{ float:left;}
+.oil_index_zt{ float:right;}
+.zt_dl{ height:78px; padding-bottom:11px; border-bottom:1px #cdd4e4 dashed;}
+.zt_dl dt{ width:114px; height:78px;}
+.zt_dl dt img{ width:114px; height:78px;}
+.zt_dl dd{ width:190px;}
+.zt_dl dd h2{ width:190px;}
+.index_links{ padding:10px;}
+.index_links a{ display:inline-block; margin:0 16px 10px 0;}

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{if $CAT['catname']}{str_replace(','.$CAT['catname'],'',$head_keywords)}{else}{$head_keywords}{/if}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=xhtml; url={$head_mobile}" /> 
+<meta http-equiv="mobile-agent" content="format=html5; url={$head_mobile}" />
+{/if}
+<meta name="generator" content="油气设备数据平台 - www.ogedata.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}oil_style.css"/>
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+{if $CSS}
+{loop $CSS $css}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$css}.css"/>
+{/loop}
+{/if}
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}ie6.css"/>
+<![endif]-->
+{if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}file/script/sy_select.js"></script>
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/sethome.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+<script type="text/javascript">
+{if $head_mobile && $EXT[wap_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+<!--[以上为系统关键代码，除非您明确其含义，否则请勿修改或删除，否则会导致系统错误]-->
+<!--[模板中所有带id的元素，请勿修改或删除，否则会导致部分JS代码无法运行]-->
+<!--[以上类似的注释，在编译模板时，系统会自动移除，不会显示在实际的页面中]-->
+
+</head>
+
+<body>
+<!-- header<start>-->
+<div class="oil_header">
+	<div class="oil_main">
+    	<div class="oil_top">
+        	<div class="logindv" id="destoon_member"></div>
+            <div class="jrscdv"><a onclick="SetHome(this,window.location);" href="javascript:void(0)">设为首页</a>|<a onclick="addFavorite2()">加入收藏</a></div>
+        </div>
+        <div class="oil_nav">
+        	<div class="logo"></div>
+            <div class="navrg">
+                <div class="menu">
+                    <ul>
+                        <li><a href="#" class="selected">首页</a></li>
+                        <li><a href="#">石油品牌</a></li>
+                        <li><a href="#">石油设备</a></li>
+                        <li><a href="#">石油展会</a></li>
+                        <li><a href="#">新闻专题</a></li>
+                        <li><a href="#">名词翻译</a></li>
+                        <li><a href="#">资料下载</a></li>
+                        <li><a href="#">石油新闻</a></li>
+                        <li><a href="#">高层动态</a></li>
+                        <li><a href="#">油气技术</a></li>
+                    </ul>
+                </div>
+                <div class="searchdv">
+                	<div class="hotwords">热门搜索：<!--{tag("moduleid=16&table=keyword&condition=moduleid=16 and status=3&pagesize=4&order=total_search desc&template=list-search_kw")}--></div><form action="{$MODULE[16][linkurl]}search.php" method="get">
+                    <div class="sstext"><input type="text" name="kw" placeholder="请输入关键词" class="searchtxt" value="{if $kw}{kw}{/if}" /><input type="submit" name="searchbtn" value="搜索" class="searchbtn" />
+                   <input type="hidden" id="catid" name="catid" value="{$caitid}">
+            <input type="hidden" name="brandid" id="brandid" value="{$brandid}">
+            
+                    </div></form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- header<end>-->

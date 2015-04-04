@@ -1,0 +1,6 @@
+<ul class="newslist">
+{loop $tags $i $t}
+        	<li><p class="title"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a><em>({timetodate($t[addtime], 3)})</em></p><p class="introduction">{$t[introduce]}</p></li>
+            {/loop}
+        </ul>
+       {if $showpage && $pages} <div class="oil_page">{$pages}</div>{/if}

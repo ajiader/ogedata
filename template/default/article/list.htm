@@ -1,67 +1,60 @@
-{template 'header'}
-<script type="text/javascript">var sh = '{$MOD[linkurl]}search.php?catid={$catid}';</script>
-<div class="syct">
-<div class="list_lf">
-	<div class="left_box">
-		<div class="pos">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
-		{if $CP}
-		{loop $PPT $p}
-		<div class="ppt">
-			<table cellpadding="0" cellspacing="0" width="100%">
-			<tr>
-			<td class="ppt_l" valign="top">按{$p[name]}</td>
-			<td class="ppt_r" valign="top">
-			{loop $p[options] $o}
-			<a href="###" onclick="Go(sh+'&ppt_{$p[oid]}={urlencode($o)}');">{$o}</a>&nbsp;|&nbsp;
-			{/loop}
-			</td>
-			</tr>
-			</table>
-		</div>
-		{/loop}
-		<div class="b10">&nbsp;</div>
-		{/if}
-		<div class="catlist">
-		{if $tags}{template 'list-cat', 'tag'}{/if}
-		</div>
-	</div>
-</div>
-<div class="list_rg">
-	<div class="listrg">
-	{if $MOD[show_lcat]}
-	<div class="box_head">按分类浏览</div>
-	<div class="box_body">
-	<table width="100%" cellpadding="3">
-	{loop $maincat $k $v}
-	{if $k%2==0}<tr>{/if}
-	<td{if $v[catid]==$catid} class="f_b"{/if}><a href="{$MOD[linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a>{if !$cityid} <span class="f_gray px10">({$v[item]})</span>{/if}</td>
-	{if $k%2==1}</tr>{/if}
-	{/loop}
-	</table>
-	</div>
+{template 'headernew'}
+<div class="oil_main">
+	<div class="curPosition">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
+    <div class="oil_tyleft">
+    	<div class="tycut"><i></i>{$CAT[catname]}</div>
+        
+        {if $tags}{template 'list-catnew', 'tag'}{/if}
     </div>
-	{/if}
-    <div class="listrg">
-	{if $MOD[page_lrecimg]}
-	<div class="box_head">推荐图文</div>
-	<div class="box_body thumb newsrgimg"><!--{tag("moduleid=$moduleid&length=20&condition=status=3 and level=3 and thumb!=''&catid=$catid&pagesize=".$MOD[page_lrecimg]."&order=".$MOD[order]."&width=120&height=90&cols=2&target=_blank&template=thumb-table")}--></div>
-	</div>
-	{/if}
-	{if $MOD[page_lrec]}
-    <div class="listrg">
-	<div class="box_head">推荐{$MOD[name]}</div>
-	<div class="box_body li_dot"><!--{tag("moduleid=$moduleid&condition=status=3 and level=1&catid=$catid&order=".$MOD[order]."&pagesize=".$MOD[page_lrec]."&target=_blank")}-->
-	</div>
-	</div>
-	{/if}
-	{if $MOD[page_lhits]}
-    <div class="listrg">
-	<div class="box_head">点击排行</div>
-	<div class="box_body">
-	<div class="rank_list"><!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$today_endtime-30*86400&catid=$catid&order=hits desc&pagesize=".$MOD[page_lhits]."&target=_blank")}--></div>
-	</div>
+    <div class="oil_tyright">
+    {if $MOD[page_lrecimg]}
+    	<div class="oilbor oilmgbt">
+        	<div class="tycut"><i></i>推荐图文</div>
+            <div class="oiltjtw">
+            	<!--{tag("moduleid=$moduleid&length=20&condition=status=3 and level=3 and thumb!=''&catid=$catid&pagesize=".$MOD[page_lrecimg]."&order=".$MOD[order]."&width=120&height=90&cols=2&target=_blank&template=thumb-dl")}-->
+                <div class="clear"></div>
+            </div>
+        </div>
+        {/if}
+        <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic5.jpg" /></a></div>
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut" id="oilrgqhA">{if $MOD[page_lrec]}<a href="#" class="selected">推荐{$MOD[name]}</a>{/if}{if $MOD[page_lhits]}<a href="#">点击排行</a>{/if}</div>
+            <div class="oiltjtw" id="oilrgqhUL">
+            	<!--{tag("moduleid=$moduleid&condition=status=3 and level=1&catid=$catid&order=".$MOD[order]."&pagesize=".$MOD[page_lrec]."&target=_blank&class=oillistnw ulwd")}-->
+               <!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$today_endtime-30*86400&catid=$catid&order=hits desc&pagesize=".$MOD[page_lhits]."&target=_blank&class=oillistnw ulwd&hide=1")}-->
+            </div>
+        </div>
+        <script language="javascript">
+$(document).ready(function(){
+	$('#oilrgqhA a').mouseover(function(){
+		$(this).addClass("selected").siblings().removeClass();
+		$("#oilrgqhUL > ul").eq($('#oilrgqhA a').index(this)).show().siblings().hide();
+	});
+});
+</script>
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut"><i></i>百度百科</div>
+            <div class="oiltjtw">
+            	<ul class="oillistnw ulwd">
+                	<li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
+                    <li><a href="#">委内瑞拉将与中国讨论石油项目融资情况</a></li>
+                    <li><a href="#">国内首个含油废弃物一体化解决方案发布</a></li>
+                    <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
+                    <li><a href="#">委内瑞拉将与中国讨论石油项资情况</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="oilbor oilmgbt">
+        	<div class="tycut"><i></i>推荐产品</div>
+            <div class="oiltjtw">
+            	<dl><dt><a href="#"><img src="images/pic1.jpg" /></a></dt><dd><a href="#">今年下半年全球油</a></dd></dl>
+                <dl><dt><a href="#"><img src="images/pic2.jpg" /></a></dt><dd><a href="#">雪佛龙把2017年前</a></dd></dl>
+                <dl><dt><a href="#"><img src="images/pic3.jpg" /></a></dt><dd><a href="#">巴西石油公司再遭国际</a></dd></dl>
+                <dl><dt><a href="#"><img src="images/pic4.jpg" /></a></dt><dd><a href="#">全球新探明油气储</a></dd></dl>
+                <div class="clear"></div>
+            </div>
+        </div>
     </div>
-	{/if}
+    <div class="clear"></div>
 </div>
-</div>
-{template 'footer'}
+{template 'footernew'}
