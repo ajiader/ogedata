@@ -674,7 +674,7 @@ $(document).ready(function(){
                         <div class="searchhotcp"><span>热门产品</span><span class="hotlist"><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a></span><div class="clear"></div></div>
                     </div>
                     <div class="search_ct_dv" style="display:none;">
-                        <div class="scdv sc_qd"><input type="text" name="searchthree" class="select_ty" placeholder="请选择" id="selectxt4" onfocus="mfselect('selectxt4','selecdv4')" /><div id="selecdv4"><p>旋塞阀P51</p><p>低压弯头313</p></div><input type="button" name="lfbtn" value="查询" class="lf_sc_btn" /></div>
+                        <div class="scdv sc_qd"><form action="{$MODULE[13][linkurl]}search.php" target="_blank"><input type="text" name="kw" class="select_ty" placeholder="请输入品牌名称" id="selectxt4" onfocus="mfselect('selectxt4','selecdv4')" /><input type="submit" name="lfbtn" value="查询" class="lf_sc_btn" /></form></div>
                         <div class="searchhotcp sc_mg_bt"><span>热门品牌</span><span class="hotlist"><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a></span><div class="clear"></div></div>
                         <ul class="oillistnw lfulmg">
                             <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
@@ -683,7 +683,7 @@ $(document).ready(function(){
                         </ul>
                     </div>
                     <div class="search_ct_dv" style="display:none;">
-                        <div class="scdv sc_qd"><input type="text" name="searchthree" class="select_ty" placeholder="请选择" id="selectxt5" onfocus="mfselect('selectxt5','selecdv5')" /><div id="selecdv5"><p>旋塞阀P51</p><p>低压弯头313</p></div><input type="button" name="lfbtn" value="查询" class="lf_sc_btn" /></div>
+                        <div class="scdv sc_qd"><form action="{$MODULE[16][linkurl]}search.php" target="_blank"><input type="text" name="kw" class="select_ty" placeholder="请输入件号" id="selectxt5" onfocus="mfselect('selectxt5','selecdv5')" /><div id="selecdv5"><p>旋塞阀P51</p><p>低压弯头313</p></div><input type="submit" name="lfbtn" value="查询" class="lf_sc_btn" /></form></div>
                         <div class="searchhotcp sc_mg_bt"><span>热门产品</span><span class="hotlist"><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a></span><div class="clear"></div></div>
                         <ul class="oillistnw lfulmg">
                             <li><a href="#">中国石化召开四川盆地及周缘天然气勘探突破推进会</a></li>
@@ -699,21 +699,11 @@ $(document).ready(function(){
             </ul>
         </div>
         <div class="oil_news_ct">
-        	<h1><a href="#">烟台港西港区首艘液化石油气船顺利靠泊作业</a></h1>
-            <div class="hotwords"><a href="#">[安徽页岩气项目]</a><a href="#">[中海油]</a><a href="#">[美国水力压裂法]</a><a href="#">[新疆油田]</a></div>
-            <h2><a href="#">茂名石化成华南地区最大清洁能源基地</a></h2>
-            <ul class="oillistnw lfulmg oilmgbt">
-                <li><a href="#">中国石化召开四川盆地及周缘天然气勘探突破推进会</a></li>
-                <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                <li><a href="#">中海油坦言暂时搁置安徽页岩气项目 因资源量不足</a></li>
-                <li><a href="#">亚洲380-cst燃料油现货升水反弹，库存虽升高但需求强劲</a></li>
-                <li><a href="#">埃克森美孚CEO：别幻想了 未来两年要习惯低油价</a></li>
-                <li><a href="#">石脑油裂解价差下跌，但坚挺需求遏制跌幅</a></li>
-                <li><a href="#">亚洲柴油和航煤裂解价差下滑，因中东的新供应入市</a></li>
-                <li><a href="#">袭击事件多 利比亚国油11个油田停产</a></li>
-                <li><a href="#">中石油：新疆油田油气勘探连获重大成果</a></li>
-                <li><a href="#">中国石化召开四川盆地及周缘天然气勘探突破推进会</a></li>
-            </ul>
+        	<!--{tag("moduleid=21&condition=status=3 and level=5&areaid=$cityid&order=addtime desc&pagesize=1&target=_blank&template=list-hl&start=0")}-->
+            <div class="hotwords"><!--{tag("moduleid=21&condition=status=3 and level=4&areaid=$cityid&pagesize=4&order=addtime desc&target=_blank&template=list-hlr2&length=12")}--></div>
+           <!--{tag("moduleid=21&condition=status=3 and level=5&areaid=$cityid&order=addtime desc&pagesize=2&target=_blank&template=list-hl&start=1")}-->
+            
+                <!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=10&length=54&order=addtime desc&template=list&class=oillistnw lfulmg oilmgbt&width=120&height=90")}-->
             <div class="oilbor bortop2">
             	<div class="oil_index_cut">最新招标<em>/ Tender</em><a href="#" class="amore">更多>></a></div>
                 <div class="oilpddv">
@@ -792,22 +782,8 @@ $(document).ready(function(){
         	<div class="oilbor bortop2">
             	<div class="oil_index_cut">产品资讯<em>/ Product information</em><a href="#" class="amore">更多>></a></div>
                 <div class="oilpddv">
-                	<dl class="cpzx_dl">
-                    	<dt><a href="#"><img src="{DT_SKIN}images/pic15.jpg" /></a></dt>
-                        <dd><h2><a href="#">奥巴马否决Keystone XL输油管法案 参议院誓言翻案</a></h2><p class="fbtime">发布日期：2015-03-25</p><p class="in_nr">石油新闻消息    路透华盛顿2月24日 - 美国总统奥巴马周二如其所承诺的，迅速否决掉共和党要求批准Keystone XL输油管的法案，使得这个争执已久的项目再度面临无限期搁置。</p></dd>
-                    </dl>
-                    <dl class="cpzx_dl">
-                    	<dt><a href="#"><img src="{DT_SKIN}images/pic16.jpg" /></a></dt>
-                        <dd><h2><a href="#">北约与国际能源署推进安全合作</a></h2><p class="fbtime">发布日期：2015-03-25</p><p class="in_nr">石油新闻消息    路透华盛顿2月24日 - 美国总统奥巴马周二如其所承诺的，迅速否决掉共和党要求批准Keystone XL输油管的法案，使得这个争执已久的项目再度面临无限期搁置。</p></dd>
-                    </dl>
-                    <dl class="cpzx_dl">
-                    	<dt><a href="#"><img src="{DT_SKIN}images/pic15.jpg" /></a></dt>
-                        <dd><h2><a href="#">奥巴马否决Keystone XL输油管法案 参议院誓言翻案</a></h2><p class="fbtime">发布日期：2015-03-25</p><p class="in_nr">石油新闻消息    路透华盛顿2月24日 - 美国总统奥巴马周二如其所承诺的，迅速否决掉共和党要求批准Keystone XL输油管的法案，使得这个争执已久的项目再度面临无限期搁置。</p></dd>
-                    </dl>
-                    <dl class="cpzx_dl">
-                    	<dt><a href="#"><img src="{DT_SKIN}images/pic16.jpg" /></a></dt>
-                        <dd><h2><a href="#">巴西石油公司再遭国际信用评级机构降级</a></h2><p class="fbtime">发布日期：2015-03-25</p><p class="in_nr">石油新闻消息    路透华盛顿2月24日 - 美国总统奥巴马周二如其所承诺的，迅速否决掉共和党要求批准Keystone XL输油管的法案，使得这个争执已久的项目再度面临无限期搁置。</p></dd>
-                    </dl>
+                	<!--{tag("moduleid=11&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=4&template=thumb-special&class=cpzx_dl&width=115&height=78&length=210")}-->
+            
                 </div>
             </div>
         </div>
@@ -828,7 +804,7 @@ $(document).ready(function(){
             <div class="oilbor bortop2">
             	<div class="oil_index_cut">专题<em>/ Special topics</em><a href="{$MODULE[11][linkurl]}" class="amore">更多>></a></div>
                 <div class="oilpddv">
-                	<!--{tag("moduleid=11&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=4&template=thumb-special&class=cpzx_dl zt_dl&width=115&height=78")}-->
+                	<!--{tag("moduleid=11&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=4&template=thumb-special&class=cpzx_dl zt_dl&width=115&height=78&length=80")}-->
                 </div>
             </div>
         </div>
