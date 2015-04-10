@@ -20,9 +20,11 @@ h1,h2,h3,h4,h5,h6,strong,b{ font-weight:bold;}
 .oil_header{ height:128px; background-image:url(images/oil_icon.png); background-repeat:repeat; background-position:0px 0px;}
 .oil_main{ width:1000px; margin:0 auto;}
 .oil_top{ height:34px; line-height:34px;}
-.oil_top span{ float:left; width:400px;}
-.oil_top span.sprg{ float:right; text-align:right;}
-.oil_top span b,.oil_top span a{ background:url(images/topline.png) no-repeat right top; padding:0 20px; display:inline-block; font-weight:normal; }
+.oil_top div.logindv{ float:left;}
+.oil_top div.jrscdv{ float:right; text-align:right;}
+.oil_top div.jrscdv a{ margin:0 5px;}
+.oil_top div.logindv a,.oil_top div.jrscdv a,.oil_top div.logindv span{ background:url(images/topline.png) no-repeat right top; padding:0 20px; display:inline-block; font-weight:normal; }
+.oil_top div.logindv span{ padding:0 20px 0 0;}
 .oil_top span b{ padding:0 20px 0 0;}
 .oil_top span em{ color:#ff0000;}
 .oil_nav{ height:94px; overflow:hidden;}

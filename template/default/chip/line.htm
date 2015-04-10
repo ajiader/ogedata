@@ -10,9 +10,9 @@ destoon_member += '<span class="f_b" title="{$MG[groupname]}">{$_truename}</span
 	{if $EXT[oauth]}
 	var oauth_site = '{get_cookie('oauth_site')}';
 	var oauth_user = '{get_cookie('oauth_user')}';
-	destoon_member += (oauth_user && oauth_site) ? '<img src="{DT_PATH}api/oauth/'+oauth_site+'/ico.png" align="absmiddle"/> 欢迎，<strong>'+oauth_user+'</strong> | <a href="{DT_PATH}api/oauth/'+oauth_site+'/index.php?time={$DT_TIME}">绑定帐号</a> | <a href="javascript:" onclick="oauth_logout();">注销登录</a>' : '欢迎，<span class="f_red">客人</span> | <a href="{$MODULE[2][linkurl]}{$DT[file_login]}">请登录</a> | <a href="{$MODULE[2][linkurl]}{$DT[file_register]}" style="display:none;">免费注册</a><a href="{$MODULE[2][linkurl]}send.php">忘记密码?</a>';
+	destoon_member += (oauth_user && oauth_site) ? '<img src="{DT_PATH}api/oauth/'+oauth_site+'/ico.png" align="absmiddle"/> 欢迎，<strong>'+oauth_user+'</strong><a href="{DT_PATH}api/oauth/'+oauth_site+'/index.php?time={$DT_TIME}">绑定帐号</a> | <a href="javascript:" onclick="oauth_logout();">注销登录</a>' : '欢迎，<span class="f_red">客人</span><a href="{$MODULE[2][linkurl]}{$DT[file_login]}">请登录</a><a href="{$MODULE[2][linkurl]}{$DT[file_register]}" style="display:none;">免费注册</a><a href="{$MODULE[2][linkurl]}send.php">忘记密码?</a>';
 	{else}
-	destoon_member += '欢迎，<span class="f_red">客人</span> | <a href="{$MODULE[2][linkurl]}{$DT[file_login]}">请登录</a> | <a href="{$MODULE[2][linkurl]}{$DT[file_register]}" style="display:none;">免费注册</a><a href="{$MODULE[2][linkurl]}send.php">忘记密码?</a>';
+	destoon_member += '欢迎，<span class="f_red">客人</span><a href="{$MODULE[2][linkurl]}{$DT[file_login]}">请登录</a><a href="{$MODULE[2][linkurl]}{$DT[file_register]}" style="display:none;">免费注册</a><a href="{$MODULE[2][linkurl]}send.php">忘记密码?</a>';
 	{/if}
 {/if}
 $('#destoon_member').html(destoon_member);
