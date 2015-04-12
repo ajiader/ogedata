@@ -65,7 +65,16 @@ ID：<input type="text" size="4" name="itemid" value="<?php echo $itemid;?>"/>&n
 <?php foreach($lists as $k=>$v) {?>
 <tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
 <td><input type="checkbox" name="itemid[]" value="<?php echo $v['itemid'];?>"/></td>
-<td><a href="<?php echo $v['caturl'];?>" target="_blank"><?php echo $v['catname'];?></a></td>
+<td><a href="<?php echo $v['caturl'];?>" target="_blank">
+<?php //echo $v['catname'];
+ if(is_array($v['cates'])) { foreach($v['cates'] as $c) { 
+ $catRow = get_cat($c);
+?>
+<a href="<?php echo $MOD['linkurl'].$catRow['linkurl'];?>" target="_blank"><?php  echo $catRow['catname'];?></a><br />
+<?php
+ } }
+
+?></td>
 <td><?php if($v['level']) {?><a href="?moduleid=<?php echo $moduleid;?>&file=<?php echo $file;?>&action=<?php echo $action;?>&level=<?php echo $v['level'];?>"><img src="admin/image/level_<?php echo $v['level'];?>.gif" title="<?php echo $v['level'];?>级" alt=""/></a><?php } ?></td>
 <td><a href="javascript:_preview('<?php echo $v['thumb'];?>');"><img src="<?php echo $v['thumb'] ? $v['thumb'] : DT_SKIN.'image/nopic60.gif';?>" width="60" style="padding:5px;"/></a></td>
 <td align="left">&nbsp;<a href="<?php echo $v['linkurl'];?>" target="_blank" class="t f_b"><?php echo $v['title'];?></a><?php if($v['vip']) {?> <img src="<?php echo DT_SKIN;?>image/vip_<?php echo $v['vip'];?>.gif" title="<?php echo VIP;?>:<?php echo $v['vip'];?>" align="absmiddle"/><?php } ?><br/>

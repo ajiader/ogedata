@@ -277,6 +277,7 @@ class member {
 	}
 
 	function edit($member)	{
+
 		if(!$this->is_member($member)) return false;
 		$member = $this->set_member($member);
 		$r = $this->get_one();
@@ -288,6 +289,7 @@ class member {
 			if(in_array($k, $member_fields)) $member_sql .= ",$k='$v'";
 			if(in_array($k, $company_fields)) $company_sql .= ",$k='$v'";
 		}
+
 		if($member['password']) {
 			$password = md5(md5($member['password']));
 			$member_sql .= ",password='$password'";
