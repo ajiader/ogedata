@@ -17,17 +17,19 @@ h1,h2,h3,h4,h5,h6,strong,b{ font-weight:bold;}
 
 
 .oilicon,.curPosition,.tycut,.newslist li p.title a,.oil_page a,.detailhotw b,dl.oil_cp_list dd.clicklf a,.search_ct_dv input.select_ty,.oil_index_videolist a.leftdirection,.oil_index_videolist a.rightdirection,.oil_index_videolist ul li span a i,.oil_tuwen_gg .gg_title,.mcfy_list,.mcfy_list a,.dtail_rg .rttop .cpjt .kefu_btn,.dtailcut span,.dtailtjpj .dvjia,.dtail_pdf a.download
-,.nr_video ul li span a i,.video_listdv .videocut span,.video_classcut span{ background-image:url(/skin/default/images/oil_icon.png); background-repeat:no-repeat;}
-.oil_header{ height:128px; background-image:url(/skin/default/images/oil_icon.png); background-repeat:repeat; background-position:0px 0px;}
+,.nr_video ul li span a i,.video_listdv .videocut span,.video_classcut span{ background-image:url(images/oil_icon.png); background-repeat:no-repeat;}
+.oil_header{ height:128px; background-image:url(images/oil_icon.png); background-repeat:repeat; background-position:0px 0px;}
 .oil_main{ width:1000px; margin:0 auto;}
-.oil_top{ height:34px; line-height:34px;}
-.oil_top span{ float:left; width:400px;}
-.oil_top span.sprg{ float:right; text-align:right;}
-.oil_top span b,.oil_top span a{ background:url(/skin/default/images/topline.png) no-repeat right top; padding:0 20px; display:inline-block; font-weight:normal; }
+oil_top{ height:34px; line-height:34px;}
+.oil_top div.logindv{ float:left;}
+.oil_top div.jrscdv{ float:right; text-align:right;}
+.oil_top div.jrscdv a{ margin:0 5px;}
+.oil_top div.logindv a,.oil_top div.jrscdv a,.oil_top div.logindv span{ background:url(images/topline.png) no-repeat right top; padding:0 20px; display:inline-block; font-weight:normal; }
+.oil_top div.logindv span{ padding:0 20px 0 0;}
 .oil_top span b{ padding:0 20px 0 0;}
 .oil_top span em{ color:#ff0000;}
 .oil_nav{ height:94px; overflow:hidden;}
-.oil_nav .logo{ float:left; width:214px; height:94px; background:url(/skin/default/images/logo.gif) no-repeat;}
+.oil_nav .logo{ float:left; width:214px; height:94px; background:url(images/logo.gif) no-repeat;}
 .oil_nav .navrg{ width:781px; float:left; padding-left:5px;}
 .oil_nav .menu{ height:43px; line-height:43px;}
 .oil_nav .menu ul li{ float:left; width:78px; text-align:center;}
@@ -39,7 +41,7 @@ h1,h2,h3,h4,h5,h6,strong,b{ font-weight:bold;}
 .oil_nav .searchdv .hotwords a{ display:inline-block; margin:0 6px;}
 .oil_nav .searchdv .sstext{ float:right; padding-top:5px; width:420px;}
 .oil_nav .searchdv .sstext input{ float:left; font-family:"Microsoft Yahei",微软雅黑;}
-.oil_nav .searchdv .sstext input.searchtxt{ width:312px; height:33px; border:2px #ff6600 solid; line-height:33px; background-image:url(/skin/default/images/oil_icon.png); background-repeat:no-repeat; background-position:-476px -136px; padding-left:28px;}
+.oil_nav .searchdv .sstext input.searchtxt{ width:312px; height:33px; border:2px #ff6600 solid; line-height:33px; background-image:url(images/oil_icon.png); background-repeat:no-repeat; background-position:-476px -136px; padding-left:28px;}
 .oil_nav .searchdv .sstext input.searchbtn{ width:75px; background:#ff6600; height:39px; color:#ffffff; font-size:16px; border:0px; cursor:pointer;}
 .curPosition{ height:40px; line-height:40px; background-position:-474px -165px; padding-left:30px; margin:3px 0;}
 .curPosition,.curPosition a{ color:#646464;}
@@ -71,13 +73,13 @@ h1,h2,h3,h4,h5,h6,strong,b{ font-weight:bold;}
 .oilqhcut a:hover{ text-decoration:none;}
 .oillistnw{ padding:0 10px 6px 10px; display:block;}
 .oillistnw li{ height:26px; line-height:26px;}
-.oillistnw li a{ background:url(/skin/default/images/icon1.jpg) no-repeat left center; padding-left:12px;}
-.oillistnw li a:hover{ background:url(/skin/default/images/icon2.jpg) no-repeat left center; text-decoration:none;}
+.oillistnw li a{ background:url(images/icon1.jpg) no-repeat left center; padding-left:12px;}
+.oillistnw li a:hover{ background:url(images/icon2.jpg) no-repeat left center; text-decoration:none;}
 .ulwd li{ width:220px;}
 .oilfooter{ border-top:2px #34559a solid; padding:15px; margin-top:10px;}
 .oilfooter p{ text-align:center; line-height:30px;}
 .detailtop{ padding:15px 0; border:2px #ccd3e5 solid; border-top:3px #34559a solid;}
-.detailh1{ text-align:center; height:56px; line-height:56px; background:url(/skin/default/images/rgtlline.jpg) no-repeat center bottom; font-size:20px;}
+.detailh1{ text-align:center; height:56px; line-height:56px; background:url(images/rgtlline.jpg) no-repeat center bottom; font-size:20px;}
 .detail_info{ text-align:center; padding:10px 0;}
 .detail_content{ padding:10px 15px;}
 .detailcontenthxts{ background:#f3f3f3; padding:10px; line-height:25px; margin:10px;}
@@ -142,7 +144,7 @@ dl.oilbor0{ border-bottom:0px;}
 .search_ct_dv .sc_qd input.lf_sc_btn{ width:100px; height:28px; background:#3d5b9b; color:#ffffff; border:0px; margin-left:10px; font-family:"Microsoft Yahei",微软雅黑; cursor:pointer;}
 .searchhg{ height:243px; overflow:hidden;}
 .searchhotcp{ padding-top:8px;}
-.searchhotcp span{ float:left; width:72px; background:url(/skin/default/images/kh_lf.jpg) no-repeat right 4px; color:#3d5b9b; font-size:14px; height:42px; line-height:42px;}
+.searchhotcp span{ float:left; width:72px; background:url(images/kh_lf.jpg) no-repeat right 4px; color:#3d5b9b; font-size:14px; height:42px; line-height:42px;}
 .searchhotcp span.hotlist{ width:272px; overflow:hidden; background:none; padding-left:10px;}
 .searchhotcp span.hotlist a{ font-size:12px; color:#6a6a6a; line-height:20px; margin:0 0 3px 0; display:inline-block; width:65px;}
 .lfulmg{ padding:0px;}
@@ -159,7 +161,7 @@ dl.oilbor0{ border-bottom:0px;}
 .oil_index_cut em{ padding-left:8px;}
 .oil_index_cut em,.oil_index_cut a{ font-size:12px; color:#b2b2b2;}
 .oil_index_cut .hotvideo{ width:380px; position:absolute; left:200px; top:0px; line-height:37px; font-size:12px; color:#727272;}
-.oil_index_cut .hotvideo span{ padding-right:10px; background:url(/skin/default/images/jtrg.jpg) no-repeat right center; height:37px; color:#3d5b9b;}
+.oil_index_cut .hotvideo span{ padding-right:10px; background:url(images/jtrg.jpg) no-repeat right center; height:37px; color:#3d5b9b;}
 .oil_index_cut .hotvideo a{ margin:0 8px; color:#727272;}
 .oil_index_cut a.amore{ position:absolute; right:10px; top:0px; line-height:37px;}
 .bortop2{ border-top:2px #3d5b9b solid;}
@@ -212,6 +214,7 @@ dl.oilbor0{ border-bottom:0px;}
 .oil_cpsx{ border-bottom:1px #ccd3e4 solid; margin:0 8px 10px 8px; height:40px; line-height:40px; font-size:18px; color:#325194; padding-left:10px;}
 .oil_cpsx span{ color:#666666; font-size:12px;}
 .cpsx_items{ margin:0 10px; border-bottom:1px #ccd3e4 dashed; padding:10px 0;}
+
 .cpsx_items .sx_mc{ float:left; width:50px; font-size:14px;}
 .cpsx_items .sx_rg{ width:650px; float:left;}
 .cpsx_items .sx_rg a{ width:auto; margin-right:10px; color:#325194}
@@ -234,7 +237,7 @@ dl.oilbor0{ border-bottom:0px;}
 .dtail_lf .small_pic{ height:67px; overflow:hidden;}
 .dtail_lf .small_pic a{ display:inline-block; width:83px; height:52px; margin-left:6px; padding-top:5px;}
 .dtail_lf .small_pic a img{ width:83px; height:52px; border:1px #ccd3e4 solid;}
-.dtail_lf .small_pic a.selected{ background:url(/skin/default/images/dtailjt.jpg) no-repeat center top;}
+.dtail_lf .small_pic a.selected{ background:url(images/dtailjt.jpg) no-repeat center top;}
 .dtail_rg{ width:722px; float:right;}
 .dtail_rg .rttop{ height:252px; overflow:hidden; border-bottom:1px #ccd3e4 solid;}
 .dtail_rg .rttop .cpjt{ width:421px; height:252px; border-right:1px #ccd3e4 solid; float:left; padding:0 20px; position:relative;}
@@ -266,7 +269,7 @@ dl.oilbor0{ border-bottom:0px;}
 .dtailtjpj .dvjia{ width:65px; height:22px; float:left; margin-top:30px; background-position:-163px -349px;}
 .dtailcontent img{ width:100%;}
 .dtail_pdf{ padding:10px 15px;}
-.dtail_pdf span{ width:400px; float:left; background:url(/skin/default/images/pdfdt.gif) no-repeat left center; padding-left:75px; height:70px; line-height:70px; font-size:20px; color:#d10000;}
+.dtail_pdf span{ width:400px; float:left; background:url(images/pdfdt.gif) no-repeat left center; padding-left:75px; height:70px; line-height:70px; font-size:20px; color:#d10000;}
 .dtail_pdf a.download{ width:145px; height:56px; font-size:22px; color:#ffffff; padding-left:70px; line-height:52px; background-position:0 -404px; float:right;}
 .dtaillxfs table tr.bg1{ height:25px; line-height:25px;}
 .dtaillxfs table tr.bg1 td{ font-size:16px;}
@@ -281,7 +284,7 @@ dl.oilbor0{ border-bottom:0px;}
 .video_listdv .videocut a.videomore{ float:right; line-height:43px;}
 .video_nr .nr_lf{ width:390px; float:left; height:288px;}
 .video_nr .nr_lf a{ display:block; height:288px; position:relative;}
-.video_nr .nr_lf a span{ position:absolute; bottom:0px; left:0px; width:390px; height:47px; background:url(/skin/default/images/video_cut.png) no-repeat; text-indent:5em; line-height:47px; color:#ffffff;}
+.video_nr .nr_lf a span{ position:absolute; bottom:0px; left:0px; width:390px; height:47px; background:url(images/video_cut.png) no-repeat; text-indent:5em; line-height:47px; color:#ffffff;}
 .video_nr .nr_rg{ width:610px; float:left; height:288px; overflow:hidden;}
 .video_nr .nr_rg ul li,.play_xgsp ul li{ width:187px; margin:0 0 10px 16px;}
 .video_nr .nr_rg ul li span,.play_xgsp ul li span{}
@@ -291,7 +294,7 @@ dl.oilbor0{ border-bottom:0px;}
 .video_nr .nr_rg ul li span a:hover i,.cp_xgsp ul li span a:hover i{ background-position:-368px -417px;}
 .video_play{ background:#383838; height:458px; overflow:hidden;}
 .play_left{ width:675px; float:left; height:458px;}
-.play_right{ width:319px; float:right; background:url(/skin/default/images/play_line.jpg) left repeat-y; height:458px; padding-left:6px;}
+.play_right{ width:319px; float:right; background:url(images/play_line.jpg) left repeat-y; height:458px; padding-left:6px;}
 .play_right .playcut{ height:41px; margin-bottom:15px;}
 .play_right .playcut a{ display:inline-block; width:158px; background:#2f2f2f; color:#e9e9e9; font-size:16px; line-height:40px; border-right:1px #202020 solid; border-bottom:1px #282828 solid; text-align:center;}
 .play_right .playcut a.selected{ background:#383838; border-bottom:1px #383838 solid; color:#ff6600;}
@@ -303,7 +306,7 @@ dl.oilbor0{ border-bottom:0px;}
 .play_right ul.gnnews li span a{ color:#ffffff; margin-bottom:6px; display:block;}
 .play_right ul.gnnews li span p{ color:#7a7a7a;}
 .video_spjs .spjscut{ height:48px; border-bottom:2px #dddddd solid; position:relative; margin-bottom:15px;}
-.video_spjs .spjscut span{ position:absolute; left:0px; bottom:-2px; background:url(/skin/default/images/playcut.jpg) no-repeat left bottom; height:48px; line-height:48px; font-size:18px; width:170px; color:#000000;}
+.video_spjs .spjscut span{ position:absolute; left:0px; bottom:-2px; background:url(images/playcut.jpg) no-repeat left bottom; height:48px; line-height:48px; font-size:18px; width:170px; color:#000000;}
 .video_spjs .spjsnr{ background:#f0f0f0; height:93px; overflow:hidden;}
 .video_spjs .spjsnr img{ width:164px; height:93px; float:left;}
 .video_spjs .spjsnr .nrrg{ width:810px; float:left; padding:8px 0 0 10px;}
@@ -328,14 +331,14 @@ dl.oilbor0{ border-bottom:0px;}
 .cs_itdcn dl dd p.p1{ color:#888888; line-height:28px;}
 .cs_itdcn dl dd p.p2{ padding-top:8px;}
 .cs_itdcn dl dd p.p2 a{ display:inline-block; width:150px; height:43px; background:#325194; border-radius:3px; text-align:center; line-height:43px; font-size:18px; color:#ffffff;}
-.cs_pp_lf{ width:150px; height:139px; padding:0 20px; background:url(/skin/default/images/cs_lfbg.gif) no-repeat; position:relative; float:left;}
+.cs_pp_lf{ width:150px; height:139px; padding:0 20px; background:url(images/cs_lfbg.gif) no-repeat; position:relative; float:left;}
 .cs_pp_lf span{ height:139px;}
 .cs_pp_lf span img{ width:100%;}
-.cs_pp_lf em{ width:52px; height:55px; background:url(/skin/default/images/pp_icon.png) no-repeat; position:absolute; left:-1px; top:-1px;}
+.cs_pp_lf em{ width:52px; height:55px; background:url(images/pp_icon.png) no-repeat; position:absolute; left:-1px; top:-1px;}
 .cs_pp_rg{ width:805px; float:right; padding-top:18px;}
 .pp_list{ float:left; width:187px; height:105px; margin-left:10px; display:inline; text-align:center;}
 .pp_list a{ display:block; height:105px; position:relative;}
-.pp_list a span{ height:26px; background:url(/skin/default/images/pp_cut.png) no-repeat; position:absolute; width:187px; line-height:26px; text-indent:1em; bottom:0px; _bottom:-1px; left:0px; text-align:left; color:#ffffff;}
+.pp_list a span{ height:26px; background:url(images/pp_cut.png) no-repeat; position:absolute; width:187px; line-height:26px; text-indent:1em; bottom:0px; _bottom:-1px; left:0px; text-align:left; color:#ffffff;}
 .cs_ty_dv{ width:324px; float:left;}
 .cs_mg_lfrg{ margin:0 11px; display:inline;}
 .cs_tjpp{ padding:8px 0 10px 0;}
