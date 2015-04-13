@@ -16,7 +16,7 @@ class mall {
 		$this->table_data = $table_data;
 		$this->split = $MOD['split'];
 		$this->db = &$db;
-		$this->fields = array('catid','mycatid','areaid','level','title','style','fee','introduce','goods_type','brand_id','brand','price','amount','thumb','thumb1','thumb2','tag','status','hits','username','editor','addtime','adddate','edittime','editdate','ip','template','linkurl','filepath','elite','note','company','truename','telephone','mobile','address','email','msn','qq','ali','skype','n1','n2','n3','v1','v2','v3','express_1','express_name_1','fee_start_1','fee_step_1','express_2','express_name_2','fee_start_2','fee_step_2','express_3','express_name_3','fee_start_3','fee_step_3');
+		$this->fields = array('catid','catids','mycatid','areaid','level','title','style','fee','introduce','goods_type','brand_id','brand','price','amount','thumb','thumb1','thumb2','tag','status','hits','username','editor','addtime','adddate','edittime','editdate','ip','template','linkurl','filepath','elite','note','company','truename','telephone','mobile','address','email','msn','qq','ali','skype','n1','n2','n3','v1','v2','v3','express_1','express_name_1','fee_start_1','fee_step_1','express_2','express_name_2','fee_start_2','fee_step_2','express_3','express_name_3','fee_start_3','fee_step_3');
     }
 
 	function pass($post) {
@@ -82,6 +82,19 @@ class mall {
 		unset($post['content']);
 		$post = dhtmlspecialchars($post);
 		$post['content'] = addslashes(dsafe($content));
+        if($post['catid']) {
+            $catids = explode(',', substr($post['catid'], 1, -1));
+            $cids = '';
+            foreach($catids as $catid) {
+                $C = get_cat($catid);
+                if($C) {
+                    $catid = $C['parentid'] ? $C['arrparentid'].','.$catid : $catid;
+                    $cids .= $catid.',';
+                }
+            }
+            $cids = array_unique(explode(',', substr(str_replace(',0,', ',', ','.$cids), 1, -1)));
+            $post['catids'] = ','.implode(',', $cids).',';
+        }
 		return array_map("trim", $post);
 	}
 
@@ -98,6 +111,7 @@ class mall {
 			$r = $this->db->get_one("SELECT COUNT(*) AS num FROM {$this->table} WHERE $condition", $cache);
 			$items = $r['num'];
 		}
+
 		$pages = defined('CATID') ? listpages(1, CATID, $items, $page, $pagesize, 10, $MOD['linkurl']) : pages($items, $page, $pagesize);
 		$lists = $catids = $CATS = array();
 		$result = $this->db->query("SELECT * FROM {$this->table} WHERE $condition ORDER BY $order LIMIT $offset,$pagesize", $cache);
@@ -107,9 +121,10 @@ class mall {
 			$r['userurl'] = userurl($r['username']);
 			$r['linkurl'] = $MOD['linkurl'].$r['linkurl'];
 			$catids[$r['catid']] = $r['catid'];
+            $r['cates']= $r['catid'] ? explode(',', substr($r['catid'], 1, -1)) : array();
 			$lists[] = $r;
 		}
-		if($catids) {
+		/*if($catids) {
 			$result = $this->db->query("SELECT catid,catname,linkurl FROM {$this->db->pre}category WHERE catid IN (".implode(',', $catids).")");
 			while($r = $this->db->fetch_array($result)) {
 				$CATS[$r['catid']] = $r;
@@ -120,7 +135,8 @@ class mall {
 					$lists[$k]['caturl'] = $v['catid'] ? $MOD['linkurl'].$CATS[$v['catid']]['linkurl'] : '';
 				}
 			}
-		}
+		}*/
+
 		return $lists;
 	}
 
@@ -148,6 +164,7 @@ class mall {
 
 	function edit($post) {
 		$this->delete($this->itemid, false);
+
 		$post = $this->set($post);
 		$sql = '';
 		foreach($post as $k=>$v) {

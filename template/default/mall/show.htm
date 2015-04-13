@@ -1,29 +1,48 @@
-{template 'headernew'}
+{template 'header'}
 <div class="oil_main">
-	<div class="curPosition">当前位置：<a href="#">首页</a> > <a href="#">新闻专题</a> > <a href="#">国内新闻</a></div>
+	<div class="curPosition">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')} &raquo;{$title}</div>
     <div class="oilbor oilmgbt">
     	<div class="dtail_lf">
-        	<div class="big_pic" id="detailPIC"><div class="dtimg"><img src="images/dt_pic1.jpg" /></div><div class="dtimg"><img src="images/dt_pic2.jpg" /></div><div class="dtimg"><img src="images/dt_pic3.jpg" /></div></div>
-            <div class="small_pic" id="detailA"><a href="#" class="selected"><img src="images/dt_pic1.jpg" /></a><a href="#"><img src="images/dt_pic2.jpg" /></a><a href="#"><img src="images/dt_pic3.jpg" /></a></div>
+        	<div class="big_pic" id="detailPIC">
+            {loop $albums $t}
+            <div class="dtimg"><img src="{$t}" /></div>
+            {/loop}
+            </div>
+            <div class="small_pic" id="detailA">{loop $albums $k $t}<a href="#"{if $k==0} class="selected"{/if}><img src="{$t}" width="85" height="54" /></a>{/loop}</a></div>
         </div>
+        <script language="javascript">
+$(document).ready(function(){
+	$('#tjpjA a').mouseover(function(){
+		$(this).addClass("selected").siblings().removeClass();
+		$("#tjpjDIV > div").eq($('#tjpjA a').index(this)).show().siblings().hide();
+	});
+	$('#detailA a').mouseover(function(){
+		$(this).addClass("selected").siblings().removeClass();
+		$("#detailPIC > .dtimg").eq($('#detailA a').index(this)).show().siblings().hide();
+	});
+});
+</script>
         <div class="dtail_rg">
         	<div class="rttop">
-            	<div class="cpjt">
-                	<h1>单流阀P521623</h1>
-                    <ul>
-                    	<li><span class="sp1">件号</span><span class="sp2">P521623</span></li>
-                        <li><span class="sp1">名称</span><span class="sp2">单流阀 P521623</span></li>
-                        <li><span class="sp1">重量</span><span class="sp2">53千克</span></li>
-                        <li><span class="sp1">尺寸</span><span class="sp2">3寸</span></li>
-                        <li><span class="sp1">品牌</span><span class="sp2">FMC</span></li>
-                    </ul>
-                    <a href="#" class="kefu_btn">在线咨询</a>
+           	  <div class="cpjt">
+               	<h1>{$title}</h1>
+                  <ul>
+                   	  <li><span class="sp1">件号</span><span class="sp2">{$jianhao}</span></li>
+                      <li><span class="sp1">名称</span><span class="sp2">{$title}</span></li>
+                      <li><span class="sp1">重量</span><span class="sp2">{$weight}千克</span></li>
+                      <li><span class="sp1">尺寸</span><span class="sp2">{$size}</span></li>
+                      <li><span class="sp1">品牌</span><span class="sp2">{if $brand_id} <?php $brandRow = getBrandName($brand_id); ?> <a href="{$MODULE[13][linkurl]}{$brandRow['linkurl']}" target="_blank">{$brandRow['title']}</a> {else}未填写{/if}</span></li>
+                  </ul>
+                  <a href="javascript:void(0)" class="kefu_btn" onclick="kefulink()">在线咨询</a>
                 </div>
-                <div class="cp_gg"><a href="#"><img src="images/pic20.jpg" /></a></div>
+                <div class="cp_gg"><a href="#"><img src="{DT_SKIN}images/pic20.jpg" /></a></div>
             </div>
             <div class="cp_xsjs">
             	<ul>
-                	<li><span class="sp1">详细说明</span><span class="sp2">由壬类型: Fig. 1502   压力等级: 15000 PSI   直管长度: 4 ft (1,219 mm)   直管类型: NPS Detachable Nut with Retention Shoulder   英文名称: Pup Joints  </span></li>
+                	<li><span class="sp1">详细说明</span><span class="sp2">
+                    {if $CP}
+{loop $options $o} {$o['name']}: {$values[$o['oid']]} &nbsp;{/loop}
+  {/if} </span></li>
                 </ul>
             </div>
         </div>
@@ -34,31 +53,7 @@
     		<div class="tycut dtailcut"><span>推荐配件</span><div id="tjpjA"><a href="#" class="selected">上游产品</a><a href="#">系统设备</a></div></div>
             <div id="tjpjDIV">
                 <div class="dtailtjpj">
-                    <dl><dt><a href="#"><img src="images/pic21.jpg" /></a></dt><dd><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></dd></dl>
-                    <div class="dvjia"></div>
-                    <dl><dt><a href="#"><img src="images/pic22.jpg" /></a></dt><dd><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></dd></dl>
-                    <div class="dvjia"></div>
-                    <dl><dt><a href="#"><img src="images/dt_pic1.jpg" /></a></dt><dd><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></dd></dl>
-                    <div class="dvjia"></div>
-                    <dl><dt><a href="#"><img src="images/pic21.jpg" /></a></dt><dd><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></dd></dl>
-                    <div class="clear"></div>
-                </div>
-                <div class="dtailtjpj" style="display:none;">
-                    <dl><dt><a href="#"><img src="images/pic22.jpg" /></a></dt><dd><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></dd></dl>
-                    <div class="dvjia"></div>
-                    <dl><dt><a href="#"><img src="images/pic21.jpg" /></a></dt><dd><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></dd></dl>
-                    <div class="dvjia"></div>
-                    <dl><dt><a href="#"><img src="images/dt_pic2.jpg" /></a></dt><dd><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></dd></dl>
-                    <div class="dvjia"></div>
-                    <dl><dt><a href="#"><img src="images/pic22.jpg" /></a></dt><dd><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></dd></dl>
-                    <div class="clear"></div>
-                </div>
-            </div>
-        </div>
-        <div class="oilbor oilmgbt">
-        	<div class="tycut dtailcut"><span>详细介绍</span></div>
-            <div class="dtailtjpj dtailcontent">
-            	<img src="http://www.ogedata.com/file/upload/201503/31/16-50-52-36-7.jpg" />
+            	{$content}
             </div>
         </div>
         <div class="oilbor oilmgbt">
@@ -94,10 +89,11 @@
         	<div class="tycut dtailcut"><span>相关视频</span></div>
             <div class="dtailtjpj nr_video">
             	<ul>
-                    <li><span><a href="#"><img src="images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
-                    <li><span><a href="#"><img src="images/pic12.jpg" /><i></i></a></span><div class="videotitle"><a href="#">全球新探明油气储量或创20年</a></div></li>
-                    <li><span><a href="#"><img src="images/pic13.jpg" /><i></i></a></span><div class="videotitle"><a href="#">北约与国际能源署推进安全合</a></div></li>
-                    <li><span><a href="#"><img src="images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic12.jpg" /><i></i></a></span><div class="videotitle"><a href="#">全球新探明油气储量或创20年</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic13.jpg" /><i></i></a></span><div class="videotitle"><a href="#">北约与国际能源署推进安全合</a></div></li>
+                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
+
                 </ul>
             	<div class="clear"></div>
             </div>
@@ -107,33 +103,23 @@
     	<div class="oilbor oilmgbt">
         	<div class="tycut"><i></i>推荐产品</div>
             <div class="oiltjtw">
-            	<dl><dt><a href="#"><img src="images/pic1.jpg" /></a></dt><dd><a href="#">今年下半年全球油</a></dd></dl>
-                <dl><dt><a href="#"><img src="images/pic2.jpg" /></a></dt><dd><a href="#">雪佛龙把2017年前</a></dd></dl>
-                <dl><dt><a href="#"><img src="images/pic3.jpg" /></a></dt><dd><a href="#">巴西石油公司再遭国际</a></dd></dl>
-                <dl><dt><a href="#"><img src="images/pic4.jpg" /></a></dt><dd><a href="#">全球新探明油气储</a></dd></dl>
+            	<!--{tag("moduleid=$moduleid&length=20&condition=status=3 and level=1 and thumb!=''&pagesize=4&order=".$MOD[order]."&width=105&height=78&target=_blank&template=thumb-dl")}-->
                 <div class="clear"></div>
             </div>
         </div>
-        <div class="oilmgbt"><a href="#"><img src="images/pic23.jpg" /></a></div>
+        <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic23.jpg" /></a></div>
         <div class="oilbor oilmgbt">
         	<div class="tycut oilqhcut"><i></i>最新资讯</div>
             <div class="oiltjtw">
-            	<ul class="oillistnw ulwd">
-                	<li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                    <li><a href="#">委内瑞拉将与中国讨论石油项目融资情况</a></li>
-                    <li><a href="#">国内首个含油废弃物一体化解决方案发布</a></li>
-                    <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                    <li><a href="#">委内瑞拉将与中国讨论石油项资情况</a></li>
-                </ul>
+                	<!--{tag("moduleid=21&condition=status=3&order=addtime desc&pagesize=4&target=_blank&class=oillistnw ulwd")}-->
             </div>
         </div>
         <div class="oilbor oilmgbt">
         	<div class="tycut"><i></i>同类产品</div>
             <div class="oiltjtw">
-            	<dl><dt><a href="#"><img src="images/pic1.jpg" /></a></dt><dd><a href="#">今年下半年全球油</a></dd></dl>
-                <dl><dt><a href="#"><img src="images/pic2.jpg" /></a></dt><dd><a href="#">雪佛龙把2017年前</a></dd></dl>
-                <dl><dt><a href="#"><img src="images/pic3.jpg" /></a></dt><dd><a href="#">巴西石油公司再遭国际</a></dd></dl>
-                <dl><dt><a href="#"><img src="images/pic4.jpg" /></a></dt><dd><a href="#">全球新探明油气储</a></dd></dl>
+
+            	<!--{tag("moduleid=$moduleid&length=20&condition=status=3 and catid=$catid and thumb!=''&pagesize=4&order=".$MOD[order]."&width=105&height=78&target=_blank&template=thumb-dl")}-->
+                
                 <div class="clear"></div>
             </div>
         </div>
@@ -151,38 +137,9 @@
         </div>
     </div>
     <div class="clear"></div>
+
 </div>
-<!-- footer<start>-->
-<div class="oilfooter">
-	<p><a href="#">首页</a> - <a href="#">关于我们</a> - <a href="#">联系我们</a> - <a href="#">申请友链</a> - <a href="#">石油资讯</a> - <a href="#">合作伙伴</a></p>
-    <p>联系电话：028-122324324</p>
-    <p>油气设备数据网   蜀ICP备14023545号-1</p>
 </div>
-<!-- footer<end>-->
-<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
-<script language="javascript">
-jQuery(document).ready(function(){
-	var doc=document,inputs=doc.getElementsByTagName('input'),supportPlaceholder='placeholder'in doc.createElement('input'),placeholder=function(input){var text=input.getAttribute('placeholder'),defaultValue=input.defaultValue;
-	if(defaultValue==''){
-	input.value=text}
-	input.onfocus=function(){
-	if(input.value===text){this.value=''}};
-	input.onblur=function(){if(input.value===''){this.value=text}}};
-	if(!supportPlaceholder){
-	for(var i=0,len=inputs.length;i<len;i++){var input=inputs[i],text=input.getAttribute('placeholder');
-	if(input.type==='text'&& text) {placeholder(input)}}}});
-</script>
-<script language="javascript">
-$(document).ready(function(){
-	$('#tjpjA a').mouseover(function(){
-		$(this).addClass("selected").siblings().removeClass();
-		$("#tjpjDIV > div").eq($('#tjpjA a').index(this)).show().siblings().hide();
-	});
-	$('#detailA a').mouseover(function(){
-		$(this).addClass("selected").siblings().removeClass();
-		$("#detailPIC > .dtimg").eq($('#detailA a').index(this)).show().siblings().hide();
-	});
-});
-</script>
-</body>
-</html>
+
+{template 'footer'}
+

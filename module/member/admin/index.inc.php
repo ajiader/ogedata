@@ -167,6 +167,7 @@ switch($action) {
 					$member['groupid'] = $gid;
 				}
 			}
+
 			if($do->edit($member)) {
 				if($MFD) fields_update($post_fields, $do->table_member, $do->userid, 'userid', $MFD);
 				if($CFD) fields_update($post_fields, $do->table_company, $do->userid, 'userid', $CFD);

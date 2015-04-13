@@ -80,7 +80,8 @@ if(in_array($action, array('', 'check', 'expire', 'reject', 'recycle'))) {
 	if($_childs) $condition .= " AND catid IN (".$_childs.")";//CATE
 	if($_areaids) $condition .= " AND areaid IN (".$_areaids.")";//CITY
 	if($keyword) $condition .= " AND $dfields[$fields] LIKE '%$keyword%'";
-	if($catid) $condition .= ($CAT['child']) ? " AND catid IN (".$CAT['arrchildid'].")" : " AND catid=$catid";
+	//if($catid) $condition .= ($CAT['child']) ? " AND catid IN (".$CAT['arrchildid'].")" : " AND catid=$catid";
+    if($catid) $condition .= " AND catids LIKE '%,".$catid.",%'";
 	if($areaid) $condition .= ($ARE['child']) ? " AND areaid IN (".$ARE['arrchildid'].")" : " AND areaid=$areaid";
 
 	if($level) $condition .= " AND level=$level";
@@ -180,8 +181,7 @@ switch($action) {
 			$menuon = array('5', '4', '2', '1', '3');
 			$menuid = $menuon[$status];
 			$tname = '修改'.$MOD['name'];
-            //$goods_type_list = $gt->getgoodstype();
-            //$goods_attr_html = build_attr_html($goods_type,$itemid);
+            $cates = $catid ? explode(',', substr($catid, 1, -1)) : array();
 			include tpl($action, $module);
 		}
 	break;

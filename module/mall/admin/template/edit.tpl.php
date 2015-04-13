@@ -2,6 +2,7 @@
 defined('IN_DESTOON') or exit('Access Denied');
 include tpl('header');
 show_menu($menus);
+load('profile.js');
 ?>
 <form method="post" action="?" id="dform" onsubmit="return check();">
 <input type="hidden" name="moduleid" value="<?php echo $moduleid;?>"/>
@@ -13,12 +14,25 @@ show_menu($menus);
 <div class="tt"><?php echo $action == 'add' ? '添加' : '修改';?>商品</div>
 <table cellpadding="2" cellspacing="1" class="tb">
 
+
 <tr>
 <td class="tl"><span class="f_red">*</span> 商品分类</td>
-<td><div id="catesch"></div><?php echo ajax_category_select('post[catid]', '', $catid, $moduleid, 'size="2" style="height:120px;width:180px;"');?>
-<br/><input type="button" value="搜索分类" onclick="schcate(<?php echo $moduleid;?>);" class="btn"/> <span id="dcatid" class="f_red"></span></td>
+<td>
+<div id="catesch"></div><div id="cate"><?php echo ajax_category_select('', '', 0, $moduleid, 'size="2" style="height:80px;width:160px;"');?></div>
+<?php $MOD['cate_max'] = '6'; //最多选择个数?>
+<input type="button" value=" 添加↓ " class="btn" onclick="addcate(<?php echo $MOD['cate_max'];?>);"/>
+<input type="button" value=" ×删除 " class="btn" onclick="delcate();"/>
+<?php if($DT['schcate_limit']) { ?><input type="button" class="btn" value=" 搜索 " onclick="schcate(<?php echo $moduleid;?>);"/><?php } ?>
+&nbsp;最多可添加 <strong class="f_red"><?php echo $MOD['cate_max'];?></strong> 个项
+<br/><select name="cates" id="cates" size="2" style="height:100px;width:380px;margin-top:5px;">
+<?php if(is_array($cates)) { foreach($cates as $c) { ?>
+<option value="<?php echo $c;?>"><?php echo strip_tags(cat_pos(get_cat($c), '/'));?></option>
+<?php } } ?>
+</select>
+<input type="hidden" name="post[catid]" value="<?php echo (!empty($catid)) ?strstr($catid, ',')?$catid:','.$catid.',' : '';?>" id="catid"/><br/>
+<span id="dcatid" class="f_red"></span>
+</td>
 </tr>
-
 <tr>
 <td class="tl"><span class="f_red">*</span> 商品名称</td>
 <td><input name="post[title]" type="text" id="title" size="60" value="<?php echo $title;?>"/> <?php echo level_select('post[level]', '级别', $level);?> <?php echo dstyle('post[style]', $style);?> <br/><span id="dtitle" class="f_red"></span></td>
@@ -360,8 +374,14 @@ function check() {
 	var l;
 	var f;
 	f = 'catid_1';
+	/*
 	if(Dd(f).value == 0) {
 		Dmsg('请选择商品分类', 'catid', 1);
+		return false;
+	}
+	*/
+	if(Dd('catid').value.length < 2) {
+		Dmsg('请选择商品分类', 'catid');
 		return false;
 	}
 	f = 'title';

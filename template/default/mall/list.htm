@@ -1,4 +1,4 @@
-{template 'headernew'}
+{template 'header'}
 <div class="oil_main">
 	<div class="curPosition">当前位置：<a href="#">首页</a> > <a href="#">新闻专题</a> > <a href="#">国内新闻</a></div>
 	<div class="oil_tuwen_gg">
@@ -215,34 +215,5 @@
     </div>
     <div class="clear"></div>
 </div>
-<!-- footer<start>-->
-<div class="oilfooter">
+{template 'footer'}
 
-	<p><a href="#">首页</a> - <a href="#">关于我们</a> - <a href="#">联系我们</a> - <a href="#">申请友链</a> - <a href="#">石油资讯</a> - <a href="#">合作伙伴</a></p>
-    <p>联系电话：028-122324324</p>
-    <p>油气设备数据网   蜀ICP备14023545号-1</p>
-</div>
-<!-- footer<end>-->
-<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
-<script language="javascript">
-jQuery(document).ready(function(){
-	var doc=document,inputs=doc.getElementsByTagName('input'),supportPlaceholder='placeholder'in doc.createElement('input'),placeholder=function(input){var text=input.getAttribute('placeholder'),defaultValue=input.defaultValue;
-	if(defaultValue==''){
-	input.value=text}
-	input.onfocus=function(){
-	if(input.value===text){this.value=''}};
-	input.onblur=function(){if(input.value===''){this.value=text}}};
-	if(!supportPlaceholder){
-	for(var i=0,len=inputs.length;i<len;i++){var input=inputs[i],text=input.getAttribute('placeholder');
-	if(input.type==='text'&& text) {placeholder(input)}}}});
-</script>
-<script language="javascript">
-$(document).ready(function(){
-	$('#oilrgqhA a').mouseover(function(){
-		$(this).addClass("selected").siblings().removeClass();
-		$("#oilrgqhUL > ul").eq($('#oilrgqhA a').index(this)).show().siblings().hide();
-	});
-});
-</script>
-</body>
-</html>

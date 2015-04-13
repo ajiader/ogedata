@@ -53,7 +53,9 @@ if($psize > 0 && $psize != $pagesize) {
 if($module == 'destoon') {
 	(include DT_ROOT.'/admin/'.$file.'.inc.php') or msg();
 } else {
+
 	include DT_ROOT.'/module/'.$module.'/common.inc.php';
+    //echo MD_ROOT.'/admin/'.$file.'.inc.php';
 	(include MD_ROOT.'/admin/'.$file.'.inc.php') or msg();
 }
 ?>
