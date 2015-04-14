@@ -1,0 +1,6 @@
+<ul>
+{loop $tags $i $t}
+                    <li><span><a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}><img src="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]} ({$t[hits]}播放)"/><i></i></a></span><div class="videotitle"><a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}>{$t[title]}</a></div>{if $datetype}<div class="sctime">上传时间: {timetodate($t[addtime], $datetype)}</div>{/if}</li>
+                  {/loop}
+                </ul>
+{if $showpage && $pages}<div class="pages">{$pages}</div>{/if}

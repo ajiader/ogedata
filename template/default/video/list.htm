@@ -1,42 +1,63 @@
 {template 'header'}
 <script type="text/javascript">var sh = '{$MOD[linkurl]}search.php?catid={$catid}';</script>
-<div class="m">
-	<table cellpadding="0" cellspacing="0" width="100%">
-	<tr>
-	<td valign="top" class="left_menu">
-		<ul>
-		<li class="{if $CAT[child]}left_menu_on{else}left_menu_li{/if}"><a href="{$MOD[linkurl]}">按分类浏览</a></li>
-		{loop $maincat $k $v}
-		<li class="{if $v[catid]==$catid}left_menu_on{else}left_menu_li{/if}"><a href="{$MOD[linkurl]}{$v[linkurl]}">{if $v[child]}+{else}-{/if}{set_style($v[catname],$v[style])}{if !$cityid}({$v[item]}){/if}</a></li>
-		{/loop}
-		</ul>
-	</td>
-	<td valign="top">
-		<div class="left_box">
-			<div class="pos">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
-			{if $CP}
-			<div class="b10">&nbsp;</div>
-			{loop $PPT $p}
-			<div class="ppt">
-				<table cellpadding="0" cellspacing="0" width="100%">
-				<tr>
-				<td class="ppt_l" valign="top">按{$p[name]}</td>
-				<td class="ppt_r" valign="top">
-				{loop $p[options] $o}
-				<a href="###" onclick="Go(sh+'&ppt_{$p[oid]}={urlencode($o)}');">{$o}</a>&nbsp;|&nbsp;
-				{/loop}
-				</td>
-				</tr>
-				</table>
-			</div>
-			{/loop}
-			{/if}
-			<div class="pd10">
-				<div class="thumb">{if $tags}{template 'list-'.$module, 'tag'}{/if}</div>
-			</div>
-		</div>
-	</td>
-	</tr>
-	</table>
+<div class="oil_main">
+	<div class="curPosition">当前位置：<a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
+    
+	{template 'mall/top_hot'}
+
+    <div class="oil_tyleft oil_cpleft">
+    {if $child}
+    {loop $maincat $k $v}
+    	<div class="oilbor oilmgbt">
+    		<div class="tycut video_classcut"><span><a href="{$MOD[linkurl]}{$v[linkurl]}">{$v[catname]}</a></span>
+            
+            </div>
+            <div class="dtailtjpj nr_video">
+            	<ul>
+                   <!--{tag("moduleid=$moduleid&condition=status=3&catid=".$v[catid]."&areaid=$cityid&order=".$MOD[order]."&length=20&width=187&height=90&pagesize=8&datetype=3&lazy=$lazy&template=list-video2")}-->
+                </ul>
+            	<div class="clear"></div>
+            </div>
+        </div>
+       {/loop}
+       
+       {else}
+       <div class="oilbor oilmgbt">
+    		<div class="tycut video_classcut"><span><a href="{$MOD[linkurl]}{$linkurl}">{$catname}</a></span>
+            
+            </div>
+            <div class="dtailtjpj nr_video">
+            	<ul>
+                   {if $tags}{template 'list-'.$module.'2', 'tag'}{/if}
+                </ul>
+            	<div class="clear"></div>
+            </div>
+        </div>
+       {/if} 
+        
+        
+        
+        
+    </div>
+    <div class="oil_tyright">
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut"><i></i>推荐{$MOD[name]}</div>
+            <div class="oiltjtw">
+            	<ul class="oillistnw ulwd">
+                	<!--{tag("moduleid=$moduleid&condition=status=3 and level>0&catid=$catid&areaid=$cityid&pagesize=5&order=addtime desc&length=20&width=120&height=90&cols=2", -2)}-->
+                </ul>
+            </div>
+        </div>
+        <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic23.jpg" /></a></div>
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut"><i></i>百度百科</div>
+            <div class="oiltjtw">
+            	<ul class="oillistnw ulwd">
+                	<!--{tag("moduleid=24&condition=status=3&areaid=$cityid&pagesize=5&order=rand()&length=20&width=120&height=90&cols=2", -2)}-->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
 </div>
 {template 'footer'}
