@@ -60,8 +60,9 @@ function getBrandName($id,$Trow=1)
 	global $db;
 	$id = intval($id);
 	if ($id>0) {
-		$sql = "SELECT title,linkurl,telephone,thumb,mobile FROM {$db->pre}brand_13 where itemid=$id ";
-		$row = $db->get_one($sql);
+		$sql = "SELECT a.title, a.linkurl, a.telephone, a.thumb, a.company, a.mobile, b.areaname FROM {$db->pre}brand_13 a left join {$db->pre}area  b on a.areaid=b.areaid where a.itemid=$id ";
+        $row = $db->get_one($sql);
+        // print_r($sql);
         if($Trow == 1){return $row;} 
 		else{ return $row['title'];}
 	}

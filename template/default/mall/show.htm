@@ -58,11 +58,13 @@ $(document).ready(function(){
         </div>
         <div class="oilbor oilmgbt">
         	<div class="tycut dtailcut"><span>PDF资料下载</span></div>
-            <div class="dtail_pdf"><span>单流阀 P521623</span><a href="#" class="download">立即下载</a><div class="clear"></div></div>
+            <div class="dtail_pdf"><span>{$title}</span><a href="{$filepaths}" target="_blank" class="download">立即下载</a><div class="clear"></div></div>
         </div>
+        {if $brandRow}
         <div class="oilbor oilmgbt">
         	<div class="tycut dtailcut"><span class="sp1">供货商联系方式</span></div>
             <div class="dtailtjpj dtaillxfs">
+            
             	<table cellpadding="0" cellspacing="0" class="cp_list_table" width="100%">
                 	<tr class="bg1">
                     	<td>国家</td>
@@ -70,29 +72,23 @@ $(document).ready(function(){
                         <td>商家名称</td>
                         <td>联系方式</td>
                     </tr>
+                   
                     <tr>
-                    	<td>美国</td>
+                    	<td>{$brandRow['areaname']}</td>
                         <td>省代</td>
-                        <td>中国石油天然气股份有限公司勘探与生产分公司</td>
-                        <td>(281) 591 4000</td>
+                        <td>{$brandRow['company']}</td>
+                        <td>{if $brandRow['telephone']}<p>{$brandRow['telephone']}</p>{/if} {if $brandRow['mobile']}<p>{$brandRow['mobile']}</p>{/if}</td>
                     </tr>
-                    <tr>
-                    	<td>中国</td>
-                        <td>省代</td>
-                        <td>中国石油天然气股份有限公司天然气与管道分公司</td>
-                        <td>(281) 591 4000</td>
-                    </tr>
+           
                 </table>
             </div>
         </div>
+        {/if}
         <div class="oilbor oilmgbt">
         	<div class="tycut dtailcut"><span>相关视频</span></div>
             <div class="dtailtjpj nr_video">
             	<ul>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic12.jpg" /><i></i></a></span><div class="videotitle"><a href="#">全球新探明油气储量或创20年</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic13.jpg" /><i></i></a></span><div class="videotitle"><a href="#">北约与国际能源署推进安全合</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
+                   <!--{tag("moduleid=14&condition=status=3  and addtime>$addtime&areaid=$cityid&pagesize=4&order=addtime desc&template=list-video2", -2)}-->
 
                 </ul>
             	<div class="clear"></div>
@@ -127,11 +123,7 @@ $(document).ready(function(){
         	<div class="tycut oilqhcut"><i></i>百度百科</div>
             <div class="oiltjtw">
             	<ul class="oillistnw ulwd">
-                	<li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                    <li><a href="#">委内瑞拉将与中国讨论石油项目融资情况</a></li>
-                    <li><a href="#">国内首个含油废弃物一体化解决方案发布</a></li>
-                    <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                    <li><a href="#">委内瑞拉将与中国讨论石油项资情况</a></li>
+                	<!--{tag("moduleid=24&condition=status=3&areaid=$cityid&pagesize=5&order=rand()&length=20&width=120&height=90&cols=2", -2)}-->
                 </ul>
             </div>
         </div>
