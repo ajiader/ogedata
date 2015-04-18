@@ -1,27 +1,18 @@
 {template 'header'}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}index_fdj.css">
 <div class="oil_main">
 	<div class="curPosition">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')} &raquo;{$title}</div>
     <div class="oilbor oilmgbt">
-    	<div class="dtail_lf">
-        	<div class="big_pic" id="detailPIC">
-            {loop $albums $t}
-            <div class="dtimg"><img src="{$t}" /></div>
-            {/loop}
-            </div>
-            <div class="small_pic" id="detailA">{loop $albums $k $t}<a href="#"{if $k==0} class="selected"{/if}><img src="{$t}" width="85" height="54" /></a>{/loop}</a></div>
-        </div>
-        <script language="javascript">
-$(document).ready(function(){
-	$('#tjpjA a').mouseover(function(){
-		$(this).addClass("selected").siblings().removeClass();
-		$("#tjpjDIV > div").eq($('#tjpjA a').index(this)).show().siblings().hide();
-	});
-	$('#detailA a').mouseover(function(){
-		$(this).addClass("selected").siblings().removeClass();
-		$("#detailPIC > .dtimg").eq($('#detailA a').index(this)).show().siblings().hide();
-	});
-});
-</script>
+    	<div class="zoom-section">   	  
+           <div class="zoom-small-image"><a href="{DT_SKIN}images/dt_pic1big.jpg" class="cloud-zoom" id="zoom1" rel="adjustX: 10, adjustY:-4"><img src="{DT_SKIN}images/dt_pic1.jpg" ></a></div>
+           <div class="zoom-desc">
+               <p id="smallpic">
+                   <a href='{DT_SKIN}images/dt_pic1big.jpg' class='cloud-zoom-gallery selected' title='Red' rel="useZoom: 'zoom1', smallImage: '{DT_SKIN}images/dt_pic1.jpg' "><img class="{DT_SKIN}zoom-tiny-image" src="{DT_SKIN}images/dt_pic1.jpg" alt = "Thumbnail 1"></a>
+                   <a href='{DT_SKIN}images/dt_pic2big.jpg' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: '{DT_SKIN}images/dt_pic2.jpg'"><img class="zoom-tiny-image" src="{DT_SKIN}images/dt_pic2.jpg" alt = "Thumbnail 2"></a>                  
+                   <a href='{DT_SKIN}images/dt_pic3big.jpg' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: '{DT_SKIN}images/dt_pic3.jpg' "><img class="zoom-tiny-image" src="{DT_SKIN}images/dt_pic3.jpg" alt = "Thumbnail 3"></a>
+               </p>
+           </div>
+	     </div>
         <div class="dtail_rg">
         	<div class="rttop">
            	  <div class="cpjt">
@@ -52,17 +43,51 @@ $(document).ready(function(){
     	<div class="oilbor oilmgbt">
     		<div class="tycut dtailcut"><span>推荐配件</span><div id="tjpjA"><a href="#" class="selected">上游产品</a><a href="#">系统设备</a></div></div>
             <div id="tjpjDIV">
-                <div class="dtailtjpj">
+            	<div class="dtailtjpj">
+                	<a href="javascript:void(0)" class="leftdirection" id="leftdirectiontjpj"></a>
+                	<div class="tjpj_wai" id="tjpj_list">
+                        <ul>
+                            <li><span><a href="#"><img src="images/pic21.jpg" /></a></span><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></li>
+                            <li><span><a href="#"><img src="images/pic22.jpg" /></a></span><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></li>
+                            <li><span><a href="#"><img src="images/dt_pic1.jpg" /></a></span><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></li>
+                            <li><span><a href="#"><img src="images/pic21.jpg" /></a></span><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></li>
+                            <li><span><a href="#"><img src="images/dt_pic1.jpg" /></a></span><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></li>
+                            <li><span><a href="#"><img src="images/pic21.jpg" /></a></span><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></li>
+                        </ul>
+                    </div>
+                    <a href="javascript:void(0)" class="rightdirection" id="rightdirectiontjpj"></a>
+                </div>
+                <div class="dtailtjpj" style="display:none;">
+                    <a href="javascript:void(0)" class="leftdirection" id="leftdirectiontjpjone"></a>
+                	<div class="tjpj_wai" id="tjpj_listone">
+                        <ul>
+                            <li><span><a href="#"><img src="images/pic21.jpg" /></a></span><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></li>
+                            <li><span><a href="#"><img src="images/pic22.jpg" /></a></span><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></li>
+                            <li><span><a href="#"><img src="images/dt_pic1.jpg" /></a></span><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></li>
+                            <li><span><a href="#"><img src="images/pic21.jpg" /></a></span><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></li>
+                            <li><span><a href="#"><img src="images/dt_pic1.jpg" /></a></span><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></li>
+                            <li><span><a href="#"><img src="images/pic21.jpg" /></a></span><h2><a href="#">直管 P508591</a></h2><p>提供三种主要的类型，这些坚固耐用的阀...</p></li>
+                        </ul>
+                    </div>
+                    <a href="javascript:void(0)" class="rightdirection" id="rightdirectiontjpjone"></a>
+                </div>
+            </div>
+        </div>
+        <div class="oilbor oilmgbt">
+        	<div class="tycut dtailcut"><span>详细介绍</span></div>
+            <div class="dtailtjpj dtailcontent">
             	{$content}
             </div>
         </div>
         <div class="oilbor oilmgbt">
         	<div class="tycut dtailcut"><span>PDF资料下载</span></div>
-            <div class="dtail_pdf"><span>单流阀 P521623</span><a href="#" class="download">立即下载</a><div class="clear"></div></div>
+            <div class="dtail_pdf"><span>{$title}</span><a href="{$filepaths}" target="_blank" class="download">立即下载</a><div class="clear"></div></div>
         </div>
+        {if $brandRow}
         <div class="oilbor oilmgbt">
         	<div class="tycut dtailcut"><span class="sp1">供货商联系方式</span></div>
             <div class="dtailtjpj dtaillxfs">
+            
             	<table cellpadding="0" cellspacing="0" class="cp_list_table" width="100%">
                 	<tr class="bg1">
                     	<td>国家</td>
@@ -70,29 +95,23 @@ $(document).ready(function(){
                         <td>商家名称</td>
                         <td>联系方式</td>
                     </tr>
+                   
                     <tr>
-                    	<td>美国</td>
+                    	<td>{$brandRow['areaname']}</td>
                         <td>省代</td>
-                        <td>中国石油天然气股份有限公司勘探与生产分公司</td>
-                        <td>(281) 591 4000</td>
+                        <td>{$brandRow['company']}</td>
+                        <td>{if $brandRow['telephone']}<p>{$brandRow['telephone']}</p>{/if} {if $brandRow['mobile']}<p>{$brandRow['mobile']}</p>{/if}</td>
                     </tr>
-                    <tr>
-                    	<td>中国</td>
-                        <td>省代</td>
-                        <td>中国石油天然气股份有限公司天然气与管道分公司</td>
-                        <td>(281) 591 4000</td>
-                    </tr>
+           
                 </table>
             </div>
         </div>
+        {/if}
         <div class="oilbor oilmgbt">
         	<div class="tycut dtailcut"><span>相关视频</span></div>
             <div class="dtailtjpj nr_video">
             	<ul>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic12.jpg" /><i></i></a></span><div class="videotitle"><a href="#">全球新探明油气储量或创20年</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic13.jpg" /><i></i></a></span><div class="videotitle"><a href="#">北约与国际能源署推进安全合</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
+                   <!--{tag("moduleid=14&condition=status=3  and addtime>$addtime&areaid=$cityid&pagesize=4&order=addtime desc&template=list-video2", -2)}-->
 
                 </ul>
             	<div class="clear"></div>
@@ -124,14 +143,10 @@ $(document).ready(function(){
             </div>
         </div>
         <div class="oilbor oilmgbt">
-        	<div class="tycut oilqhcut"><i></i>百度百科</div>
+        	<div class="tycut oilqhcut"><i></i>石油百科</div>
             <div class="oiltjtw">
             	<ul class="oillistnw ulwd">
-                	<li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                    <li><a href="#">委内瑞拉将与中国讨论石油项目融资情况</a></li>
-                    <li><a href="#">国内首个含油废弃物一体化解决方案发布</a></li>
-                    <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                    <li><a href="#">委内瑞拉将与中国讨论石油项资情况</a></li>
+                	<!--{tag("moduleid=24&condition=status=3&areaid=$cityid&pagesize=5&order=rand()&length=20&width=120&height=90&cols=2", -2)}-->
                 </ul>
             </div>
         </div>
@@ -140,6 +155,59 @@ $(document).ready(function(){
 
 </div>
 </div>
-
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.min.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/cloud-zoom.1.0.2.min.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.scrollbox.js"></script>
+<script language="javascript">
+$(document).ready(function(){
+	$('#tjpjA a').mouseover(function(){
+		$(this).addClass("selected").siblings().removeClass();
+		$("#tjpjDIV > div").eq($('#tjpjA a').index(this)).show().siblings().hide();
+	});
+	$('#detailA a').mouseover(function(){
+		$(this).addClass("selected").siblings().removeClass();
+		$("#detailPIC > .dtimg").eq($('#detailA a').index(this)).show().siblings().hide();
+	});
+	$('#tjpj_list').scrollbox({
+		autoPlay: true,
+		direction: 'h',
+		distance: 175
+	});
+	$('#leftdirectiontjpj').click(function () {
+		$('#video_list').trigger('backward');
+	});
+	$('#rightdirectiontjpj').click(function () {
+		$('#tjpj_list').trigger('forward');
+	});
+	$('#tjpj_listone').scrollbox({
+		autoPlay: true,
+		direction: 'h',
+		distance: 175
+	});
+	$('#leftdirectiontjpjone').click(function () {
+		$('#tjpj_listone').trigger('backward');
+	});
+	$('#rightdirectiontjpjone').click(function () {
+		$('#tjpj_listone').trigger('forward');
+	});
+});
+</script>
+<script language="javascript">
+window.onload=function()
+{
+	var smallpic=document.getElementById("smallpic").getElementsByTagName("a");
+	for(var i=0; i<smallpic.length; i++)
+	{
+		smallpic[i].onclick=function()
+		{
+			for(var j=0; j<smallpic.length; j++)
+			{
+				smallpic[j].className="cloud-zoom-gallery";
+			}
+			this.className="cloud-zoom-gallery selected";	
+		}
+	}	
+}
+</script>
 {template 'footer'}
 

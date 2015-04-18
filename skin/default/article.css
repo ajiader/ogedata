@@ -3,9 +3,9 @@
 	This is NOT a freeware, use is subject to license.txt
 */
 /* article && quote*/
-.headline {background:#FFFFFF;padding:0 10px 5px 10px;border-bottom:#DDDDDD 1px solid;}
+.headline {background:#FFFFFF;padding:0 10px 5px 10px;border-bottom:#DDDDDD 1px solid; margin-bottom:8px;}
 .headline h2 {text-align:center;font-size:16px;margin:0;height:30px;line-height:30px;overflow:hidden;}
-.headline span {color:#225588;}
+.headline span {color:#325194;}
 .headline div {line-height:22px;height:22px;overflow:hidden;}
 .subline li {height:26px;line-height:26px;overflow:hidden;font-size:14px;padding:0 10px 0 10px;}
 .subline span {color:#666666;}
@@ -21,3 +21,10 @@
 .subtitle li {width:50%;height:24px;overflow:hidden;float:left;}
 .rank_list ul li{ background:url('image/li_dot.gif') no-repeat left center; line-height:22px; padding-left:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; position:relative;}
 .rank_list ul li span{ position:absolute; right:5px; top:0px; line-height:22px; color:#999999;}
+.header_pd_tp{ padding-top:10px;}
+.articlecut{ position:relative;}
+.articlecut span{ position:absolute; right:8px; top:0px; line-height:40px; font-size:12px;}
+.articlecut span a{ color:#999999;}
+.article_list_li{ padding:0 8px 6px 8px;}
+.flll_td tr td{ padding-left:10px;}
+.flll_td tr td a{ border:1px #ececec solid; padding:0 2px;}

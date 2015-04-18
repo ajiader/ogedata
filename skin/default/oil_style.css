@@ -16,11 +16,11 @@ h1,h2,h3,h4,h5,h6{ font-weight:bold;}
 h1,h2,h3,h4,h5,h6,strong,b{ font-weight:bold;}
 
 
-.oilicon,.curPosition,.tycut,.newslist li p.title a,.oil_page a,.detailhotw b,dl.oil_cp_list dd.clicklf a,.search_ct_dv input.select_ty,.oil_index_videolist a.leftdirection,.oil_index_videolist a.rightdirection,.oil_index_videolist ul li span a i,.oil_tuwen_gg .gg_title,.mcfy_list,.mcfy_list a,.dtail_rg .rttop .cpjt .kefu_btn,.dtailcut span,.dtailtjpj .dvjia,.dtail_pdf a.download
+.oilicon,.curPosition,.tycut,.newslist li p.title a,.oil_page a,.detailhotw b,dl.oil_cp_list dd.clicklf a,.search_ct_dv input.select_ty,a.leftdirection,a.rightdirection,.oil_index_videolist ul li span a i,.oil_tuwen_gg .gg_title,.mcfy_list,.mcfy_list a,.dtail_rg .rttop .cpjt .kefu_btn,.dtailcut span,.dtailtjpj .dvjia,.dtail_pdf a.download
 ,.nr_video ul li span a i,.video_listdv .videocut span,.video_classcut span{ background-image:url(images/oil_icon.png); background-repeat:no-repeat;}
 .oil_header{ height:128px; background-image:url(images/oil_icon.png); background-repeat:repeat; background-position:0px 0px;}
 .oil_main{ width:1000px; margin:0 auto;}
-oil_top{ height:34px; line-height:34px;}
+.oil_top{ height:34px; line-height:34px;}
 .oil_top div.logindv{ float:left;}
 .oil_top div.jrscdv{ float:right; text-align:right;}
 .oil_top div.jrscdv a{ margin:0 5px;}
@@ -63,7 +63,8 @@ oil_top{ height:34px; line-height:34px;}
 .oil_tyright{ width:243px; float:right;}
 .oilbor{ border:1px #ccd3e5 solid;}
 .oiltjtw dl{ width:110px; float:left; overflow:hidden; margin:0 0 0 7px; display:inline;}
-.oiltjtw dl dt{ width:104px; height:78px; padding:2px; border:1px #ccd3e5 solid;}
+.oiltjtw dl dt{ width:104px; padding:2px; border:1px #ccd3e5 solid;}
+.oiltjtw dl dt img{ width:100%;}
 .oiltjtw dl dd{ line-height:30px; text-align:center; width:110px;}
 .overflowtxt,.oiltjtw dl dd,.ulwd li,.detailtjzx li,.oil_cp_listdv dl dd.qhnr ul li p,dl.oil_cp_list dt,.searchhotcp span.hotlist a,.ulwdrg li,.oil_index_videolist ul li div.videotitle,.zt_dl dd h2,.oil_tuwen_gg .gg_cp_list .lt_items .nrdv h2,.oil_tuwen_gg .gg_news ul li{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
 .oilmgbt{ margin-bottom:10px;}
@@ -170,9 +171,9 @@ dl.oilbor0{ border-bottom:0px;}
 .oil_ct_rg .imgalign{ text-align:center; padding:10px 0; _padding:14px 0;}
 .ulwdrg li{ width:180px;}
 .oil_index_videolist{ padding:10px 15px 10px 20px; height:122px;}
-.oil_index_videolist a.leftdirection,.oil_index_videolist a.rightdirection{ float:left; height:122px; width:20px; height:40px; margin-top:38px;}
-.oil_index_videolist a.leftdirection{ background-position:-393px -135px;}
-.oil_index_videolist a.rightdirection{ background-position:-417px -135px;}
+a.leftdirection,a.rightdirection{ float:left; height:122px; width:20px; height:40px; margin-top:38px;}
+a.leftdirection{ background-position:-393px -135px;}
+a.rightdirection{ background-position:-417px -135px;}
 .oil_index_videolist .listwai{ width:880px; overflow:hidden; margin:0 20px; float:left; position:relative;}
 .oil_index_videolist .listwai ul{ width:20000px; height:115px; overflow:hidden;}
 .oil_index_videolist .listwai ul li,.nr_video ul li{ width:160px; float:left; margin-right:20px;}
@@ -237,7 +238,7 @@ dl.oilbor0{ border-bottom:0px;}
 .dtail_lf .small_pic{ height:67px; overflow:hidden;}
 .dtail_lf .small_pic a{ display:inline-block; width:83px; height:52px; margin-left:6px; padding-top:5px;}
 .dtail_lf .small_pic a img{ width:83px; height:52px; border:1px #ccd3e4 solid;}
-.dtail_lf .small_pic a.selected{ background:url(images/dtailjt.jpg) no-repeat center top;}
+.dtail_lf .small_pic a.selected{ background:url(../images/dtailjt.jpg) no-repeat center top;}
 .dtail_rg{ width:722px; float:right;}
 .dtail_rg .rttop{ height:252px; overflow:hidden; border-bottom:1px #ccd3e4 solid;}
 .dtail_rg .rttop .cpjt{ width:421px; height:252px; border-right:1px #ccd3e4 solid; float:left; padding:0 20px; position:relative;}
@@ -258,14 +259,16 @@ dl.oilbor0{ border-bottom:0px;}
 .dtailcut div{ position:absolute; width:260px; left:150px; top:5px;}
 .dtailcut div a{ display:inline-block; padding:0 10px; color:#325194; height:35px; line-height:35px; font-size:14px; margin-right:10px;}
 .dtailcut div a.selected{ border:1px #ccd3e4 solid; background:#ffffff; border-bottom:0px;}
+.dtailtjpj{ overflow:hidden; padding:8px 8px 0 15px;}
 .dtailtjpj{ overflow:hidden; padding:8px 8px 0 8px;}
-.dtailtjpj dl{ width:130px; float:left; height:170px; }
-.dtailtjpj dl dt{ width:128px; height:94px; overflow:hidden; border:1px #ccd3e4 solid; margin-bottom:5px;}
-.dtailtjpj dl dt img{ width:128px; height:94px;}
-.dtailtjpj dl dd{ width:130px;}
-.dtailtjpj dl dd h2{ font-size:14px; font-weight:normal;}
-.dtailtjpj dl dd h2 a{ color:#325194;}
-.dtailtjpj dl dd p{ line-height:20px; color:#666666;}
+.dtailtjpj .tjpj_wai{ width:625px; float:left; overflow:hidden; height:170px; position:relative; margin:0 20px;}
+.dtailtjpj .tjpj_wai ul{ width:2000px; overflow:hidden; height:170px;}
+.dtailtjpj .tjpj_wai ul li{ width:130px; float:left; height:170px; padding-right:35px;  background-position:-172px -349px;}
+.dtailtjpj .tjpj_wai ul li span{ display:block; width:128px; height:94px; overflow:hidden; border:1px #ccd3e4 solid; margin-bottom:5px;}
+.dtailtjpj .tjpj_wai ul li span img{ width:128px; height:94px;}
+.dtailtjpj .tjpj_wai ul li h2{ font-size:14px; font-weight:normal;}
+.dtailtjpj .tjpj_wai ul li h2 a{ color:#325194;}
+.dtailtjpj .tjpj_wai ul li p{ line-height:20px; color:#666666;}
 .dtailtjpj .dvjia{ width:65px; height:22px; float:left; margin-top:30px; background-position:-163px -349px;}
 .dtailcontent img{ width:100%;}
 .dtail_pdf{ padding:10px 15px;}
@@ -344,3 +347,6 @@ dl.oilbor0{ border-bottom:0px;}
 .cs_tjpp{ padding:8px 0 10px 0;}
 .cs_tjpp .pp_list{ margin-left:9px;}
 .cp_xgsp ul li{ margin:0 0 0 11px;}
+.news_index_ulheader li,.article_list_li li{ position:relative; height:26px; line-height:26px; font-size:14px;}
+.news_index_ulheader li a{ color:#3d5b9b;}
+.news_index_ulheader li span,.article_list_li li span{ position:absolute; right:0px; top:0px; line-height:26px; color:#999999; font-family: Verdana,Arial; font-size:12px;}
