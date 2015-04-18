@@ -83,7 +83,13 @@
         	<div class="tycut dtailcut"><span>PDF资料下载</span></div>
             <div class="dtail_pdf"><span>{$title}</span><a href="{$filepaths}" target="_blank" class="download">立即下载</a><div class="clear"></div></div>
         </div>
-        {if $brandRow}
+        <?php
+        if($username){ $malluid = get_user($username); }
+        ?>
+        {if $malluid > 0 }
+        <!--{php $tags=tag("table=comchild&condition=userid=$malluid&order=listorder desc&template=null");}-->
+        {/if}
+        {if $tags}
         <div class="oilbor oilmgbt">
         	<div class="tycut dtailcut"><span class="sp1">供货商联系方式</span></div>
             <div class="dtailtjpj dtaillxfs">
@@ -95,14 +101,14 @@
                         <td>商家名称</td>
                         <td>联系方式</td>
                     </tr>
-                   
+                   {loop $tags $t}
                     <tr>
-                    	<td>{$brandRow['areaname']}</td>
-                        <td>省代</td>
-                        <td>{$brandRow['company']}</td>
-                        <td>{if $brandRow['telephone']}<p>{$brandRow['telephone']}</p>{/if} {if $brandRow['mobile']}<p>{$brandRow['mobile']}</p>{/if}</td>
+                    	<td>{$t['country']}</td>
+                        <td>{$t['level']}</td>
+                        <td>{$t['comname']}</td>
+                        <td>{$t['tel']}</td>
                     </tr>
-           
+           {/loop}
                 </table>
             </div>
         </div>
