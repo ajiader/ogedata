@@ -1,0 +1,118 @@
+/*  
+Theme Name: Airos Chou
+Theme URI: http://www.sunflowamedia.com
+Download by http://www.codefans.net
+Description: Web Design examples
+*/
+
+/* This is the moving lens square underneath the mouse pointer. */
+.cloud-zoom-lens {
+	border: 2px solid #ccd3e4 ;
+	margin: -1px;	/* Set this to minus the border thickness. */
+	background-color: #fff;	
+	cursor: move;		
+}
+
+/* This is for the title text. */
+.cloud-zoom-title {
+	font-family: Arial, Helvetica, sans-serif;
+	position: absolute !important;
+	background-color: #000;
+	color: #fff;
+	padding: 3px;
+	width: 100%;
+	text-align: center;	
+	font-weight: bold;
+	font-size: 10px;
+	top: 0px;
+}
+
+/* This is the zoom window. */
+.cloud-zoom-big {
+	border: 1px solid #ccd3e4;
+	overflow: hidden;
+}
+
+/* This is the loading message. */
+.cloud-zoom-loading {
+	color: white;	
+	background: #222;
+	padding: 3px;
+	border: 1px solid #000;
+}
+
+/*--------------------------------------------
+container
+--------------------------------------------*/
+div.examples_body {
+     width: 750px;
+	 margin: 20px auto 100px auto;
+	 overflow: hidden;
+}
+h2.title_name {
+     font-family: 'Times New Roman',Times,serif;
+	 font-weight: normal;
+     font-size: 4em;
+     padding: 50px 0 20px 0;
+	 margin: 0;
+     text-align: center;
+	 color: #FFF;
+}
+h2.title_name span {
+     font-family: 'Times New Roman',Times,serif;
+     color: #f9f66d;
+	 font-size: 0.9em;
+	 font-style: normal;
+	 font-size-adjust: none;
+     font-weight: normal;
+     line-height: normal;
+}
+h2.title_name small {
+     color: #505e70;
+     display: block;
+     font-family: normal Verdana,Arial,Helvetica,sans-serif;
+     font-size: 0.19em;
+     letter-spacing: 1.0em;
+	 font-weight: bold;
+     line-height: normal;
+     text-transform: uppercase;
+	 padding: 3px 0 0 0;
+}
+
+/*--------------------------------------------*/
+.zoom-section {
+     width: 275px;
+     float:left;
+	 border-right:1px #ccd3e4 solid;
+	 height:318px;
+}
+.zoom-small-image {
+	 height:242px;
+}
+.zoom-tiny-image {
+     border: 1px solid #CCCCCC;
+     margin: 0;
+}
+.zoom-tiny-image:hover {
+     border: 1px solid #f9f66d;
+}
+#maincontent a {}
+.zoom-desc {
+     height:67px; 
+}
+.zoom-desc p a.selected{ background:url(images/dtailjt.jpg) no-repeat center top;}
+.zoom-desc p a{ display:inline-block; width:83px; height:52px; margin-left:4px; padding-top:5px;}
+.zoom-desc p a img{ width:83px; height:52px; border:1px #ccd3e4 solid;}
+.zoom-desc a img{ width:83px; height:52px; border:1px #ccd3e4 solid;}
+.zoom-section h3 {
+     color: #f9f66d;
+     font-size: 130%;
+     letter-spacing: 1px;
+	 padding-bottom: 15px;
+	 background: url(http://sunflowamedia.com/images/solid-line-news.gif) repeat-x bottom;
+}
+.zoom-desc p {
+     line-height: 140%;
+     margin-bottom: 10px;
+	 color: #FFF;
+}
