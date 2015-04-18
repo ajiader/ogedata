@@ -1,12 +1,12 @@
 {template 'header'}
-<div class="syct">
-	<div class="list_lf">
+<div class="m">
+	<div class="oil_tyleft detailbor0">
 
 		{if $MOD[page_icat]}
 		<table cellpadding="0" cellspacing="0" width="100%">
 		{loop $maincat $i $c}
 		{if $i%2==0}<tr>{/if}
-		<td valign="top" width="355">
+		<td valign="top" width="365">
 			<div class="b10"></div>
 			<div class="box_head"><span class="f_r"><a href="{$MOD[linkurl]}{$c[linkurl]}">更多&raquo;</a></span><strong>{$c[catname]}</strong></div>	
 			<div class="box_body thumb">			<!--{tag("moduleid=$moduleid&condition=status=3&areaid=$cityid&catid=".$c[catid]."&pagesize=".$MOD[page_icat]."&order=".$MOD[order]."&width=120&height=40&cols=2&target=_blank&lazy=$lazy&template=thumb-brand")}-->
@@ -18,7 +18,7 @@
 		</table>
 		{/if}
 	</div>
-	<div class="list_rg">
+	<div class="oil_tyright">
     	<div class="listrg">
             <div class="box_head">按分类浏览</div>
             <div class="box_body">
@@ -47,7 +47,7 @@
 		<div class="listrg">
 			{if $MOD[page_irec]}
             <div class="box_head">推荐{$MOD[name]}</div>
-                <div class="box_body">
+                <div class="box_body" style="padding:8px 0;">
                 <!--{php $tags = tag("moduleid=$moduleid&condition=status=3 and level>0&areaid=$cityid&pagesize=".$MOD[page_irec]."&order=".$MOD[order]."&cols=4&target=_blank&template=null")}-->
 				{loop $tags $i $t}
                 	<div class="tjpp_hot_rg">

@@ -1,6 +1,6 @@
 {template 'header'}
 <div class="m">
-	<div class="m_l f_l">
+	<div class="oil_tyleft detailbor0">
 		{if $MOD[page_irec]}
 		<div class="box_head"><strong class="px13">&raquo; 推荐{$MOD[name]}</strong></div>
 		<div class="box_body">
@@ -13,7 +13,7 @@
 		<table cellpadding="0" cellspacing="0" width="100%">
 		{loop $maincat $i $c}
 		{if $i%2==0}<tr>{/if}
-		<td valign="top" width="330">
+		<td valign="top" width="365">
 			<div class="b10"></div>
 			<div class="box_head"><span class="f_r"><a href="{$MOD[linkurl]}{$c[linkurl]}">更多&raquo;</a></span><strong>{$c[catname]}</strong></div>
 			<div class="box_body"><div class="thumbb"><!--{tag("moduleid=$moduleid&condition=status=3&catid=".$c[catid]."&areaid=$cityid&order=".$MOD[order]."&pagesize=".$MOD[page_icat]."&length=30&datetype=2&template=list-down&target=_blank")}--></div></div>
@@ -24,8 +24,7 @@
 		</table>
 		{/if}
 	</div>
-	<div class="m_n f_l">&nbsp;</div>
-	<div class="m_r f_l">
+	<div class="oil_tyright">
 		<div class="box_head"><div><strong>按分类浏览</strong></div></div>
 		<div class="box_body">
 		<table width="100%" cellpadding="3">
