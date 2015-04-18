@@ -79,7 +79,7 @@ for($i = 0; $i < 11; $i++) {
 <td><?php echo $v['capital'] ? $v['capital'].'万'.$v['regunit'] : '未填';?></td>
 <td><img src="<?php echo DT_SKIN;?>image/vip_<?php echo $v['vip'];?>.gif"/></td>
 <td><?php echo $v['hits'];?></td>
-<td><a href="javascript:void(0)" onclick="Dwidget('?file=?moduleid=4&file=vip', '[公司默认分类]扩展属性');">下级代理商</a></td>
+<td><a href="javascript:void(0)" onclick="Dwidget('?moduleid=4&file=child&userid=<?php echo $v['userid'];?>', '[<?php echo $v['company'];?>下级代理商]管理');">下级代理商</a></td>
 <td><a href="?moduleid=2&action=edit&userid=<?php echo $v['userid'];?>"><img src="admin/image/edit.png" width="16" height="16" title="修改会员[<?php echo $v['username'];?>]资料" alt=""/></a>&nbsp;
 <a href="?moduleid=2&action=show&userid=<?php echo $v['userid'];?>"><img src="admin/image/view.png" width="16" height="16" title="会员[<?php echo $v['username'];?>]详细资料" alt=""/></a>&nbsp;
 <a href="?moduleid=2&action=login&userid=<?php echo $v['userid'];?>" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
