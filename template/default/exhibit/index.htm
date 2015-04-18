@@ -1,7 +1,8 @@
 {template 'header'}
-<div class="syct">
-	<div class="bsdlf">
-		<table cellpadding="4" cellspacing="1" width="100%" bgcolor="#DDDDDD" class="zhtable">
+
+<div class="m">
+	<div class="oil_tyleft detailbor0">
+		<table cellpadding="4" cellspacing="1" width="100%" bgcolor="#DDDDDD" class="zhtable oilbor">
 		<tr bgcolor="#FAFAFA" align="center">
 		{php for($i=1;$i<13;$i++){ $j = $i<10 ? '0'.$i : $i;}
 		<td{if $j==date('m')} bgcolor="#E0E0E0"{/if}><a href="{$MOD[linkurl]}{rewrite('search.php?month='.$i)}" rel="nofollow">{$j}月</a></td>
@@ -47,7 +48,7 @@
 		{/loop}
 
 	</div>
-	<div class="list_rg">
+	<div class="oil_tyright">
 		{if $news_id}
 		{if $MOD[cat_news_num]}
         <!--<div class="listrg">

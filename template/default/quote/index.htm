@@ -1,6 +1,6 @@
 {template 'header'}
-<div class="m">
-	<div class="m_l f_l">
+<div class="m" style="padding-top:10px;">
+	<div class="oil_tyleft detailbor0">
 		<table cellpadding="0" cellspacing="0" width="100%">
 		<tr>
 			<td valign="top" width="330">
@@ -48,7 +48,7 @@
 		<table cellpadding="0" cellspacing="0" width="100%">
 		{loop $maincat $i $c}
 		{if $i%2==0}<tr>{/if}
-		<td valign="top" width="330">
+		<td valign="top" width="365">
 			<div class="b10"></div>
 			<div class="box_head"><span class="f_r"><a href="{$MOD[linkurl]}{$c[linkurl]}">更多&raquo;</a></span><strong>{$c[catname]}</strong></div>
 			<div class="box_body li_dot f_gray"><!--{tag("moduleid=$moduleid&catid=".$c[catid]."&areaid=$cityid&condition=status=3&order=".$MOD[order]."&pagesize=".$MOD[page_icat]."&datetype=2&target=_blank")}--></div>			
@@ -59,8 +59,8 @@
 		</table>
 		{/if}
 	</div>
-	<div class="m_n f_l">&nbsp;</div>
-	<div class="m_r f_l">
+
+	<div class="oil_tyright">
 		<div class="box_head"><div><strong>本周关注排行</strong></div></div>
 		<div class="box_body">
 			<div class="rank_list">

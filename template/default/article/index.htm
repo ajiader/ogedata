@@ -21,7 +21,6 @@
 		</td>
 		</tr>
 		</table>
-		<div class="c_b oilmgbt"></div>
 		{if $MOD[page_icat]}
 		<table cellpadding="0" cellspacing="0" width="100%">
 		{loop $childcat $i $c}
@@ -29,7 +28,7 @@
 		<td valign="top" width="365">
 			<div class="oilbor oilmgbt">
                 <div class="tycut articlecut"><i></i>{$c[catname]}<span class="f_r"><a href="{$MOD[linkurl]}{$c[linkurl]}">更多&raquo;</a></span></div>
-                <div class="oillistnw lfulmg article_list_li"><!--{tag("moduleid=$moduleid&catid=".$c[catid]."&condition=status=3&areaid=$cityid&order=".$MOD[order]."&pagesize=".$MOD[page_icat]."&datetype=2&target=_blank")}--></div>	
+                <div class="oillistnw lfulmg article_list_li"><!--{tag("moduleid=$moduleid&length=40&catid=".$c[catid]."&condition=status=3&areaid=$cityid&order=".$MOD[order]."&pagesize=".$MOD[page_icat]."&datetype=2&target=_blank")}--></div>	
             </div>		
 		</td>
 		{if $i%2==0}<td>&nbsp;</td>{/if}
@@ -42,7 +41,7 @@
     	<div class="oilbor oilmgbt">
 		{if $MOD[show_icat]}
 		<div class="tycut"><i></i>按分类浏览</div>
-		<div class="box_body">
+		<div>
 		<table width="100%" cellpadding="3" class="flll_td">
 		{loop $maincat $k $v}
 		{if $k%2==0}<tr>{/if}
