@@ -1,0 +1,33 @@
+<div class="oilmgbt cp_class_db">
+        	<div class="cpdbdv"><span class="cpdb_sp"><a href="#">产<br />品<br />对<br />比</a></span></div>
+        	<table cellpadding="0" cellspacing="0" class="cp_list_table">
+    			<tbody>
+                <tr class="bg1">
+                	<td width="40">对比</td>
+                    <td width="46">PDF</td>
+                    <td width="87">图片</td>
+                    <td width="84">产品名称</td>
+                    <td width="246">产品描述</td>
+                    <td width="70">件号</td>
+                    <td width="167">品牌</td>
+                </tr>
+                {loop $tags $k $t}
+    <?php 
+    $t['brand'] = getBrandName($t[brand_id]);
+    // print_r($t['brand']);
+    ?>
+                <tr>
+                	<td class="alignct"><input type="checkbox" id="check_948" name="itemid[]" value="948" onclick="sell_tip(this, 948);"></td>
+                    <td class="alignct">{if $t[filepaths]}<a href="{$t[filepaths]}" target="_blank"><img src="{DT_SKIN}/images/pdfiocn.gif" /></a>{else}<img src="{DT_SKIN}/images/pdfiocnh.gif" />{/if}</td>
+                    <td><a href="{$t[linkurl]}" target="_blank"><img class="lazy" src="{$t[thumb]}" width="70" alt="{$t[alt]}"/></a></td>
+                     <td><a href="{$t[linkurl]}" target="_blank"><strong class="px14">{$t[title]}</strong></a></td>
+            <td>{$t[description]}</td>
+            <td>{$t[jianhao]}</td>
+                  <td align="center">{if $t['brand'][thumb]}<a href="{$MODULE[13][linkurl]}{$t['brand'][linkurl]}"><img src="{$t['brand'][thumb]}" width="150"></a><a href="{$MODULE[13][linkurl]}{$t['brand'][linkurl]}">{$t['brand'][title]}</a>{else}<a href="{$MODULE[13][linkurl]}{$t['brand'][linkurl]}">{$t['brand'][title]}</a>{/if}</td>
+                </tr>
+                   {/loop}	
+            	</tbody>
+            </table>
+        </div>
+        {if $showpage && $pages}
+        <div class="oil_page">{$pages}</div>{/if}

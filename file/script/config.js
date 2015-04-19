@@ -1,0 +1,1 @@
+var DTPath = "http://dev.ogedata.com/";var SKPath = "http://dev.ogedata.com/skin/default/";var MEPath = "http://dev.ogedata.com/member/";var EXPath = "http://dev.ogedata.com/extend/";var CKDomain = "";var CKPath = "/";var CKPrex = "cva_";
