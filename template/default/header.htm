@@ -79,16 +79,16 @@ document.onselectstart=function(e){return false;};
             <div class="navrg">
                 <div class="menu">
                     <ul>
-                        <li><a href="#" class="selected">首页</a></li>
-                        <li><a href="#">石油品牌</a></li>
-                        <li><a href="#">石油设备</a></li>
-                        <li><a href="#">石油展会</a></li>
-                        <li><a href="#">新闻专题</a></li>
-                        <li><a href="#">名词翻译</a></li>
-                        <li><a href="#">资料下载</a></li>
-                        <li><a href="#">石油新闻</a></li>
-                        <li><a href="#">高层动态</a></li>
-                        <li><a href="#">油气技术</a></li>
+                        <li><a href="{$MODULE[1][linkurl]}"{if $moduleid<4}class="selected"{/if}>首页</a></li>
+                        <li><a href="{$MODULE[13][linkurl]}" {if $moduleid==13}class="selected"{/if}>石油品牌</a></li>
+                        <li><a href="{$MODULE[16][linkurl]}" {if $moduleid==16}class="selected"{/if}>石油设备</a></li>
+                        <li><a href="{$MODULE[8][linkurl]}" {if $moduleid==8}class="selected"{/if}>石油展会</a></li>
+                        <li><a href="{$MODULE[11][linkurl]}" {if $moduleid==11}class="selected"{/if}>新闻专题</a></li>
+                        <li><a href="{$MODULE[23][linkurl]}" {if $moduleid==23}class="selected"{/if}>名词翻译</a></li>
+                        <li><a href="{$MODULE[15][linkurl]}" {if $moduleid==15}class="selected"{/if}>资料下载</a></li>
+                        <li><a href="{$MODULE[21][linkurl]}" {if $moduleid==21}class="selected"{/if}>石油新闻</a></li>
+                       
+                        <li><a href="{$MODULE[24][linkurl]}" {if $moduleid==24}class="selected"{/if}>石油百科</a></li>
                     </ul>
                 </div>
                 <div class="searchdv">
