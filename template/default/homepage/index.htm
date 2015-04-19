@@ -1,6 +1,125 @@
-{template 'header', $template}
-<div class="dsn" id="pos_show">您当前的位置：<a href="{$COM[linkurl]}">首页</a> &raquo; 欢迎光临</div>
-{loop $HMAIN $HM $MAIN}
-{template 'main_'.$main_file[$HM], $template}
-{/loop}
-{template 'footer', $template}
+{template 'header'}
+
+<div class="oil_main">
+	<div class="curPosition">您当前的位置：<a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MODULE[4][linkurl]}">厂商</a> &raquo; {$COM[company]}</div>
+    <div class="cs_itdcn oilmgbt">
+    	<dl>
+        	<dt class="oilbor"><span><a href="{$COM[linkurl]}"><img src="{$COM[thumb]}" /></a></span></dt>
+            <dd>
+            	<h1>{$COM[company]}</h1>
+                <p class="p1">{$COM[intro]}</p>
+            </dd>
+            <dd class="cs_lxfs oilbor">
+            	<div class="tycut"><i></i>联系方式</div>
+                <p><strong>厂家地址：</strong>{$COM[address]}</p>
+                <p><strong>官　　网：</strong><a href="{$COM[linkurl]}">点击进入</a></p>
+                <p><strong>电　　话：</strong>{$COM[telephone]}</p>
+                {if $COM[fax]}<p><strong>传　　真：</strong>{$COM[fax]}</p>{/if}
+            </dd>
+        </dl>
+        <div class="clear"></div>
+    </div>
+    <!--{php $tags=tag("moduleid=13&condition=status=3 and username='".$COM[username]."'&order=addtime desc&template=null");}-->
+{if $tags}
+	{loop $tags $t}
+    <div class="oilbor oilmgbt">
+    	<div class="cs_pp_lf"><span><img src="{$t['thumb']}" /></span><em></em></div>
+        <div class="cs_pp_rg">
+        	<div class="rgmore"><a href="{$t['linkurl']}" target="_blank">更多>></a></div>
+              <!--{php $btags=tag("moduleid=16&condition=status=3 and brand_id='".$t[itemid]."'&pagesize=4&order=addtime desc&template=null");}-->
+              {loop $btags $bt}
+        	<div class="pp_list oilbor"><a href="{$bt['linkurl']}" target="_blank"><img src="{$bt['thumb']}" /><span>{$bt['title']}</span></a></div>
+           {/loop}
+        </div>
+        <div class="clear"></div>
+    </div>
+    {/loop}
+	{/if}
+    <div class="oilmgbt">
+    	<div class="cs_ty_dv oilbor">
+        	<div class="tycut"><i></i>百科资料</div>
+            <div class="oilpddv">
+                <ul class="oillistnw lfulmg">
+<!--{tag("moduleid=24&condition=status=3 and username='".$COM[username]."'&areaid=$cityid&pagesize=8&order=itemid desc&length=50&width=120&height=90&cols=2", -2)}-->
+                </ul>
+            </div>
+        </div>
+        <div class="cs_ty_dv oilbor cs_mg_lfrg">
+        	<div class="tycut"><i></i>招聘信息</div>
+            <div class="oilpddv">
+                <ul class="oillistnw lfulmg">
+                   <!--{tag("moduleid=9&condition=status=3 and username='".$COM[username]."'&areaid=$cityid&pagesize=8&order=itemid desc&length=50&width=120&height=90&cols=2", -2)}-->
+                </ul>
+            </div>
+        </div>
+        <div class="cs_ty_dv oilbor">
+        	<div class="tycut"><i></i>企业资讯</div>
+            <div class="oilpddv">
+                <ul class="oillistnw lfulmg">
+                  <!--{tag("moduleid=21&condition=status=3 and username='".$COM[username]."'&areaid=$cityid&pagesize=8&order=itemid desc&length=50&width=120&height=90&cols=2", -2)}-->	
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+     <!--{php $tags=tag("moduleid=13&condition=status=3 and username='".$COM[username]."'&order=addtime desc&pagesize=5&template=null");}-->
+     {if $tags}
+    <div class="oilbor oilmgbt">
+    	<div class="tycut"><i></i>推荐品牌</div>
+        <div class="cs_tjpp">
+       
+
+	{loop $tags $t}
+            <div class="pp_list oilbor"><a href="{$t['linkurl']}" target="_blank"><img src="{$t['thumb']}" /><span>{$t['title']}</span></a></div>
+            {/loop}
+            <div class="clear"></div>
+        </div>
+    </div>
+    {/if}
+    
+    <!--{php $tags=tag("moduleid=14&condition=status=3 and username='".$COM[username]."'&order=addtime desc&pagesize=5&template=null");}-->
+    {if $tags}
+    <div class="oilbor oilmgbt">
+    	<div class="tycut"><i></i>相关视频</div>
+        <div class="nr_video play_xgsp cp_xgsp cs_tjpp">
+            <ul>
+            {loop $tags $t}
+                <li><span><a href="{$t['linkurl']}" target="_blank"><img src="{$t['thumb']}" /><i></i></a></span><div class="videotitle"><a href="{$t['linkurl']}" target="_blank">{$t['title']}</a></div><div class="sctime">上传时间:{timetodate($t['addtime'])}</div></li>
+              {/loop}  
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+    {/if}
+        <?php
+        if($COM[username]){ $malluid = get_user($COM[username]); }
+        ?>
+        {if $malluid > 0 }
+        <!--{php $tags=tag("table=comchild&condition=userid=$malluid&order=listorder desc&template=null");}-->
+        {/if}
+        {if $tags}
+    <div class="oilbor oilmgbt">
+    	<div class="tycut"><i></i>代理商及销售公司信息</div>
+        <div class="dtailtjpj dtaillxfs oilmgbt">
+            	<table cellpadding="0" cellspacing="0" class="cp_list_table" width="100%">
+                	<tr class="bg1">
+                    
+                    	<td>国家</td>
+                        <td>等级</td>
+                        <td>商家名称</td>
+                        <td>联系方式</td>
+                    </tr>
+                    {loop $tags $t}
+                    <tr>
+                    	<td>{$t['country']}</td>
+                        <td>{$t['level']}</td>
+                        <td>{$t['comname']}</td>
+                        <td>{$t['tel']}</td>
+                    </tr>
+           {/loop}
+                </table>
+            </div>
+    </div>
+    {/if}
+</div>
+{template 'footer'}

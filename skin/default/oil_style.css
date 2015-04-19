@@ -336,16 +336,20 @@ a.rightdirection{ background-position:-417px -135px;}
 .cs_itdcn dl dt{ width:189px; height:169px; float:left;}
 .cs_itdcn dl dt span,.cs_pp_lf span{ height:189px; text-align:center; display:table-cell; vertical-align:middle; }
 .cs_itdcn dl dt span img,.cs_pp_lf span img{ vertical-align:middle;}
-.cs_itdcn dl dd{ width:780px; float:left; padding-left:20px;}
+.cs_itdcn dl dd{ width:500px; float:left; padding-left:20px;}
 .cs_itdcn dl dd h1{ color:#325194; font-size:20px; margin-bottom:6px; font-weight:normal;}
 .cs_itdcn dl dd p.p1{ color:#888888; line-height:28px;}
 .cs_itdcn dl dd p.p2{ padding-top:8px;}
 .cs_itdcn dl dd p.p2 a{ display:inline-block; width:150px; height:43px; background:#325194; border-radius:3px; text-align:center; line-height:43px; font-size:18px; color:#ffffff;}
+.cs_itdcn dl dd.cs_lxfs{ width:280px; height:169px; float:right; padding-left:0px;}
+.cs_itdcn dl dd.cs_lxfs p{ line-height:28px; padding:0 10px;}
 .cs_pp_lf{ width:150px; height:139px; padding:0 20px; background:url(images/cs_lfbg.gif) no-repeat; position:relative; float:left;}
 .cs_pp_lf span{ height:139px;}
 .cs_pp_lf span img{ width:100%;}
 .cs_pp_lf em{ width:52px; height:55px; background:url(images/pp_icon.png) no-repeat; position:absolute; left:-1px; top:-1px;}
-.cs_pp_rg{ width:805px; float:right; padding-top:18px;}
+.cs_pp_rg{ width:805px; float:right; padding-bottom:10px;}
+.cs_pp_rg .rgmore{ text-align:right; padding:6px 8px;}
+.cs_pp_rg .rgmore a{ display:inline-block; padding:3px 6px; background:#ccd3e5;}
 .pp_list{ float:left; width:187px; height:105px; margin-left:10px; display:inline; text-align:center;}
 .pp_list a{ display:block; height:105px; position:relative;}
 .pp_list a span{ height:26px; background:url(images/pp_cut.png) no-repeat; position:absolute; width:187px; line-height:26px; text-indent:1em; bottom:0px; _bottom:-1px; left:0px; text-align:left; color:#ffffff;}

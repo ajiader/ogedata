@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
-<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{if $COM[company]}{$COM[company]}{else}{$DT[sitename]}{/if}{/if}{/if}</title>
 {if $head_keywords}
 <meta name="keywords" content="{if $CAT['catname']}{str_replace(','.$CAT['catname'],'',$head_keywords)}{else}{$head_keywords}{/if}"/>
 {/if}
