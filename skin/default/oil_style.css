@@ -32,7 +32,8 @@ h1,h2,h3,h4,h5,h6,strong,b{ font-weight:bold;}
 .oil_nav .logo{ float:left; width:214px; height:94px; background:url(images/logo.gif) no-repeat;}
 .oil_nav .navrg{ width:781px; float:left; padding-left:5px;}
 .oil_nav .menu{ height:43px; line-height:43px;}
-.oil_nav .menu ul li{ float:left; width:78px; text-align:center;}
+.oil_nav .menu ul{ padding-left:5px;}
+.oil_nav .menu ul li{ float:left; width:85px; text-align:center; margin-left:1px;}
 .oil_nav .menu ul li a{ display:block; font-size:14px; color:#ffffff; border-bottom:2px #325194 solid;}
 .oil_nav .menu ul li a:hover,.oil_nav .menu ul li a.selected{ border-bottom:2px #ff6600 solid; text-decoration:none;}
 .oil_nav .searchdv{ height:49px; line-height:49px; padding-left:50px; clear:both;}
@@ -117,7 +118,7 @@ dl.oil_cp_list dd.clicklf a{ display:block; background-position:-309px -137px; h
 dl.oil_cp_list dd.clickrg a{ display:block; background-position:-346px -137px; height:32px;}
 dl.oil_cp_list dd.qhnr{ width:820px; overflow:hidden; height:45px; padding:0 5px;}
 dl.oil_cp_list dd.qhnr ul li{ float:left; width:80px; text-align:center;}
-dl.oil_cp_list dd.qhnr ul li p{ width:102px; line-height:21px; padding-top:10px;}
+dl.oil_cp_list dd.qhnr ul li p{ line-height:18px; padding-top:8px;}
 dl.oil_cp_list dd.qhnr ul li p.p1 a{ color:#3c5995;}
 dl.oil_cp_list dd.qhnr ul li p.p2 a{ color:#999999; margin:0 2px;}
 dl.oil_cp_list dd.oilbrand{ width:900px;}
@@ -191,8 +192,9 @@ a.rightdirection{ background-position:-417px -135px;}
 .oil_index_videolist .listwai ul li span img,.nr_video ul li span img{ width:160px; height:90px;}
 .oil_index_bkzl{ width:350px; float:left}
 .oil_index_cpzx{ width:638px; float:right;}
-.cpzx_dl{ display:block; height:90px; margin-top:8px; overflow:hidden;}
-.cpzx_dl dt{ width:120px; height:90px; float:left; overflow:hidden;}
+.cpzx_dl{ display:block; height:92px; margin-top:5px; overflow:hidden;}
+.cpzx_dl dt{ width:122px; height:92px; float:left; overflow:hidden;}
+.cpzx_dl dt img{ border:1px #ccd3e5 solid;}
 .cpzx_dl dd{ float:left; width:480px; padding-left:15px;}
 .cpzx_dl dd h2{ font-weight:normal; font-size:16px;}
 .cpzx_dl dd h2 a{ color:#3b5998;}
@@ -363,3 +365,15 @@ a.rightdirection{ background-position:-417px -135px;}
 .news_index_ulheader li span,.article_list_li li span{ position:absolute; right:0px; top:0px; line-height:26px; color:#999999; font-family: Verdana,Arial; font-size:12px;}
 .pages_inp{ width:20px; height:22px; text-align:center;}
 .pages_btn{ height:30px;}
+/* floatdiv */
+.floatdiv{position:fixed;top:240px;right:0;z-index:9999;width:100%; display:none;}
+*html,*html body /* 修正IE6振动bug */{background-image:url(about:blank);background-attachment:fixed;}
+*html .floatdiv{position:absolute;top:expression(eval(document.documentElement.scrollTop));}
+.floatdiv{background:url(images/dialog_bg.gif) no-repeat;width:160px;height:208px;overflow:hidden;}
+.floatdiv h5{color:#fff;font-size:12px;height:30px;line-height:30px;overflow:hidden;padding:0 0 0 5px;}
+.floatdiv h5 a{float:right;margin:5px 5px 0 0;display:inline;}
+.floatdiv ul{height:130px;overflow:hidden;padding:10px 10px 5px 20px;}
+.floatdiv ul li{height:24px;line-height:24px;font-size:12px;}
+.floatdiv ul li img{margin:0 5px 0 0;}
+.chanpinduibi,.chanpinduibi_xz{ background:#999999; border-radius:2px; width:60px; height:26px; border:0px;}
+.chanpinduibi_xz{ background:#ff6600; color:#ffffff;}
