@@ -1,179 +1,13 @@
 {template 'header'}
 <script type="text/javascript">var module_id= {$moduleid},item_id={$itemid},content_id='content',img_max_width={$MOD[max_width]};</script>
 <div class="oil_main">
-	<div class="curPosition">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
-	{template 'mall/top_hot'}
+	
+	{template 'mall/top_hot'}<div class="curPosition">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
     <div class="oil_tyleft oil_cpleft">
-    	<div class="oilbor oilmgbt">
-    		<div class="oil_cpsx">产品筛选<span>（共377734个产品）</span></div>
-            <div class="cpsx_items">
-            	<div class="sx_mc">品牌：</div><div class="sx_rg"><a href="#">WEIRSPM</a><a href="#">中国石油</a><a href="#">中国石化</a><a href="#">Alllson</a><a href="#">FMC</a><a href="#">WEIRSPM</a><a href="#">中国石油</a><a href="#">中国石化</a><a href="#">Alllson</a><a href="#">FMC</a></div>
-                <div class="clear"></div>
-            </div>
-            <div class="cpsx_items">
-            	<div class="sx_mc">价格：</div><div class="sx_rg"><a href="#">500-999万</a><a href="#">1000-1999万</a><a href="#">2000-2999万</a><a href="#">3000-3999万</a><a href="#">4000-4999万</a><a href="#">5000-5999万</a></div>
-                <div class="clear"></div>
-            </div>
-            <div class="cpsx_items">
-            	<div class="sx_mc">分类：</div><div class="sx_rg"><a href="#">上游产品</a><a href="#">下游产品</a><a href="#">安全防护</a><a href="#">系统维护</a><a href="#">上游产品</a><a href="#">下游产品</a><a href="#">安全防护</a><a href="#">系统维护</a><a href="#">上游产品</a><a href="#">下游产品</a><a href="#">安全防护</a></div>
-                <div class="clear"></div>
-            </div>
-        </div>
-<<<<<<< HEAD
-        <div class="oilmgbt">
-        	<table cellpadding="0" cellspacing="0" class="cp_list_table">
-    			<tbody>
-                <tr class="bg1">
-                	<td width="40">对比</td>
-                    <td width="46">PDF</td>
-                    <td width="87">图片</td>
-                    <td width="84">产品名称</td>
-                    <td width="246">产品描述</td>
-                    <td width="70">件号</td>
-                    <td width="167">品牌</td>
-                </tr>
-                <tr planid="946" planname="带仪表接口">
-                    <td class="alignct"><input type="checkbox" id="check_946" name="itemid[]" value="946" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-947.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-42-21-49-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11892"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-947.html" target="_blank"><strong class="px14">T型三通 1P11892</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），3寸 Fig. 1502母扣 X 3寸 Fig. 1502公扣 X 3寸 Fig. 1502母扣，15000PSI</td>
-                    <td>1P11892</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="947" planname="T型三通">
-                	<td class="alignct"><input type="checkbox" id="check_947" name="itemid[]" value="947" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-946.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-31-58-79-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11891"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-946.html" target="_blank"><strong class="px14">T型三通 1P11891</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），3寸 Fig. 1002母扣 X 3寸 Fig. 1002公扣 X 3寸 Fig. 1002母扣，10000PSI</td>
-                    <td>1P11891</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="948" planname="T6000PSI">
-                	<td class="alignct"><input type="checkbox" id="check_948" name="itemid[]" value="948" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-51-45-36-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11893"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><strong class="px14">T型三通 1P11893</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），4寸 Fig. 602母扣 X 4寸 Fig. 602公扣 X 4寸 Fig. 602母扣，6000PSI</td>
-                    <td>1P11893</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="949" planname="T6000PSI">
-                	<td class="alignct"><input type="checkbox" id="check_949" name="itemid[]" value="949" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-51-45-36-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11893"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><strong class="px14">T型三通 1P11893</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），4寸 Fig. 602母扣 X 4寸 Fig. 602公扣 X 4寸 Fig. 602母扣，6000PSI</td>
-                    <td>1P11893</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="950" planname="T6000PSI">
-                	<td class="alignct"><input type="checkbox" id="check_950" name="itemid[]" value="950" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-51-45-36-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11893"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><strong class="px14">T型三通 1P11893</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），4寸 Fig. 602母扣 X 4寸 Fig. 602公扣 X 4寸 Fig. 602母扣，6000PSI</td>
-                    <td>1P11893</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="951" planname="T6000PSI">
-                    <td class="alignct"><input type="checkbox" id="check_951" name="itemid[]" value="951" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-947.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-42-21-49-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11892"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-947.html" target="_blank"><strong class="px14">T型三通 1P11892</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），3寸 Fig. 1502母扣 X 3寸 Fig. 1502公扣 X 3寸 Fig. 1502母扣，15000PSI</td>
-                    <td>1P11892</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="952" planname="T6000PSI">
-                	<td class="alignct"><input type="checkbox" id="check_952" name="itemid[]" value="952" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-946.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-31-58-79-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11891"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-946.html" target="_blank"><strong class="px14">T型三通 1P11891</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），3寸 Fig. 1002母扣 X 3寸 Fig. 1002公扣 X 3寸 Fig. 1002母扣，10000PSI</td>
-                    <td>1P11891</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="953" planname="T6000PSI">
-                	<td class="alignct"><input type="checkbox" id="check_953" name="itemid[]" value="953" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-51-45-36-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11893"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><strong class="px14">T型三通 1P11893</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），4寸 Fig. 602母扣 X 4寸 Fig. 602公扣 X 4寸 Fig. 602母扣，6000PSI</td>
-                    <td>1P11893</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="954" planname="T6000PSI">
-                	<td class="alignct"><input type="checkbox" id="check_954" name="itemid[]" value="954" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-51-45-36-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11893"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><strong class="px14">T型三通 1P11893</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），4寸 Fig. 602母扣 X 4寸 Fig. 602公扣 X 4寸 Fig. 602母扣，6000PSI</td>
-                    <td>1P11893</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="955" planname="T6000PSI">
-                	<td class="alignct"><input type="checkbox" id="check_955" name="itemid[]" value="955" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-51-45-36-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11893"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><strong class="px14">T型三通 1P11893</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），4寸 Fig. 602母扣 X 4寸 Fig. 602公扣 X 4寸 Fig. 602母扣，6000PSI</td>
-                    <td>1P11893</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="956" planname="T6000PSI">
-                    <td class="alignct"><input type="checkbox" id="check_956" name="itemid[]" value="956" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-947.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-42-21-49-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11892"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-947.html" target="_blank"><strong class="px14">T型三通 1P11892</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），3寸 Fig. 1502母扣 X 3寸 Fig. 1502公扣 X 3寸 Fig. 1502母扣，15000PSI</td>
-                    <td>1P11892</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="957" planname="T6000PSI">
-                	<td class="alignct"><input type="checkbox" id="check_957" name="itemid[]" value="957" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-946.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-31-58-79-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11891"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-946.html" target="_blank"><strong class="px14">T型三通 1P11891</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），3寸 Fig. 1002母扣 X 3寸 Fig. 1002公扣 X 3寸 Fig. 1002母扣，10000PSI</td>
-                    <td>1P11891</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="958" planname="T6000PSI">
-                	<td class="alignct"><input type="checkbox" id="check_958" name="itemid[]" value="958" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-51-45-36-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11893"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><strong class="px14">T型三通 1P11893</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），4寸 Fig. 602母扣 X 4寸 Fig. 602公扣 X 4寸 Fig. 602母扣，6000PSI</td>
-                    <td>1P11893</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="959" planname="T6000PSI">
-                	<td class="alignct"><input type="checkbox" id="check_959" name="itemid[]" value="959" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-51-45-36-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11893"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><strong class="px14">T型三通 1P11893</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），4寸 Fig. 602母扣 X 4寸 Fig. 602公扣 X 4寸 Fig. 602母扣，6000PSI</td>
-                    <td>1P11893</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-                <tr planid="960" planname="T6000PSI">
-                	<td class="alignct"><input type="checkbox" id="check_960" name="itemid[]" value="960" onclick="actionplan(this)"></td>
-                    <td class="alignct"><a href="http://www.ogedata.com/file/upload/201501/29/17-02-22-27-2.pdf" target="_blank"><img src="http://www.ogedata.com/skin/default//images/pdfiocn.gif"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><img class="lazy" src="http://www.ogedata.com/file/upload/201503/24/15-51-45-36-7.jpg.thumb.jpg" width="70" alt="T型三通 1P11893"></a></td>
-                    <td><a href="http://www.ogedata.com/mall/show-948.html" target="_blank"><strong class="px14">T型三通 1P11893</strong></a></td>
-                    <td>T型三通，带仪表接口（2寸 Fig. 1502母扣），4寸 Fig. 602母扣 X 4寸 Fig. 602公扣 X 4寸 Fig. 602母扣，6000PSI</td>
-                    <td>1P11893</td>
-                    <td align="center"><a href="http://www.ogedata.com/brand/show-2.html"><img src="http://51rsks.web031.host888.net/file/upload/201406/21/09-11-38-39-1.gif" width="150"></a><a href="http://www.ogedata.com/brand/show-2.html">SPM</a></td>
-                </tr>
-            	</tbody>
-            </table>
-        </div>
-        <div class="oil_page"><a href="#" class="pageleft">&nbsp;</a><a href="#" class="selected">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">9</a><a href="#">10</a><a href="#">11</a><a href="#">12</a><a href="#" class="pageright">&nbsp;</a></div>
-=======
+    	{template 'choose', 'mall'}
+
            {template 'list-'.$module.'2', 'tag'}
->>>>>>> a45078d95ad2cc5a8834bae5caa759d4b4fadd3a
+
     </div>
     <div class="oil_tyright">
     	<div class="oilbor oilmgbt">
@@ -200,7 +34,7 @@
     </div>
     <div class="clear"></div>
 </div>
-<<<<<<< HEAD
+
 <div class="floatdiv">
 	<h5>您已经选择的基金 <a style="cursor:pointer;" onClick="hidediv()"><img src="{DT_SKIN}images/icon_7.gif" alt="" /></a></h5>
 	
@@ -262,6 +96,4 @@ function addplan(planid,planname){
 </script>
 {template 'footer'}
 
-=======
-{template 'footer'}
->>>>>>> a45078d95ad2cc5a8834bae5caa759d4b4fadd3a
+

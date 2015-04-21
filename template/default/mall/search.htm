@@ -1,24 +1,11 @@
 {template 'header'}
 <script type="text/javascript">var module_id= {$moduleid},item_id={$itemid},content_id='content',img_max_width={$MOD[max_width]};</script>
 <div class="oil_main">
-	<div class="curPosition">当前位置：<a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; <a href="{$MOD[linkurl]}search.php">搜索</a></div>
+	
 	{template 'mall/top_hot'}
+    <div class="curPosition">当前位置：<a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' » ')}</div>
     <div class="oil_tyleft oil_cpleft">
-    	<div class="oilbor oilmgbt">
-    		<div class="oil_cpsx">产品筛选<span>（共377734个产品）</span></div>
-            <div class="cpsx_items">
-            	<div class="sx_mc">品牌：</div><div class="sx_rg"><a href="#">WEIRSPM</a><a href="#">中国石油</a><a href="#">中国石化</a><a href="#">Alllson</a><a href="#">FMC</a><a href="#">WEIRSPM</a><a href="#">中国石油</a><a href="#">中国石化</a><a href="#">Alllson</a><a href="#">FMC</a></div>
-                <div class="clear"></div>
-            </div>
-            <div class="cpsx_items">
-            	<div class="sx_mc">价格：</div><div class="sx_rg"><a href="#">500-999万</a><a href="#">1000-1999万</a><a href="#">2000-2999万</a><a href="#">3000-3999万</a><a href="#">4000-4999万</a><a href="#">5000-5999万</a></div>
-                <div class="clear"></div>
-            </div>
-            <div class="cpsx_items">
-            	<div class="sx_mc">分类：</div><div class="sx_rg"><a href="#">上游产品</a><a href="#">下游产品</a><a href="#">安全防护</a><a href="#">系统维护</a><a href="#">上游产品</a><a href="#">下游产品</a><a href="#">安全防护</a><a href="#">系统维护</a><a href="#">上游产品</a><a href="#">下游产品</a><a href="#">安全防护</a></div>
-                <div class="clear"></div>
-            </div>
-        </div>
+    	{template 'choose', 'mall'}
            {template 'list-'.$module.'2', 'tag'}
     </div>
     <div class="oil_tyright">
@@ -46,4 +33,64 @@
     </div>
     <div class="clear"></div>
 </div>
+
+<div class="floatdiv">
+	<h5>您已经选择的基金 <a style="cursor:pointer;" onClick="hidediv()"><img src="{DT_SKIN}images/icon_7.gif" alt="" /></a></h5>
+	
+	<ul id="selectedplan"></ul> 
+	
+	<p align="center"><input type="button" name="chanpduibi" id="chanpinduibi" class="chanpinduibi" value="对比" /></p>
+
+</div><!--end floatdiv-->
+<script type="text/javascript">
+var isopen=false;
+//关闭div层
+function hidediv(){
+	$('div.floatdiv:visible').hide(); 
+	isopen=false;
+}
+//显示div层
+function showdiv(){
+	$('div.floatdiv:hidden').show(); 
+	isopen=true;
+}
+//点击图标删除此行
+function delplan(obj){
+	var parent=obj.parentNode;
+	var id=parent.id; 
+	parent.parentNode.removeChild(parent); 
+	//去除选中的
+	var checkid="check_"+id.substr(2,id.length);
+	document.getElementById(checkid).checked=false;
+}
+//checkbox的点击
+function actionplan(obj){
+	var planid=obj.parentNode.parentNode.getAttribute("planid"); 
+	var planname=obj.parentNode.parentNode.getAttribute("planname"); 
+	if(isopen==false){
+		showdiv();
+	}
+	addplan(planid,planname);
+}
+//选中一个元素添加到对比
+function addplan(planid,planname){	
+	if(document.getElementById("check_"+planid).checked){
+		if($("#selectedplan li").length>3){
+			document.getElementById("check_"+planid).checked=false;
+			alert("您最多只能对比四个产品");
+			return false;
+		}
+		if($("#selectedplan li").length<1){
+			document.getElementById("chanpinduibi").className="chanpinduibi";
+		}else{
+			document.getElementById("chanpinduibi").className="chanpinduibi_xz";
+		}
+		$("#selectedplan").append("<li style='cursor:pointer;' id=li"+planid+"><img src={DT_SKIN}images/icon_6.gif onclick=delplan(this) style=cursor:pointer;></img>"+planname+"</li>");
+
+	}else{
+		var obj=document.getElementById("li"+planid);
+		obj.parentNode.removeChild(obj);
+	}
+}
+</script>
 {template 'footer'}

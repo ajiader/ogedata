@@ -4,6 +4,7 @@ $itemid or dheader($MOD['linkurl']);
 if(!check_group($_groupid, $MOD['group_show'])) include load('403.inc');
 require DT_ROOT.'/module/'.$module.'/common.inc.php';
 $item = $db->get_one("SELECT * FROM {$table} WHERE itemid=$itemid");
+
 if($item && $item['status'] > 2) {
 	if($MOD['show_html'] && is_file(DT_ROOT.'/'.$MOD['moduledir'].'/'.$item['linkurl'])) d301($MOD['linkurl'].$item['linkurl']);
 	extract($item);
@@ -11,6 +12,7 @@ if($item && $item['status'] > 2) {
 	include load('404.inc');
 }
 $CAT = get_cat($catid);
+
 if(!check_group($_groupid, $CAT['group_show'])) include load('403.inc');
 $content_table = content_table($moduleid, $itemid, $MOD['split'], $table_data);
 $t = $db->get_one("SELECT content FROM {$content_table} WHERE itemid=$itemid");

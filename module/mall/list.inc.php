@@ -14,6 +14,7 @@ if($MOD['cat_property'] && $CAT['property']) {
 }
 unset($CAT['moduleid']);
 extract($CAT);
+$mallcount = $db->count($table, 'status=3'); //查询总数
 $maincat = get_maincat($child ? $catid : $parentid, $moduleid);
 $condition = 'status=3';
 $condition .= ($CAT['child']) ? " AND catid IN (".$CAT['arrchildid'].")" : " AND catid=$catid";

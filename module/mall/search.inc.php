@@ -5,6 +5,8 @@ require DT_ROOT.'/module/'.$module.'/common.inc.php';
 if(!check_group($_groupid, $MOD['group_search'])) include load('403.inc');
 require DT_ROOT.'/include/post.func.php';
 include load('search.lang');
+$mallcount = $db->count($table, 'status=3'); //查询总数
+
 $CP = $MOD['cat_property'] && $catid && $CAT['property'];
 $thumb = isset($thumb) ? intval($thumb) : 0;
 $price = isset($price) ? intval($price) : 0;
@@ -34,6 +36,10 @@ isset($fields) && isset($dfields[$fields]) or $fields = 0;
 isset($order) && isset($dorder[$order]) or $order = 0;
 $order_select  = dselect($sorder, 'order', '', $order);
 $category_select = ajax_category_select('catid', $L['all_category'], $catid, $moduleid);
+
+$catRow = get_cat($catid);
+$maincat = get_maincat($catRow['child'] ? $catid : $catRow['parentid'] , $moduleid);//分类
+
 $area_select = ajax_area_select('areaid', $L['all_area'], $areaid);
 $tags = array();
 $pid = 0;
@@ -65,7 +71,8 @@ if($DT_QST || !$DT_QST) {
 	}
 	$fds = $MOD['fields'];
 	$condition = '';
-	if($catid) $condition .= $CAT['child'] ? " AND catid IN (".$CAT['arrchildid'].")" : " AND catid=$catid";
+	// if($catid) $condition .= $CAT['child'] ? " AND catid IN (".$CAT['arrchildid'].")" : " AND catid=$catid";
+	if($catid) $condition .= " AND catids LIKE '%,".$catid.",%'";
 	if($brandid) { $condition .= " AND brand_id=$brandid"; $brandRow = getBrandName($brandid); $brandname = $brandRow['title'];}
 	if($areaid) $condition .= $ARE['child'] ? " AND areaid IN (".$ARE['arrchildid'].")" : " AND areaid=$areaid";
 	if($thumb) $condition .= " AND thumb<>''";

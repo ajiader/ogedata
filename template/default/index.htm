@@ -32,69 +32,65 @@ $(document).ready(function(){
     <div class="oilbor cpdv oilmgbt">
     	<div class="oil_cp_qh" id="cplistA">
         	<ul>
-                <li class="selected"><a href="#">上游设备</a></li>
-                <li><a href="#">下游设备</a></li>
-                <li><a href="#">安防和环保设备</a></li>
-                <li><a href="#">维修保养设备</a></li>
-                <li><a href="#">软件产品</a></li>
-                <li class="last"><a href="#">油田服务</a></li>
+            
+            		{php $mid = 16;}
+
+                {php $child = get_maincat(0, $mid, 1);}
+
+                {php $n=1;}
+
+                {loop $child $i $c}
+                {if $i<6}
+                <li {if $n==1}class="selected"{/if}><a href="#">{set_style($c[catname], $c[style])}</a></li>{/if}
+                {php $n++} 
+                 {/loop}
             </ul>
             <div class="clear"></div>
         </div>
         <div id="cplistDIV">
-        	<div class="cptylist">
+         {php $n=1;}
+
+                {loop $child $i $c}
+                {if $i<6}
+                
+        	<div class="cptylist" {if $n>1} style="display:none" {/if}>
                 <dl class="oil_cp_list">
-                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dt>功能分类</dt><dd class="clicklf"><a href="#"></a></dd>
                     <dd class="qhnr">
+                    {php $sub = get_maincat($c[catid], $mid, 1);}
                         <ul>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
+                        {if $sub}
+                        {loop $sub $j $s}
+                            <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></p></li>
+{/loop}
+{else}
+<li><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a></li>
+{/if}
                         </ul>
                     </dd>
                     <dd class="clicklf clickrg"><a href="#"></a></dd>
                 </dl>
+                
                 <dl class="oil_cp_list">
-                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
+                    <dt>名称分类</dt><dd class="clicklf"><a href="#"></a></dd>
                     <dd class="qhnr">
+                    {php $sub = get_maincat($c[catid], $mid, 1);}
                         <ul>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
+                        {if $sub}
+                        {loop $sub $j $s}
+                        {php $sub2 = get_maincat($s[catid], $mid, 1);}
+                        {loop $sub2 $j2 $s2}
+                            <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$s2[linkurl]}">{set_style($s2[catname], $s2[style])}</a></p></li>
+{/loop}
+{/loop}
+{else}
+<li><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a></li>
+{/if}
                         </ul>
                     </dd>
                     <dd class="clicklf clickrg"><a href="#"></a></dd>
                 </dl>
-                <dl class="oil_cp_list">
-                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
+                
                 <dl class="oil_cp_list oilbor0">
                     <dt><a href="{$MODULE[13][linkurl]}">品牌</a></dt>
                     <dd class="oilbrand">
@@ -103,321 +99,15 @@ $(document).ready(function(){
                     </dd>
                 </dl>
             </div>
-            <div class="cptylist" style="display:none;">
-            	<dl class="oil_cp_list">
-                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">飞镖式单流阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list">
-                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">Air-o-由壬P51</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose1P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list">
-                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list oilbor0">
-                    <dt><a href="#">品牌</a></dt>
-                    <dd class="oilbrand">
-                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
-                    </dd>
-                </dl>
-            </div>
-            <div class="cptylist" style="display:none;">
-                <dl class="oil_cp_list">
-                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list">
-                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list">
-                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list oilbor0">
-                    <dt><a href="#">品牌</a></dt>
-                    <dd class="oilbrand">
-                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
-                    </dd>
-                </dl>
-            </div>
-            <div class="cptylist" style="display:none;">
-            	<dl class="oil_cp_list">
-                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">飞镖式单流阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list">
-                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">Air-o-由壬P51</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose1P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list">
-                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list oilbor0">
-                    <dt><a href="#">品牌</a></dt>
-                    <dd class="oilbrand">
-                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
-                    </dd>
-                </dl>
-            </div>
-            <div class="cptylist" style="display:none;">
-            	<dl class="oil_cp_list">
-                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">飞镖式单流阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list">
-                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">Air-o-由壬P51</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose1P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list">
-                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list oilbor0">
-                    <dt><a href="#">品牌</a></dt>
-                    <dd class="oilbrand">
-                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
-                    </dd>
-                </dl>
-            </div>
-            <div class="cptylist" style="display:none;">
-                <dl class="oil_cp_list">
-                    <dt><a href="#">旋塞阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list">
-                    <dt><a href="#">蝶阀及配件</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list">
-                    <dt><a href="#">安全阀</a></dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                        <ul>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                            <li><p class="p1"><a href="#">接头P51P51</a></p></li>
-                            <li><p class="p1"><a href="#">低压弯头 313</a></p></li>
-                            <li><p class="p1"><a href="#">高压弯头 311</a></p></li>
-                            <li><p class="p1"><a href="#">Suction-hose</a></p></li>
-                            <li><p class="p1"><a href="#">飞镖式单流阀</a></p></li>
-                            <li><p class="p1"><a href="#">Air-o-由壬</a></p></li>
-                            <li><p class="p1"><a href="#">旋塞阀P51</a></p></li>
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                <dl class="oil_cp_list oilbor0">
-                    <dt><a href="#">品牌</a></dt>
-                    <dd class="oilbrand">
-                    	<a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp3.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp4.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp5.gif" /></a>
-                        <a href="#"><img src="{DT_SKIN}images/pp1.gif" /></a><a href="#"><img src="{DT_SKIN}images/pp2.gif" /></a>
-                    </dd>
-                </dl>
-            </div>
+            {/if}
+    {php $n++} 
+                 {/loop}
             
         </div>
     </div>
     <div class="oil_index_content oilmgbt">
     	<div class="oil_tab_left">
-            <div id="slider" class="pic_tab oilmgbt">
-            	<a href="#" title="改革关键年 中石油混改怎么改"><img src="{DT_SKIN}images/pictab1.gif" title="改革关键年 中石油混改怎么改" alt="改革关键年 中石油混改怎么改" /></a>
-                <a href="#" title="中石化董事长：引资只是改革初步重头戏"><img src="{DT_SKIN}images/pictab2.gif" title="中石化董事长：引资只是改革初步重头戏" alt="中石化董事长：引资只是改革初步重头戏" /></a>
-                <a href="#" title="2014年APEC开幕 描绘亚太伙伴关系新前景"><img src="{DT_SKIN}images/pictab3.gif" title="2014年APEC开幕 描绘亚太伙伴关系新前景" alt="2014年APEC开幕 描绘亚太伙伴关系新前景" /></a>
-            </div>
+            <!--{tag("moduleid=21&condition=status=3 and level=2 and thumb!=''&areaid=$cityid&order=itemid  desc&pagesize=4&width=330&height=250&target=_blank&template=slide")}-->
             <div class="oilbor cpdv searchhg oilmgbt">
             	<div class="oil_cp_qh searchA" id="searchA">
                     <ul><li class="selected"><a href="#">快速查询</a></li><li><a href="#">品牌</a></li><li class="last"><a href="#">件号</a></li></ul>
@@ -465,11 +155,7 @@ $(document).ready(function(){
             	<div class="oil_index_cut">最新招标<em>/ Tender</em><a href="#" class="amore">更多>></a></div>
                 <div class="oilpddv">
                     <ul class="oillistnw lfulmg">
-                        <li><a href="#">中国石化召开四川盆地及周缘天然气勘探突破推进会</a></li>
-                        <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                        <li><a href="#">中海油坦言暂时搁置安徽页岩气项目 因资源量不足</a></li>
-                        <li><a href="#">亚洲380-cst燃料油现货升水反弹，库存虽升高但需求强劲</a></li>
-                        <li><a href="#">埃克森美孚CEO：别幻想了 未来两年要习惯低油价</a></li>
+                       <!--{tag("moduleid=21&condition=status=3&areaid=$cityid&pagesize=5&order=rand()&length=40&width=120&height=90&cols=2", -2)}-->
                     </ul>
                 </div>
             </div>
@@ -495,22 +181,24 @@ $(document).ready(function(){
     </div>
     <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic10.jpg" /></a></div>
     <div class="oilbor bortop2 oilmgbt">
-    	<div class="oil_index_cut">油气视频<em>/ Video</em><div class="hotvideo"><span>热门</span><a href="#">井口装置</a>|<a href="#">流控产品</a>|<a href="#">防喷器材</a>|<a href="#">全部产品</a></div><a href="#" class="amore">更多>></a></div>
+    	<div class="oil_index_cut">油气视频<em>/ Video</em><div class="hotvideo"><span>热门</span>
+        {php $videochild = get_maincat(0, 14, 1);}
+        {php $n=1;}
+                {loop $videochild $i $c}
+                {if $i<10 }
+        <a href="{$MODULE[14][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>|
+        {/if}
+        {/loop}
+
+
+            
+        </div><a href="{$MODULE[14][linkurl]}" class="amore">更多>></a></div>
         <div class="oil_index_videolist">
         	<a href="javascript:void(0)" class="leftdirection" id="leftdirection"></a>
             <div class="listwai" id="video_list">
-                <ul>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic12.jpg" /><i></i></a></span><div class="videotitle"><a href="#">全球新探明油气储量或创20年</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic13.jpg" /><i></i></a></span><div class="videotitle"><a href="#">北约与国际能源署推进安全合</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic12.jpg" /><i></i></a></span><div class="videotitle"><a href="#">全球新探明油气储量或创</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic12.jpg" /><i></i></a></span><div class="videotitle"><a href="#">全球新探明油气储量或创20年</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic13.jpg" /><i></i></a></span><div class="videotitle"><a href="#">北约与国际能源署推进安全合</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic11.jpg" /><i></i></a></span><div class="videotitle"><a href="#">巴西石油公司再遭国际信用评</a></div></li>
-                    <li><span><a href="#"><img src="{DT_SKIN}images/pic12.jpg" /><i></i></a></span><div class="videotitle"><a href="#">全球新探明油气储量或创</a></div></li>
-                </ul>
+              
+                   <!--{tag("moduleid=14&condition=status=3&areaid=$cityid&pagesize=10&order=addtime desc&template=list-video2", -2)}-->
+               
             </div>
             <a href="javascript:void(0)" class="rightdirection" id="rightdirection"></a>
         </div>
@@ -519,18 +207,10 @@ $(document).ready(function(){
     	<div class="oil_index_bkzl">
         	<div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic14.jpg" /></a></div>
             <div class="oilbor bortop2">
-            	<div class="oil_index_cut">百科资料<em>/ Encyclopedias</em><a href="#" class="amore">更多>></a></div>
+            	<div class="oil_index_cut">百科资料<em>/ Encyclopedias</em><a href="{$MODULE[24][linkurl]}" class="amore">更多>></a></div>
                 <div class="oilpddv">
                 	<ul class="oillistnw lfulmg">
-                        <li><a href="#">中国石化召开四川盆地及周缘天然气勘探突破</a></li>
-                        <li><a href="#">中海油成全球第二大LNG进口商 去年进口11万吨</a></li>
-                        <li><a href="#">中海油坦言暂时搁置安徽页岩气项目 因资源量不足</a></li>
-                        <li><a href="#">亚洲380-cst燃料油现货升水反弹，库存需求强劲</a></li>
-                        <li><a href="#">埃克森美孚CEO：别幻想了 未来习惯低油价</a></li>
-                        <li><a href="#">亚洲380-cst燃料油现货升水反弹，库存需求强劲</a></li>
-                        <li><a href="#">埃克森美孚CEO：别幻想了 未来习惯低油价</a></li>
-                        <li><a href="#">亚洲380-cst燃料油现货升水反弹，库存需求强劲</a></li>
-                        <li><a href="#">亚洲380-cst燃料油现货升水反弹，库存需求强劲</a></li>
+                        <!--{tag("moduleid=24&condition=status=3&areaid=$cityid&pagesize=8&order=rand()&length=20&width=120&height=90&cols=2", -2)}-->
                     </ul>
                 </div>
             </div>

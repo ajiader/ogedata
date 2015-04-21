@@ -1,0 +1,24 @@
+<div class="oilbor oilmgbt">
+    		<div class="oil_cpsx">产品筛选<span>（共{$mallcount}个产品）</span></div>
+            <div class="cpsx_items">
+            	<div class="sx_mc">品牌：</div><div class="sx_rg">
+                 <!--{php $btags=tag("moduleid=13&condition=status=3 and level=1&areaid=$cityid&pagesize=5&order=addtime desc&template=null");}-->
+                  {loop $btags $t}
+                <a href="{$MODULE[16][linkurl]}search.php?brandid={$t['itemid']}" {if $brandid==$t['itemid']} style="color:red"{/if}>{$t['title']}</a>
+                {/loop}
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+            <div class="cpsx_items">
+            	<div class="sx_mc">分类：</div><div class="sx_rg">
+                
+               		{loop $maincat $k $v}
+			
+			<a href="{$MODULE[16][linkurl]}{$v[linkurl]}" {if $v[catid]==$catid} style="color:red"{/if}>{set_style($v[catname],$v[style])}</a><!--{if !$cityid} <span class="f_gray px10">({$v[item]})</span>{/if}</td>-->
+			{if $k%$MOD[page_subcat]==($MOD[page_subcat]-1)}</tr>{/if}
+			{/loop}
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
