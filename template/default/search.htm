@@ -1,7 +1,7 @@
 {template 'header'}
 <script type="text/javascript">var module_id= {$moduleid},item_id={$itemid},content_id='content',img_max_width={$MOD[max_width]};</script>
 <div class="oil_main">
-	<div class="curPosition">当前位置：<a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; <a href="{$MOD[linkurl]}search.php">搜索</a></div>
+	<div class="curPosition">当前位置<a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; <a href="{$MOD[linkurl]}search.php">搜索</a></div>
 	{template 'mall/top_hot'}
     <div class="oil_tyleft oil_cpleft">
     	<div class="oilbor oilmgbt">
@@ -25,12 +25,12 @@
     	<div class="oilbor oilmgbt">
         	<div class="tycut"><i></i>名词翻译</div>
             <div class="oiltjtw">
-            	<div class="mcfy_dv">
-                <form action="{$MODULE[23][linkurl]}search.php" id="fsearch"><input type="text" name="kw" placeholder="请输入您要翻译的名词" class="fy_txt" /><input type="submit" class="fy_btn" value="查询" /></form></div>
-                  <!--{php $tags=tag("moduleid=23&condition=status=3 and level=0&areaid=$cityid&pagesize=5&order=addtime desc&template=null");}-->
-                    {loop $tags $t}
-                <div class="mcfy_list"><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],20)}<font> - {$t[introduce]}</font></a></div>
-                {/loop}
+            	<div class="mcfy_dv"><input type="text" name="fytxt" placeholder="请输入您要翻译的名词" class="fy_txt" /><input type="button" class="fy_btn" value="翻译" /></div>
+                <div class="mcfy_list"><a href="#">tetrahedrite<font> - 黝铜矿</font></a></div>
+                <div class="mcfy_list"><a href="#">tetrahedral network<font> - 四面体网络</font></a></div>
+                <div class="mcfy_list"><a href="#">tetrahedral pore<font> - 四面体孔隙</font></a></div>
+                <div class="mcfy_list"><a href="#">tetrahedral<font> - 四面体的</font></a></div>
+                <div class="mcfy_list"><a href="#">tetrahedrite<font> - 黝铜矿</font></a></div>
             </div>
         </div>
         <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic5.jpg" /></a></div>
@@ -38,7 +38,11 @@
         	<div class="tycut oilqhcut"><i></i>百度百科</div>
             <div class="oiltjtw">
             	<ul class="oillistnw ulwd">
-                	<!--{tag("moduleid=24&condition=status=3&areaid=$cityid&pagesize=5&order=rand()&length=20&width=120&height=90&cols=2", -2)}-->
+                	<li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
+                    <li><a href="#">委内瑞拉将与中国讨论石油项目融资情况</a></li>
+                    <li><a href="#">国内首个含油废弃物一体化解决方案发布</a></li>
+                    <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
+                    <li><a href="#">委内瑞拉将与中国讨论石油项资情况</a></li>
                 </ul>
             </div>
         </div>
