@@ -11,7 +11,21 @@
             </div>
             
             <div class="cpsx_items">
-            	<div class="sx_mc">分类：</div><div class="sx_rg">
+            	<div class="sx_mc">请选择：</div><div class="sx_rg">
+                {if $parentid > 0}
+                {php $parentsub = get_maincat($parentid, 16, 1);}
+               		{loop $parentsub $k $v}
+			
+			<a href="{$MODULE[16][linkurl]}{$v[linkurl]}" {if $v[catid]==$catid} style="color:red"{/if}>{set_style($v[catname],$v[style])}</a><!--{if !$cityid} <span class="f_gray px10">({$v[item]})</span>{/if}</td>-->
+			
+			{/loop}
+            {/if}
+                </div>
+                <div class="clear"></div>
+            </div>
+            {if $child > 0}
+            <div class="cpsx_items">
+            	<div class="sx_mc">下级：</div><div class="sx_rg">
                 
                		{loop $maincat $k $v}
 			
@@ -21,4 +35,5 @@
                 </div>
                 <div class="clear"></div>
             </div>
+            {/if}
         </div>
