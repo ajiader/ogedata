@@ -60,8 +60,11 @@ $(document).ready(function(){
                     {php $sub = get_maincat($c[catid], $mid, 1);}
                         <ul>
                         {if $sub}
+                        {php $j=1;}
                         {loop $sub $j $s}
-                            <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></p></li>
+                        {if $j < 9}
+                            <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></p></li>  {/if}
+                            {php $j++;}
 {/loop}
 {else}
 <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a></p></li>
@@ -76,12 +79,22 @@ $(document).ready(function(){
                     <dd class="qhnr">
                     {php $sub = get_maincat($c[catid], $mid, 1);}
                         <ul>
+                         {php $j=1;}
                         {if $sub}
                         {loop $sub $j $s}
+              
                         {php $sub2 = get_maincat($s[catid], $mid, 1);}
                         {loop $sub2 $j2 $s2}
-                            <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$s2[linkurl]}">{set_style($s2[catname], $s2[style])}</a></p></li>
+                         
+                            <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$s2[linkurl]}">{set_style($s2[catname], $s2[style])}</a></p></li> 
+                             {php $j++;}
+   <?php
+   if($j>8) break;
+   ?>
 {/loop}
+   <?php
+   if($j>8) break;
+   ?>
 {/loop}
 {else}
 <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a></p></li>
@@ -120,8 +133,7 @@ $(document).ready(function(){
                 <div id="searchDIV">
                     <div class="search_ct_dv">
                         <div class="scdv"><input type="text" name="searchone" class="select_ty" placeholder="请选择" id="selectxt1" onfocus="mfselect('selectxt1','selecdv1')" /><div id="selecdv1"><p>旋塞阀P51</p><p>低压弯头313</p></div></div>
-                        <div class="scdv"><input type="text" name="searchtwo" class="select_ty" placeholder="请选择" id="selectxt2" onfocus="mfselect('selectxt2','selecdv2')" /><div id="selecdv2"><p>旋塞阀P51</p><p>低压弯头313</p></div></div>
-                        <div class="scdv sc_qd"><input type="text" name="searchthree" class="select_ty" placeholder="请选择" id="selectxt3" onfocus="mfselect('selectxt3','selecdv3')" /><div id="selecdv3"><p>旋塞阀P51</p><p>低压弯头313</p></div><input type="button" name="lfbtn" value="查询" class="lf_sc_btn" /></div>
+                       
                         <div class="searchhotcp"><span>热门产品</span><span class="hotlist"><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a></span><div class="clear"></div></div>
                     </div>
                     <div class="search_ct_dv" style="display:none;">
