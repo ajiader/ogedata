@@ -62,7 +62,7 @@ $(document).ready(function(){
                         {if $sub}
                         {php $j=1;}
                         {loop $sub $j $s}
-                        {if $j < 9}
+                        {if $j < 10}
                             <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></p></li>  {/if}
                             {php $j++;}
 {/loop}
