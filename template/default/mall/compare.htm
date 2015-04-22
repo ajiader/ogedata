@@ -114,7 +114,7 @@
 		</td>
 		{/loop}
 		</tr>
-		<tr>
+		<tr style="display:none">
 		<td><div>订 购</div></td>
 		{loop $tags $k $v}
 		<td id="msg_{$v[itemid]}_{$k}"><a href="{$MOD[linkurl]}{rewrite('buy.php?itemid='.$v['itemid'])}" target="_blank"><img src="{DT_SKIN}image/buy.gif" title="订购" alt=""/></a></td>

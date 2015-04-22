@@ -12,7 +12,7 @@
             
             <div class="cpsx_items">
             	<div class="sx_mc">请选择：</div><div class="sx_rg">
-                {if $parentid > 0}
+                {if $parentid >= 0}
                 {php $parentsub = get_maincat($parentid, 16, 1);}
                		{loop $parentsub $k $v}
 			

@@ -1,19 +1,17 @@
 <div class="oil_tuwen_gg">
     	<div class="gg_title">热门<br />产品</div>
         <div class="gg_cp_list">
-        <!--{$tags = tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=10&length=54&order=addtime desc&template=list&class=oillistnw lfulmg oilmgbt&width=120&height=90")}-->
-        	<div class="lt_items"><div class="picdv oilbor"><a href="#"><img src="{DT_SKIN}images/pic19.jpg" /></a></div><div class="nrdv"><h2><a href="#">储油设施不足制约中国扩充战略石油储备</a></h2><p>随着油价暴跌，中国这个全球最大的...</p></div></div>
-            <div class="lt_items"><div class="picdv oilbor"><a href="#"><img src="{DT_SKIN}images/pic19.jpg" /></a></div><div class="nrdv"><h2><a href="#">储油设施不足制约中国扩充战略石油储备</a></h2><p>随着油价暴跌，中国这个全球最大的...</p></div></div>
-            <div class="lt_items"><div class="picdv oilbor"><a href="#"><img src="{DT_SKIN}images/pic19.jpg" /></a></div><div class="nrdv"><h2><a href="#">储油设施不足制约中国扩充战略石油储备</a></h2><p>随着油价暴跌，中国这个全球最大的...</p></div></div>
+        <!--{php $tags2=tag("moduleid=16&condition=status=3 and level=1&areaid=$cityid&pagesize=3&order=addtime desc&template=null")}-->
+          {loop $tags2 $t}
+        	<div class="lt_items"><div class="picdv oilbor">
+              <a href="{$t[linkurl]}" target="_blank"  title="{$t[alt]}"><img src="{DT_SKIN}images/pic19.jpg" /></a></div><div class="nrdv"><h2><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></h2><p>{dsubstr($t[description],30,'')}</p></div></div>
+            {/loop}
+            
         </div>
         <div class="gg_title">热门<br />资讯</div>
         <div class="gg_news">
         	<ul class="oillistnw">
-                <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                <li><a href="#">委内瑞拉将与中国讨论石油项目融资情况</a></li>
-                <li><a href="#">国内首个含油废弃物一体化解决方案发布</a></li>
-                <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                <li><a href="#">委内瑞拉将与中国讨论石油项资情况</a></li>
+            <!--{tag("moduleid=21&condition=status=3 and addtime>$today_endtime-30*86400&order=hits desc&pagesize=4&target=_blank")}-->
             </ul>
         </div>
     </div>

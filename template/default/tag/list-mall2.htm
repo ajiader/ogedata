@@ -15,8 +15,8 @@
     $t['brand'] = getBrandName($t[brand_id]);
     // print_r($t['brand']);
     ?>
-                <tr planid="" planname="{$t[title]}">
-                	<td class="alignct" ><input type="checkbox" id="check_948" name="itemid[]" value="948" onclick="actionplan(this)"></td>
+                <tr planid="{$t['itemid']}" planname="{$t[jianhao]}">
+                	<td class="alignct" ><input type="checkbox" id="check_{$t['itemid']}" name="itemid[]" value="{$t['itemid']}" onclick="actionplan(this)"></td>
                     <td class="alignct">{if $t[filepaths]}<a href="{$t[filepaths]}" target="_blank"><img src="{DT_SKIN}/images/pdfiocn.gif" /></a>{else}<img src="{DT_SKIN}/images/pdfiocnh.gif" />{/if}</td>
                     <td><a href="{$t[linkurl]}" target="_blank"><img class="lazy" src="{$t[thumb]}" width="70" alt="{$t[alt]}"/></a></td>
                      <td><a href="{$t[linkurl]}" target="_blank"><strong class="px14">{$t[title]}</strong></a></td>

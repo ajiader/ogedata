@@ -35,12 +35,13 @@
 </div>
 
 <div class="floatdiv">
-	<h5>您已经选择的基金 <a style="cursor:pointer;" onClick="hidediv()"><img src="{DT_SKIN}images/icon_7.gif" alt="" /></a></h5>
+<form action="{$MODULE[16][linkurl]}compare.php">
+	<h5>您已经选择的产品件号 <a style="cursor:pointer;" onClick="hidediv()"><img src="{DT_SKIN}images/icon_7.gif" alt="" /></a></h5>
 	
 	<ul id="selectedplan"></ul> 
 	
-	<p align="center"><input type="button" name="chanpduibi" id="chanpinduibi" class="chanpinduibi" value="对比" /></p>
-
+	<p align="center"><input type="submit" name="chanpduibi" id="chanpinduibi" class="chanpinduibi" value="对比"  /></p>
+      </form>
 </div><!--end floatdiv-->
 <script type="text/javascript">
 var isopen=false;
@@ -66,7 +67,7 @@ function delplan(obj){
 //checkbox的点击
 function actionplan(obj){
 	var planid=obj.parentNode.parentNode.getAttribute("planid"); 
-	var planname=obj.parentNode.parentNode.getAttribute("planname"); 
+	var planname=obj.parentNode.parentNode.getAttribute("planname");
 	if(isopen==false){
 		showdiv();
 	}
@@ -82,10 +83,12 @@ function addplan(planid,planname){
 		}
 		if($("#selectedplan li").length<1){
 			document.getElementById("chanpinduibi").className="chanpinduibi";
+			$('#chanpinduibi').attr('disabled',true);
 		}else{
 			document.getElementById("chanpinduibi").className="chanpinduibi_xz";
+			$('#chanpinduibi').attr('disabled',false);
 		}
-		$("#selectedplan").append("<li style='cursor:pointer;' id=li"+planid+"><img src={DT_SKIN}images/icon_6.gif onclick=delplan(this) style=cursor:pointer;></img>"+planname+"</li>");
+		$("#selectedplan").append("<li style='cursor:pointer;' id=li"+planid+"><img src={DT_SKIN}images/icon_6.gif onclick=delplan(this) style=cursor:pointer;></img><input type='hidden' name='itemid[]' value='"+planid+"'>"+planname+"</li>");
 
 	}else{
 		var obj=document.getElementById("li"+planid);

@@ -131,35 +131,37 @@ $(document).ready(function(){
                     <div class="clear"></div>
                 </div>
                 <div id="searchDIV">
-                    <div class="search_ct_dv">
-                        <div class="scdv"><input type="text" name="searchone" class="select_ty" placeholder="请选择" id="selectxt1" onfocus="mfselect('selectxt1','selecdv1')" /><div id="selecdv1"><p>旋塞阀P51</p><p>低压弯头313</p></div></div>
-                       
-                        <div class="searchhotcp"><span>热门产品</span><span class="hotlist"><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a></span><div class="clear"></div></div>
+                    <div class="search_ct_dv" >
+                        <div class="scdv sc_qd"><form action="{$MODULE[16][linkurl]}search.php" target="_blank"><input type="text" name="kw" class="select_ty" placeholder="请输入关键词" id="selectxt5" onfocus="mfselect('selectxt5','selecdv5')" /><input type="submit" name="lfbtn" value="查询" class="lf_sc_btn" /></form></div>
+                        <div class="searchhotcp sc_mg_bt"><span>热门产品</span><span class="hotlist">
+                         <!--{php $tags=tag("moduleid=16&condition=status=3 and level=1&areaid=$cityid&pagesize=8&order=addtime desc&template=null")}-->
+                          {loop $tags $t}
+                        <a href="{$t[linkurl]}" target="_blank"  title="{$t[alt]}">{$t[title]}</a> 
+                        {/loop}</span><div class="clear"></div></div>
+                        <!--{tag("moduleid=21&condition=status=3 and addtime>$today_endtime-30*86400&order=hits desc&pagesize=3&target=_blank&class=oillistnw lfulmg")}-->
                     </div>
                     <div class="search_ct_dv" style="display:none;">
                         <div class="scdv sc_qd"><form action="{$MODULE[13][linkurl]}search.php" target="_blank"><input type="text" name="kw" class="select_ty" placeholder="请输入品牌名称" id="selectxt4" onfocus="mfselect('selectxt4','selecdv4')" /><input type="submit" name="lfbtn" value="查询" class="lf_sc_btn" /></form></div>
-                        <div class="searchhotcp sc_mg_bt"><span>热门品牌</span><span class="hotlist"><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a></span><div class="clear"></div></div>
-                        <ul class="oillistnw lfulmg">
-                            <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                            <li><a href="#">委内瑞拉将与中国讨论石油项目融资情况</a></li>
-                            <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                        </ul>
+                        <div class="searchhotcp sc_mg_bt"><span>热门品牌</span><span class="hotlist">  <!--{php $tags=tag("moduleid=13&condition=status=3 and level=1&areaid=$cityid&pagesize=8&order=addtime desc&template=null")}-->
+                          {loop $tags $t}
+                        <a href="{$t[linkurl]}" target="_blank"  title="{$t[alt]}">{$t[title]}</a> 
+                        {/loop}</span><div class="clear"></div></div>
+                           <!--{tag("moduleid=21&condition=status=3 and addtime>$today_endtime-30*86400&order=hits desc&pagesize=3&target=_blank&class=oillistnw lfulmg")}-->
+                     
                     </div>
                     <div class="search_ct_dv" style="display:none;">
-                        <div class="scdv sc_qd"><form action="{$MODULE[16][linkurl]}search.php" target="_blank"><input type="text" name="kw" class="select_ty" placeholder="请输入件号" id="selectxt5" onfocus="mfselect('selectxt5','selecdv5')" /><div id="selecdv5"><p>旋塞阀P51</p><p>低压弯头313</p></div><input type="submit" name="lfbtn" value="查询" class="lf_sc_btn" /></form></div>
-                        <div class="searchhotcp sc_mg_bt"><span>热门产品</span><span class="hotlist"><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a><a href="#">旋塞阀P51</a><a href="#">接头P51</a><a href="#">低压弯头313</a><a href="#">高压弯头 311</a></span><div class="clear"></div></div>
-                        <ul class="oillistnw lfulmg">
-                            <li><a href="#">中国石化召开四川盆地及周缘天然气勘探突破推进会</a></li>
-                            <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                            <li><a href="#">中海油坦言暂时搁置安徽页岩气项目 因资源量不足</a></li>
-                        </ul>
+                        <div class="scdv sc_qd"><form action="{$MODULE[16][linkurl]}search.php" target="_blank"><input type="text" name="kw" class="select_ty" placeholder="请输入件号" id="selectxt5" onfocus="mfselect('selectxt5','selecdv5')" /><input type="submit" name="lfbtn" value="查询" class="lf_sc_btn" /></form></div>
+                        <div class="searchhotcp sc_mg_bt"><span>热门产品</span><span class="hotlist">
+                         <!--{php $tags=tag("moduleid=16&condition=status=3 and level=1&areaid=$cityid&pagesize=8&order=addtime desc&template=null")}-->
+                          {loop $tags $t}
+                        <a href="{$t[linkurl]}" target="_blank"  title="{$t[alt]}">{$t[title]}</a> 
+                        {/loop}</span><div class="clear"></div></div>
+                       <!--{tag("moduleid=21&condition=status=3 and addtime>$today_endtime-30*86400&order=hits desc&pagesize=3&target=_blank&class=oillistnw lfulmg")}-->
                     </div>
                 </div>
             </div>
-            <ul class="oillistnw lfulmg">
-                <li><a href="#">中海油成全球第二大LNG进口商 去年进口1411万吨</a></li>
-                <li><a href="#">委内瑞拉将与中国讨论石油项目融资情况</a></li>
-            </ul>
+           
+              <!--{tag("moduleid=24&condition=status=3 and addtime>$today_endtime-30*86400&order=hits desc&pagesize=2&target=_blank&class=oillistnw lfulmg")}-->
         </div>
         <div class="oil_news_ct">
         	<!--{tag("moduleid=21&condition=status=3 and level=5&areaid=$cityid&order=addtime desc&pagesize=1&target=_blank&template=list-hl&start=0")}-->
