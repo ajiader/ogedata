@@ -28,6 +28,8 @@ h1,h2,h3,h4,h5,h6,strong,b{ font-weight:bold;}
 .oil_top div.logindv span{ padding:0 20px 0 0;}
 .oil_top span b{ padding:0 20px 0 0;}
 .oil_top span em{ color:#ff0000;}
+.oil_top div.logindv span.head_t{ padding:0px; background:none;}
+.oil_top div.logindv span.f_b{ background:none; padding:0px;}
 .oil_nav{ height:94px;}
 .oil_nav .logo{ float:left; width:214px; height:94px; background:url(images/logo.gif) no-repeat;}
 .oil_nav .navrg{ width:781px; float:left; padding-left:5px;}
@@ -110,12 +112,12 @@ h1,h2,h3,h4,h5,h6,strong,b{ font-weight:bold;}
 .oil_cp_qh ul li.last{ width:168px;}
 .oil_cp_qh ul li a:hover{ text-decoration:none;}
 .oil_cp_qh ul li.last a{ border-right:0px;}
-dl.oil_cp_list{ display:block; height:45px; overflow:hidden; padding:6px 0; border-bottom:1px #ccd3e5 dashed;}
+dl.oil_cp_list{ display:block; height:40px; overflow:hidden; padding:6px 0 8px 0; border-bottom:1px #ccd3e5 dashed;}
 dl.oil_cp_list dt{ width:92px; text-align:center; font-size:14px; line-height:45px; float:left;}
 dl.oil_cp_list dd{ float:left;}
-dl.oil_cp_list dd.clicklf{ width:32px; height:32px; margin-top:6px;}
-dl.oil_cp_list dd.clicklf a{ display:block; background-position:-309px -137px; height:32px;}
-dl.oil_cp_list dd.clickrg a{ display:block; background-position:-346px -137px; height:32px;}
+dl.oil_cp_list dd.clicklf{ width:28px; height:28px; margin-top:6px;}
+dl.oil_cp_list dd.clicklf a{ display:block; background-position:-309px -137px; height:28px;}
+dl.oil_cp_list dd.clickrg a{ display:block; background-position:-342px -137px; height:28px;}
 dl.oil_cp_list dd.qhnr{ width:820px; overflow:hidden; height:45px; padding:0 5px;}
 dl.oil_cp_list dd.qhnr ul li{ float:left; width:80px; text-align:center;}
 dl.oil_cp_list dd.qhnr ul li p{ line-height:18px; padding-top:8px;}

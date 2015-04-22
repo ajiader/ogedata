@@ -2,10 +2,8 @@
  * jQuery Scrollbox
  * (c) 2009-2013 Hunter Wu <hunter.wu@gmail.com>
  * MIT Licensed.
- *
- * http://github.com/wmh/jquery-scrollbox
  */
-/* 代码整理：懒人之家 www.lanrenzhijia.com */
+
 (function($) {
 
 $.fn.scrollbox = function(config) {
@@ -88,7 +86,6 @@ $.fn.scrollbox = function(config) {
         }
       }
     };
-/* 代码整理：懒人之家 www.lanrenzhijia.com */
     // Backward
     // 1. If forwarding, then reverse
     // 2. If stoping, then backward once
@@ -155,7 +152,7 @@ $.fn.scrollbox = function(config) {
     if (config.autoPlay) {
       nextScrollId = setTimeout(forward, config.startDelay * 1000);
     }
-/* 代码整理：懒人之家 www.lanrenzhijia.com */
+
     // bind events for container
     container.bind('resetClock', function(delay) { resetClock(delay); });
     container.bind('forward', function() { clearTimeout(nextScrollId); forward(); });
@@ -174,5 +171,5 @@ $.fn.scrollbox = function(config) {
     });
   });
 };
-/* 代码整理：懒人之家 www.lanrenzhijia.com */
+
 }(jQuery));

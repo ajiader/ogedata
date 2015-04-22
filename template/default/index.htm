@@ -12,7 +12,7 @@ $(document).ready(function(){
 		$(this).addClass("selected").siblings().removeClass("selected");
 		$("#searchDIV .search_ct_dv").eq($('#searchA ul li').index(this)).show().siblings().hide();
 	});
-	$('#slider').nivoSlider();
+	$('#slider').nivoSlider({pauseTime: 6000,});
 	$('#video_list').scrollbox({
 		autoPlay: true,
 		direction: 'h',
@@ -41,7 +41,7 @@ $(document).ready(function(){
 
                 {loop $child $i $c}
                 {if $i<6}
-                <li {if $n==1}class="selected"{/if}><a href="#">{set_style($c[catname], $c[style])}</a></li>{/if}
+                <li {if $n==1}class="selected"{elseif $i==5}class="last"{/if}><a href="#">{set_style($c[catname], $c[style])}</a></li>{/if}
                 {php $n++} 
                  {/loop}
             </ul>
@@ -64,7 +64,7 @@ $(document).ready(function(){
                             <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></p></li>
 {/loop}
 {else}
-<li><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a></li>
+<li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a></p></li>
 {/if}
                         </ul>
                     </dd>
@@ -84,7 +84,7 @@ $(document).ready(function(){
 {/loop}
 {/loop}
 {else}
-<li><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a></li>
+<li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a></p></li>
 {/if}
                         </ul>
                     </dd>
@@ -107,7 +107,11 @@ $(document).ready(function(){
     </div>
     <div class="oil_index_content oilmgbt">
     	<div class="oil_tab_left">
-            <!--{tag("moduleid=21&condition=status=3 and level=2 and thumb!=''&areaid=$cityid&order=itemid  desc&pagesize=4&width=330&height=250&target=_blank&template=slide")}-->
+            <div id="slider" class="pic_tab oilmgbt">
+            	<!--{php $tags=tag("table=ad&condition=pid=26&template=null");}-->
+                {loop $tags $t}<a title="{$t[image_alt]}" href='{$t[url]}' target="_blank"><img src="{$t[image_src]}" title="{$t[image_alt]}" alt="{$t[image_alt]}" /></a>{/loop}
+            	
+            </div>
             <div class="oilbor cpdv searchhg oilmgbt">
             	<div class="oil_cp_qh searchA" id="searchA">
                     <ul><li class="selected"><a href="#">快速查询</a></li><li><a href="#">品牌</a></li><li class="last"><a href="#">件号</a></li></ul>
