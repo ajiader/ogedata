@@ -5,6 +5,12 @@
     <p>油气设备数据网   蜀ICP备14023545号-1</p>
 </div>
 <!-- footer<end>-->
+<ul id="side-bar" class="side-pannel side-bar">
+  <a href="#" class="gotop" style="display:none;"><s class="g-icon-top"></s></a>
+  <a href="#" target="_blank" class="text"><s class="g-icon-qq1"></s><span>在线咨询</span></a>
+  <a href="#" target="_blank" class="text weibo"><s class="g-icon-weibo1"></s><span>微博</span></a>
+  <a href="javascript:;" class="qr"><s class="g-icon-qr1"></s><i></i></a>
+</ul>
 <script language="javascript">
 jQuery(document).ready(function(){
 	var doc=document,inputs=doc.getElementsByTagName('input'),supportPlaceholder='placeholder'in doc.createElement('input'),placeholder=function(input){var text=input.getAttribute('placeholder'),defaultValue=input.defaultValue;
@@ -19,7 +25,6 @@ jQuery(document).ready(function(){
 </script>
 
 <!--[系统关键代码，请勿删除]-->
-<div id="back2top" class="back2top"><a href="javascript:void(0);" title="返回顶部">&nbsp;</a></div>
 <script type="text/javascript">
 {if $destoon_task}
 show_task('{$destoon_task}');
@@ -27,9 +32,21 @@ show_task('{$destoon_task}');
 {php include DT_ROOT.'/api/task.inc.php';}
 {/if}
 {if $lazy}$(function(){$("img").lazyload();});{/if}
-$('#back2top').click(function() {
-	$("html, body").animate({scrollTop:0}, 200);
-});
+</script>
+<script language="javascript">
+	$(function(){
+		$(window).scroll(function(){
+			if($(window).scrollTop()>100){
+				$("#side-bar .gotop").fadeIn();	
+			}
+			else{
+				$("#side-bar .gotop").hide();
+			}
+		});
+		$("#side-bar .gotop").click(function(){
+			$('html,body').animate({'scrollTop':0},500);
+		});
+	});
 </script>
 </body>
 </html>

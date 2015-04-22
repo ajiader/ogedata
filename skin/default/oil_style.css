@@ -292,11 +292,12 @@ a.rightdirection{ background-position:-417px -135px;}
 .video_listdv,.video_nr{ overflow:hidden;}
 .video_listdv .videocut{ height:43px; border-bottom:3px #325194 solid;}
 .video_listdv .videocut span{ float:left; width:134px; height:43px; padding-left:50px; font-size:18px; color:#ffffff; line-height:43px; background-position:-289px -365px;}
+.video_listdv .videocut span a{ color:#ffffff;}
 .video_listdv .videocut .hotsp,.video_listdv .videocut .hotsp a,.video_listdv .videocut a.videomore{ color:#767676;}
 .video_listdv .videocut .hotsp{ width:650px; float:left; padding-top:15px;}
 .video_listdv .videocut .hotsp a{ display:inline-block; margin:0 4px;}
 .video_listdv .videocut a.videomore{ float:right; line-height:43px;}
-.video_nr .nr_lf{ width:390px; float:left; height:288px;}
+.video_nr .nr_lf{ width:390px; float:left; height:288px; overflow:hidden;}
 .video_nr .nr_lf a{ display:block; height:288px; position:relative;}
 .video_nr .nr_lf a span{ position:absolute; bottom:0px; left:0px; width:390px; height:47px; background:url(images/video_cut.png) no-repeat; text-indent:5em; line-height:47px; color:#ffffff;}
 .video_nr .nr_rg{ width:610px; float:left; height:288px; overflow:hidden;}
@@ -310,7 +311,7 @@ a.rightdirection{ background-position:-417px -135px;}
 .play_left{ width:675px; float:left; height:458px;}
 .play_right{ width:319px; float:right; background:url(images/play_line.jpg) left repeat-y; height:458px; padding-left:6px;}
 .play_right .playcut{ height:41px; margin-bottom:15px;}
-.play_right .playcut a{ display:inline-block; width:158px; background:#2f2f2f; color:#e9e9e9; font-size:16px; line-height:40px; border-right:1px #202020 solid; border-bottom:1px #282828 solid; text-align:center;}
+.play_right .playcut a{ display:inline-block; width:105px; background:#2f2f2f; color:#e9e9e9; font-size:16px; line-height:40px; border-right:1px #202020 solid; border-bottom:1px #282828 solid; text-align:center;}
 .play_right .playcut a.selected{ background:#383838; border-bottom:1px #383838 solid; color:#ff6600;}
 .play_right ul.gnnews{ display:block;}
 #playDIV{ padding-left:10px;}
@@ -318,12 +319,16 @@ a.rightdirection{ background-position:-417px -135px;}
 .play_right ul.gnnews li img{ float:left; width:107px; height:61px}
 .play_right ul.gnnews li span{ width:182px; float:left; padding-left:10px;}
 .play_right ul.gnnews li span a{ color:#ffffff; margin-bottom:6px; display:block;}
-.play_right ul.gnnews li span p{ color:#7a7a7a;}
-.video_spjs .spjscut{ height:48px; border-bottom:2px #dddddd solid; position:relative; margin-bottom:15px;}
+.play_right ul.gnnews li span p{ color:#7a7a7a; line-height:20px;}
+.video_gg{ width:100%;}
+.video_gg .spjslf{ float:left; width:780px;}
+.video_gg .spjsrg{ float:right; width:210px;}
+.video_gg .spjsrg img{ width:100%; padding-top:23px;}
+.video_spjs .spjscut{ height:48px; border-bottom:2px #dddddd solid; position:relative; margin-bottom:10px;}
 .video_spjs .spjscut span{ position:absolute; left:0px; bottom:-2px; background:url(images/playcut.jpg) no-repeat left bottom; height:48px; line-height:48px; font-size:18px; width:170px; color:#000000;}
-.video_spjs .spjsnr{ background:#f0f0f0; height:93px; overflow:hidden;}
+.video_spjs .spjsnr{ height:93px; overflow:hidden;}
 .video_spjs .spjsnr img{ width:164px; height:93px; float:left;}
-.video_spjs .spjsnr .nrrg{ width:810px; float:left; padding:8px 0 0 10px;}
+.video_spjs .spjsnr .nrrg{ width:780px; float:left; padding:8px 0 0 10px; background:#f0f0f0;}
 .video_spjs .spjsnr .nrrg h2{ font-size:18px; font-weight:normal; margin-bottom:8px;}
 .video_spjs .spjsnr .nrrg h2 span{ font-size:12px;}
 .video_spjs .spjsnr .nrrg p,.video_spjs .spjsnr .nrrg h2 span{ color:#787878;}

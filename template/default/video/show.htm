@@ -13,19 +13,19 @@
             	<ul class="gnnews">
                 <!--{php $tags = tag("moduleid=21&condition=status=3  and thumb<>''&catid=77&areaid=$cityid&order=addtime desc&length=20&width=187&height=90&pagesize=5&datetype=3&lazy=$lazy&template=null")}-->
                 {loop $tags $i $t}
-                	<li><a href="{$t[linkurl]}"><img src="{$t[thumb]}" width="107" height="61" alt="{$t[alt]}"/></a><span><a href="{$t[linkurl]}" title="{$t[alt]}"{if $target} target="{$target}"{/if}>{$t[title]}</a><p>发布日期：{timetodate($t[addtime], 3)}</p></span></li>
+                	<li><a href="{$t[linkurl]}"><img src="{$t[thumb]}" width="107" height="61" alt="{$t[alt]}"/></a><span><a href="{$t[linkurl]}" title="{$t[alt]}"{if $target} target="{$target}"{/if}>{$t[title]}</a><p>{dsubstr($t[introduce], 30, '...')} </p><p>发布日期：{timetodate($t[addtime], 3)}</p></span></li>
                {/loop}    
                 </ul>
                 <ul class="gnnews" style="display:none;">
                 	 <!--{php $tags = tag("moduleid=$moduleid&condition=status=3  and thumb<>''&areaid=$cityid&order=addtime desc&length=20&width=187&height=90&pagesize=5&datetype=3&lazy=$lazy&template=null")}-->
                 {loop $tags $i $t}
-                	<li><a href="{$t[linkurl]}"><img src="{$t[thumb]}" width="107" height="61" alt="{$t[alt]}"/></a><span><a href="{$t[linkurl]}" title="{$t[alt]}"{if $target} target="{$target}"{/if}>{$t[title]}</a><p>发布日期：{timetodate($t[addtime], 3)}</p></span></li>
+                	<li><a href="{$t[linkurl]}"><img src="{$t[thumb]}" width="107" height="61" alt="{$t[alt]}"/></a><span><a href="{$t[linkurl]}" title="{$t[alt]}"{if $target} target="{$target}"{/if}>{$t[title]}</a><p>{dsubstr($t[introduce], 30, '...')} </p><p>发布日期：{timetodate($t[addtime], 3)}</p></span></li>
                {/loop}    
                 </ul>
                 <ul class="gnnews" style="display:none;">
                 	 <!--{php $tags = tag("moduleid=24&condition=status=3  and thumb<>''&areaid=$cityid&order=addtime desc&length=20&width=187&height=90&pagesize=5&datetype=3&lazy=$lazy&template=null")}-->
                 {loop $tags $i $t}
-                	<li><a href="{$t[linkurl]}"><img src="{$t[thumb]}" width="107" height="61" alt="{$t[alt]}"/></a><span><a href="{$t[linkurl]}" title="{$t[alt]}"{if $target} target="{$target}"{/if}>{$t[title]}</a><p>发布日期：{timetodate($t[addtime], 3)}</p></span></li>
+                	<li><a href="{$t[linkurl]}"><img src="{$t[thumb]}" width="107" height="61" alt="{$t[alt]}"/></a><span><a href="{$t[linkurl]}" title="{$t[alt]}"{if $target} target="{$target}"{/if}>{$t[title]}</a><p>{dsubstr($t[introduce], 30, '...')} </p><p>发布日期：{timetodate($t[addtime], 3)}</p></span></li>
                {/loop}    
                 </ul>
             </div>
