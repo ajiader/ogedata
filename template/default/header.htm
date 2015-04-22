@@ -92,16 +92,30 @@ document.onselectstart=function(e){return false;};
                     </ul>
                 </div>
                 <div class="searchdv">
-                	<div class="hotwords">热门搜索：<!--{tag("moduleid=16&table=keyword&condition=moduleid=16 and status=3&pagesize=4&order=total_search desc&template=list-search_kw")}--></div><form action="{$MODULE[16][linkurl]}search.php" method="get">
+                	<div class="hotwords">热门搜索：<!--{tag("moduleid=16&table=keyword&condition=moduleid=16 and status=3&pagesize=4&order=total_search desc&template=list-search_kw")}--></div>
+                    <?php
+                    $mid =  ($moduleid ==1 )? '16' : $moduleid;  
+
+                    ?>
+                    <form action="{$MODULE[$mid][linkurl]}search.php" method="get" id="ogesearch">
                     <div class="sstext">
                     	<div class="xx_class" id="xzclass">
-                           <input type="text" readonly="readonly" id="selectip" value="类别" name="xzselect"><div id="selectdv"><p scid="16">类别</p><p scid="5">品牌</p><p scid="6">件号</p><p scid="4">企业</p><p scid="21">资讯</p></div> 
+                           <input type="text" readonly="readonly" id="selectip" value="{dsubstr($MODULE[$mid][name],4,'')}" name="xzselect"><div id="selectdv"><p scid="16">设备</p><p scid="13">品牌</p><p scid="16">件号</p><p scid="4">企业</p><p scid="21">资讯</p></div> 
                         </div>
-                    <input type="text" name="kw" placeholder="请输入关键词" class="searchtxt" value="{if $kw}{kw}{/if}" /><input type="submit" name="searchbtn" value="搜索" class="searchbtn" />
+                    <input type="text" name="kw" placeholder="请输入关键词" class="searchtxt" value="{if $kw}{$kw}{/if}" /><input type="submit" name="searchbtn" value="搜索" class="searchbtn" />
                    <input type="hidden" id="catid" name="catid" value="{$caitid}">
-            <input type="hidden" name="brandid" id="brandid" value="{$brandid}">
-            
-                    </div></form> 
+          
+            <input id="destoon_moduleid" type="hidden" value="{$mid}" name="moduleid">
+                    </div></form>
+                    
+                    <script type="text/javascript">
+                    $(function(){
+					    $('#selectdv > p').click(function(){
+							$('#destoon_moduleid').attr('value',$(this).attr('scid'));
+							$('#ogesearch').attr('action','{$MODULE[1][linkurl]}api/search.php');
+						});
+					});
+                    </script> 
                 </div>
             </div>
         </div>
