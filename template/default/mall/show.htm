@@ -4,12 +4,13 @@
 	<div class="curPosition">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {$title}</div>
     <div class="oilbor oilmgbt">
     	<div class="zoom-section">   	  
-           <div class="zoom-small-image"><a href="{DT_SKIN}images/dt_pic1big.jpg" class="cloud-zoom" id="zoom1" rel="adjustX: 10, adjustY:-4"><img src="{DT_SKIN}images/dt_pic1.jpg" ></a></div>
+           <div class="zoom-small-image">
+           <a href="{$thumbs[0]}" class="cloud-zoom" id="zoom1" rel="adjustX: 10, adjustY:-4"><img src="{$thumbs[0]}" ></a> </div>
            <div class="zoom-desc">
                <p id="smallpic">
-                   <a href='{DT_SKIN}images/dt_pic1big.jpg' class='cloud-zoom-gallery selected' title='Red' rel="useZoom: 'zoom1', smallImage: '{DT_SKIN}images/dt_pic1.jpg' "><img class="{DT_SKIN}zoom-tiny-image" src="{DT_SKIN}images/dt_pic1.jpg" alt = "Thumbnail 1"></a>
-                   <a href='{DT_SKIN}images/dt_pic2big.jpg' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: '{DT_SKIN}images/dt_pic2.jpg'"><img class="zoom-tiny-image" src="{DT_SKIN}images/dt_pic2.jpg" alt = "Thumbnail 2"></a>                  
-                   <a href='{DT_SKIN}images/dt_pic3big.jpg' class='cloud-zoom-gallery' title='Blue' rel="useZoom: 'zoom1', smallImage: '{DT_SKIN}images/dt_pic3.jpg' "><img class="zoom-tiny-image" src="{DT_SKIN}images/dt_pic3.jpg" alt = "Thumbnail 3"></a>
+               {loop $thumbs $k $v}
+                   <a href='{$v}' class='cloud-zoom-gallery selected' title='Red' rel="useZoom: 'zoom1', smallImage: '{DT_SKIN}images/dt_pic1.jpg' "><img class="{DT_SKIN}zoom-tiny-image" src="{$v}" alt = "Thumbnail 1"></a>
+                  {/loop}
                </p>
            </div>
 	     </div>
