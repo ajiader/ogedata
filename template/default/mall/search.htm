@@ -33,18 +33,36 @@
     </div>
     <div class="clear"></div>
 </div>
-
+<?php
+print_R($_COOKIE);
+?>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.cookie.js"></script>
+    <script type="text/javascript">
+    var isopen=false;
+     </script>
 <div class="floatdiv">
 <form action="{$MODULE[16][linkurl]}compare.php">
 	<h5>您已经选择的产品件号 <a style="cursor:pointer;" onClick="hidediv()"><img src="{DT_SKIN}images/icon_7.gif" alt="" /></a></h5>
 	
-	<ul id="selectedplan"></ul> 
+	<ul id="selectedplan">
+    
+    {loop $_COOKIE['item'] $k $v}
+    {if $v}
+    <script type="text/javascript">
+    var isopen=true;
+     </script>
+    <li style="cursor:pointer;" id="li{$k}"><img src="http://dev.ogedata.com/skin/default/images/icon_6.gif" onclick="delplan(this)" style="cursor:pointer;"><input type="hidden" name="itemid[]" value="{$k}">{$v}</li>
+    {/if}
+    {/loop}
+   
+    </ul> 
 	
 	<p align="center"><input type="submit" name="chanpduibi" id="chanpinduibi" class="chanpinduibi" value="对比"  /></p>
       </form>
 </div><!--end floatdiv-->
 <script type="text/javascript">
-var isopen=false;
+
+
 //关闭div层
 function hidediv(){
 	$('div.floatdiv:visible').hide(); 
@@ -55,10 +73,15 @@ function showdiv(){
 	$('div.floatdiv:hidden').show(); 
 	isopen=true;
 }
+	if(isopen==true){
+		showdiv();
+	}
 //点击图标删除此行
 function delplan(obj){
 	var parent=obj.parentNode;
 	var id=parent.id; 
+	planid = id.replace("li","");   
+	$.cookie('item['+planid+']', null);
 	parent.parentNode.removeChild(parent); 
 	//去除选中的
 	var checkid="check_"+id.substr(2,id.length);
@@ -68,6 +91,7 @@ function delplan(obj){
 function actionplan(obj){
 	var planid=obj.parentNode.parentNode.getAttribute("planid"); 
 	var planname=obj.parentNode.parentNode.getAttribute("planname");
+	$.cookie('item['+planid+']', planname, {expires: 1});
 	if(isopen==false){
 		showdiv();
 	}
