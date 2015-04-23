@@ -4,7 +4,8 @@
 	<div class="curPosition">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {$title}</div>
     <div class="oilbor oilmgbt">
     	<div class="zoom-section">   	  
-           <div class="zoom-small-image">{loop $thumbs $k $v}<a href="{$v}" class="cloud-zoom" id="zoom1" rel="adjustX: 10, adjustY:-4"><img src="{$v}" ></a> {/loop}</div>
+           <div class="zoom-small-image">
+           <a href="{$thumbs[0]}" class="cloud-zoom" id="zoom1" rel="adjustX: 10, adjustY:-4"><img src="{$thumbs[0]}" ></a> </div>
            <div class="zoom-desc">
                <p id="smallpic">
                {loop $thumbs $k $v}
