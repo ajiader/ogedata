@@ -39,6 +39,7 @@ $category_select = ajax_category_select('catid', $L['all_category'], $catid, $mo
 
 $catRow = get_cat($catid);
 $maincat = get_maincat($catRow['child'] ? $catid : $catRow['parentid'] , $moduleid);//分类
+$child =  $catRow['child'];
 
 $area_select = ajax_area_select('areaid', $L['all_area'], $areaid);
 $tags = array();
