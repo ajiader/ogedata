@@ -1,0 +1,5 @@
+  <ul>
+  {loop $tags $i $t}
+                            <li><span><a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}><img src="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}" /></a></span><h2><a href="{$t[linkurl]}" title="{$t[alt]}"{if $target} target="{$target}"{/if}>{$t[title]}</a></h2><p>{dsubstr($t[description],40)}</p></li>
+{/loop}
+                        </ul>
