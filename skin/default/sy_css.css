@@ -324,7 +324,6 @@
 .pos {padding:0 10px 0 10px;line-height:38px;background:#ffffff url('image/box_head_bg.gif') repeat-x left bottom;}
 .nav {padding:10px 0 15px 0;}
 /* show */
-.title { font-size:20px;text-align:center;font-family:\9ED1\4F53;font-weight:normal; line-height:25px; padding:10px 0;}
 .title_trade {height:25px;font-size:18px;text-align:center;font-family:\9ED1\4F53;font-weight:normal;margin:0 0 8px 0;border-bottom:#F1F1F1 1px solid;padding:0 0 10px 0;}
 .info {margin:0 15px 0 15px;padding:4px 10px 4px 10px;border-top:#D0D0D0 1px solid;border-bottom:#D0D0D0 1px solid;}
 .introduce {margin:10px 15px 10px 15px;padding:8px 12px 8px 12px;line-height:180%;font-size:14px;background:#F1F1F1;}

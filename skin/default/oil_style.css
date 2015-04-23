@@ -90,7 +90,7 @@ h1,h2,h3,h4,h5,h6,strong,b{ font-weight:bold;}
 .oilfooter{ border-top:2px #34559a solid; padding:15px; margin-top:10px;}
 .oilfooter p{ text-align:center; line-height:30px;}
 .detailtop{ padding:15px 0; border:2px #ccd3e5 solid; border-top:3px #34559a solid;}
-.detailh1{ text-align:center; height:56px; line-height:56px; background:url(images/rgtlline.jpg) no-repeat center bottom; font-size:20px;}
+.detailh1{ text-align:center; padding-bottom:20px; background:url(images/rgtlline.jpg) no-repeat center bottom; font-size:20px;}
 .detail_info{ text-align:center; padding:10px 0;}
 .detail_content{ padding:10px 15px;}
 .detailcontenthxts{ background:#f3f3f3; padding:10px; line-height:25px; margin:10px;}
@@ -228,7 +228,7 @@ a.rightdirection{ background-position:-417px -135px;}
 .oil_cpsx span{ color:#666666; font-size:12px;}
 .cpsx_items{ margin:0 10px; border-bottom:1px #ccd3e4 dashed; padding:10px 0;}
 
-.cpsx_items .sx_mc{ float:left; width:50px; font-size:14px;}
+.cpsx_items .sx_mc{ float:left; width:65px; font-size:14px;}
 .cpsx_items .sx_rg{ width:650px; float:left;}
 .cpsx_items .sx_rg a{ width:auto; margin-right:10px; color:#325194}
 .cp_list_table{ border-top:1px #ccd3e4 solid; border-left:1px #ccd3e4 solid;}
@@ -240,7 +240,7 @@ a.rightdirection{ background-position:-417px -135px;}
 .mcfy_dv{ height:45px; overflow:hidden; padding:5px 10px; }
 .mcfy_dv .fy_txt{ width:155px; padding-left:8px; border:1px #dedede solid; height:38px; line-height:38px; float:left;}
 .mcfy_dv .fy_btn{ background:#325194; height:42px; float:left; color:#ffffff; font-family:"Microsoft Yahei",微软雅黑; font-size:18px; border:0px; width:55px; cursor:pointer;}
-.mcfy_list{ height:34px; border-bottom:1px #ccd3e4 dashed; margin:0 8px; line-height:34px; background-position:-486px -308px; padding-left:20px;}
+.mcfy_list{ height:34px; border-bottom:1px #ccd3e4 dashed; margin:0 8px; line-height:34px; background-position:-486px -308px; padding-left:20px; overflow:hidden;}
 .mcfy_list a{ display:block; color:#325194; background-position:-53px -260px;}
 .mcfy_list a font{ color:#666666; font-size:12px;}
 .mcfy_list a:hover{ background-position:-55px -289px;}
@@ -263,7 +263,7 @@ a.rightdirection{ background-position:-417px -135px;}
 .dtail_rg .rttop .cpjt a.kefu_btn:hover{ background-position:-287px -311px; text-decoration:none;}
 .dtail_rg .rttop .cp_gg{ width:259px; float:right; text-align:center; padding-top:10px;}
 .dtail_rg .cp_xsjs{ padding:15px 20px 0 20px;}
-.dtail_rg .cp_xsjs ul li span.sp2{ width:580px; font-size:12px; line-height:20px;}
+.dtail_rg .cp_xsjs ul li span.sp2{ width:580px; font-size:12px; line-height:18px;}
 .dtaillf{ width:736px; margin-left:6px;}
 .dtailcut{ height:49px; position:relative;}
 .dtailcut span{ width:125px; height:49px; position:absolute; left:-7px; top:-1px; text-align:center; line-height:42px; color:#ffffff; font-size:18px; background-position:0 -351px; }

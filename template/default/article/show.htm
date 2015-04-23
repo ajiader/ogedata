@@ -46,13 +46,6 @@
             <div class="detailnext">下一篇：<!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$addtime&areaid=$cityid&pagesize=1&order=addtime asc&template=list-np", -1)}--></div>
             <div class="detailnext">上一篇：<!--{tag("moduleid=$moduleid&condition=status=3 and addtime<$addtime&areaid=$cityid&pagesize=1&order=addtime desc&template=list-np", -1)}--></div>
             {/if}
-            <center>
-		[ <a href="{$MOD[linkurl]}search.php" rel="nofollow">{$MOD[name]}搜索</a> ]&nbsp;
-		[ <a href="javascript:SendFav();">加入收藏</a> ]&nbsp;
-		[ <a href="javascript:SendPage();">告诉好友</a> ]&nbsp;
-		[ <a href="javascript:Print();">打印本文</a> ]&nbsp;
-		[ <a href="javascript:window.close()">关闭窗口</a> ]
-		</center>
         </div>
         {if $MOD[page_srelate]}
         {if $keytags}
@@ -119,4 +112,4 @@ $(document).ready(function(){
     </div>
     <div class="clear"></div>
 </div>
-{template 'footernew'}
+{template 'footer'}
