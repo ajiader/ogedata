@@ -32,6 +32,7 @@ h1,h2,h3,h4,h5,h6,strong,b{ font-weight:bold;}
 .oil_top div.logindv span.f_b{ background:none; padding:0px;}
 .oil_nav{ height:94px;}
 .oil_nav .logo{ float:left; width:214px; height:94px; background:url(images/logo.gif) no-repeat;}
+.oil_nav .logo a{ display:block; height:94px;}
 .oil_nav .navrg{ width:781px; float:left; padding-left:5px;}
 .oil_nav .menu{ height:43px; line-height:43px;}
 .oil_nav .menu ul{ padding-left:5px;}
@@ -94,6 +95,7 @@ h1,h2,h3,h4,h5,h6,strong,b{ font-weight:bold;}
 .detail_info{ text-align:center; padding:10px 0;}
 .detail_content{ padding:10px 15px;}
 .detailcontenthxts{ background:#f3f3f3; padding:10px; line-height:25px; margin:10px;}
+.detailcontenthxts strong{ font-size:16px;}
 .detail_content p{ text-indent:2em; line-height:30px; font-size:14px;}
 .detail_content p img{ margin-bottom:10px;}
 .detailhotw,.detailnext{ padding:10px 0 10px 15px;  font-size:14px;}
@@ -172,9 +174,10 @@ dl.oilbor0{ border-bottom:0px;}
 .oil_index_cut{ background:#fafbfc; height:37px; border-bottom:1px #ccd3e5 solid; font-size:18px; line-height:37px; padding-left:12px; color:#3d5b9b; position:relative; margin-bottom:8px;}
 .oil_index_cut em{ padding-left:8px;}
 .oil_index_cut em,.oil_index_cut a{ font-size:12px; color:#b2b2b2;}
+.oil_index_cut a{ color:#3d5b9b; font-size:18px;}
 .oil_index_cut .hotvideo{ width:380px; position:absolute; left:200px; top:0px; line-height:37px; font-size:12px; color:#727272;}
 .oil_index_cut .hotvideo span{ padding-right:10px; background:url(images/jtrg.jpg) no-repeat right center; height:37px; color:#3d5b9b;}
-.oil_index_cut .hotvideo a{ margin:0 8px; color:#727272;}
+.oil_index_cut .hotvideo a{ margin:0 8px; color:#727272;  font-size:12px;}
 .oil_index_cut a.amore{ position:absolute; right:10px; top:0px; line-height:37px;}
 .bortop2{ border-top:2px #3d5b9b solid;}
 .oilpddv{ padding:0 8px 8px 8px;}
