@@ -7,7 +7,7 @@
 			<form action="{$MOD[linkurl]}search.php" id="fsearch">
 			<table cellpadding="5" cellspacing="3">
 			<tr>
-			<td width="80" align="right">关 键 词：</td>
+			<td width="80" align="right" height="40">关 键 词：</td>
 			<td><input type="text" size="60" name="kw" value="{$kw}" class="pd3"/></td>
 			</tr>
 			<tr>
@@ -19,21 +19,21 @@
 			</td>
 			</tr>
 			<tr>
-			<td align="right">所属分类：</td>
+			<td align="right" height="40">所属分类：</td>
 			<td>
 			{$category_select}
 			</td>
 			</tr>
 			{if $DT[city]}
 			<tr>
-			<td align="right">所在地区：</td>
+			<td align="right" height="40">所在地区：</td>
 			<td>
 			{$area_select}
 			</td>
 			</tr>
 			{/if}
 			<tr>
-			<td align="right">排序方式：</td>
+			<td align="right" height="40">排序方式：</td>
 			<td>
 			{$order_select}
 			</td>
@@ -73,11 +73,11 @@
 		{/if}
 	</div>
 </div>
-<div class="m_n f_l">&nbsp;</div>
-<div class="m_r_1 f_l">
+
+<div class="oil_tyright">
 	{if $kw}
-	<div class="box_head"><div><strong>相关搜索</strong></div></div>
-	<div class="box_body">
+	<div class="box_head" style="display:none"><div><strong>相关搜索</strong></div></div>
+	<div class="box_body" style="display:none">
 		<div class="sch_site">
 			<ul>
 			{loop $MODULE $mod}{if $mod[moduleid]>3 && $mod[moduleid]!=$moduleid && !$mod[islink]}<li><a href="{$mod[linkurl]}search.php?kw={urlencode($kw)}">在 <span class="f_red">{$mod[name]}</span> 找 {$kw}</a></li>{/if}{/loop}
