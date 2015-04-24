@@ -35,9 +35,11 @@
             	<div class="sx_mc">下级：</div><div class="sx_rg">
                 
                		{loop $maincat $k $v}
-			
+			{if $brandid }
+             <a href="{$MODULE[16][linkurl]}search.php?brandid={$brandid}&catid={$v[catid]}"{if $v[catid]==$catid} style="color:red"{/if}>{set_style($v[catname],$v[style])}</a>
+            {else}
 			<a href="{$MODULE[16][linkurl]}{$v[linkurl]}" {if $v[catid]==$catid} style="color:red"{/if}>{set_style($v[catname],$v[style])}</a><!--{if !$cityid} <span class="f_gray px10">({$v[item]})</span>{/if}</td>-->
-			{if $k%$MOD[page_subcat]==($MOD[page_subcat]-1)}</tr>{/if}
+			{/if}
 			{/loop}
                 </div>
                 <div class="clear"></div>

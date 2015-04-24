@@ -83,9 +83,9 @@ document.onselectstart=function(e){return false;};
                         <li><a href="{$MODULE[1][linkurl]}" {if $moduleid<4}class="selected"{/if}>首页</a></li>
                         <li><a href="{$MODULE[13][linkurl]}" {if $moduleid==13}class="selected"{/if}>石油品牌</a></li>
                         
-                        <li><a href="/news/cpzx/" {if $moduleid==21}class="selected"{/if}>产品资讯</a></li>
+                        <li><a href="/news/cpzx/" {if $moduleid==21 && $catid==220}class="selected"{/if}>产品资讯</a></li>
                         <li><a href="{$MODULE[13][linkurl]}" {if $moduleid==13}class="selected"{/if}>石油厂商</a></li>
-                        <li><a href="{$MODULE[21][linkurl]}" {if $moduleid==21}class="selected"{/if}>石油新闻</a></li>
+                        <li><a href="{$MODULE[21][linkurl]}" {if $moduleid==21 && $catid!=220}class="selected"{/if}>石油新闻</a></li>
                         <li><a href="{$MODULE[16][linkurl]}" {if $moduleid==16}class="selected"{/if}>石油设备</a></li>
                         <li><a href="{$MODULE[24][linkurl]}" {if $moduleid==24}class="selected"{/if}>石油百科</a></li>
                         <li><a href="{$MODULE[14][linkurl]}" {if $moduleid==14}class="selected"{/if}>石油视频</a></li>

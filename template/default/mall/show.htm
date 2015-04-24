@@ -1,8 +1,8 @@
 {template 'header'}
-
+{if $brand_id} <?php $brandRow = getBrandName($brand_id); ?>{/if}
 <div class="oil_main">
 
-	<div class="curPosition">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {$title}</div>
+	<div class="curPosition">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {$brandRow['title']}{$title}</div>
 
     <div class="oilbor oilmgbt">
 
@@ -32,7 +32,7 @@
 
            	  <div class="cpjt">
 
-               	<h1>{$title}</h1>
+               	<h1>{$brandRow['title']}{$title}</h1>
 
                   <ul>
 
@@ -44,7 +44,7 @@
 
                       <li><span class="sp1">尺寸</span><span class="sp2">{$size}</span></li>
 
-                      <li><span class="sp1">品牌</span><span class="sp2">{if $brand_id} <?php $brandRow = getBrandName($brand_id); ?> <a href="{$MODULE[13][linkurl]}{$brandRow['linkurl']}" target="_blank">{$brandRow['title']}</a> {else}未填写{/if}</span></li>
+                      <li><span class="sp1">品牌</span><span class="sp2">{if $brandRow['title']}<a href="{$MODULE[13][linkurl]}{$brandRow['linkurl']}" target="_blank">{$brandRow['title']}</a> {else}未填写{/if}</span></li>
 
                   </ul>
 
