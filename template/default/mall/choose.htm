@@ -1,5 +1,19 @@
 <div class="oilbor oilmgbt">
-    		<div class="oil_cpsx">产品筛选<span>（共{$mallcount}个产品）</span></div>
+    		<div class="oil_cpsx">产品筛选</div>
+            {if $brandid or $catid}
+            <div class="cpsx_items">
+            	<div class="sx_mc">已选标签：</div><div class="sx_rg">
+                {cat_pos_jd($CAT, ' » ')}
+       
+         <?php $brandRow = getBrandName($brandid); ?>
+                   <a href="{$MODULE[16][linkurl]}search.php?brandid=&catid={$catid}" {if $brandid==$t['itemid']} style="color:red"{/if}>{$brandRow['title']}</a> 
+                 
+          
+             
+                </div>
+                <div class="clear"></div>
+            </div>
+            {/if}
             <div class="cpsx_items">
             	<div class="sx_mc">品牌：</div><div class="sx_rg">
                  <!--{php $btags=tag("moduleid=13&condition=status=3 and level=1&areaid=$cityid&pagesize=5&order=addtime desc&template=null");}-->

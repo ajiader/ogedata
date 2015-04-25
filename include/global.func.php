@@ -640,6 +640,35 @@ function cat_pos($CAT, $str = ' &raquo; ', $target = '') {
 	return $pos;
 }
 
+function cat_pos_jd($CAT, $str = '&raquo;', $target = '') {
+	global $MODULE, $db;
+	if(!$CAT) return '';
+	$arrparentids = $CAT['arrparentid'].','.$CAT['catid'];
+	$arrparentid = explode(',', $arrparentids);
+	$arrparentidarr = $arrparentid;
+	$pos = '';
+	$target = $target ? ' target="_blank"' : '';	
+	$CATEGORY = array();
+	$result = $db->query("SELECT catid,moduleid,catname,linkurl FROM {$db->pre}category WHERE catid IN ($arrparentids)", 'CACHE');
+	while($r = $db->fetch_array($result)) {
+		$CATEGORY[$r['catid']] = $r;
+	}
+	array_pop($arrparentidarr);
+
+	foreach($arrparentid as $key => $catid) {
+		if(!$catid || !isset($CATEGORY[$catid])) continue;
+		$kkcatid =  $arrparentidarr[$key-1];
+		if ($kkcatid == 0) {
+				$pos .= '<a href="'.$MODULE[$CATEGORY[$catid]['moduleid']]['linkurl'].$CATEGORY[$kkcatid]['linkurl'].'"'.$target.'>'.$CATEGORY[$catid]['catname'].'</a>'.$str;
+			}else{
+				$pos .= '<a href="'.$MODULE[$CATEGORY[$kkcatid]['moduleid']]['linkurl'].$CATEGORY[$kkcatid]['linkurl'].'"'.$target.'>'.$CATEGORY[$catid]['catname'].'</a>'.$str;
+			}
+		}
+	$_len = strlen($str);
+	if($str && substr($pos, -$_len, $_len) === $str) $pos = substr($pos, 0, strlen($pos)-$_len);
+	return $pos;
+}
+
 function cat_url($catid) {
 	global $MODULE, $db;
 	$r = $db->get_one("SELECT moduleid,linkurl FROM {$db->pre}category WHERE catid=$catid");
