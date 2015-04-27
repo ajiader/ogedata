@@ -158,10 +158,10 @@ $(document).ready(function(){
                     </div>
                     <div class="search_ct_dv" style="display:none;">
                         <div class="scdv sc_qd"><form action="{$MODULE[16][linkurl]}search.php" target="_blank"><input type="text" name="kw" class="select_ty" placeholder="请输入件号" id="selectxt5" onfocus="mfselect('selectxt5','selecdv5')" /><input type="submit" name="lfbtn" value="查询" class="lf_sc_btn" /></form></div>
-                        <div class="searchhotcp sc_mg_bt"><span>热门产品</span><span class="hotlist">
+                        <div class="searchhotcp sc_mg_bt"><span>热门件号</span><span class="hotlist">
                          <!--{php $tags=tag("moduleid=16&condition=status=3 and level=1&areaid=$cityid&pagesize=8&order=addtime desc&template=null")}-->
                           {loop $tags $t}
-                        <a href="{$t[linkurl]}" target="_blank"  title="{$t[alt]}">{$t[title]}</a> 
+                        <a href="{$t[linkurl]}" target="_blank"  title="{$t[jianhao]}">{$t[jianhao]}</a> 
                         {/loop}</span><div class="clear"></div></div>
                        <!--{tag("moduleid=21&condition=status=3 and addtime>$today_endtime-30*86400&order=hits desc&pagesize=3&target=_blank&class=oillistnw lfulmg")}-->
                     </div>
@@ -191,13 +191,7 @@ $(document).ready(function(){
             	<div class="imgalign"><a href="#"><img src="{DT_SKIN}images/pic9.jpg" /></a></div>
                 <div class="oilpddv">
                     <ul class="oillistnw lfulmg ulwdrg">
-                        <li><a href="#">中国石化召开四川盆地</a></li>
-                        <li><a href="#">中海油成全球第二大LNG</a></li>
-                        <li><a href="#">中海油坦言暂时搁置安徽</a></li>
-                        <li><a href="#">亚洲380-cst燃料油现货</a></li>
-                        <li><a href="#">埃克森美孚CEO：别幻想</a></li>
-                        <li><a href="#">亚洲380-cst燃料油</a></li>
-                        <li><a href="#">埃克森美孚CEO：别幻想</a></li>
+                   <!--{tag("moduleid=4&condition=catids<>''&areaid=$cityid&pagesize=7&order=fromtime desc&template=list-com")}-->
                     </ul>
                 </div>
             </div>
@@ -235,7 +229,7 @@ $(document).ready(function(){
             	<div class="oil_index_cut"><a href="{$MODULE[24][linkurl]}">百科资料</a><em>/ Encyclopedias</em></div>
                 <div class="oilpddv">
                 	<ul class="oillistnw lfulmg">
-                        <!--{tag("moduleid=24&condition=status=3&areaid=$cityid&pagesize=8&order=rand()&length=20&width=120&height=90&cols=2", -2)}-->
+                        <!--{tag("moduleid=24&condition=status=3&areaid=$cityid&pagesize=8&order=rand()&length=40&width=120&height=90&cols=2", -2)}-->
                     </ul>
                 </div>
             </div>
@@ -244,8 +238,7 @@ $(document).ready(function(){
         	<div class="oilbor bortop2">
             	<div class="oil_index_cut"><a href="/news/cpzx/">产品资讯</a><em>/ Product information</em></div>
                 <div class="oilpddv">
-                	<!--{tag("moduleid=11&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=4&template=thumb-special&class=cpzx_dl&width=115&height=78&length=210")}-->
-            
+                	<!--{tag("moduleid=21&catid=220&areaid=$cityid&order=addtime desc&pagesize=4&template=thumb-special&class=cpzx_dl&width=115&height=78&length=210")}-->
                 </div>
             </div>
         </div>

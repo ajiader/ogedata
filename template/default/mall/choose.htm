@@ -2,19 +2,16 @@
     		<div class="oil_cpsx">产品筛选</div>
             {if $brandid or $catid}
             <div class="cpsx_items">
-            	<div class="sx_mc">已选标签：</div><div class="sx_rg">
-                {cat_pos_jd($CAT, ' » ')}
-       
-         <?php $brandRow = getBrandName($brandid); ?>
-                   <a href="{$MODULE[16][linkurl]}search.php?brandid=&catid={$catid}" {if $brandid==$t['itemid']} style="color:red"{/if}>{$brandRow['title']}</a> 
-                 
-          
-             
+            	<div class="sx_mc ">已选分类：</div><div class="sx_rg xg_add_yxbq">
+                {cat_pos_jd($CAT, '  ')}
+       {if $brandid}
+         		<?php $brandRow = getBrandName($brandid); ?>
+               已选品牌：    <a href="{$MODULE[16][linkurl]}search.php?brandid=&catid={$catid}"  >{$brandRow['title']}<i>X</i></a> {/if}
                 </div>
                 <div class="clear"></div>
             </div>
             {/if}
-            <div class="cpsx_items">
+            <div class="cpsx_items" {if $brandid} style="display:none"{/if}>
             	<div class="sx_mc">品牌：</div><div class="sx_rg">
                  <!--{php $btags=tag("moduleid=13&condition=status=3 and level=1&areaid=$cityid&pagesize=5&order=addtime desc&template=null");}-->
                   {loop $btags $t}
@@ -28,8 +25,8 @@
                 <div class="clear"></div>
             </div>
             
-            <div class="cpsx_items">
-            	<div class="sx_mc">请选择：</div><div class="sx_rg">
+            <div class="cpsx_items" style="display:none">
+            	<div class="sx_mc">选择分类：</div><div class="sx_rg">
                 {if $parentid >= 0}
                 {php $parentsub = get_maincat($parentid, 16, 1);}
                		{loop $parentsub $k $v}
@@ -44,9 +41,9 @@
                 <div class="clear"></div>
             </div>
             
-            {if $child > 0}
+          
             <div class="cpsx_items">
-            	<div class="sx_mc">下级：</div><div class="sx_rg">
+            	<div class="sx_mc">选择分类：</div><div class="sx_rg">
                 
                		{loop $maincat $k $v}
 			{if $brandid }
@@ -58,5 +55,5 @@
                 </div>
                 <div class="clear"></div>
             </div>
-         {/if}
+   
         </div>

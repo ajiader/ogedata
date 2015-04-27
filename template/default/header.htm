@@ -39,7 +39,7 @@
 <script type="text/javascript" src="{DT_STATIC}file/script/sy_select.js"></script>
 <script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
 <script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
-<script src="http://libs.baidu.com/jquery/1.6.1/jquery.js"></script>
+<script src="http://libs.baidu.com/jquery/1.6.1/jquery.min.js"></script>
 <script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
 <script type="text/javascript" src="{DT_STATIC}file/script/sethome.js"></script>
 <script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
@@ -55,6 +55,7 @@
 {if $head_mobile && $EXT[wap_goto]}
 GoMobile('{$head_mobile}');
 {/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
 var searchid = {$searchid};
 {if $itemid && $DT[anticopy]}
 document.oncontextmenu=function(e){return false;};
@@ -84,7 +85,7 @@ document.onselectstart=function(e){return false;};
                         <li><a href="{$MODULE[13][linkurl]}" {if $moduleid==13}class="selected"{/if}>石油品牌</a></li>
                         
                         <li><a href="/news/cpzx/" {if $moduleid==21 && $catid==220}class="selected"{/if}>产品资讯</a></li>
-                        <li><a href="{$MODULE[4][linkurl]}" {if $moduleid==13}class="selected"{/if}>石油厂商</a></li>
+                        <li><a href="/company/" {if $moduleid==4}class="selected"{/if}>石油厂商</a></li>
                         <li><a href="{$MODULE[21][linkurl]}" {if $moduleid==21 && $catid!=220}class="selected"{/if}>石油新闻</a></li>
                         <li><a href="{$MODULE[16][linkurl]}" {if $moduleid==16}class="selected"{/if}>石油设备</a></li>
                         <li><a href="{$MODULE[24][linkurl]}" {if $moduleid==24}class="selected"{/if}>石油百科</a></li>
@@ -123,23 +124,4 @@ document.onselectstart=function(e){return false;};
     </div>
 </div>
 <!-- header<end>-->
-<script language="javascript">
-jQuery(document).ready(function(){
-	var doc=document,inputs=doc.getElementsByTagName('input'),supportPlaceholder='placeholder'in doc.createElement('input'),placeholder=function(input){var text=input.getAttribute('placeholder'),defaultValue=input.defaultValue;
-	if(defaultValue==''){
-	input.value=text}
-	input.onfocus=function(){
-	if(input.value===text){this.value=''}};
-	input.onblur=function(){if(input.value===''){this.value=text}}};
-	if(!supportPlaceholder){
-	for(var i=0,len=inputs.length;i<len;i++){var input=inputs[i],text=input.getAttribute('placeholder');
-	if(input.type==='text'&& text) { placeholder(input)}}}});
-</script>
-<script language="javascript">
-$(document).ready(function(){
-	$('#oilrgqhA a').mouseover(function(){
-		$(this).addClass("selected").siblings().removeClass();
-		$("#oilrgqhUL > ul").eq($('#oilrgqhA a').index(this)).show().siblings().hide();
-	});
-});
-</script>
+
