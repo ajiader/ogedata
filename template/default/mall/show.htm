@@ -66,7 +66,9 @@
 
 {loop $options $o} {$o['name']}: {$values[$o['oid']]} &nbsp;{/loop}
 
-  {/if} </span></li>
+  {/if}
+   {if $description} {$description} {/if}
+   </span></li>
 
                 </ul>
 

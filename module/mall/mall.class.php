@@ -83,8 +83,8 @@ class mall {
 		$post = dhtmlspecialchars($post);
 		$post['content'] = addslashes(dsafe($content));
         if($post['catid']) {
-            $catids = explode(',', substr($post['catid'], 1, -1));
-            $cids = '';
+            $catids = array_unique(explode(',', substr($post['catid'], 1, -1)));
+            $post['catid'] =  ','.implode(',', $catids).',';
             foreach($catids as $catid) {
                 $C = get_cat($catid);
                 if($C) {
@@ -92,8 +92,10 @@ class mall {
                     $cids .= $catid.',';
                 }
             }
+
             $cids = array_unique(explode(',', substr(str_replace(',0,', ',', ','.$cids), 1, -1)));
             $post['catids'] = ','.implode(',', $cids).',';
+
         }
 		return array_map("trim", $post);
 	}

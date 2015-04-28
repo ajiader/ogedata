@@ -37,13 +37,13 @@ function property_check($post_ppt) {
 }
 
 function property_option($catid) {
-/*	global $db;
+	global $db;
 	$lists = array();
 	$result = $db->query("SELECT * FROM {$db->pre}category_option WHERE catid=$catid ORDER BY listorder ASC,oid ASC");
 	while($r = $db->fetch_array($result)) {
 		$lists[] = $r;
 	}
-	return $lists;*/
+	return $lists;
 }
 
 function property_value($moduleid, $itemid) {
