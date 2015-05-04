@@ -12,6 +12,7 @@ if($MOD['cat_property'] && $CAT['property']) {
 	require DT_ROOT.'/include/property.func.php';
 	$PPT = property_condition($catid);
 }
+
 unset($CAT['moduleid']);
 extract($CAT);
 

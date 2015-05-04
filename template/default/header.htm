@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
-<title>{if $brand_id} <?php $brandRow = getBrandName($brand_id); ?> {$brandRow['title']} {/if}{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{if $COM[company]}{$COM[company]}{else}{$DT[sitename]}{/if}{/if}{/if}</title>
+<title>{if $brand_id}<?php $brandRow = getBrandName($brand_id); ?>{$brandRow['title']}{/if}{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{if $COM[company]}{$COM[company]}{else}{$DT[sitename]}{/if}{/if}{/if}</title>
 {if $head_keywords}
 <meta name="keywords" content="{if $CAT['catname']}{str_replace(','.$CAT['catname'],'',$head_keywords)}{else}{$head_keywords}{/if}"/>
 {/if}
@@ -78,7 +78,9 @@ document.onselectstart=function(e){return false;};
         </div>
         <div class="oil_nav">
         	<div class="logo"><a href="/"></a></div>
+            
             <div class="navrg">
+            
                 <div class="menu">
                     <ul>
                         <li><a href="{$MODULE[1][linkurl]}" {if $moduleid<4}class="selected"{/if}>首页</a></li>
@@ -94,7 +96,8 @@ document.onselectstart=function(e){return false;};
                     </ul>
                 </div>
                 <div class="searchdv">
-                	<div class="hotwords">热门搜索：<!--{tag("moduleid=16&table=keyword&condition=moduleid=16 and status=3&pagesize=4&order=total_search desc&template=list-search_kw")}--></div>
+                	<div class="hotwords">热门搜索：<!--{tag("moduleid=16&table=keyword&condition=moduleid=16 and status=3&pagesize=4&order=total_search desc&template=list-search_kw")}-->
+                    </div>
                     <?php
                     $mid =  ($moduleid ==1 )? '16' : $moduleid;  
 

@@ -1,3 +1,4 @@
+<script type="text/javascript">var sh = '{$MOD[linkurl]}search.php?catid={$catid}';</script>
 <div class="oilbor oilmgbt">
     		<div class="oil_cpsx">产品筛选</div>
             {if $brandid or $catid}
@@ -56,4 +57,23 @@
                 <div class="clear"></div>
             </div>
    
+   
+    
+         {loop $PPT $p}
+     <div class="cpsx_items">
+            	<div class="sx_mc">按{$p[name]}：</div><div class="sx_rg">
+                
+               		
+			{loop $p[options] $o}
+            {php $ppto =  'ppt_'.$p[oid];}
+  
+			<a href="{$MOD[linkurl]}search.php?brandid={$brandid}&catid={$catid}&ppt_{$p[oid]}={urlencode($o)}" {if $$ppto==$o} style="color:red"{/if}>{$o}</a>
+			{/loop}
+                </div>
+                <div class="clear"></div>
+            </div>
+    {/loop}         
+
+
+
         </div>
