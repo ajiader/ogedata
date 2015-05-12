@@ -127,7 +127,9 @@ if($DT_QST || !$DT_QST) {
 $CATEGORY = cache_read('category-16.php');
 $showpage = 1;
 $datetype = 5;
-$seo_file = 'search';
+
+$seo_file = ($_SERVER['REQUEST_URI'] == "/mall/") ?  'index' : 'search';
+
 include DT_ROOT.'/include/seo.inc.php';
 include template('search', $module);
 ?>

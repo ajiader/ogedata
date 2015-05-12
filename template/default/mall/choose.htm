@@ -1,4 +1,5 @@
 <script type="text/javascript">var sh = '{$MOD[linkurl]}search.php?catid={$catid}';</script>
+
 <div class="oilbor oilmgbt">
     		<div class="oil_cpsx">产品筛选</div>
             {if $brandid or $catid}
@@ -14,12 +15,12 @@
             {/if}
             <div class="cpsx_items" {if $brandid} style="display:none"{/if}>
             	<div class="sx_mc">品牌：</div><div class="sx_rg">
-                 <!--{php $btags=tag("moduleid=13&condition=status=3 and level=1&areaid=$cityid&pagesize=5&order=addtime desc&template=null");}-->
+                 <!--{php $btags=tag("moduleid=13&condition=status=3 and level=1&areaid=$cityid&pagesize=10&order=addtime desc&template=null");}-->
                   {loop $btags $t}
                   {if $brandid }
-                   <a href="{$MODULE[16][linkurl]}search.php?brandid=&catid={$catid}" {if $brandid==$t['itemid']} style="color:red"{/if}>{$t['title']}</a>
+                   <a href="{$MODULE[16][linkurl]}search.php?brandid=&catid={$catid}" {if $brandid==$t['itemid']} style="color:red"{/if} target="_self">{$t['title']}</a>
                   {else}
-                <a href="{$MODULE[16][linkurl]}search.php?brandid={$t['itemid']}&catid={$catid}" {if $brandid==$t['itemid']} style="color:red"{/if}>{$t['title']}</a>
+                <a href="{$MODULE[16][linkurl]}search.php?brandid={$t['itemid']}&catid={$catid}" {if $brandid==$t['itemid']} style="color:red"{/if} target="_self">{$t['title']}</a>
                 {/if}
                 {/loop}
                 </div>
@@ -32,9 +33,9 @@
                 {php $parentsub = get_maincat($parentid, 16, 1);}
                		{loop $parentsub $k $v}
 			{if $brandid }
-             <a href="{$MODULE[16][linkurl]}search.php?brandid={$brandid}&catid={$v[catid]}"{if $v[catid]==$catid} style="color:red"{/if}>{set_style($v[catname],$v[style])}</a>
+             <a href="{$MODULE[16][linkurl]}search.php?brandid={$brandid}&catid={$v[catid]}"{if $v[catid]==$catid} style="color:red"{/if} target="_self">{set_style($v[catname],$v[style])}</a>
             {else}
-			<a href="{$MODULE[16][linkurl]}{$v[linkurl]}" {if $v[catid]==$catid} style="color:red"{/if}>{set_style($v[catname],$v[style])}</a><!--{if !$cityid} <span class="f_gray px10">({$v[item]})</span>{/if}</td>-->
+			<a href="{$MODULE[16][linkurl]}{$v[linkurl]}" {if $v[catid]==$catid} style="color:red"{/if} target="_self">{set_style($v[catname],$v[style])}</a><!--{if !$cityid} <span class="f_gray px10">({$v[item]})</span>{/if}</td>-->
 			{/if}
 			{/loop}
             {/if}
@@ -48,9 +49,9 @@
                 
                		{loop $maincat $k $v}
 			{if $brandid }
-             <a href="{$MODULE[16][linkurl]}search.php?brandid={$brandid}&catid={$v[catid]}"{if $v[catid]==$catid} style="color:red"{/if}>{set_style($v[catname],$v[style])}</a>
+             <a href="{$MODULE[16][linkurl]}search.php?brandid={$brandid}&catid={$v[catid]}"{if $v[catid]==$catid} style="color:red"{/if} target="_self">{set_style($v[catname],$v[style])}</a>
             {else}
-			<a href="{$MODULE[16][linkurl]}{$v[linkurl]}" {if $v[catid]==$catid} style="color:red"{/if}>{set_style($v[catname],$v[style])}</a><!--{if !$cityid} <span class="f_gray px10">({$v[item]})</span>{/if}</td>-->
+			<a href="{$MODULE[16][linkurl]}{$v[linkurl]}" {if $v[catid]==$catid} style="color:red"{/if} target="_self">{set_style($v[catname],$v[style])}</a><!--{if !$cityid} <span class="f_gray px10">({$v[item]})</span>{/if}</td>-->
 			{/if}
 			{/loop}
                 </div>
@@ -67,7 +68,7 @@
 			{loop $p[options] $o}
             {php $ppto =  'ppt_'.$p[oid];}
   
-			<a href="{$MOD[linkurl]}search.php?brandid={$brandid}&catid={$catid}&ppt_{$p[oid]}={urlencode($o)}" {if $$ppto==$o} style="color:red"{/if}>{$o}</a>
+			<a href="{$MOD[linkurl]}search.php?brandid={$brandid}&catid={$catid}&ppt_{$p[oid]}={urlencode($o)}" {if $$ppto==$o} style="color:red"{/if} target="_self">{$o}</a>
 			{/loop}
                 </div>
                 <div class="clear"></div>
