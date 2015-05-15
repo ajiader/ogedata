@@ -7,7 +7,8 @@ defined('IN_DESTOON') or exit('Access Denied');
 function property_update($post_ppt, $moduleid, $catid, $itemid) {
 	global $db;
 	if(!$post_ppt || !$moduleid || !$catid || !$itemid) return;
-	$OP = property_option($catid);
+    $catids = substr(str_replace(',0,', ',', $catid), 1, -1);
+	$OP = property_options($catids);
 	if(!$OP) return;
 	if(!defined('DT_ADMIN')) $post_ppt = dhtmlspecialchars($post_ppt);	
 	$db->query("DELETE FROM {$db->pre}category_value WHERE moduleid=$moduleid AND itemid=$itemid");
