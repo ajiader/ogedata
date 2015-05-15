@@ -94,7 +94,7 @@
 
                 	<div class="tjpj_wai" id="tjpj_list">
 
-                    <!--{tag("moduleid=16&condition=status=3 and level=1 and catids like '%,239,%'  and thumb!=''&areaid=$cityid&pagesize=6&order=addtime desc&template=list-mall-thumb&length=16")}-->
+                    <!--{tag("moduleid=16&condition=status=3 and level=1 and catid='$caitid'  and thumb!=''&areaid=$cityid&pagesize=6&order=addtime desc&template=list-mall-thumb&length=16")}-->
 
                     </div>
 
@@ -199,7 +199,16 @@
         </div>
 
         {/if}
-
+        
+{if $tag}
+<?php
+$tagarr = explode(' ',$tag);
+foreach($tagarr as $k => $v)
+{
+  $tagarrs[$k] = "'%".$v."%'";
+}
+$wheretag =  "title like ".implode(' OR title like ',$tagarrs);
+?>
         <div class="oilbor oilmgbt">
 
         	<div class="tycut dtailcut"><span>相关视频</span></div>
@@ -208,7 +217,7 @@
 
             	<ul>
 
-                   <!--{tag("moduleid=14&condition=status=3  and addtime>$addtime&areaid=$cityid&pagesize=4&order=addtime desc&template=list-video2", -2)}-->
+                   <!--{tag("moduleid=14&condition=status=3 and ($wheretag )  and addtime>$addtime&areaid=$cityid&pagesize=4&order=addtime desc&template=list-video2&debug=1", -2)}-->
 
 
 
@@ -219,7 +228,7 @@
             </div>
 
         </div>
-
+{/if}
     </div>
 
     <div class="oil_tyright">
