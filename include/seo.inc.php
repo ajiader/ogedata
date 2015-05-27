@@ -66,7 +66,6 @@ switch($seo_file) {
 		}
 	break;
 	case 'show':
-        print_r($MOD);
 		if($MOD['title_show']) {
 			eval("\$seo_title = \"$MOD[title_show]\";");
 		} else {
