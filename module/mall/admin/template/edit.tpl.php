@@ -256,7 +256,8 @@ if($MOD['swfu']) {
 </td>
 </tr>
 
-<tr><td class="tl"><span class="f_hid">*</span> 关键词(Tag)</td><td><input name="post[tag]" type="text" size="60" value="<?php echo $tag;?>"/><?php tips('多个关键词请用空格隔开');?></td></tr>
+<tr><td class="tl"><span class="f_hid">*</span> 视频关键词(Tag)</td><td><input name="post[tag]" type="text" size="60" value="<?php echo $tag;?>"/><?php tips('多个关键词请用空格隔开');?></td></tr>
+<tr><td class="tl"> 产品关键词(Tag)</td><td><input name="post[producttag]" type="text" size="60" value="<?php echo $producttag;?>"/><?php tips('多个关键词请用空格隔开');?></td></tr>
 </tr>
 <tr>
 <td class="tl"><span class="f_red">*</span> 会员名</td>

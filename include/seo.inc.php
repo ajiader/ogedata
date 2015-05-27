@@ -31,6 +31,7 @@ if($catid) {
 $seo_areaname = (isset($areaid) && $areaid) ? area_pos($areaid, $seo_delimiter).$seo_delimiter : '';
 $seo_showtitle = isset($title) ? $title : '';
 $seo_showintroduce = isset($introduce) ? $introduce : '';
+$seo_companyname = isset($company) ? $company : '';
 switch($seo_file) {
 	case 'index':
 		if($MOD['title_index']) {
@@ -65,6 +66,7 @@ switch($seo_file) {
 		}
 	break;
 	case 'show':
+        print_r($MOD);
 		if($MOD['title_show']) {
 			eval("\$seo_title = \"$MOD[title_show]\";");
 		} else {

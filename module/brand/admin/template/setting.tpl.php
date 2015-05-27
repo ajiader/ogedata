@@ -279,7 +279,7 @@ X
 <tr>
 <td class="tl">内容页Title<br/>(网页标题)</td>
 <td><input name="setting[seo_title_show]" type="text" id="seo_title_show" value="<?php echo $seo_title_show;?>" style="width:90%;"/><br/>
-<?php echo seo_title('seo_title_show', array('showtitle', 'catname', 'cattitle', 'modulename', 'sitename', 'sitetitle', 'delimiter'));?>
+<?php echo seo_title('seo_title_show', array('showtitle', 'catname', 'cattitle', 'modulename', 'sitename', 'sitetitle', 'delimiter', 'companyname'));?>
 </td>
 </tr>
 <tr>

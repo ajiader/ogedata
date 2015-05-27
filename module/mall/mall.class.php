@@ -16,7 +16,7 @@ class mall {
 		$this->table_data = $table_data;
 		$this->split = $MOD['split'];
 		$this->db = &$db;
-		$this->fields = array('catid','catids','mycatid','areaid','level','title','style','fee','introduce','goods_type','brand_id','brand','price','amount','thumb','thumb1','thumb2','tag','status','hits','username','editor','addtime','adddate','edittime','editdate','ip','template','linkurl','filepath','elite','note','company','truename','telephone','mobile','address','email','msn','qq','ali','skype','n1','n2','n3','v1','v2','v3','express_1','express_name_1','fee_start_1','fee_step_1','express_2','express_name_2','fee_start_2','fee_step_2','express_3','express_name_3','fee_start_3','fee_step_3');
+		$this->fields = array('catid','catids','mycatid','areaid','level','title','style','fee','introduce','goods_type','brand_id','brand','price','amount','thumb','thumb1','thumb2','tag','producttag','status','hits','username','editor','addtime','adddate','edittime','editdate','ip','template','linkurl','filepath','elite','note','company','truename','telephone','mobile','address','email','msn','qq','ali','skype','n1','n2','n3','v1','v2','v3','express_1','express_name_1','fee_start_1','fee_step_1','express_2','express_name_2','fee_start_2','fee_step_2','express_3','express_name_3','fee_start_3','fee_step_3');
     }
 
 	function pass($post) {
@@ -83,8 +83,8 @@ class mall {
 		$post = dhtmlspecialchars($post);
 		$post['content'] = addslashes(dsafe($content));
         if($post['catid']) {
-            $catids = array_unique(explode(',', substr($post['catid'], 1, -1)));
-            $post['catid'] =  ','.implode(',', $catids).',';
+            $catids = explode(',', substr($post['catid'], 1, -1));
+            $cids = '';
             foreach($catids as $catid) {
                 $C = get_cat($catid);
                 if($C) {
@@ -92,10 +92,8 @@ class mall {
                     $cids .= $catid.',';
                 }
             }
-
             $cids = array_unique(explode(',', substr(str_replace(',0,', ',', ','.$cids), 1, -1)));
             $post['catids'] = ','.implode(',', $cids).',';
-
         }
 		return array_map("trim", $post);
 	}
