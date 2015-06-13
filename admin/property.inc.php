@@ -94,7 +94,6 @@ class property {
 		foreach($post as $k=>$v) {
 			$sqlk .= ','.$k; $sqlv .= ",'$v'";
 		}
-        $sqlk = substr($sqlk, 1);
         $sqlv = substr($sqlv, 1);
 		$this->db->query("INSERT INTO {$this->table} ($sqlk) VALUES ($sqlv)");
 		return true;

@@ -47,24 +47,15 @@ load('profile.js');
 </tr>
 <?php if($CP) { ?>
 <script type="text/javascript">
-var property_catid = <?php echo $catid;?>;
+var property_catid = '<?php echo $catid;?>';
 var property_itemid = <?php echo $itemid;?>;
 var property_admin = 1;
+var moduleid = <?php echo $moduleid;?>;
 </script>
 <script type="text/javascript" src="<?php echo DT_PATH;?>file/script/property.js"></script>
-<?php if($itemid) { ?><script type="text/javascript">setTimeout("load_property()", 1000);</script><?php } ?>
-
-<script type="text/javascript">
-//品牌ajax处理
-function changex(val) 
-{ 
-var url="<?php echo DT_ROOT; ?>/ajax.php"; 
-jQuery.get(url, { method: "", lessonid: val }, 
-  function(data){ 
-  	alert(data); 
-  });
-}
-</script>
+<?php if($itemid) { ?><script type="text/javascript">
+setTimeout("load_property()", 1000);
+</script><?php } ?>
 <tbody id="load_property" style="display:none;">
 <tr><td></td><td></td></tr>
 </tbody>
@@ -148,39 +139,7 @@ jQuery.get(url, { method: "", lessonid: val },
 </tr>
 <?php echo $FD ? fields_html('<td class="tl">', '<td>', $item) : '';?>
 
-<!-- <tr>
-<td class="tl">商品扩展属性</td>
-<td><?php echo dselect($goods_type_list, 'post[goods_type]', '请选择扩展属性分类', $goods_type, 'id="goods_type" onchange="getAttrList('.$itemid.')"',1,0);?>
-                  <span id="damount" class="f_red"></span>
-                  
-<script type="text/javascript" language="javascript" >
- function getAttrList(goodsId)
-  {
-      var selGoodsType = $('#goods_type').val();
-	  if (selGoodsType != '')
-	  {
-		  $.getJSON('ajax.php?action=attr', {action:'attr',goodsId: goodsId,goodsType:selGoodsType,random:Math.random()}, function(data2){
-						if (data2 != null) {
 
-							//console.log(data2.content);
-							$('#tbody-goodsAttr').html(data2.content);
-							
-						} else {
-							$('#tbody-goodsAttr').hide();
-						}
-					});
-	  }
-	  
-  }
-
-</script>
-                  </td>
-</tr>
-<tr>
-            <td id="tbody-goodsAttr" colspan="2" style="padding:0"><?php echo $goods_attr_html?$goods_attr_html:''; ?></td>
-          </tr>
-
-<tr> -->
 <td class="tl"><span class="f_red">*</span> 商品图片</td>
 <td>
 	<input type="hidden" name="post[thumb]" id="thumb" value="<?php echo $thumb;?>"/>
@@ -297,6 +256,9 @@ if($MOD['swfu']) {
 </td>
 </tr>
 
+<tr><td class="tl"><span class="f_hid">*</span> 视频关键词(Tag)</td><td><input name="post[tag]" type="text" size="60" value="<?php echo $tag;?>"/><?php tips('多个关键词请用空格隔开');?></td></tr>
+<tr><td class="tl"> 产品关键词(Tag)</td><td><input name="post[producttag]" type="text" size="60" value="<?php echo $producttag;?>"/><?php tips('多个关键词请用空格隔开');?></td></tr>
+</tr>
 <tr>
 <td class="tl"><span class="f_red">*</span> 会员名</td>
 <td><input name="post[username]" type="text"  size="20" value="<?php echo $username;?>" id="username"/> <a href="javascript:_user(Dd('username').value);" class="t">[资料]</a> <span id="dusername" class="f_red"></span></td>
