@@ -25,3 +25,12 @@ window.onload=function()
 		}
 	}
 }
+
+function kefulink()
+{
+	hz6d_from_page = document.referrer;
+	hz6d_from_page = "&keyword=" + window.encodeURIComponent(hz6d_from_page);
+	
+     var hz6d_referer = '&referer=' + window.encodeURIComponent(window.location.href); //当前访问页面
+         window.open('www10.53kf.com/webCompany.php?arg=10085259&style=1'+hz6d_referer+hz6d_from_page+'&tfrom=1&tpl=crystal_blue','','height=473,width=703,top=200,left=200,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=no,location=no,titlebar=no');
+}

@@ -24,7 +24,7 @@ class brand {
 		global $DT_TIME, $MOD;
 		if(!is_array($post)) return false;
 		if(!$post['catid']) return $this->_(lang('message->pass_catid'));
-		if(strlen($post['title']) < 3) return $this->_(lang('message->pass_title'));
+		if(strlen($post['title']) < 2) return $this->_(lang('message->pass_title'));
 		if(!$post['thumb']) return $this->_(lang('message->pass_logo'));
 		return true;
 	}

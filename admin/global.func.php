@@ -242,6 +242,7 @@ function seo_title($title, $show = '') {
 		'kw'				=>	'关键词',
 		'areaname'			=>	'地区',
 		'delimiter'			=>	'分隔符',
+        'companyname'       =>  '公司名称',
 	);
 	if(is_array($show)) {
 		foreach($show as $v) {

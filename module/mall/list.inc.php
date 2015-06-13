@@ -12,12 +12,14 @@ if($MOD['cat_property'] && $CAT['property']) {
 	require DT_ROOT.'/include/property.func.php';
 	$PPT = property_condition($catid);
 }
+
 unset($CAT['moduleid']);
 extract($CAT);
 
 $maincat = get_maincat($child ? $catid : $parentid, $moduleid);
 $condition = 'status=3';
-$condition .= ($CAT['child']) ? " AND catid IN (".$CAT['arrchildid'].")" : " AND catid=$catid";
+// $condition .= ($CAT['child']) ? " AND catid IN (".$CAT['arrchildid'].")" : " AND catid=$catid";
+if($catid) $condition .= " AND catids LIKE '%,".$catid.",%'";
 if($cityid) {
 	$areaid = $cityid;
 	$ARE = $AREA[$cityid];

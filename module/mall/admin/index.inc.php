@@ -158,12 +158,12 @@ switch($action) {
 				if($FD) fields_check($post_fields);
 				if($CP) property_check($post_ppt);
 				if($FD) fields_update($post_fields, $table, $do->itemid);
-				if($CP) property_update($post_ppt, $moduleid, $post['catid'], $do->itemid);
-				for ($i=0; $i < count($attr_id_list) ; $i++) {
+				if($CP) property_updates($post_ppt, $moduleid, $post['catid'], $do->itemid);
+				/*for ($i=0; $i < count($attr_id_list) ; $i++) {
                     $sql = "UPDATE  {$DT_PRE}goods_attr SET attr_value='$attr_value_list[$i]' WHERE goods_id=$do->itemid AND attr_id=$attr_id_list[$i]";
                     
                     $db->query($sql); //商品扩展属性插入数据
-                }
+                }*/
 				$do->edit($post);
 				dmsg('修改成功', $forward);
 			} else {

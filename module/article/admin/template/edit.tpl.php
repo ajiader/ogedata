@@ -111,7 +111,7 @@ if($MOD['swfu']) {
 </tr>
 <tr>
 <td class="tl"><span class="f_hid">*</span> 所在地区</td>
-<td><?php echo ajax_area_select('post[areaid]', '请选择', $areaid);?></td>
+<td><?php echo ajax_area_select('post[areaid]', '请选择', $areaid, '');?></td>
 </tr>
 <tr>
 <td class="tl"><span class="f_hid">*</span> 浏览次数</td>

@@ -12,14 +12,14 @@
             <dd class="cs_lxfs oilbor">
             	<div class="tycut"><i></i>联系方式</div>
                 <p><strong>厂家地址：</strong>{$COM[address]}</p>
-                <p><strong>官　　网：</strong><a href="{$COM[linkurl]}">点击进入</a></p>
+                 <p><strong>官　　网：</strong><a href="{if $COM[homepage]}{$COM[homepage]}{else}{$COM[linkurl]}{/if}">点击进入</a></p>
                 <p><strong>电　　话：</strong>{$COM[telephone]}</p>
                 {if $COM[fax]}<p><strong>传　　真：</strong>{$COM[fax]}</p>{/if}
             </dd>
         </dl>
         <div class="clear"></div>
     </div>
-    <!--{php $tags=tag("moduleid=13&condition=status=3 and username='".$COM[username]."'&order=addtime desc&template=null");}-->
+    <!--{php $tags=tag("moduleid=13&condition=status=3 and username='".$COM[username]."'&order=addtime desc&template=null	");}-->
 {if $tags}
 	{loop $tags $t}
     <div class="oilbor oilmgbt">

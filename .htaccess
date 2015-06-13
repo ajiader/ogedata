@@ -5,6 +5,21 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^ogedata.com$ [NC,OR]
 RewriteCond %{HTTP_HOST} ^huheng.gotoip55.com$ 
 RewriteRule ^(.*)$ http://www.ogedata.com/$1 [R=301,L]
+
+RewriteRule ^brand/show-85.html$ baike/show-145.html [R=301,L]
+RewriteRule ^brand/show-76.html$ baike/show-146.html [R=301,L]
+RewriteRule ^brand/show-75.html$ baike/show-147.html [R=301,L]
+RewriteRule ^brand/show-71.html$ baike/show-148.html [R=301,L]
+RewriteRule ^brand/show-78.html$ baike/show-149.html [R=301,L]
+RewriteRule ^brand/show-77.html$ baike/show-150.html [R=301,L]
+RewriteRule ^brand/show-73.html$ baike/show-151.html [R=301,L]
+RewriteRule ^brand/show-74.html$ baike/show-152.html [R=301,L]
+RewriteRule ^brand/show-72.html$ baike/show-153.html [R=301,L]
+RewriteRule ^brand/show-82.html$ baike/show-154.html [R=301,L]
+RewriteRule ^brand/show-80.html$ baike/show-155.html [R=301,L]
+RewriteRule ^brand/show-79.html$ baike/show-156.html [R=301,L]
+RewriteRule ^brand/show-81.html$ baike/show-157.html [R=301,L]
+
 RewriteBase /
 
 

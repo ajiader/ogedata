@@ -7,7 +7,8 @@ defined('IN_DESTOON') or exit('Access Denied');
 function property_update($post_ppt, $moduleid, $catid, $itemid) {
 	global $db;
 	if(!$post_ppt || !$moduleid || !$catid || !$itemid) return;
-	$OP = property_option($catid);
+    $catids = substr(str_replace(',0,', ',', $catid), 1, -1);
+	$OP = property_options($catids);
 	if(!$OP) return;
 	if(!defined('DT_ADMIN')) $post_ppt = dhtmlspecialchars($post_ppt);	
 	$db->query("DELETE FROM {$db->pre}category_value WHERE moduleid=$moduleid AND itemid=$itemid");
@@ -32,6 +33,36 @@ function property_update($post_ppt, $moduleid, $catid, $itemid) {
 	if($pptword) $db->query("UPDATE ".get_table($moduleid)." SET pptword='$pptword' WHERE itemid=$itemid");
 }
 
+function property_updates($post_ppt, $moduleid, $catids, $itemid) {
+    global $db;
+    if(!$post_ppt || !$moduleid || !$catids || !$itemid) return;
+    $catids = substr(str_replace(',0,', ',', $catids), 1, -1);
+    $OP = property_options($catids);
+    if(!$OP) return;
+    if(!defined('DT_ADMIN')) $post_ppt = dhtmlspecialchars($post_ppt);
+    $db->query("DELETE FROM {$db->pre}category_value WHERE moduleid=$moduleid AND itemid=$itemid");
+    $ppt = array();
+    foreach($OP as $v) {
+        if($v['type'] > 1 && $v['search']) $ppt[] = $v['oid'];
+    }
+    $pptword = '';
+    foreach($post_ppt as $k=>$v) {
+        if(in_array($k, $ppt)) {
+            if(is_array($v)) {
+                foreach($v as $_v) {
+                    $pptword .= 'O'.$k.':'.$_v.';';
+                }
+            } else {
+                $pptword .= 'O'.$k.':'.$v.';';
+            }
+        }
+
+        if(is_array($v)) $v = implode(',', $v);
+        $db->query("INSERT INTO {$db->pre}category_value (oid,moduleid,itemid,value) VALUES ('$k','$moduleid','$itemid','$v')");
+    }
+    if($pptword) $db->query("UPDATE ".get_table($moduleid)." SET pptword='$pptword' WHERE itemid=$itemid");
+}
+
 function property_check($post_ppt) {
 	//
 }
@@ -40,6 +71,16 @@ function property_option($catid) {
 	global $db;
 	$lists = array();
 	$result = $db->query("SELECT * FROM {$db->pre}category_option WHERE catid=$catid ORDER BY listorder ASC,oid ASC");
+	while($r = $db->fetch_array($result)) {
+		$lists[] = $r;
+	}
+	return $lists;
+}
+
+function property_options($catids) {
+	global $db;
+	$lists = array();
+	$result = $db->query("SELECT * FROM {$db->pre}category_option WHERE catid in ($catids) ORDER BY listorder ASC,oid ASC");
 	while($r = $db->fetch_array($result)) {
 		$lists[] = $r;
 	}

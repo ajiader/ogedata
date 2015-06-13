@@ -659,9 +659,9 @@ function cat_pos_jd($CAT, $str = '&raquo;', $target = '') {
 		if(!$catid || !isset($CATEGORY[$catid])) continue;
 		$kkcatid =  $arrparentidarr[$key-1];
 		if ($kkcatid == 0) {
-				$pos .= '<a href="'.$MODULE[$CATEGORY[$catid]['moduleid']]['linkurl'].$CATEGORY[$kkcatid]['linkurl'].'"'.$target.'>'.$CATEGORY[$catid]['catname'].'</a>'.$str;
+				$pos .= '<a href="'.$MODULE[$CATEGORY[$catid]['moduleid']]['linkurl']."search.php?brandid=".intval($_GET[brandid])."&catid=$kkcatid".'"'.$target.'>'.$CATEGORY[$catid]['catname'].'<i>X</i></a>'.$str;
 			}else{
-				$pos .= '<a href="'.$MODULE[$CATEGORY[$kkcatid]['moduleid']]['linkurl'].$CATEGORY[$kkcatid]['linkurl'].'"'.$target.'>'.$CATEGORY[$catid]['catname'].'</a>'.$str;
+				$pos .= '<a href="'.$MODULE[$CATEGORY[$kkcatid]['moduleid']]['linkurl']."search.php?brandid=".intval($_GET[brandid])."&catid=$kkcatid".'"'.$target.'>'.$CATEGORY[$catid]['catname'].'<i>X</i></a>'.$str;
 			}
 		}
 	$_len = strlen($str);

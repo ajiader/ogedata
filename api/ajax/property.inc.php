@@ -1,11 +1,13 @@
 <?php
 defined('IN_DESTOON') or exit('Access Denied');
-$CAT or exit;
-$CAT['property'] or exit;
+// $CAT or exit;
+// $CAT['property'] or exit;
 include DT_ROOT.'/include/property.func.php';
 $admin = (isset($admin) && $admin) ? 1 : 0;
-$moduleid = $CAT['moduleid'];
-$options = property_option($catid);
+$moduleid = $CAT['moduleid'] ? $CAT['moduleid'] : $moduleid;
+
+$catids = substr(str_replace(',0,', ',', $catids), 1, -1);
+$options = property_options($catids);
 $values = $itemid ? property_value($moduleid, $itemid) : array();
 $select = '<select id="property_required" style="display:none;">';
 $table = '';

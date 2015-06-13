@@ -7,31 +7,22 @@
 <!-- footer<end>-->
 <ul id="side-bar" class="side-pannel side-bar">
   <a href="#" class="gotop" style="display:none;"><s class="g-icon-top"></s></a>
-  <a href="#" target="_blank" class="text"><s class="g-icon-qq1"></s><span>在线咨询</span></a>
+  <a  onclick="kefulink()" href="javascript:void(0)" class="text"><s class="g-icon-qq1"></s><span>在线咨询</span></a>
   <a href="http://weibo.com/u/5268290179/home?topnav=1&wvr=6 " target="_blank" class="text weibo"><s class="g-icon-weibo1"></s><span>微博</span></a>
   <a href="javascript:;" class="qr"><s class="g-icon-qr1"></s><i></i></a>
 </ul>
-<script language="javascript">
-jQuery(document).ready(function(){
-	var doc=document,inputs=doc.getElementsByTagName('input'),supportPlaceholder='placeholder'in doc.createElement('input'),placeholder=function(input){var text=input.getAttribute('placeholder'),defaultValue=input.defaultValue;
-	if(defaultValue==''){
-	input.value=text}
-	input.onfocus=function(){
-	if(input.value===text){this.value=''}};
-	input.onblur=function(){if(input.value===''){this.value=text}}};
-	if(!supportPlaceholder){
-	for(var i=0,len=inputs.length;i<len;i++){var input=inputs[i],text=input.getAttribute('placeholder');
-	if(input.type==='text'&& text) { placeholder(input)}}}});
-</script>
+
 
 <!--[系统关键代码，请勿删除]-->
 <script type="text/javascript">
+
 {if $destoon_task}
 show_task('{$destoon_task}');
 {else}
 {php include DT_ROOT.'/api/task.inc.php';}
 {/if}
-{if $lazy}$(function(){$("img").lazyload();});{/if}
+
+
 </script>
 <script language="javascript">
 	$(function(){
@@ -47,6 +38,26 @@ show_task('{$destoon_task}');
 			$('html,body').animate({'scrollTop':0},500);
 		});
 	});
+</script>
+<script language="javascript">
+jQuery(document).ready(function(){
+	var doc=document,inputs=doc.getElementsByTagName('input'),supportPlaceholder='placeholder'in doc.createElement('input'),placeholder=function(input){var text=input.getAttribute('placeholder'),defaultValue=input.defaultValue;
+	if(defaultValue==''){
+	input.value=text}
+	input.onfocus=function(){
+	if(input.value===text){this.value=''}};
+	input.onblur=function(){if(input.value===''){this.value=text}}};
+	if(!supportPlaceholder){
+	for(var i=0,len=inputs.length;i<len;i++){var input=inputs[i],text=input.getAttribute('placeholder');
+	if(input.type==='text'&& text) { placeholder(input)}}}});
+</script>
+<script language="javascript">
+$(document).ready(function(){
+	$('#oilrgqhA a').mouseover(function(){
+		$(this).addClass("selected").siblings().removeClass();
+		$("#oilrgqhUL > ul").eq($('#oilrgqhA a').index(this)).show().siblings().hide();
+	});
+});
 </script>
 </body>
 </html>

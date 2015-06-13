@@ -1,285 +1,555 @@
 {php //$CSS = array('index');}
+
 {template 'header'}
+
 <script type="text/javascript" src="{DT_STATIC}file/script/jquery.scrollbox.js"></script>
+
 <script type="text/javascript" src="{DT_STATIC}file/script/jquery.nivo.slider.pack.js"></script>
+
 <script language="javascript">
+
 $(document).ready(function(){
+
 	$('#cplistA ul li').mouseover(function(){
+
 		$(this).addClass("selected").siblings().removeClass("selected");
+
 		$("#cplistDIV .cptylist").eq($('#cplistA ul li').index(this)).show().siblings().hide();
+
 	});
+
 	$('#searchA ul li').mouseover(function(){
+
 		$(this).addClass("selected").siblings().removeClass("selected");
+
 		$("#searchDIV .search_ct_dv").eq($('#searchA ul li').index(this)).show().siblings().hide();
+
 	});
+
 	$('#slider').nivoSlider({pauseTime: 6000,});
+
 	$('#video_list').scrollbox({
+
 		autoPlay: true,
+
 		direction: 'h',
+
 		distance: 180
+
 	});
+
 	$('#leftdirection').click(function () {
+
 		$('#video_list').trigger('backward');
+
 	});
+
 	$('#rightdirection').click(function () {
+
 		$('#video_list').trigger('forward');
+
 	});
+
 	
+
 });
+
 </script>
+
 <div class="oil_main">
-	<div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic6.jpg" /></a></div>
+
+	<div class="oilmgbt" id="OJY_SY_1075400"/>加载中...</div>
+
     <div class="oilbor cpdv oilmgbt">
+
     	<div class="oil_cp_qh" id="cplistA">
+
         	<ul>
+
             
+
             		{php $mid = 16;}
+
+
 
                 {php $child = get_maincat(0, $mid, 1);}
 
+
+
                 {php $n=1;}
 
-                {loop $child $i $c}
-                {if $i<6}
-                <li {if $n==1}class="selected"{elseif $i==5}class="last"{/if}><a href="#">{set_style($c[catname], $c[style])}</a></li>{/if}
-                {php $n++} 
-                 {/loop}
-            </ul>
-            <div class="clear"></div>
-        </div>
-        <div id="cplistDIV">
-         {php $n=1;}
+
 
                 {loop $child $i $c}
+
                 {if $i<6}
-                
-        	<div class="cptylist" {if $n>1} style="display:none" {/if}>
-                <dl class="oil_cp_list">
-                    <dt>功能分类</dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                    {php $sub = get_maincat($c[catid], $mid, 1);}
-                        <ul>
-                        {if $sub}
-                        {php $j=1;}
-                        {loop $sub $j $s}
-                        {if $j < 10}
-                            <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></p></li>  {/if}
-                            {php $j++;}
-{/loop}
-{else}
-<li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a></p></li>
-{/if}
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                
-                <dl class="oil_cp_list">
-                    <dt>名称分类</dt><dd class="clicklf"><a href="#"></a></dd>
-                    <dd class="qhnr">
-                    {php $sub = get_maincat($c[catid], $mid, 1);}
-                        <ul>
-                         {php $j=1;}
-                        {if $sub}
-                        {loop $sub $j $s}
-              
-                        {php $sub2 = get_maincat($s[catid], $mid, 1);}
-                        {loop $sub2 $j2 $s2}
-                         
-                            <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$s2[linkurl]}">{set_style($s2[catname], $s2[style])}</a></p></li> 
-                             {php $j++;}
-   <?php
-   if($j>8) break;
-   ?>
-{/loop}
-   <?php
-   if($j>8) break;
-   ?>
-{/loop}
-{else}
-<li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a></p></li>
-{/if}
-                        </ul>
-                    </dd>
-                    <dd class="clicklf clickrg"><a href="#"></a></dd>
-                </dl>
-                
-                <dl class="oil_cp_list oilbor0">
-                    <dt><a href="{$MODULE[13][linkurl]}">品牌</a></dt>
-                    <dd class="oilbrand">
-                    	
-                        <!--{tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=6&order=addtime desc&width=120&height=40&cols=2&target=_blank&template=list-brand-list")}-->
-                    </dd>
-                </dl>
-                <dl class="oil_cp_list oilbor0">
-                    <dt><a href="{$MODULE[13][linkurl]}">赞助商</a></dt>
-                    <dd class="oilbrand">
-                    	
-                        <!--{tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=6&order=addtime desc&width=120&height=40&cols=2&target=_blank&template=list-brand-list")}-->
-                    </dd>
-                </dl>
-            </div>
-            {/if}
-    {php $n++} 
+
+                <li {if $n==1}class="selected"{elseif $i==5}class="last"{/if}><a href="#">{set_style($c[catname], $c[style])}</a></li>{/if}
+
+                {php $n++} 
+
                  {/loop}
-            
+
+            </ul>
+
+            <div class="clear"></div>
+
         </div>
+
+        <div id="cplistDIV">
+
+         {php $n=1;}
+
+
+
+                {loop $child $i $c}
+
+                {if $i<6}
+
+                
+
+        	<div class="cptylist" {if $n>1} style="display:none" {/if}>
+
+                <dl class="oil_cp_list">
+
+                    <dt>功能分类</dt><dd class="clicklf"><a href="#"></a></dd>
+
+                    <dd class="qhnr">
+
+                    {php $sub = get_maincat($c[catid], $mid, 1);}
+
+                        <ul>
+
+                        {if $sub}
+
+                        {php $j=1;}
+
+                        {loop $sub $j $s}
+
+                        {if $j < 10}
+
+                            <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></p></li>  {/if}
+
+                            {php $j++;}
+
+{/loop}
+
+{else}
+
+<li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a></p></li>
+
+{/if}
+
+                        </ul>
+
+                    </dd>
+
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+
+                </dl>
+
+                
+
+                <dl class="oil_cp_list">
+
+                    <dt>名称分类</dt><dd class="clicklf"><a href="#"></a></dd>
+
+                    <dd class="qhnr">
+
+                    {php $sub = get_maincat($c[catid], $mid, 1);}
+
+                        <ul>
+
+                         {php $j=1;}
+
+                        {if $sub}
+
+                        {loop $sub $j $s}
+
+              
+
+                        {php $sub2 = get_maincat($s[catid], $mid, 1);}
+
+                        {loop $sub2 $j2 $s2}
+
+                         
+
+                            <li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$s2[linkurl]}">{set_style($s2[catname], $s2[style])}</a></p></li> 
+
+                             {php $j++;}
+
+   <?php
+
+   if($j>8) break;
+
+   ?>
+
+{/loop}
+
+   <?php
+
+   if($j>8) break;
+
+   ?>
+
+{/loop}
+
+{else}
+
+<li><p class="p1"><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a></p></li>
+
+{/if}
+
+                        </ul>
+
+                    </dd>
+
+                    <dd class="clicklf clickrg"><a href="#"></a></dd>
+
+                </dl>
+
+                
+
+                <dl class="oil_cp_list oilbor0">
+
+                    <dt><a href="{$MODULE[13][linkurl]}">品牌</a></dt>
+
+                    <dd class="oilbrand">
+
+                    	
+
+                        <!--{tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=6&order=addtime desc&width=120&height=40&cols=2&target=_blank&template=list-brand-list")}-->
+
+                    </dd>
+
+                </dl>
+
+                <dl class="oil_cp_list oilbor0">
+
+                    <dt><a href="{$MODULE[13][linkurl]}">赞助商</a></dt>
+
+                    <dd class="oilbrand">
+
+                    	
+
+                        <!--{tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=6&order=addtime desc&width=120&height=40&cols=2&target=_blank&template=list-brand-list")}-->
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            {/if}
+
+    {php $n++} 
+
+                 {/loop}
+
+            
+
+        </div>
+
     </div>
+
     <div class="oil_index_content oilmgbt">
+
     	<div class="oil_tab_left">
+
             <div id="slider" class="pic_tab oilmgbt">
+
             	<!--{php $tags=tag("table=ad&condition=pid=26&template=null");}-->
+
                 {loop $tags $t}<a title="{$t[image_alt]}" href='{$t[url]}' target="_blank"><img src="{$t[image_src]}" title="{$t[image_alt]}" alt="{$t[image_alt]}" /></a>{/loop}
+
             	
+
             </div>
+
             <div class="oilbor cpdv searchhg oilmgbt">
+
             	<div class="oil_cp_qh searchA" id="searchA">
+
                     <ul><li class="selected"><a href="#">快速查询</a></li><li><a href="#">品牌</a></li><li class="last"><a href="#">件号</a></li></ul>
+
                     <div class="clear"></div>
+
                 </div>
+
                 <div id="searchDIV">
+
                     <div class="search_ct_dv" >
+
                         <div class="scdv sc_qd"><form action="{$MODULE[16][linkurl]}search.php" target="_blank"><input type="text" name="kw" class="select_ty" placeholder="请输入关键词" id="selectxt5" onfocus="mfselect('selectxt5','selecdv5')" /><input type="submit" name="lfbtn" value="查询" class="lf_sc_btn" /></form></div>
+
                         <div class="searchhotcp sc_mg_bt"><span>热门产品</span><span class="hotlist">
+
                          <!--{php $tags=tag("moduleid=16&condition=status=3 and level=1&areaid=$cityid&pagesize=8&order=addtime desc&template=null")}-->
+
                           {loop $tags $t}
+
                         <a href="{$t[linkurl]}" target="_blank"  title="{$t[alt]}">{$t[title]}</a> 
+
                         {/loop}</span><div class="clear"></div></div>
+
                         <!--{tag("moduleid=21&condition=status=3 and addtime>$today_endtime-30*86400&order=hits desc&pagesize=3&target=_blank&class=oillistnw lfulmg")}-->
+
                     </div>
+
                     <div class="search_ct_dv" style="display:none;">
+
                         <div class="scdv sc_qd"><form action="{$MODULE[13][linkurl]}search.php" target="_blank"><input type="text" name="kw" class="select_ty" placeholder="请输入品牌名称" id="selectxt4" onfocus="mfselect('selectxt4','selecdv4')" /><input type="submit" name="lfbtn" value="查询" class="lf_sc_btn" /></form></div>
+
                         <div class="searchhotcp sc_mg_bt"><span>热门品牌</span><span class="hotlist">  <!--{php $tags=tag("moduleid=13&condition=status=3 and level=1&areaid=$cityid&pagesize=8&order=addtime desc&template=null")}-->
+
                           {loop $tags $t}
+
                         <a href="{$t[linkurl]}" target="_blank"  title="{$t[alt]}">{$t[title]}</a> 
+
                         {/loop}</span><div class="clear"></div></div>
+
                            <!--{tag("moduleid=21&condition=status=3 and addtime>$today_endtime-30*86400&order=hits desc&pagesize=3&target=_blank&class=oillistnw lfulmg")}-->
+
                      
+
                     </div>
+
                     <div class="search_ct_dv" style="display:none;">
+
                         <div class="scdv sc_qd"><form action="{$MODULE[16][linkurl]}search.php" target="_blank"><input type="text" name="kw" class="select_ty" placeholder="请输入件号" id="selectxt5" onfocus="mfselect('selectxt5','selecdv5')" /><input type="submit" name="lfbtn" value="查询" class="lf_sc_btn" /></form></div>
-                        <div class="searchhotcp sc_mg_bt"><span>热门产品</span><span class="hotlist">
+
+                        <div class="searchhotcp sc_mg_bt"><span>热门件号</span><span class="hotlist">
+
                          <!--{php $tags=tag("moduleid=16&condition=status=3 and level=1&areaid=$cityid&pagesize=8&order=addtime desc&template=null")}-->
+
                           {loop $tags $t}
-                        <a href="{$t[linkurl]}" target="_blank"  title="{$t[alt]}">{$t[title]}</a> 
+
+                        <a href="{$t[linkurl]}" target="_blank"  title="{$t[jianhao]}">{$t[jianhao]}</a> 
+
                         {/loop}</span><div class="clear"></div></div>
+
                        <!--{tag("moduleid=21&condition=status=3 and addtime>$today_endtime-30*86400&order=hits desc&pagesize=3&target=_blank&class=oillistnw lfulmg")}-->
+
                     </div>
+
                 </div>
+
             </div>
+
            
+
               <!--{tag("moduleid=24&condition=status=3 and addtime>$today_endtime-30*86400&order=hits desc&pagesize=2&target=_blank&class=oillistnw lfulmg")}-->
+
         </div>
+
         <div class="oil_news_ct">
+
         	<!--{tag("moduleid=21&condition=status=3 and level=5&areaid=$cityid&order=addtime desc&pagesize=1&target=_blank&template=list-hl&start=0")}-->
+
             <div class="hotwords"><!--{tag("moduleid=21&condition=status=3 and level=4&areaid=$cityid&pagesize=4&order=addtime desc&target=_blank&template=list-hlr2&length=12")}--></div>
+
            <!--{tag("moduleid=21&condition=status=3 and level=5&areaid=$cityid&order=addtime desc&pagesize=2&target=_blank&template=list-hl&start=1")}-->
+
             
-                <!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=10&length=54&order=addtime desc&template=list&class=oillistnw lfulmg oilmgbt&width=120&height=90")}-->
+
+                <!--{tag("moduleid=21&condition=status=3 and level=1&areaid=$cityid&pagesize=10&length=54&order=addtime desc&template=list&class=oillistnw lfulmg oilmgbt&width=120&height=90")}-->
+
             <div class="oilbor bortop2">
-            	<div class="oil_index_cut"><a href="#">最新招标</a><em>/ Tender</em></div>
+
+            	<div class="oil_index_cut"><a href="http://www.ogedata.com/news/shiyouzhaobiao/">最新招标</a><em>/ Tender</em></div>
+
                 <div class="oilpddv">
+
                     <ul class="oillistnw lfulmg">
-                       <!--{tag("moduleid=21&condition=status=3&catid=221&areaid=$cityid&pagesize=5&order=addtime desc &length=40&width=120&height=90&cols=2", -2)}-->
+
+                       <!--{tag("moduleid=21&condition=status=3&catid=221&areaid=$cityid&pagesize=5&order=addtime desc &length=50&width=120&height=90&cols=2", -2)}-->
+
                     </ul>
+
                 </div>
+
             </div>
+
         </div>
+
         <div class="oil_ct_rg">
-        	<div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic8.jpg" /></a></div>
+
+        	<div class="oilmgbt" id="OJY_SY_1075407">加载中...</div>
+
             <div class="oilbor bortop2">
-            	<div class="imgalign"><a href="#"><img src="{DT_SKIN}images/pic9.jpg" /></a></div>
+
+            	<div class="imgalign" id="OJY_SY_1075416">加载中...</div>
+
                 <div class="oilpddv">
+
                     <ul class="oillistnw lfulmg ulwdrg">
-                        <li><a href="#">中国石化召开四川盆地</a></li>
-                        <li><a href="#">中海油成全球第二大LNG</a></li>
-                        <li><a href="#">中海油坦言暂时搁置安徽</a></li>
-                        <li><a href="#">亚洲380-cst燃料油现货</a></li>
-                        <li><a href="#">埃克森美孚CEO：别幻想</a></li>
-                        <li><a href="#">亚洲380-cst燃料油</a></li>
-                        <li><a href="#">埃克森美孚CEO：别幻想</a></li>
+
+                   <!--{tag("moduleid=4&condition=catids<>''&areaid=$cityid&pagesize=7&order=fromtime desc&template=list-com")}-->
+
                     </ul>
+
                 </div>
+
             </div>
+
         </div>
+
         <div class="clear"></div>
+
     </div>
-    <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic10.jpg" /></a></div>
+
+    <div class="oilmgbt" id="OJY_SY_1075421">加载中...</div>
+
     <div class="oilbor bortop2 oilmgbt">
+
     	<div class="oil_index_cut"><a href="{$MODULE[14][linkurl]}">油气视频</a><em>/ Video</em><div class="hotvideo"><span>热门</span>
+
         {php $videochild = get_maincat(0, 14, 1);}
+
         {php $n=1;}
+
                 {loop $videochild $i $c}
+
                 {if $i<10 }
+
         <a href="{$MODULE[14][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>|
+
         {/if}
+
         {/loop}
 
 
+
+
+
             
+
         </div></div>
+
         <div class="oil_index_videolist">
+
         	<a href="javascript:void(0)" class="leftdirection" id="leftdirection"></a>
+
             <div class="listwai" id="video_list">
+
               
+
                    <!--{tag("moduleid=14&condition=status=3&areaid=$cityid&pagesize=10&order=addtime desc&template=list-video2", -2)}-->
+
                
+
             </div>
+
             <a href="javascript:void(0)" class="rightdirection" id="rightdirection"></a>
+
         </div>
+
     </div>
+
     <div class="oil_index_content oilmgbt">
+
     	<div class="oil_index_bkzl">
-        	<div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic14.jpg" /></a></div>
+
+        	<div class="oilmgbt" id="OJY_SY_1077121">加载中...</div>
+
             <div class="oilbor bortop2">
+
             	<div class="oil_index_cut"><a href="{$MODULE[24][linkurl]}">百科资料</a><em>/ Encyclopedias</em></div>
+
                 <div class="oilpddv">
+
                 	<ul class="oillistnw lfulmg">
-                        <!--{tag("moduleid=24&condition=status=3&areaid=$cityid&pagesize=8&order=rand()&length=20&width=120&height=90&cols=2", -2)}-->
+
+                        <!--{tag("moduleid=24&condition=status=3&areaid=$cityid&pagesize=9&order=rand()&length=40&width=120&height=90&cols=2", -2)}-->
+
                     </ul>
+
                 </div>
+
             </div>
+
         </div>
+
         <div class="oil_index_cpzx">
+
         	<div class="oilbor bortop2">
+
             	<div class="oil_index_cut"><a href="/news/cpzx/">产品资讯</a><em>/ Product information</em></div>
+
                 <div class="oilpddv">
-                	<!--{tag("moduleid=11&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=4&template=thumb-special&class=cpzx_dl&width=115&height=78&length=210")}-->
-            
+
+                	<!--{tag("moduleid=21&catid=220&areaid=$cityid&order=addtime desc&pagesize=4&template=thumb-special&class=cpzx_dl&width=115&height=78&length=210")}-->
+
                 </div>
+
             </div>
+
         </div>
+
         <div class="clear"></div>
+
     </div>
-    <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic10.jpg" /></a></div>
+
+    <div class="oilmgbt" id="OJY_SY_1075430">加载中...</div>
+
     <div class="oil_index_content oilmgbt">
+
     	<div class="oil_index_cpzx oil_index_zh">
+
         	<div class="oilbor bortop2">
+
             	<div class="oil_index_cut"><a href="{$MODULE[8][linkurl]}">展会</a><em>/ Exhibition</em></div>
+
                 <div class="oilpddv">
+
                 
+
                    <!--{tag("moduleid=8&condition=status=3 and level>0&areaid=$cityid&pagesize=4&order=addtime desc&template=thumb-exhibit&class=cpzx_dl&width=120&height=90")}-->
+
                 </div>
+
             </div>
+
         </div>
+
         <div class="oil_index_bkzl oil_index_zt">
+
             <div class="oilbor bortop2">
+
             	<div class="oil_index_cut"><a href="{$MODULE[11][linkurl]}">专题</a><em>/ Special topics</em></div>
+
                 <div class="oilpddv">
+
                 	<!--{tag("moduleid=11&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=4&template=thumb-special&class=cpzx_dl zt_dl&width=115&height=78&length=80")}-->
+
                 </div>
+
             </div>
+
         </div>
+
         <div class="clear"></div>
+
     </div>
+
     <div class="oilbor bortop2 oilmgbt">
+
     	<div class="oil_index_cut">友情链接<em>/ Links</em></div>
+
         <div class="index_links">
+
          <!--{php $tags = tag("table=link&condition=status=3 and level='1' and typeid=5&areaid=$cityid&pagesize=40&order=listorder desc,itemid desc&template=null")}-->
+
         	{loop $tags $t}
+
               <a href="{$t[linkurl]}" target="_blank"  title="{$t[alt]}">{$t[title]}</a>
+
              {/loop}
+
         </div>
+
     </div>
+
 </div>
+
 {template 'footer'}
