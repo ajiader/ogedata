@@ -1,0 +1,66 @@
+{template 'header'}
+<div class="oil_main">
+	<div class="curPosition">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
+	
+    <div class="oil_tyleft oil_cpleft">
+        <div class="cpzl_left">
+        	<div class="cpzxtitle oilmgbt">分类导航</div>
+            <div class="cpzxpd_list">
+            	<p class="zlfl_p"><i></i><a href="#">上游设备</a></p>
+                <p class="zlfl_p"><i></i><a href="#">下游设备</a></p>
+                <p class="zlfl_p"><i></i><a href="#">安防和环保设备</a></p>
+                <p class="zlfl_p"><i></i>维修保养设备</a></p>
+                <p class="zlfl_p"><i></i><a href="#">软件产品</a></p>
+                <p class="zlfl_p"><i></i><a href="#">油田服务</a></p>
+            </div>
+        </div>
+        <div class="cpzl_center">
+        	<div class="tycut"><i></i>上游设备最新资讯</div>
+             {if $tags}
+            <div class="zxzx_listdl">
+            {loop $tags $i $t}
+            	<dl class="cpzx_dl">
+                    <dt><a href="{$t[linkurl]}"><img src="{$t[thumb]}" width="115" width="84"/></a></dt>
+                    <dd><h2>><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></h2><p class="fbtime">发布日期：{timetodate($t[addtime], 3)}</p><p class="in_nr">{dsubstr($t[introduce], 110, '...')}</p></dd>
+                </dl>
+                
+                  {/loop}
+            </div>
+         {if $showpage && $pages} <div class="oil_page">{$pages}<div class="clear"></div></div>{/if}
+         {/if}
+        </div>
+        
+    </div>
+    <div class="oil_tyright">
+    	<div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic5.jpg" /></a></div>
+    	
+        
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut"><i></i>点击排行</div>
+            <div class="cpdjphpd">
+            <!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$today_endtime-30*86400&catid=$catid&order=hits desc&pagesize=".$MOD[page_lhits]."&target=_blank&template=cpph")}-->
+            	
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut"><i></i>石油百科</div>
+            <div class="oiltjtw">
+            	<ul class="oillistnw ulwd">
+                <!--{tag("moduleid=24&condition=status=3&areaid=$cityid&pagesize=5&order=rand()&length=20&width=120&height=90&cols=2", -2)}-->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- footer<start>-->
+<div class="oilfooter">
+	<p><a href="#">首页</a> - <a href="#">关于我们</a> - <a href="#">联系我们</a> - <a href="#">申请友链</a> - <a href="#">石油资讯</a> - <a href="#">合作伙伴</a></p>
+    <p>联系电话：028-122324324</p>
+    <p>油气设备数据网   蜀ICP备14023545号-1</p>
+</div>
+<!-- footer<end>-->
+</body>
+</html>

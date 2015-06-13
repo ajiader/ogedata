@@ -1,0 +1,6 @@
+{loop $tags $i $t}
+                <dl class="zx_cpdjph_rg oilmgbt">
+                    <dt><a href="{$t[linkurl]}" {if $target} target="{$target}"{/if}><img src="{imgurl($t[thumb])}" /></a></dt>
+                    <dd><h2><a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}{if $class} class="{$class}"{/if} title="{$t[alt]}">{$t[title]}</a></h2><p class="in_nr">{dsubstr($t[introduce], 30, '...')}</p></dd>
+                </dl>
+                {/loop}
