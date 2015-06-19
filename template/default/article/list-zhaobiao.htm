@@ -1,0 +1,78 @@
+{template 'header'}
+
+<script type="text/javascript">var sh = '{$MOD[linkurl]}search.php?catid={$catid}';</script>
+
+<div class="oil_main">
+	<div class="curPosition"当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
+    <div class="oil_tyleft oil_cpleft">
+    	<div class="oilbor oilmgbt">
+            <div class="zldownloadss">
+            <form action="{$MOD[linkurl]}search.php" method="get">
+            <input type="text" name="kw" class="downtxt" placeholder="请输入关键词" /><input type="submit" name="downbtn" class="downbtn" value="搜索" />
+            <input type="hidden" name="catid" value="221">
+            </form><div class="clear"></div></div>
+        </div>
+        <div class="oilmgbt cp_class_db">
+        	<table cellpadding="0" cellspacing="0" class="cp_list_table" width="100%">
+    			<tbody>
+                <tr class="bg1">
+                	<td width="68%">项目名称</td>
+                  
+                    <td width="18%">发标日期</td>
+                </tr>
+                  {loop $tags $i $t}
+                <tr>
+                	<td><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></td>
+                 
+                    <td align="center">{timetodate($t[addtime], 3)}</td>
+                {/loop}
+            	</tbody>
+            </table>
+        </div>
+          {if $showpage && $pages}<div class="pages">{$pages}</div>{/if}
+    </div>
+    <div class="oil_tyright">
+        <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic5.jpg" /></a></div>
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut"><i></i>供货商推荐</div>
+            <div class="oiltjtw">
+            	<ul class="oillistnw ulwd">
+                <!--{php $tags = tag("moduleid=4&condition=level=1&&order=userid desc&pagesize=6&template=null")}--> 
+
+                {loop $tags $i $t}
+                	<li><a href="{$t['linkurl']}" target="_blank">{$t['company']}</a></li>
+                    {/loop}
+                </ul>
+            </div>
+        </div>
+        
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut"><i></i>产品推荐</div>
+            <div class="cpdjphpd">
+              <!--{php $tags = tag("moduleid=16&condition=status=3 and level=1&&order=addtime desc&pagesize=6&template=null")}--> 
+              {loop $tags $i $t}
+            	<dl class="zx_cpdjph_rg oilmgbt">
+                    <dt><a href="{$t['linkurl']}"><img src="{$t['thumb']}" /></a></dt>
+                    <dd><h2><a href="{$t['linkurl']}" target="_blank">{$t['title']}</a></h2><p class="in_nr">{dsubstr($t[description],20)}</p></dd>
+                </dl>
+                {/loop}
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut"><i></i>国内新闻</div>
+            <div class="oiltjtw">
+                <!--{tag("moduleid=21&$catid=77&condition=status=3&areaid=$cityid&pagesize=5&order=rand()&length=30&width=120&height=90&cols=2&class=oillistnw ulwd", -2)}-->
+            </div>
+        </div>
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut"><i></i>石油百科</div>
+            <div class="oiltjtw">
+            	<!--{tag("moduleid=24&condition=status=3&areaid=$cityid&pagesize=5&order=rand()&length=30&width=120&height=90&cols=2&class=oillistnw ulwd", -2)}-->
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+{template 'footer'}

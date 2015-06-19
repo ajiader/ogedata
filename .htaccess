@@ -6,6 +6,7 @@ RewriteCond %{HTTP_HOST} ^ogedata.com$ [NC,OR]
 RewriteCond %{HTTP_HOST} ^huheng.gotoip55.com$ 
 RewriteRule ^(.*)$ http://www.ogedata.com/$1 [R=301,L]
 
+#RewriteRule ^produce/show-(.*).html$ produce/$1.html [R=301,L]
 RewriteRule ^brand/show-85.html$ baike/show-145.html [R=301,L]
 RewriteRule ^brand/show-76.html$ baike/show-146.html [R=301,L]
 RewriteRule ^brand/show-75.html$ baike/show-147.html [R=301,L]

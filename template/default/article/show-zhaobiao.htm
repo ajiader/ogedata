@@ -1,0 +1,106 @@
+{template 'header'}
+<script type="text/javascript">var module_id= {$moduleid},item_id={$itemid},content_id='content',img_max_width={$MOD[max_width]};</script>
+<div class="oil_main">
+	<div class="curPosition">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')} &raquo; {$title}</div>
+    <div class="oil_tyleft detailbor0">
+        <div class="detailtop oilmgbt">
+            <h1 class="detailh1">{$title}</h1>
+            <div class="detail_info">发布日期：{$adddate}{if $copyfrom}&nbsp;&nbsp;来源：{if $fromurl}<a href="{$fromurl}" target="_blank">{/if}{$copyfrom}{if $fromurl}</a>{/if}{/if} {if $author}&nbsp;&nbsp;作者：{$author}{/if}  浏览次数：<span id="hits">{$hits}</span></div>
+            <div class="detailcontenthxts"><strong>核心提示：</strong>{$introduce}</div>
+            {if $CP}{template 'property', 'chip'}{/if}
+            <div class="detail_content">
+               {template 'content', 'chip'}
+            </div>
+            {if $voteid}<div class="pd20">{loop $voteid $v}
+		{load('vote_'.$v.'.htm')}{/loop}</div>
+		{/if}
+		{if $pages}<div class="pages">{$pages}</div>{/if}
+		<div class="b10 c_b">&nbsp;</div>
+		
+		{if $subtitles}
+		<div class="subtitle">
+		<strong>本文导航：</strong>
+		<ul>
+		{loop $titles $i $t}
+		{if $subtitles > $i}
+		<li>
+		({php echo $i+1;})
+		{if $page == $i+1}
+		<strong>{$t}</strong>
+		{else}
+		<a href="{$MOD[linkurl]}{if $i}{itemurl($item, $i+1)}{else}{$item[linkurl]}{/if}" title="{$t}">{$t}</a>
+		{/if}
+		</li>
+		{/if}
+		{/loop}
+		</ul>
+		<div class="c_b"></div>
+		</div>
+		{/if}
+        {if $keytags}
+            <div class="detailhotw"><b>相关热词搜索</b>{loop $keytags $t}
+		<a href="{$MOD[linkurl]}search.php?kw={urlencode($t)}" target="_blank" rel="nofollow">{$t}</a>
+		{/loop}</div>
+        {/if}
+        {if $MOD[show_np]}
+            <div class="detailnext">下一篇：<!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$addtime&areaid=$cityid&pagesize=1&order=addtime asc&template=list-np", -1)}--></div>
+            <div class="detailnext">上一篇：<!--{tag("moduleid=$moduleid&condition=status=3 and addtime<$addtime&areaid=$cityid&pagesize=1&order=addtime desc&template=list-np", -1)}--></div>
+            {/if}
+        </div>
+        {if $MOD[page_srelate]}
+        {if $keytags}
+        <div class="oilbor oilmgbt">
+        	<div class="tycut"><i></i><a href="{$MOD[linkurl]}search.php?kw={urlencode($keytags[0])}" rel="nofollow">同类{$MOD[name]}</a></div>
+            <div class="detailpdbt">
+                <!--{tag("moduleid=$moduleid&length=44&condition=status=3 and itemid<>$itemid and keyword like '%".$keytags[0]."%'&areaid=$cityid&pagesize=".$MOD[page_srelate]."&order=".$MOD[order]."&cols=2&template=list&class=oillistnw detailtjzx", -2)}-->
+                <div class="clear"></div>
+            </div>
+        </div>
+        {else}
+        <div class="oilbor oilmgbt">
+        	<div class="tycut"><i></i><a href="{$MOD[linkurl]}{$CAT[linkurl]}">同类{$MOD[name]}</a></div>
+            <div class="detailpdbt">
+           
+               <!--{tag("moduleid=$moduleid&length=44&catid='$catid'&condition=status=3 and itemid!=$itemid&areaid=$cityid&pagesize=".$MOD[page_srelate]."&order=".$MOD[order]."&cols=2&template=list&class=oillistnw detailtjzx", -2)}-->
+                <div class="clear"></div>
+            </div>
+        </div>
+        {/if}
+        {/if}
+        
+    </div>
+    <div class="oil_tyright">
+    	<div class="oilbor oilmgbt">
+        	<div class="tycut"><i></i>供货商推荐</div>
+            <div class="oiltjtw">
+            	<ul class="oillistnw ulwd">
+                	  <!--{php $tags = tag("moduleid=4&condition=level=1&&order=userid desc&pagesize=10&template=null")}--> 
+
+                {loop $tags $i $t}
+                	<li><a href="{$t['linkurl']}" target="_blank">{$t['company']}</a></li>
+                    {/loop}
+                </ul>
+            </div>
+        </div>
+        <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic5.jpg" /></a></div>
+        
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut"><i></i>展会新闻</div>
+            <div class="oiltjtw">
+    
+               <!--{tag("moduleid=8&condition=status=3&areaid=$cityid&pagesize=6&order=rand()&length=30&width=120&height=90&cols=2&class=oillistnw ulwd", -2)}-->
+            </div>
+        </div>
+        <div class="oilbor oilmgbt">
+        	<div class="tycut oilqhcut"><i></i>国内新闻</div>
+            <div class="oiltjtw">
+            	
+                <!--{tag("moduleid=21&$catid=77&condition=status=3&areaid=$cityid&pagesize=6&order=rand()&length=30&width=120&height=90&cols=2&class=oillistnw ulwd", -2)}-->
+      
+            </div>
+        </div>
+        
+    </div>
+    <div class="clear"></div>
+</div>
+{template 'footer'}
