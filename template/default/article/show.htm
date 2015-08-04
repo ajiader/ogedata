@@ -48,9 +48,10 @@
             {/if}
         </div>
         {if $MOD[page_srelate]}
-        {if $keytags}
+        
+        {if !$keytags}
         <div class="oilbor oilmgbt">
-        	<div class="tycut"><i></i><a href="{$MOD[linkurl]}search.php?kw={urlencode($keytags[0])}" rel="nofollow">同类{$MOD[name]}</a></div>
+        	<div class="tycut"><i></i><a href="{$MOD[linkurl]}search.php?kw={urlencode($keytags[0])}" class="tlzx" rel="nofollow">同类{$MOD[name]}</a></div>
             <div class="detailpdbt">
                 <!--{tag("moduleid=$moduleid&length=44&condition=status=3 and itemid<>$itemid and keyword like '%".$keytags[0]."%'&areaid=$cityid&pagesize=".$MOD[page_srelate]."&order=".$MOD[order]."&cols=2&template=list&class=oillistnw detailtjzx", -2)}-->
                 <div class="clear"></div>
@@ -58,7 +59,7 @@
         </div>
         {else}
         <div class="oilbor oilmgbt">
-        	<div class="tycut"><i></i><a href="{$MOD[linkurl]}{$CAT[linkurl]}">同类{$MOD[name]}</a></div>
+        	<div class="tycut"><i></i><a href="{$MOD[linkurl]}{$CAT[linkurl]}" class="tlzx">同类{$MOD[name]}</a></div>
             <div class="detailpdbt">
            
                <!--{tag("moduleid=$moduleid&length=44&catid='$catid'&condition=status=3 and itemid!=$itemid&areaid=$cityid&pagesize=".$MOD[page_srelate]."&order=".$MOD[order]."&cols=2&template=list&class=oillistnw detailtjzx", -2)}-->
@@ -79,12 +80,12 @@
             </div>
         </div>
         {/if}
-        <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic5.jpg" /></a></div>
+        <div class="oilmgbt" id="OJY_SY_1075437"></div>
         <div class="oilbor oilmgbt">
         	<div class="tycut oilqhcut" id="oilrgqhA">{if $MOD[page_lrec]}<a href="#" class="selected">推荐{$MOD[name]}</a>{/if}{if $MOD[page_lhits]}<a href="#">点击排行</a>{/if}</div>
             <div class="oiltjtw" id="oilrgqhUL">
             	<!--{tag("moduleid=$moduleid&condition=status=3 and level=1&catid=$catid&order=".$MOD[order]."&pagesize=".$MOD[page_lrec]."&target=_blank&class=oillistnw ulwd")}-->
-               <!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$today_endtime-30*86400&catid=$catid&order=hits desc&pagesize=".$MOD[page_lhits]."&target=_blank&class=oillistnw ulwd&hide=1")}-->
+               <!--{tag("moduleid=$moduleid&condition=status=3&catid=$catid&order=hits desc&pagesize=".$MOD[page_lhits]."&target=_blank&class=oillistnw ulwd&hide=1")}-->
             </div>
         </div>
         <script language="javascript">
@@ -114,3 +115,5 @@ $(document).ready(function(){
     <div class="clear"></div>
 </div>
 {template 'footer'}
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('1075437','OJY_SY_1075437');</script>

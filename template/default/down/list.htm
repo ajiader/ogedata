@@ -15,13 +15,13 @@
     			<tbody>
                 <tr class="bg1">
                 	<td width="60%">资料名称</td>
-                    <td width="17%">公司名称</td>
+                    <td width="17%">上传者</td>
                     <td width="23%">时间</td>
                 </tr>
                {loop $tags $i $t}
                 <tr>
                 	<td><img src="{DT_PATH}file/ext/{$t[fileext]}.gif" align="absmiddle"/><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></td>
-                    <td align="center">鼎恒石油</td>
+                    <td align="center">{$t[username]}</td>
                     <td align="center">{timetodate($t[addtime], 3)}</td>
                 </tr>
                 {/loop}

@@ -23,21 +23,22 @@ while($r = $db->fetch_array($result)) {
 	$r['linkurl'] = $MOD['linkurl'].$r['linkurl'];
 
 	//扩展属性
-	$CAT = get_cat($r['catid']);
+	$CAT = get_cats($r['catid']);
+
 	$CP = $MOD['cat_property'] && $CAT['property'];
 	if($CP) {
 		require_once DT_ROOT.'/include/property.func.php';
 		if(empty($options))
-		    $options= property_option($r['catid']);
+		    $options= property_options(substr($r['catid'], 1, -1));
 		$r['values'] = property_value($CAT['moduleid'], $r['itemid']);
 
 	}
-
 	$tags[] = $r;
 
 }
+
 /*print_r($tags);
-print_r($options);*/
+print_r($option);*/
 $head_title = $L['compare_title'].$DT['seo_delimiter'].$MOD['name'];
 include template('compare', $module);
 ?>

@@ -52,7 +52,7 @@
 
                 </div>
 
-                <div class="cp_gg"><a href="#"><img src="{DT_SKIN}images/pic20.jpg" /></a></div>
+                <div class="cp_gg" id="OJY_SY_1075519"></div>
 
             </div>
 
@@ -104,7 +104,7 @@ $wheretag =  "title like ".implode(' OR title like ',$tagarrs);
 ?>
                 	<div class="tjpj_wai" id="tjpj_list">
 
-                    <!--{tag("moduleid=16&condition=status=3 and ($wheretag )&areaid=$cityid&pagesize=4&order=addtime desc&template=list-mall-thumb&length=16")}-->
+                    <!--{tag("moduleid=16&condition=status=3 and ($wheretag )&areaid=$cityid&pagesize=6&order=addtime desc&template=list-mall-thumb&length=16")}-->
 
                     </div>
 {/if}
@@ -137,7 +137,7 @@ $wheretag =  "title like ".implode(' OR title like ',$tagarrs);
             <div class="dtailtjpj dtailcontent">
 
             	{$content}
-
+上一个：<!--{tag("moduleid=$moduleid&condition=status=3 and addtime>$addtime&areaid=$cityid&pagesize=1&order=addtime asc&template=list-np", -1)}--> 下一个:<!--{tag("moduleid=$moduleid&condition=status=3 and addtime<$addtime&areaid=$cityid&pagesize=1&order=addtime desc&template=list-np", -1)}-->
             </div>
 
         </div>
@@ -257,7 +257,7 @@ $wheretag =  "title like ".implode(' OR title like ',$tagarrs);
 
         </div>
 
-        <div class="oilmgbt"><a href="#"><img src="{DT_SKIN}images/pic23.jpg" /></a></div>
+        <div class="oilmgbt" id="OJY_SY_1075524"></div>
 
         <div class="oilbor oilmgbt">
 
@@ -387,6 +387,7 @@ $(document).ready(function(){
 
 
 {template 'footer'}
-
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('1075519','OJY_SY_1075519');</script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('1075524','OJY_SY_1075524');</script>
 
 

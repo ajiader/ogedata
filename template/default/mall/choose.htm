@@ -58,17 +58,26 @@
                 <div class="clear"></div>
             </div>
    
-   
     
+    {loop $PPT $k $p}
+         {php $ppto =  'ppt_'.$p[oid];}
+                     {php $getppt .=  $ppto."=".$_GET[$ppto]."&"}
+                    {/loop}
+
+                    
          {loop $PPT $p}
      <div class="cpsx_items">
             	<div class="sx_mc">按{$p[name]}：</div><div class="sx_rg">
                 
                		
+                   
 			{loop $p[options] $o}
             {php $ppto =  'ppt_'.$p[oid];}
   
-			<a href="{$MOD[linkurl]}search.php?brandid={$brandid}&catid={$catid}&ppt_{$p[oid]}={urlencode($o)}" {if $$ppto==$o} style="color:red"{/if} target="_self">{$o}</a>
+			{if $$ppto==$o}<a href="{$MOD[linkurl]}search.php?brandid={$brandid}&catid={$catid}&{$getppt}&ppt_{$p[oid]}="  style="color:red" target="_self">{$o}</a>
+            {else}
+            <a href="{$MOD[linkurl]}search.php?brandid={$brandid}&catid={$catid}&{$getppt}&ppt_{$p[oid]}={urlencode($o)}"   target="_self">{$o}</a>
+            {/if}
 			{/loop}
                 </div>
                 <div class="clear"></div>

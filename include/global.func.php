@@ -613,10 +613,18 @@ function get_type($item, $cache = 0) {
 	return $types;
 }
 
+
 function get_cat($catid) {
+    global $db;
+    $catid = intval($catid);
+    return $catid ? $db->get_one("SELECT * FROM {$db->pre}category WHERE catid=$catid") : array();
+}
+
+function get_cats($catid) {
 	global $db;
-	$catid = intval($catid);
-	return $catid ? $db->get_one("SELECT * FROM {$db->pre}category WHERE catid=$catid") : array();
+//	$catid = intval($catid);
+    $catid = substr($catid, 1,-1);
+	return $catid ? $db->get_one("SELECT * FROM {$db->pre}category WHERE catid in ($catid)") : array();
 }
 
 function cat_pos($CAT, $str = ' &raquo; ', $target = '') {

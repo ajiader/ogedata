@@ -8,7 +8,7 @@
 
 $(document).ready(function(){
 
-	$('#cplistA ul li').mouseover(function(){
+	$('#cplistA ul li').click(function(){
 
 		$(this).addClass("selected").siblings().removeClass("selected");
 
@@ -208,15 +208,15 @@ $(document).ready(function(){
 
                 
 
-                <dl class="oil_cp_list oilbor0">
+                <dl class="oil_cp_list">
 
-                    <dt><a href="{$MODULE[13][linkurl]}">品牌</a></dt>
+                    <dt><a href="{$MODULE[13][linkurl]}">品牌分类</a></dt>
 
-                    <dd class="oilbrand">
+                    <dd class="oilbrand" style="font-size:14px;">
 
                     	
 
-                        <!--{tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=6&order=addtime desc&width=120&height=40&cols=2&target=_blank&template=list-brand-list")}-->
+                        <!--{tag("moduleid=13&condition=status=3 and level=1&areaid=$cityid&pagesize=12&order=addtime desc&width=120&height=40&cols=2&target=_blank&template=list-brand-list")}-->
 
                     </dd>
 
@@ -228,9 +228,7 @@ $(document).ready(function(){
 
                     <dd class="oilbrand">
 
-                    	
-
-                        <!--{tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=6&order=addtime desc&width=120&height=40&cols=2&target=_blank&template=list-brand-list2")}-->
+             <!--{tag("moduleid=13&condition=status=3 and level=2&areaid=$cityid&pagesize=9&order=addtime desc&width=120&height=40&cols=2&target=_blank&template=list-brand-list2")}-->
 
                     </dd>
 
@@ -344,7 +342,7 @@ $(document).ready(function(){
 
         	<!--{tag("moduleid=21&condition=status=3 and level=5&areaid=$cityid&order=addtime desc&pagesize=1&target=_blank&template=list-hl&start=0")}-->
 
-            <div class="hotwords"><!--{tag("moduleid=21&condition=status=3 and level=4&areaid=$cityid&pagesize=4&order=addtime desc&target=_blank&template=list-hlr2&length=12")}--></div>
+            <div class="hotwords"><!--{tag("moduleid=21&condition=status=3 and level=4&areaid=$cityid&pagesize=3&order=addtime desc&target=_blank&template=list-hlr2&length=20")}--></div>
 
            <!--{tag("moduleid=21&condition=status=3 and level=5&areaid=$cityid&order=addtime desc&pagesize=2&target=_blank&template=list-hl&start=1")}-->
 
@@ -382,7 +380,7 @@ $(document).ready(function(){
 
                     <ul class="oillistnw lfulmg ulwdrg">
 
-                   <!--{tag("moduleid=4&condition=catids<>''&areaid=$cityid&pagesize=7&order=fromtime desc&template=list-com")}-->
+                   <!--{tag("moduleid=4&condition=catids<>''&areaid=$cityid&pagesize=7&order=userid desc&template=list-com")}-->
 
                     </ul>
 
